@@ -3,12 +3,12 @@ import SearchResult from "./SearchResult";
 export default class CryptoCurrency implements SearchResult {
 
     catUsd: number;
-    chart: CryptoCurrencyChart;
+    chart: Array<CryptoCurrencyChart>;
     data: CryptoCurrencyInfo;
 
 }
 
-class CryptoCurrencyChart {
+export class CryptoCurrencyChart {
 
     timestamp: number;
     closeValue: number;

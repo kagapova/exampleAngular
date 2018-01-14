@@ -8,6 +8,10 @@ class Config {
         return 'https://ethplorer.io/address/'
     }
 
+    getBlockChainInfoAddressPath() {
+        return 'https://blockchain.info/address/'
+    }
+
 }
 
 export default new Config();

@@ -7,6 +7,8 @@ import CryptoCurrencyHolder from "../holders/CryptoCurrencyHolder";
 import CryptoCurrency from "../../../repositories/models/CryptoCurrency";
 import TokenInfoHolder from "../holders/TokenInfoHolder";
 import {default as EthplorerAddressInfo} from "../../../repositories/models/TokenInfo";
+import BitcoinInfoHolder from "../holders/BitcoinInfoHolder";
+import BitcoinInfo from "../../../repositories/models/BitcoinInfo";
 
 interface Properties {
     result: Array<SearchResult>;
@@ -39,6 +41,9 @@ class SearchResultList extends React.Component<Properties, {}> {
 
             case SearchType.ETHEREUM_ADDRESS:
                 return <TokenInfoHolder item={item as EthplorerAddressInfo} key={index}/>;
+
+            case SearchType.BITCOIN_ADDRESS:
+                return <BitcoinInfoHolder item={item as BitcoinInfo} key={index}/>;
 
             default:
                 throw "undefined type of item: " + JSON.stringify(item);

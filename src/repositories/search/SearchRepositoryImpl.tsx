@@ -2,6 +2,7 @@ import Advert from "../models/Advert";
 import CryptoCurrency from "../models/CryptoCurrency";
 import SearchResult, {SearchType} from "../models/SearchResult";
 import {default as EthplorerAddressInfo} from "../models/TokenInfo";
+import BitcoinInfo from "../models/BitcoinInfo";
 
 class SearchRepositoryImpl {
 
@@ -15,7 +16,6 @@ class SearchRepositoryImpl {
             }
 
             let target: SearchResult;
-            console.log(item.type, SearchType.ETHEREUM_ADDRESS);
 
             switch (item.type) {
                 case SearchType.ADVERT:
@@ -28,6 +28,10 @@ class SearchRepositoryImpl {
 
                 case SearchType.ETHEREUM_ADDRESS:
                     target = new EthplorerAddressInfo();
+                    break;
+
+                case SearchType.BITCOIN_ADDRESS:
+                    target = new BitcoinInfo();
                     break;
 
                 default:

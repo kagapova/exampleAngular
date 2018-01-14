@@ -43,6 +43,8 @@ class TokenInfoHolder extends React.Component<Prop, object> {
             Total in: {eth.totalIn}
             <br/>
             Total out: {eth.totalOut}
+            <br/>
+            Transaction count: {this.props.item.countTxs}
         </div>
     }
 

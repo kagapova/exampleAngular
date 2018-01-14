@@ -6,6 +6,7 @@
     "@types/jquery": "^3.2.17",
     "@types/react-redux": "^5.0.14",
     "@types/react-router": "^4.0.20",
+    "bignumber.js": "^5.0.0",
     "bootstrap": "^4.0.0-alpha.6",
     "jquery": "^3.2.1",
     "react": "^16.2.0",

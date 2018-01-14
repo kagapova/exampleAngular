@@ -1,4 +1,4 @@
-import SearchResult from "./SearchResult";
+import SearchResult, {SearchType} from "./SearchResult";
 
 export default class Advert implements SearchResult {
 
@@ -8,5 +8,6 @@ export default class Advert implements SearchResult {
     title: string;
     tokens: number;
     url: string;
+    type: SearchType;
 
 }

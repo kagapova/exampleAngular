@@ -1,10 +1,11 @@
-import SearchResult from "./SearchResult";
+import SearchResult, {SearchType} from "./SearchResult";
 
 export default class CryptoCurrency implements SearchResult {
 
     catUsd: number;
     chart: Array<CryptoCurrencyChart>;
     data: CryptoCurrencyInfo;
+    type: SearchType;
 
 }
 

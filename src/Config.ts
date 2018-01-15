@@ -4,6 +4,14 @@ class Config {
         return 'https://etherscan.io/address/'
     }
 
+    getEhterscanTxPath() {
+        return 'https://etherscan.io/tx/'
+    }
+
+    getEthplorerTxPath() {
+        return 'https://ethplorer.io/tx/'
+    }
+
     getEthplorerAddressPath() {
         return 'https://ethplorer.io/address/'
     }

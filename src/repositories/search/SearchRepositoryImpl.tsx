@@ -3,6 +3,7 @@ import CryptoCurrency from "../models/CryptoCurrency";
 import SearchResult, {SearchType} from "../models/SearchResult";
 import {default as EthplorerAddressInfo} from "../models/TokenInfo";
 import BitcoinInfo from "../models/BitcoinInfo";
+import EthTxInfo from "../models/EthTxInfo";
 
 class SearchRepositoryImpl {
 
@@ -28,6 +29,10 @@ class SearchRepositoryImpl {
 
                 case SearchType.ETHEREUM_ADDRESS:
                     target = new EthplorerAddressInfo();
+                    break;
+
+                case SearchType.ETHEREUM_TX_ADDRESS:
+                    target = new EthTxInfo();
                     break;
 
                 case SearchType.BITCOIN_ADDRESS:

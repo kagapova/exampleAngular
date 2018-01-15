@@ -9,6 +9,8 @@ import TokenInfoHolder from "../holders/TokenInfoHolder";
 import {default as EthplorerAddressInfo} from "../../../repositories/models/TokenInfo";
 import BitcoinInfoHolder from "../holders/BitcoinInfoHolder";
 import BitcoinInfo from "../../../repositories/models/BitcoinInfo";
+import TxInfoHolder from "../holders/TxInfoHolder";
+import EthTxInfo from "../../../repositories/models/EthTxInfo";
 
 interface Properties {
     result: Array<SearchResult>;
@@ -41,6 +43,9 @@ class SearchResultList extends React.Component<Properties, {}> {
 
             case SearchType.ETHEREUM_ADDRESS:
                 return <TokenInfoHolder item={item as EthplorerAddressInfo} key={index}/>;
+
+            case SearchType.ETHEREUM_TX_ADDRESS:
+                return <TxInfoHolder item={item as EthTxInfo} key={index}/>;
 
             case SearchType.BITCOIN_ADDRESS:
                 return <BitcoinInfoHolder item={item as BitcoinInfo} key={index}/>;

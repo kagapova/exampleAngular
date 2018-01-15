@@ -38,11 +38,11 @@ class TokenInfoHolder extends React.Component<Prop, object> {
         const eth = this.props.item.eth;
 
         return <div className="card-text">
-            Balance: {eth.balance} eth
+            Balance: {eth.balance} ETH
             <br/>
-            Total in: {eth.totalIn}
+            Total in: {eth.totalIn} ETH
             <br/>
-            Total out: {eth.totalOut}
+            Total out: {eth.totalOut} ETH
             <br/>
             Transaction count: {this.props.item.countTxs}
         </div>

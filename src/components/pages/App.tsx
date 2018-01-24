@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../../res/syles/App.css';
 import SearchResultList from "../views/lists/SearchResultList";
 import SearchRepository from "../../repositories/search/SearchRepositoryImpl";
 import SearchResult from "../../repositories/models/SearchResult";
@@ -12,19 +11,16 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header">
-                    <h2>Bitclave crypto-search</h2>
-                </div>
                 <div className="container-fluid">
-                    <div className="input-group">
+                    <div className="input-group w-75 mx-auto p-5">
                         <input onChange={this.onChangeInput.bind(this)}
                                onKeyDown={this.onKeyDownInput.bind(this)}
                                type="text"
                                className="form-control"
-                               placeholder="Looking for..."/>
+                               placeholder="Search crypto currencies, projects or transactions hash"/>
                         <span className="input-group-btn">
                             <button onClick={this.doSearch.bind(this)} className="btn btn-primary"
-                                    type="button">Search!</button>
+                                    type="button">Crypto search!</button>
                         </span>
                     </div>
                     <SearchResultList result={this.searchResult}/>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../../../res/syles/AdvertHolder.css';
 import Advert from "../../../repositories/models/Advert";
 
 interface Prop {

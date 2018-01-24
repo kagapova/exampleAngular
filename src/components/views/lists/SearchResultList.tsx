@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../../../res/syles/SearchResultList.css';
 import AdvertHolder from "../holders/AdvertHolder";
 import SearchResult, {SearchType} from "../../../repositories/models/SearchResult";
 import Advert from "../../../repositories/models/Advert";

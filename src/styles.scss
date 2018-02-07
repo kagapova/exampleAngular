@@ -1,0 +1,65 @@
+@import "~normalize.css/normalize.css";
+@import "styles/font-awesome/fontawesome";
+@import "styles/font-awesome/fa-brands";
+@import "styles/font-awesome/fa-solid";
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    line-height: 1;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: #fff;
+    font-size: 90%;
+    text-size-adjust: 100%;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+    overflow: hidden;
+    height: auto;
+    font-family: ".SF NS Text", Arial, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0;
+    font: 400 11px system-ui;
+}
+
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,54 @@
+.home {
+  padding-top: 7em;
+
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #f7f7f7;
+
+  &__logo {
+    position: relative;
+    display: block;
+    max-width: 300px;
+    margin: auto;
+  }
+
+  &__logo-link {
+    background-image: url(https://duckduckgo.com/assets/logo_homepage.normal.v107.svg);
+    background-size: 250px 200px;
+    width: 250px;
+    height: 200px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    margin: auto;
+    display: block;
+    position: relative;
+    text-align: center;
+    color: transparent;
+    text-indent: -9999px;
+    font-size: 0;
+  }
+
+  &__description {
+    position: relative;
+    line-height: 1.4;
+    font-size: 1.25em;
+    padding: 0;
+    margin: .5em auto;
+    text-align: center;
+    color: #9a9a9a;
+  }
+
+  &__form {
+    padding: 1.3em .8em 1em;
+    max-width: 590px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    float: none;
+    width: 70%;
+  }
+}

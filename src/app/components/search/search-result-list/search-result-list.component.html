@@ -1,0 +1,9 @@
+<div class="search-result-list">
+    <div *ngIf="updateSearchResults">
+        Обновляется
+    </div>
+
+    <div *ngFor="let result of searchResults$ | async" class="search-result-list__item">
+        <app-search-result-item [result]="result"></app-search-result-item>
+    </div>
+</div>

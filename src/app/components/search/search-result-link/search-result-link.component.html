@@ -11,7 +11,8 @@
 
     <div class="search-result-link__extras">
         <a href="{{result.url}}" target="_blank" rel="noopener" class="search-result-link__icon-link">
-            <img height="16" width="16" class="search-result-link__icon" src="//icons.duckduckgo.com/ip3/www.bitclave.com.ico">
+            <img height="16" width="16" class="search-result-link__icon" src="{{result.imageURL}}" *ngIf="result.imageURL">
+            <img height="16" width="16" class="search-result-link__icon" src="/assets/images/default-icon.png" *ngIf="!result.imageURL">
         </a>
 
         <a href="{{result.url}}" target="_blank" rel="noopener" class="search-result-link__domain-link">

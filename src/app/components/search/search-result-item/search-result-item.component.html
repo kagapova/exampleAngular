@@ -1,3 +1,4 @@
-<div class="search-result-item">
-    <app-search-result-link [result]="result"></app-search-result-link>
+<div class="search-result-item" [ngSwitch]="result.type">
+    <app-search-result-link [result]="result" *ngSwitchCase="0"></app-search-result-link>
+    <app-search-result-token [result]="result" *ngSwitchCase="1"></app-search-result-token>
 </div>

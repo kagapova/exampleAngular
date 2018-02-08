@@ -83,6 +83,10 @@ export class SearchService {
                 );
 
             case TokenResult.TYPE:
+                let chartValues = result.chart.map(v => {
+                    return {x: v.timestamp, y: v.closeValue}
+                });
+
                 return new TokenResult(
                     result.data.name,
                     result.data.fullName,
@@ -91,7 +95,8 @@ export class SearchService {
                     result.data.image,
                     result.data.url,
                     result.data.totalCoinSupply,
-                    result.catUsd
+                    result.catUsd,
+                    chartValues,
                 );
 
             default:

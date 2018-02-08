@@ -4,6 +4,8 @@ export type SearchResult = (LinkResult | TokenResult);
 export class LinkResult {
     static readonly TYPE = 0;
 
+    public readonly type: number = LinkResult.TYPE;
+
     constructor(public readonly title: string,
                 public readonly description: string,
                 public readonly imageURL: string,
@@ -13,7 +15,9 @@ export class LinkResult {
 }
 
 export class TokenResult {
-    static readonly TYPE = 1;
+    public static readonly TYPE = 1;
+
+    public readonly type: number = TokenResult.TYPE;
 
     constructor(public readonly name: string,
                 public readonly fullName: string,
@@ -22,7 +26,15 @@ export class TokenResult {
                 public readonly imageURL: string,
                 public readonly url: string,
                 public readonly totalCoinSupply: number,
-                public readonly usdValue: number) {
+                public readonly usdValue: number,
+                public readonly chartValues: ChartValue[]) {
+
+    }
+}
+
+export class ChartValue {
+    constructor(public readonly x: number,
+                public readonly y: number) {
 
     }
 }

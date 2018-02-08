@@ -1,0 +1,25 @@
+<a href="{{result.url}}" rel="noopener" target="_blank" class="search-result-token" >
+    <h2 class="search-result-token__title">
+        <a href="{{result.url}}" rel="noopener" target="_blank" class="search-result-token__link">
+            {{result.fullName}}
+        </a>
+    </h2>
+
+    <nvd3 [options]="options" [data]="data" *ngIf="this.result.chartValues.length"></nvd3>
+
+    <div class="search-result-token__description">
+        <div>Current price: ${{result.usdValue}}</div>
+        <div *ngIf="result.totalCoinSupply > 0">Max supply: {{result.totalCoinSupply}}</div>
+    </div>
+
+    <div class="search-result-token__extras">
+        <a href="{{result.url}}" target="_blank" rel="noopener" class="search-result-token__icon-link">
+            <img height="16" width="16" class="search-result-token__icon" src="{{result.imageURL}}" *ngIf="result.imageURL">
+            <img height="16" width="16" class="search-result-token__icon" src="/assets/images/default-icon.png" *ngIf="!result.imageURL">
+        </a>
+
+        <a href="{{result.url}}" target="_blank" rel="noopener" class="search-result-token__domain-link">
+            {{result.url}}
+        </a>
+    </div>
+</a>

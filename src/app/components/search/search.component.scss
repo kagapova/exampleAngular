@@ -1,0 +1,29 @@
+.search {
+  &__header {
+    display: flex;
+    flex-direction: row;
+    min-height: 52px;
+    background-color: #fafafa;
+    padding: 16px;
+    position: relative;
+    z-index: 15;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  }
+
+  &__logo-link {
+    display: block;
+    margin: 0 25px 0 9px;
+  }
+
+  &__logo {
+    width: 46px;
+    height: 46px;
+    display: block;
+  }
+
+  &__form {
+    background-color: #fafafa;
+    max-width: 590px;
+    flex: 1;
+  }
+}

@@ -33,6 +33,7 @@ export class SearchResultTokenComponent implements OnInit {
                     tickFormat: function (d) {
                         return d3.format('$.04f')(d);
                     },
+                    showMaxMin: false,
                 },
             }
         };

@@ -9,18 +9,18 @@ import {SearchService} from "../../services/search.service";
     styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent implements OnInit {
-    private searchTerms: string;
+    searchTerm: string;
 
     constructor(private searchService: SearchService,
                 private router: Router) {
     }
 
     ngOnInit() {
-        this.searchTerms = this.searchService.getSearchTerm();
+        this.searchTerm = this.searchService.getSearchTerm();
     }
 
     onSubmit(value: string) {
-        this.searchTerms = value;
+        this.searchTerm = value;
         this.router.navigate(['/search'], {queryParams: {q: value}});
         this.searchService.search(value);
     }

@@ -1,5 +1,5 @@
 <form class="search-form" action="/search" (ngSubmit)="onSubmit(searchBox.value)" #homeSearchForm="ngForm">
-  <input #searchBox class="search-form__input" type="text" autocomplete="off" name="q" tabindex="1" value="{{searchTerms}}" autocapitalize="off" autocorrect="off" autofocus>
+  <input #searchBox class="search-form__input" type="text" autocomplete="off" name="q" tabindex="1" value="{{searchTerm}}" autocapitalize="off" autocorrect="off" autofocus>
   <button class="search-form__button" type="submit" tabindex="2">
     <i class="fas fa-search"></i>
   </button>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {SearchService} from "../../services/search.service";
+import {Router} from '@angular/router';
+import {SearchService} from '../../services/search.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
     selector: 'app-search',
@@ -10,13 +11,16 @@ import {SearchService} from "../../services/search.service";
 export class SearchComponent implements OnInit {
 
     constructor(private searchService: SearchService,
-                private router: Router) {
+                private router: Router,
+                private titleService: Title) {
     }
 
     ngOnInit() {
         let term = this.searchService.getSearchTerm();
-        if (term === "") {
+        if (!term) {
             this.router.navigate(['/']);
         }
+
+        this.titleService.setTitle(`${term} - Crypto Search`);
     }
 }

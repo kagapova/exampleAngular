@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         this.searchService.clean();
-        this.titleService.setTitle('Crypto Search');
+        this.titleService.setTitle('Decenter Search');
     }
 
 }

@@ -22,6 +22,5 @@ export class SearchFormComponent implements OnInit {
     onSubmit(value: string) {
         this.searchTerm = value;
         this.router.navigate(['/search'], {queryParams: {q: value}});
-        this.searchService.search(value);
     }
 }

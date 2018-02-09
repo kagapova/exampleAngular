@@ -33,11 +33,15 @@
     &__description {
         position: relative;
         line-height: 1.4;
-        font-size: 1.25em;
-        padding: 0;
+        font-size: 1em;
+        padding: 0 .8em;
         margin: .5em auto;
         text-align: center;
         color: #9a9a9a;
+
+        @media (min-width: 640px) {
+            font-size: 1.25em;
+        }
     }
 
     &__form {
@@ -47,6 +51,5 @@
         margin-right: auto;
         display: block;
         float: none;
-        width: 70%;
     }
 }

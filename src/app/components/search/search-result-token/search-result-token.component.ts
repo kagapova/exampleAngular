@@ -25,7 +25,8 @@ export class SearchResultTokenComponent implements OnInit {
                 showLegend: false,
                 xAxis: {
                     tickFormat: function (timestamp) {
-                        let date = new Date(timestamp);
+                        let date = new Date();
+                        date.setTime(timestamp*1000);
                         return d3.time.format('%b %d')(date);
                     },
                 },

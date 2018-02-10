@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
+import {environment} from './environments/environment';
 
 declare var gtag: any;
 
@@ -12,6 +13,8 @@ export class AppComponent implements OnInit {
     private skipedFirstNavigationEnd = false;
 
     constructor(private router: Router) {
+        gtag('js', new Date());
+        gtag('config', environment.googleAnalyticsID);
     }
 
     ngOnInit() {

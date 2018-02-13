@@ -19,6 +19,9 @@ import {SearchResultLinkComponent} from './components/search/search-result-link/
 import {SearchResultTokenComponent} from './components/search/search-result-token/search-result-token.component';
 import {NvD3Module} from 'ng2-nvd3';
 import {environment} from '../environments/environment';
+import { BlocksComponent } from './components/blocks/blocks.component';
+import { BlocksBlockchainComponent } from './components/blocks/blocks-blockchain/blocks-blockchain.component';
+import { SearchHeaderComponent } from './components/search/search-header/search-header.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -40,6 +43,9 @@ export class RavenErrorHandler implements ErrorHandler {
         SearchResultItemComponent,
         SearchResultLinkComponent,
         SearchResultTokenComponent,
+        BlocksComponent,
+        BlocksBlockchainComponent,
+        SearchHeaderComponent,
     ],
     imports: [
         BrowserModule,

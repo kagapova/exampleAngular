@@ -23,6 +23,7 @@ import { HomeAboutComponent } from './components/home/home-about/home-about.comp
 import { BlocksComponent } from './components/blocks/blocks.component';
 import { BlocksBlockchainComponent } from './components/blocks/blocks-blockchain/blocks-blockchain.component';
 import { SearchHeaderComponent } from './components/search/search-header/search-header.component';
+import { BlocksTxnEthereumComponent } from './components/blocks/blocks-txn-ethereum/blocks-txn-ethereum.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -48,6 +49,7 @@ export class RavenErrorHandler implements ErrorHandler {
         BlocksComponent,
         BlocksBlockchainComponent,
         SearchHeaderComponent,
+        BlocksTxnEthereumComponent,
     ],
     imports: [
         BrowserModule,

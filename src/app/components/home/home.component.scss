@@ -1,6 +1,4 @@
 .home {
-    padding-top: 7em;
-
     position: absolute;
     overflow: hidden;
     top: 0;
@@ -8,6 +6,25 @@
     bottom: 0;
     left: 0;
     background-color: #f7f7f7;
+    height: 300%;
+
+    &__search {
+        height: 33.33333333333%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__content {
+            @media (min-height: 400px) {
+                margin-top: -100px;
+            }
+        }
+    }
+
+    &__about {
+        height: 66.66666666667%;
+    }
 
     &__logo {
         position: relative;

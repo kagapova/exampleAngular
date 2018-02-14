@@ -32,7 +32,11 @@ export class SearchResultTokenComponent implements OnInit {
                 },
                 yAxis: {
                     tickFormat: function (d) {
-                        return d3.format('$.04f')(d);
+                        if (d > 1) {
+                            return d3.format('$.02f')(d);
+                        } else {
+                            return d3.format('$.04f')(d);
+                        }
                     },
                     showMaxMin: false,
                 },

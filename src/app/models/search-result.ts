@@ -1,4 +1,4 @@
-export type SearchResult = (LinkResult | TokenResult);
+export type SearchResult = (LinkResult | TokenResult | AddressResult);
 
 
 export class LinkResult {
@@ -28,7 +28,6 @@ export class TokenResult {
                 public readonly totalCoinSupply: number,
                 public readonly usdValue: number,
                 public readonly chartValues: ChartValue[]) {
-
     }
 }
 
@@ -36,5 +35,29 @@ export class ChartValue {
     constructor(public readonly x: number,
                 public readonly y: number) {
 
+    }
+}
+
+export class AddressResult {
+    public static readonly TYPE = 2;
+
+    public readonly type: number = AddressResult.TYPE;
+
+    constructor(public readonly address: string,
+                public readonly blockchain: string,
+                public readonly blockchainCode: string,
+                public readonly balance: number,
+                public readonly countTransactions: number,
+                public readonly tokens: AddressTokenResult[]) {
+    }
+}
+
+export class AddressTokenResult {
+    constructor(public readonly address: string,
+                public readonly name: string,
+                public readonly symbol: string,
+                public readonly logo: string,
+                public readonly price: number,
+                public readonly balance: number) {
     }
 }

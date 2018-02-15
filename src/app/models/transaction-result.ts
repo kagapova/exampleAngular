@@ -8,6 +8,8 @@ export class TransactionResult {
                 public readonly blockNumber: number,
                 public readonly confirmations: number,
                 public readonly isSuccess: boolean,
+                public readonly isPending: boolean,
+                public readonly isError: boolean,
                 public readonly from: string,
                 public readonly to: string,
                 public readonly value: number,

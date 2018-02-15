@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BtcAddressResult} from '../../../../models/search-address-result';
+import {BtcAddressResult} from '../../../../models/address-result';
 
 @Component({
     selector: 'app-search-result-address-btc',

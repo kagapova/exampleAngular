@@ -1,8 +1,11 @@
-import {AddressResult} from './search-address-result';
-import {WebResult} from './search-web-result';
-import {CurrencyResult} from './search-currency-result';
+import {AddressResult} from './address-result';
+import {WebResult} from './web-result';
+import {CurrencyResult} from './currency-result';
+import {TransactionResult} from './transaction-result';
 
 export type SearchResult = (
-    WebResult |
+    AddressResult |
     CurrencyResult |
-    AddressResult);
+    TransactionResult |
+    WebResult);
+

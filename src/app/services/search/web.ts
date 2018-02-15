@@ -1,4 +1,4 @@
-import {WebResult} from '../../models/search-web-result';
+import {WebResult} from '../../models/web-result';
 
 
 export function parseWebResult(result: WebResultServer): WebResult {

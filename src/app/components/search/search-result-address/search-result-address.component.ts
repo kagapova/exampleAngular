@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AddressResult} from '../../../models/search-address-result';
+import {AddressResult} from '../../../models/address-result';
 
 @Component({
     selector: 'app-search-result-address',

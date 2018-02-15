@@ -1,8 +1,8 @@
-import {AddressResult, AddressTokenResult, BtcAddressResult, EthAddressResult} from '../../models/search-address-result';
+import {AddressResult, AddressTokenResult, BtcAddressResult, EthAddressResult} from '../../models/address-result';
 import {Bitcoin, Ethereum} from '../../models/blockchains';
 
 
-export function parseAddressResult(result: ServerAddressResult): AddressResult {
+export function parseAddressResult(result: AddressResultServer): AddressResult {
     switch (result.currency.toUpperCase()) {
         case Ethereum.symbol:
             return this.parseEthAddressResult(result);
@@ -15,7 +15,7 @@ export function parseAddressResult(result: ServerAddressResult): AddressResult {
     }
 }
 
-export function parseEthAddressResult(result: ServerEthAddressResult): EthAddressResult {
+export function parseEthAddressResult(result: EthAddressResultServer): EthAddressResult {
     let tokens: AddressTokenResult[] = result.data.tokens.map(v => {
         v.token.name = v.token.name ? v.token.name : 'Noname';
         v.token.symbol = v.token.symbol ? v.token.symbol : '?';
@@ -40,7 +40,7 @@ export function parseEthAddressResult(result: ServerEthAddressResult): EthAddres
     );
 }
 
-export function parseBtcAddressResult(result: ServerBtcAddressResult): BtcAddressResult {
+export function parseBtcAddressResult(result: BtcAddressResultServer): BtcAddressResult {
     return new BtcAddressResult(
         result.data.address,
         result.data.hash160,

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {EthAddressResult} from '../../../../models/search-address-result';
+import {EthAddressResult} from '../../../../models/address-result';
 
 @Component({
     selector: 'app-search-result-address-eth',

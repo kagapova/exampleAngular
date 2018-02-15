@@ -1,4 +1,4 @@
-import {CurrencyResult} from '../../models/search-currency-result';
+import {CurrencyResult} from '../../models/currency-result';
 
 
 export function parseCurrencyResult(result: CurrencyResultServer): CurrencyResult {

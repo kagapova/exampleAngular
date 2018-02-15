@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {WebResult} from "../../../models/search-web-result";
+import {WebResult} from "../../../models/web-result";
 
 @Component({
     selector: 'app-search-result-link',

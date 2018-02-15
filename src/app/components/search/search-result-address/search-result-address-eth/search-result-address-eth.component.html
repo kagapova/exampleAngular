@@ -57,9 +57,6 @@
         <tr *ngFor="let token of result.tokens">
             <td>
                 <a [routerLink]="['/search']" [queryParams]="{q: token.address}">
-                    <img [src]="token.logo" *ngIf="token.logo">
-                </a>
-                <a [routerLink]="['/search']" [queryParams]="{q: token.address}">
                     {{token.name}}
                 </a>
             </td>

@@ -9,6 +9,7 @@ import {Subject} from 'rxjs/Subject';
 import {parseAddressResult} from './search/address';
 import {parseWebResult} from './search/web';
 import {parseCurrencyResult} from './search/currency';
+import {parseTransactionResult} from './search/transaction';
 
 @Injectable()
 export class SearchService {
@@ -84,6 +85,9 @@ export class SearchService {
 
             case 'address':
                 return parseAddressResult(result);
+
+            case 'txn':
+                return parseTransactionResult(result);
 
             default:
                 // todo write to sentry

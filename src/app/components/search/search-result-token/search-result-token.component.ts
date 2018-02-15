@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CurrencyResult} from '../../../models/search-currency-result';
+import {CurrencyResult} from '../../../models/currency-result';
 
 @Component({
     selector: 'app-search-result-token',

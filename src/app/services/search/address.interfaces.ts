@@ -1,16 +1,16 @@
-interface ServerAddressResult {
+interface AddressResultServer {
     type: 'address';
     currency: any;
     data: any;
 }
 
-interface ServerEthAddressResult {
+interface EthAddressResultServer {
     type: 'address';
     currency: 'eth';
-    data: ServerEthAddressData;
+    data: EthAddressDataServer;
 }
 
-interface ServerEthAddressData {
+interface EthAddressDataServer {
     address: string;
     eth: {
         balance: number;
@@ -20,10 +20,10 @@ interface ServerEthAddressData {
     countTxs: number;
     contractInfo: any;
     tokenInfo: any;
-    tokens: ServerAddressEthToken[];
+    tokens: AddressEthTokenServer[];
 }
 
-interface ServerAddressEthToken {
+interface AddressEthTokenServer {
     balance: number;
     totalIn: number;
     totalOut: number;
@@ -43,13 +43,13 @@ interface ServerAddressEthToken {
     };
 }
 
-interface ServerBtcAddressResult {
+interface BtcAddressResultServer {
     type: 'address';
     currency: 'btc';
-    data: ServerBtcAddressData;
+    data: BtcAddressDataServer;
 }
 
-interface ServerBtcAddressData {
+interface BtcAddressDataServer {
     hash160: string;
     address: string;
     countTxs: number;

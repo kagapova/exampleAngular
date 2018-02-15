@@ -8,7 +8,7 @@
     <nvd3 [options]="options" [data]="data" *ngIf="this.result.chartValues.length"></nvd3>
 
     <div class="search-result-token__description">
-        <div>Current price: ${{result.usdValue}}</div>
+        <div>Current price: ${{result.price}}</div>
         <div *ngIf="result.totalCoinSupply > 0">Max supply: {{result.totalCoinSupply}}</div>
     </div>
 

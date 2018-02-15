@@ -1,0 +1,70 @@
+<div class="search-result-address-eth">
+    <h2 class="search-result-address-eth__title">
+        <a [routerLink]="['/search']" [queryParams]="{q: result.blockchain.name}">{{result.blockchain.name}}</a> Address
+    </h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th colspan="2">Summary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Address</td>
+            <td><a [routerLink]="['/search']" [queryParams]="{q: result.address}">{{result.address}}</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th colspan="2">Transactions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>No. Transactions</td>
+            <td>{{result.countTransactions}}</td>
+        </tr>
+        <tr class="visible-desktop">
+            <td>Total Received</td>
+            <td>{{result.totalReceived}} {{result.blockchain.symbol}}</td>
+        </tr>
+        <tr class="visible-desktop">
+            <td>Total Sent</td>
+            <td>{{result.totalSent}} {{result.blockchain.symbol}}</td>
+        </tr>
+        <tr class="visible-desktop">
+            <td>Final Balance</td>
+            <td>{{result.balance}} {{result.blockchain.symbol}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <table class="table table-striped" *ngIf="result.tokens.length">
+        <thead>
+        <tr>
+            <th colspan="2">Tokens</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let token of result.tokens">
+            <td>
+                <a [routerLink]="['/search']" [queryParams]="{q: token.address}">
+                    <img [src]="token.logo" *ngIf="token.logo">
+                </a>
+                <a [routerLink]="['/search']" [queryParams]="{q: token.address}">
+                    {{token.name}}
+                </a>
+            </td>
+            <td>{{token.balance}} {{token.symbol}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

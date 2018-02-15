@@ -25,6 +25,8 @@ import { BlocksBlockchainComponent } from './components/blocks/blocks-blockchain
 import { SearchHeaderComponent } from './components/search/search-header/search-header.component';
 import { BlocksTxnEthereumComponent } from './components/blocks/blocks-txn-ethereum/blocks-txn-ethereum.component';
 import { SearchResultAddressComponent } from './components/search/search-result-address/search-result-address.component';
+import { SearchResultAddressEthComponent } from './components/search/search-result-address/search-result-address-eth/search-result-address-eth.component';
+import { SearchResultAddressBtcComponent } from './components/search/search-result-address/search-result-address-btc/search-result-address-btc.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -52,6 +54,8 @@ export class RavenErrorHandler implements ErrorHandler {
         SearchHeaderComponent,
         BlocksTxnEthereumComponent,
         SearchResultAddressComponent,
+        SearchResultAddressEthComponent,
+        SearchResultAddressBtcComponent,
     ],
     imports: [
         BrowserModule,

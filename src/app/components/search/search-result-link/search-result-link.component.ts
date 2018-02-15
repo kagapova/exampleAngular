@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LinkResult} from "../../../models/search-result";
+import {WebResult} from "../../../models/search-web-result";
 
 @Component({
     selector: 'app-search-result-link',
@@ -7,12 +7,11 @@ import {LinkResult} from "../../../models/search-result";
     styleUrls: ['./search-result-link.component.scss']
 })
 export class SearchResultLinkComponent implements OnInit {
-    @Input() result: LinkResult;
+    @Input() result: WebResult;
 
     constructor() {
     }
 
     ngOnInit() {
     }
-
 }

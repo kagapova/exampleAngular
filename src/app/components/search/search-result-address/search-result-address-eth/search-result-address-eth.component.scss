@@ -1,0 +1,5 @@
+@import "../search-result-address.component";
+
+.search-result-address-eth {
+    @extend .search-result-address;
+}

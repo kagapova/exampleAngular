@@ -4,12 +4,15 @@ import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {retry} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
-import {SearchResult, LinkResult, TokenResult, AddressResult, AddressTokenResult} from '../models/search-result';
+import {SearchResult} from '../models/search-result';
 import {Subject} from 'rxjs/Subject';
+import {parseAddressResult} from './search/address';
+import {parseWebResult} from './search/web';
+import {parseCurrencyResult} from './search/currency';
 
 @Injectable()
 export class SearchService {
-    private searchUrl = '/api/search/v1';
+    private searchUrl = '/api/search/v2';
     private searchTerm = '';
     private searchResults = new Subject<SearchResult[]>();
 
@@ -73,80 +76,18 @@ export class SearchService {
 
     private parseResult(result: any): SearchResult {
         switch (result.type) {
-            case LinkResult.TYPE:
-                return this.parseLinkResult(result);
+            case 'web':
+                return parseWebResult(result);
 
-            case TokenResult.TYPE:
-                return this.parseTokenResult(result);
+            case 'currency':
+                return parseCurrencyResult(result);
 
-            case AddressResult.TYPE:
-                return this.parseAddressResult(result);
+            case 'address':
+                return parseAddressResult(result);
 
             default:
                 // todo write to sentry
                 return null;
         }
-    }
-
-    private parseLinkResult(result: any): LinkResult {
-        return new LinkResult(
-            result.title,
-            result.text,
-            result.image,
-            result.tokens,
-            result.url
-        );
-    }
-
-    private parseTokenResult(result: any): TokenResult {
-        let chartValues = result.chart.map(v => {
-            return {x: v.timestamp, y: v.closeValue};
-        });
-
-        return new TokenResult(
-            result.data.name,
-            result.data.fullName,
-            result.data.coinName,
-            result.data.symbol,
-            result.data.image,
-            result.data.url,
-            result.data.totalCoinSupply,
-            result.catUsd,
-            chartValues,
-        );
-    }
-
-    private parseAddressResult(result: any): AddressResult {
-        let tokens: AddressTokenResult[] = result.tokens.map(v => {
-            v.token.name = v.token.name ? v.token.name : "Noname";
-            v.token.symbol = v.token.symbol ? v.token.symbol : "?";
-
-            return new AddressTokenResult(
-                v.token.address,
-                v.token.name,
-                v.token.symbol,
-                v.token.image,
-                v.token.price,
-                v.balance / 10 ** v.token.decimals,
-            );
-        });
-
-        if ('eth' in result) {
-            result['blockchain'] = 'Ethereum';
-            result['blockchainCode'] = 'ETH';
-            result['balance'] = result.eth.balance;
-
-        } else {
-            return null;
-        }
-
-        return new AddressResult(
-            result.address,
-            result.blockchain,
-            result.blockchainCode,
-            result.balance,
-            result.countTxs,
-            tokens
-        );
     }
 }

@@ -1,24 +1,4 @@
-<div class="search-result-address">
-    <h2 class="search-result-address__title">
-        <a [routerLink]="['/search']" [queryParams]="{q: result.blockchain}">{{result.blockchain}}</a> address
-        <small>0x2d4bf47a278672d88b7d23afe8806801344d7d00cd236faeced3f7c1fad2dd00</small>
-    </h2>
-
-    <div class="search-result-address__description">
-        <p>
-            <b>Balance:</b> {{result.balance | number}} {{result.blockchainCode}}<br>
-            <b>Count transaction:</b> {{result.countTransactions | number}}
-        </p>
-    </div>
-
-    <h3>Tokens</h3>
-    <div class="search-result-address__description">
-        <div *ngFor="let token of result.tokens" class="search-result-address__token">
-            <img [src]="token.logo" *ngIf="token.logo">
-            <p>
-                <b><a [routerLink]="['/search']" [queryParams]="{q: token.address}">{{token.name}}</a>:</b>
-                {{token.balance}} {{token.symbol}}
-            </p>
-        </div>
-    </div>
+<div class="search-result-item" [ngSwitch]="result.blockchain.symbol">
+    <app-search-result-address-btc [result]="result" *ngSwitchCase="['BTC']"></app-search-result-address-btc>
+    <app-search-result-address-eth [result]="result" *ngSwitchCase="['ETH']"></app-search-result-address-eth>
 </div>

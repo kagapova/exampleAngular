@@ -5,21 +5,20 @@
     display: block;
     text-decoration: none;
 
-    &:hover {
-        background-color: #f7f7f7;
-    }
-
     &__title {
-        position: static;
-        overflow: hidden;
         display: block;
         font-size: 1.31em;
         vertical-align: middle;
         line-height: 1.15;
-        padding: 0;
-        margin: 0;
-        margin-bottom: 0.15em;
-        max-width: 100%;
+        margin: 0 0 0.15em 0;
+    }
+
+    &__subtitle {
+        display: block;
+        font-size: 1.1em;
+        vertical-align: middle;
+        line-height: 1.15;
+        margin: 0.8em 0 0.15em 0;
     }
 
     &__link {
@@ -36,6 +35,19 @@
         &:visited,
         &:visited:hover {
             color: #6c00a2;
+        }
+    }
+
+    &__data {
+        &__item {
+            font-size: .9176em;
+            color: #494949;
+            line-height: 1.45;
+            margin: 0 0 0.2em;
+        }
+
+        &__title{
+            font-weight: 700;
         }
     }
 

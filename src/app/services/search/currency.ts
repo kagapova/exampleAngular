@@ -9,6 +9,11 @@ export function parseCurrencyResult(result: CurrencyResultServer): CurrencyResul
         });
     }
 
+    let price = result.data.price;
+    if (chartValues.length) {
+        price = chartValues[chartValues.length - 1].y;
+    }
+
     return new CurrencyResult(
         result.data.name,
         result.data.fullName,
@@ -17,7 +22,7 @@ export function parseCurrencyResult(result: CurrencyResultServer): CurrencyResul
         result.data.image,
         result.data.url,
         result.data.totalCoinSupply,
-        result.data.price,
+        price,
         chartValues,
     );
 }

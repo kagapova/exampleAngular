@@ -1,11 +1,11 @@
 import {Bitcoin, Blockchain, Ethereum} from './blockchains';
 import {Token} from './token';
 
-export type AddressResult = (
-    EthAddressResult |
-    BtcAddressResult);
+export type Address = (
+    EthAddress |
+    BtcAddress);
 
-export class EthAddressResult {
+export class EthAddress {
     public readonly type: string = 'address';
     public readonly blockchain: Blockchain = Ethereum;
 
@@ -25,7 +25,7 @@ export class AddressToken {
     }
 }
 
-export class BtcAddressResult {
+export class BtcAddress {
     public readonly type: string = 'address';
     public readonly blockchain: Blockchain = Bitcoin;
 

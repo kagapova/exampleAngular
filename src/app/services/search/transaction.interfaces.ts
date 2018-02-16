@@ -1,6 +1,12 @@
 interface TransactionServer {
     type: 'txn';
-    currency: string;
+    currency: any;
+    data: any;
+}
+
+interface EthTransactionServer extends TransactionServer {
+    type: 'txn';
+    currency: 'eth';
     data: {
         hash: string;
         timestamp: number;
@@ -14,12 +20,12 @@ interface TransactionServer {
         gasLimit: number;
         gasUsed: number;
         logs: string[];
-        operations: TransactionOperationServer[];
+        operations: EthTransactionOperationServer[];
     };
 }
 
 
-interface TransactionOperationServer {
+interface EthTransactionOperationServer {
     type: 'transfer';
     addresses: string[];
     from: string;
@@ -30,11 +36,11 @@ interface TransactionOperationServer {
     transactionHash: string;
     priority: number;
     timestamp: number;
-    tokenInfo: TransactionTokenInfoServer;
+    tokenInfo: EthTransactionTokenInfoServer;
 }
 
 
-interface TransactionTokenInfoServer {
+interface EthTransactionTokenInfoServer {
     address: string;
     name: string;
     symbol: string;
@@ -56,4 +62,31 @@ interface TransactionTokenInfoServer {
         ts: string;
         volume24h: string;
     };
+}
+
+
+interface BtcTransactionServer extends TransactionServer {
+    type: 'txn';
+    currency: 'btc';
+    data: {
+        blockHeight: number;
+        hash: string;
+        inputs: BtcTransactionInputServer[];
+        outputs: BtcTransactionOutputServer[];
+        size: number;
+    };
+}
+
+
+interface BtcTransactionInputServer {
+    prevOut: {
+        address: string;
+        value: number;
+    };
+}
+
+
+interface BtcTransactionOutputServer {
+    address: string;
+    value: number;
 }

@@ -1,0 +1,81 @@
+<div class="search-result-transaction">
+    <h2 class="search-result-transaction__title">
+        <a [routerLink]="['/search']" [queryParams]="{q: result.blockchain.name}">{{result.blockchain.name}}</a>
+        Transaction
+    </h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th colspan="2">Summary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Hash</td>
+            <td>
+                <a [routerLink]="['/search']" [queryParams]="{q: result.hash}">{{result.hash}}</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>
+                <span *ngIf="result.isSuccess">Success</span>
+                <span *ngIf="result.isPending">Pending</span>
+                <span *ngIf="result.isError">Error</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Included In Blocks</td>
+            <td>
+                <a [routerLink]="['/search']" [queryParams]="{q: result.blockNumber}">{{result.blockNumber}}</a>
+                ({{result.confirmations}} block confirmations)
+            </td>
+        </tr>
+        <tr>
+            <td>TimeStamp</td>
+            <td>{{result.createdAt | date:'medium' }}</td>
+        </tr>
+        <tr>
+            <td>From</td>
+            <td>
+                <a [routerLink]="['/search']" [queryParams]="{q: result.from}">{{result.from}}</a>
+            </td>
+        </tr>
+        <tr>
+            <td>To</td>
+            <td>
+                <a [routerLink]="['/search']" [queryParams]="{q: result.to}">{{result.to}}</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Value</td>
+            <td>{{result.value}} {{result.blockchain.symbol}}</td>
+        </tr>
+        <tr *ngIf="result.transfer">
+            <td>Transfer tokens</td>
+            <td>
+                {{result.transfer.value}}
+                <a [routerLink]="['/search']" [queryParams]="{q: result.transfer.token.address}">
+                    {{result.transfer.token.name}}</a><br>
+
+                from
+                <a [routerLink]="['/search']" [queryParams]="{q: result.transfer.from}">
+                    {{result.transfer.from}}</a><br>
+
+                to
+                <a [routerLink]="['/search']" [queryParams]="{q: result.transfer.to}">
+                    {{result.transfer.to}}</a><br>
+            </td>
+        </tr>
+        <tr>
+            <td>Gas Limit</td>
+            <td>{{result.gasLimit | number}}</td>
+        </tr>
+        <tr>
+            <td>Gas Used By Txn</td>
+            <td>{{result.gasUsed | number}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {EthAddressResult} from '../../../../models/address-result';
+import {EthAddress} from '../../../../models/address';
 
 @Component({
     selector: 'app-search-result-address-eth',
@@ -7,7 +7,7 @@ import {EthAddressResult} from '../../../../models/address-result';
     styleUrls: ['./search-result-address-eth.component.scss']
 })
 export class SearchResultAddressEthComponent implements OnInit {
-    @Input() result: EthAddressResult;
+    @Input() result: EthAddress;
 
     constructor() {
     }

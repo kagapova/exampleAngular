@@ -1,6 +1,6 @@
 interface AddressResultServer {
     type: 'address';
-    currency: any;
+    currency: string;
     data: any;
 }
 

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BtcAddressResult} from '../../../../models/address-result';
+import {BtcAddress} from '../../../../models/address';
 
 @Component({
     selector: 'app-search-result-address-btc',
@@ -7,7 +7,7 @@ import {BtcAddressResult} from '../../../../models/address-result';
     styleUrls: ['./search-result-address-btc.component.scss']
 })
 export class SearchResultAddressBtcComponent implements OnInit {
-    @Input() result: BtcAddressResult;
+    @Input() result: BtcAddress;
 
     constructor() {
     }

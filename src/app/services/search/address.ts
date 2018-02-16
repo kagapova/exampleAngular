@@ -6,17 +6,17 @@ import {Token} from '../../models/token';
 export function parseAddressResult(result: AddressResultServer): Address {
     switch (result.currency.toUpperCase()) {
         case Ethereum.symbol:
-            return this.parseEthAddressResult(result);
+            return parseEthAddressResult(result);
 
         case Bitcoin.symbol:
-            return this.parseBtcAddressResult(result);
+            return parseBtcAddressResult(result);
 
         default:
             return null;
     }
 }
 
-export function parseEthAddressResult(result: EthAddressResultServer): EthAddress {
+function parseEthAddressResult(result: EthAddressResultServer): EthAddress {
     result.data.tokens = result.data.tokens ? result.data.tokens : [];
 
     let tokens: AddressToken[] = result.data.tokens.map(v => {
@@ -58,7 +58,7 @@ export function parseEthAddressResult(result: EthAddressResultServer): EthAddres
     );
 }
 
-export function parseBtcAddressResult(result: BtcAddressResultServer): BtcAddress {
+function parseBtcAddressResult(result: BtcAddressResultServer): BtcAddress {
     return new BtcAddress(
         result.data.address,
         result.data.hash160,

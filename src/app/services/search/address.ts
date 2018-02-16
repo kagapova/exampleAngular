@@ -17,6 +17,8 @@ export function parseAddressResult(result: AddressResultServer): Address {
 }
 
 export function parseEthAddressResult(result: EthAddressResultServer): EthAddress {
+    result.data.tokens = result.data.tokens ? result.data.tokens : [];
+
     let tokens: AddressToken[] = result.data.tokens.map(v => {
         let token = new Token(
             v.token.address,

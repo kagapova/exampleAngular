@@ -6,10 +6,10 @@
     bottom: 0;
     left: 0;
     background-color: #f7f7f7;
-    height: 300%;
+    height: 500%;
 
     &__search {
-        height: 33.33333333333%;
+        height: 20%;
 
         display: flex;
         align-items: center;
@@ -23,7 +23,7 @@
     }
 
     &__about {
-        height: 66.66666666667%;
+        height: 80%;
     }
 
     &__logo {

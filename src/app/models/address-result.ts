@@ -1,4 +1,5 @@
 import {Bitcoin, Blockchain, Ethereum} from './blockchains';
+import {Token} from './token';
 
 export type AddressResult = (
     EthAddressResult |
@@ -13,16 +14,13 @@ export class EthAddressResult {
                 public readonly totalReceived: number,
                 public readonly totalSent: number,
                 public readonly countTransactions: number,
-                public readonly tokens: AddressTokenResult[]) {
+                public readonly token: Token,
+                public readonly tokens: AddressToken[]) {
     }
 }
 
-export class AddressTokenResult {
-    constructor(public readonly address: string,
-                public readonly name: string,
-                public readonly symbol: string,
-                public readonly logo: string,
-                public readonly price: number,
+export class AddressToken {
+    constructor(public readonly token: Token,
                 public readonly balance: number) {
     }
 }

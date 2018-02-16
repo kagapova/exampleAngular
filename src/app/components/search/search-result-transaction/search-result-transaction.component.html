@@ -54,12 +54,28 @@
             <td>{{result.value}} {{result.blockchain.symbol}}</td>
         </tr>
         <tr>
+            <td>Transfer tokens</td>
+            <td>
+                {{result.transfer.value}}
+                <a [routerLink]="['/search']" [queryParams]="{q: result.transfer.token.address}">
+                    {{result.transfer.token.name}}</a><br>
+
+                from
+                <a [routerLink]="['/search']" [queryParams]="{q: result.transfer.from}">
+                    {{result.transfer.from}}</a><br>
+
+                to
+                <a [routerLink]="['/search']" [queryParams]="{q: result.transfer.to}">
+                    {{result.transfer.to}}</a><br>
+            </td>
+        </tr>
+        <tr>
             <td>Gas Limit</td>
-            <td>{{result.value}} {{result.gasLimit}}</td>
+            <td>{{result.gasLimit | number}}</td>
         </tr>
         <tr>
             <td>Gas Used By Txn</td>
-            <td>{{result.value}} {{result.gasUsed}}</td>
+            <td>{{result.gasUsed | number}}</td>
         </tr>
         </tbody>
     </table>

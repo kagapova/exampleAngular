@@ -1,5 +1,6 @@
-import {AddressResult, AddressTokenResult, BtcAddressResult, EthAddressResult} from '../../models/address-result';
+import {AddressResult, AddressToken, BtcAddressResult, EthAddressResult} from '../../models/address-result';
 import {Bitcoin, Ethereum} from '../../models/blockchains';
+import {Token} from '../../models/token';
 
 
 export function parseAddressResult(result: AddressResultServer): AddressResult {
@@ -16,19 +17,33 @@ export function parseAddressResult(result: AddressResultServer): AddressResult {
 }
 
 export function parseEthAddressResult(result: EthAddressResultServer): EthAddressResult {
-    let tokens: AddressTokenResult[] = result.data.tokens.map(v => {
-        v.token.name = v.token.name ? v.token.name : 'Noname';
-        v.token.symbol = v.token.symbol ? v.token.symbol : '?';
-
-        return new AddressTokenResult(
+    let tokens: AddressToken[] = result.data.tokens.map(v => {
+        let token = new Token(
             v.token.address,
             v.token.name,
             v.token.symbol,
             v.token.image,
-            v.token.price,
-            v.balance / 10 ** v.token.decimals,
+            v.token.decimals,
+            v.token.price
+        );
+
+        return new AddressToken(
+            token,
+            v.balance / 10 ** v.token.decimals
         );
     });
+
+    let token: Token = null;
+    if (result.data.tokenInfo) {
+        token = new Token(
+            result.data.tokenInfo.address,
+            result.data.tokenInfo.name,
+            result.data.tokenInfo.symbol,
+            result.data.tokenInfo.image,
+            result.data.tokenInfo.decimals,
+            result.data.tokenInfo.price
+        );
+    }
 
     return new EthAddressResult(
         result.data.address,
@@ -36,6 +51,7 @@ export function parseEthAddressResult(result: EthAddressResultServer): EthAddres
         result.data.eth.totalIn,
         result.data.eth.totalOut,
         result.data.countTxs,
+        token,
         tokens
     );
 }

@@ -1,6 +1,8 @@
 <div class="search-result-address-eth">
     <h2 class="search-result-address-eth__title">
-        <a [routerLink]="['/search']" [queryParams]="{q: result.blockchain.name}">{{result.blockchain.name}}</a> Address
+        <a [routerLink]="['/search']" [queryParams]="{q: result.blockchain.name}">{{result.blockchain.name}}</a>
+        <span *ngIf="!result.token">Address</span>
+        <span *ngIf="result.token">Token</span>
     </h2>
 
     <table class="table table-striped">
@@ -10,6 +12,13 @@
         </tr>
         </thead>
         <tbody>
+        <tr *ngIf="result.token">
+            <td>Name</td>
+            <td>
+                <a [routerLink]="['/search']" [queryParams]="{q: result.token.name}">{{result.token.name}}</a>
+                ({{result.token.symbol}})
+            </td>
+        </tr>
         <tr>
             <td>Address</td>
             <td><a [routerLink]="['/search']" [queryParams]="{q: result.address}">{{result.address}}</a></td>
@@ -28,19 +37,19 @@
         <tbody>
         <tr>
             <td>No. Transactions</td>
-            <td>{{result.countTransactions}}</td>
+            <td>{{result.countTransactions | number}}</td>
         </tr>
         <tr class="visible-desktop">
             <td>Total Received</td>
-            <td>{{result.totalReceived}} {{result.blockchain.symbol}}</td>
+            <td>{{result.totalReceived | number}} {{result.blockchain.symbol}}</td>
         </tr>
         <tr class="visible-desktop">
             <td>Total Sent</td>
-            <td>{{result.totalSent}} {{result.blockchain.symbol}}</td>
+            <td>{{result.totalSent | number}} {{result.blockchain.symbol}}</td>
         </tr>
         <tr class="visible-desktop">
             <td>Final Balance</td>
-            <td>{{result.balance}} {{result.blockchain.symbol}}</td>
+            <td>{{result.balance | number}} {{result.blockchain.symbol}}</td>
         </tr>
         </tbody>
     </table>
@@ -56,11 +65,11 @@
         <tbody>
         <tr *ngFor="let token of result.tokens">
             <td>
-                <a [routerLink]="['/search']" [queryParams]="{q: token.address}">
-                    {{token.name}}
+                <a [routerLink]="['/search']" [queryParams]="{q: token.token.address}">
+                    {{token.token.name}}
                 </a>
             </td>
-            <td>{{token.balance}} {{token.symbol}}</td>
+            <td>{{token.balance | number}} {{token.token.symbol}}</td>
         </tr>
         </tbody>
     </table>

@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://api.dsearch.co",
+    "target": "https://api.desearch.io",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

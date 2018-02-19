@@ -30,6 +30,7 @@ import { SearchResultAddressBtcComponent } from './components/search/search-resu
 import { SearchResultTransactionComponent } from './components/search/search-result-transaction/search-result-transaction.component';
 import { SearchResultTransactionEthComponent } from './components/search/search-result-transaction/search-result-transaction-eth/search-result-transaction-eth.component';
 import { SearchResultTransactionBtcComponent } from './components/search/search-result-transaction/search-result-transaction-btc/search-result-transaction-btc.component';
+import { SearchResultTransactionLtcComponent } from './components/search/search-result-transaction/search-result-transaction-ltc/search-result-transaction-ltc.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -63,6 +64,7 @@ export class RavenErrorHandler implements ErrorHandler {
         SearchResultTransactionComponent,
         SearchResultTransactionEthComponent,
         SearchResultTransactionBtcComponent,
+        SearchResultTransactionLtcComponent,
     ],
     imports: [
         BrowserModule,

@@ -90,3 +90,34 @@ interface BtcTransactionOutputServer {
     address: string;
     value: number;
 }
+
+
+interface LtcTransactionServer extends TransactionServer {
+    type: 'txn';
+    currency: 'ltc';
+    data: {
+        hash: string;
+        addresses: string[];
+        blockHash: string;
+        blockHeight: number;
+        blockIndex: number;
+        inputs: LtcTransactionInputServer[];
+        outputs:LtcTransactionOutputServer[];
+        fees: number;
+        size: number;
+        total: number;
+    };
+}
+
+
+interface LtcTransactionInputServer {
+    addresses: string[];
+    outputValue: number;
+    prevHash: string;
+}
+
+
+interface LtcTransactionOutputServer {
+    addresses: string[];
+    value: number;
+}

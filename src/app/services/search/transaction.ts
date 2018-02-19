@@ -1,6 +1,6 @@
 import {
-    BtcTransaction, BtcTransactionInput, BtcTransactionOutput, EthTransaction, EthTransactionTransfer,
-    Transaction
+    BtcTransaction, BtcTransactionInput, BtcTransactionOutput, EthTransaction, EthTransactionTransfer, LtcTransaction, LtcTransactionInput,
+    LtcTransactionOutput, Transaction
 } from '../../models/transaction';
 import {Token} from '../../models/token';
 
@@ -12,6 +12,9 @@ export function parseTransaction(result: TransactionServer): Transaction {
 
         case 'btc':
             return parseBtcTransaction(result);
+
+        case 'ltc':
+            return parseLtcTransaction(result);
 
         default:
             throw new Error(`New transaction currency: ${result.currency}`);
@@ -78,7 +81,7 @@ function parseBtcTransaction(result: BtcTransactionServer): BtcTransaction {
         );
     });
 
-    let outputs: BtcTransactionInput[] = result.data.outputs.map(v => {
+    let outputs: BtcTransactionOutput[] = result.data.outputs.map(v => {
         return new BtcTransactionOutput(
             v.address,
             v.value / 100000000
@@ -89,6 +92,36 @@ function parseBtcTransaction(result: BtcTransactionServer): BtcTransaction {
         result.data.hash,
         result.data.blockHeight,
         result.data.size,
+        inputs,
+        outputs
+    );
+}
+
+
+function parseLtcTransaction(result: LtcTransactionServer): LtcTransaction {
+    let inputs: LtcTransactionInput[] = result.data.inputs.map(v => {
+        return new LtcTransactionInput(
+            v.addresses[0],
+            v.outputValue / 100000000,
+            v.prevHash
+        );
+    });
+
+    let outputs: LtcTransactionOutput[] = result.data.outputs.map(v => {
+        return new LtcTransactionOutput(
+            v.addresses[0],
+            v.value / 100000000
+        );
+    });
+
+    return new LtcTransaction(
+        result.data.hash,
+        result.data.blockHash,
+        result.data.blockHeight,
+        result.data.blockIndex,
+        result.data.fees,
+        result.data.size,
+        result.data.total / 100000000,
         inputs,
         outputs
     );

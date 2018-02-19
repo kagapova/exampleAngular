@@ -1,10 +1,11 @@
-import {Ethereum, Bitcoin} from './blockchains';
+import {Ethereum, Bitcoin, Litecoin} from './blockchains';
 import {Token} from './token';
 
 
 export type Transaction = (
+    BtcTransaction |
     EthTransaction |
-    BtcTransaction);
+    LtcTransaction);
 
 
 export class EthTransaction {
@@ -60,6 +61,38 @@ export class BtcTransactionInput {
 
 
 export class BtcTransactionOutput {
+    constructor(public readonly address: string,
+                public readonly value: number) {
+    }
+}
+
+
+export class LtcTransaction {
+    public readonly type = 'transaction';
+    public readonly blockchain = Litecoin;
+
+    constructor(public readonly hash: string,
+                public readonly blockHash: string,
+                public readonly blockHeight: number,
+                public readonly blockIndex: number,
+                public readonly fees: number,
+                public readonly size: number,
+                public readonly total: number,
+                public readonly inputs: LtcTransactionInput[],
+                public readonly outputs: LtcTransactionOutput[]) {
+    }
+}
+
+
+export class LtcTransactionInput {
+    constructor(public readonly address: string,
+                public readonly value: number,
+                public readonly prevHash: string) {
+    }
+}
+
+
+export class LtcTransactionOutput {
     constructor(public readonly address: string,
                 public readonly value: number) {
     }

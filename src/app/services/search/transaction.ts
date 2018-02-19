@@ -1,6 +1,16 @@
 import {
-    BtcTransaction, BtcTransactionInput, BtcTransactionOutput, EthTransaction, EthTransactionTransfer, LtcTransaction, LtcTransactionInput,
-    LtcTransactionOutput, Transaction
+    BtcTransaction,
+    BtcTransactionInput,
+    BtcTransactionOutput,
+    DashTransaction,
+    DashTransactionInput,
+    DashTransactionOutput,
+    EthTransaction,
+    EthTransactionTransfer,
+    LtcTransaction,
+    LtcTransactionInput,
+    LtcTransactionOutput,
+    Transaction,
 } from '../../models/transaction';
 import {Token} from '../../models/token';
 
@@ -15,6 +25,9 @@ export function parseTransaction(result: TransactionServer): Transaction {
 
         case 'ltc':
             return parseLtcTransaction(result);
+
+        case 'dash':
+            return parseDashTransaction(result);
 
         default:
             throw new Error(`New transaction currency: ${result.currency}`);
@@ -119,7 +132,37 @@ function parseLtcTransaction(result: LtcTransactionServer): LtcTransaction {
         result.data.blockHash,
         result.data.blockHeight,
         result.data.blockIndex,
-        result.data.fees,
+        result.data.fees / 100000000,
+        result.data.size,
+        result.data.total / 100000000,
+        inputs,
+        outputs
+    );
+}
+
+
+function parseDashTransaction(result: DashTransactionServer): DashTransaction {
+    let inputs: DashTransactionInput[] = result.data.inputs.map(v => {
+        return new DashTransactionInput(
+            v.addresses[0],
+            v.outputValue / 100000000,
+            v.prevHash
+        );
+    });
+
+    let outputs: DashTransactionOutput[] = result.data.outputs.map(v => {
+        return new DashTransactionOutput(
+            v.addresses[0],
+            v.value / 100000000
+        );
+    });
+
+    return new DashTransaction(
+        result.data.hash,
+        result.data.blockHash,
+        result.data.blockHeight,
+        result.data.blockIndex,
+        result.data.fees / 100000000,
         result.data.size,
         result.data.total / 100000000,
         inputs,

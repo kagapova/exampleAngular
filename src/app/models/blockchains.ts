@@ -8,3 +8,4 @@ export class Blockchain {
 export const Ethereum = new Blockchain('Ethereum', 'ETH');
 export const Bitcoin = new Blockchain('Bitcoin', 'BTC');
 export const Litecoin = new Blockchain('Litecoin', 'LTC');
+export const Dash = new Blockchain('Dash', 'DASH');

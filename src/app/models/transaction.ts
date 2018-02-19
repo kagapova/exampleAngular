@@ -1,9 +1,10 @@
-import {Ethereum, Bitcoin, Litecoin} from './blockchains';
+import {Ethereum, Bitcoin, Litecoin, Dash} from './blockchains';
 import {Token} from './token';
 
 
 export type Transaction = (
     BtcTransaction |
+    DashTransaction |
     EthTransaction |
     LtcTransaction);
 
@@ -96,4 +97,14 @@ export class LtcTransactionOutput {
     constructor(public readonly address: string,
                 public readonly value: number) {
     }
+}
+
+export class DashTransaction extends LtcTransaction {
+    public readonly blockchain = Dash;
+}
+
+export class DashTransactionInput extends LtcTransactionInput {
+}
+
+export class DashTransactionOutput extends LtcTransactionOutput {
 }

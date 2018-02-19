@@ -102,7 +102,7 @@ interface LtcTransactionServer extends TransactionServer {
         blockHeight: number;
         blockIndex: number;
         inputs: LtcTransactionInputServer[];
-        outputs:LtcTransactionOutputServer[];
+        outputs: LtcTransactionOutputServer[];
         fees: number;
         size: number;
         total: number;
@@ -118,6 +118,36 @@ interface LtcTransactionInputServer {
 
 
 interface LtcTransactionOutputServer {
+    addresses: string[];
+    value: number;
+}
+
+interface DashTransactionServer extends TransactionServer {
+    type: 'txn';
+    currency: 'dash';
+    data: {
+        hash: string;
+        addresses: string[];
+        blockHash: string;
+        blockHeight: number;
+        blockIndex: number;
+        inputs: DashTransactionInputServer[];
+        outputs: DashTransactionOutputServer[];
+        fees: number;
+        size: number;
+        total: number;
+    };
+}
+
+
+interface DashTransactionInputServer {
+    addresses: string[];
+    outputValue: number;
+    prevHash: string;
+}
+
+
+interface DashTransactionOutputServer {
     addresses: string[];
     value: number;
 }

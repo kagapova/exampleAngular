@@ -2,6 +2,7 @@
 @import "styles/font-awesome/fontawesome";
 @import "styles/font-awesome/fa-brands";
 @import "styles/font-awesome/fa-solid";
+@import "styles/font-awesome/fa-regular";
 
 html, body {
     height: 100%;
@@ -109,4 +110,12 @@ a {
             white-space: nowrap;
         }
     }
+}
+
+.success {
+    color: #28a745;
+}
+
+.danger {
+    color: #dc3545;
 }

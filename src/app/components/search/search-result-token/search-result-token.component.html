@@ -1,25 +1,61 @@
-<a href="{{result.url}}" rel="noopener" target="_blank" class="search-result-token" >
-    <h2 class="search-result-token__title">
-        <a href="{{result.url}}" rel="noopener" target="_blank" class="search-result-token__link">
-            {{result.fullName}}
-        </a>
-    </h2>
+<div class="search-result-token">
+    <div class="search-result-token__header">
+        <h1 class="search-result-token__title">
+            <img [src]="result.imageURL" class="search-result-token__logo"/>
+            {{result.coinName}}
+        </h1>
 
-    <nvd3 [options]="options" [data]="data" *ngIf="this.result.chartValues.length"></nvd3>
-
-    <div class="search-result-token__description">
-        <div>Current price: ${{result.price}}</div>
-        <div *ngIf="result.totalCoinSupply > 0">Max supply: {{result.totalCoinSupply}}</div>
+        <!--<div class="search-result-token__save">-->
+            <!--<app-follow [isFollowed]="false"></app-follow>-->
+        <!--</div>-->
     </div>
 
-    <div class="search-result-token__extras">
-        <a href="{{result.url}}" target="_blank" rel="noopener" class="search-result-token__icon-link">
-            <img height="16" width="16" class="search-result-token__icon" src="{{result.imageURL}}" *ngIf="result.imageURL">
-            <img height="16" width="16" class="search-result-token__icon" src="/assets/images/default-icon.png" *ngIf="!result.imageURL">
-        </a>
-
-        <a href="{{result.url}}" target="_blank" rel="noopener" class="search-result-token__domain-link">
-            {{result.url}}
-        </a>
+    <div class="search-result-token__exchange-rate">
+        <div class="search-result-token__exchange-rate__from">1 {{result.symbol}} =</div>
+        <div class="search-result-token__exchange-rate__to">{{result.price | number }} USD</div>
     </div>
-</a>
+
+    <div class="search-result-token__chart">
+        <h2 class="search-result-token__subtitle">
+            <span class="success" *ngIf="result.delta.deltaValue >= 0">
+                +{{result.delta.deltaValue | number}} USD (+{{result.delta.deltaPercent | number}} %)
+            </span>
+            <span class="danger" *ngIf="result.delta.deltaValue < 0">
+                &minus;{{result.delta.deltaValue | abs | number}} USD (&minus;{{result.delta.deltaPercent | abs | number}} %)
+            </span>
+        </h2>
+
+        <div class="search-result-token__chart__container">
+            <nvd3 class="search-result-token__chart__nvd3" [options]="options" [data]="data" *ngIf="this.result.chartValues.length"></nvd3>
+        </div>
+
+        <div class="search-result-token__chart__description">
+            <div class="search-result-token__chart__description__part">
+                {{result.delta.start.date | date:"MMM dd"}}: ${{result.delta.start.value | number}}<br>
+                {{result.delta.end.date | date:"MMM dd"}}: ${{result.delta.end.value | number}}<br>
+            </div>
+
+            <div class="search-result-token__chart__description__part">
+                Minimum: ${{result.delta.minValue | number}}<br>
+                Maximum: ${{result.delta.maxValue | number}}<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-result-token__capitalization">
+        <h2 class="search-result-token__subtitle">Capitalization</h2>
+
+        <p>
+            <b>Market cap:</b> $144,212,303,661
+        </p>
+        <p>
+            <b>Volume (24h):</b> $6,022,670,000
+        </p>
+        <p>
+            <b>Circulating Supply:</b> $16,862,212
+        </p>
+        <p>
+            <b>Max Supply:</b> $21,000,000
+        </p>
+    </div>
+</div>

@@ -1,16 +1,30 @@
 .search-result-token {
-    cursor: pointer;
-    padding: 7px 10px;
+    padding: 0 10px 7px;
     overflow: hidden;
     border-radius: 3px;
     display: block;
     text-decoration: none;
 
-    &:hover {
-        background-color: #f7f7f7;
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 10px 0 20px;
     }
 
     &__title {
+        position: static;
+        display: flex;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 30px;
+        line-height: 30px;
+        flex: 1;
+        margin: 0;
+    }
+
+    &__subtitle {
         position: static;
         overflow: hidden;
         display: block;
@@ -18,9 +32,70 @@
         vertical-align: middle;
         line-height: 1.15;
         padding: 0;
-        margin: 0;
-        margin-bottom: 0.15em;
+        margin: 0 0 20px 0;
         max-width: 100%;
+    }
+
+    &__logo {
+        width: 22px;
+        height: 22px;
+        margin: 0 5px 0 0;
+    }
+
+    &__exchange-rate {
+        padding: 24px 16px 20px;
+        border: 1px solid #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+        margin-bottom: 20px;
+
+        &__from {
+            font-size: 16px;
+            color: #878787;
+            margin: 0 0 5px 0;
+            line-height: 1;
+        }
+
+        &__to {
+            font-size: 32px;
+            line-height: 1;
+            margin: 0;
+        }
+    }
+
+    &__chart {
+        padding: 24px 16px 20px;
+        border: 1px solid #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+        margin-bottom: 20px;
+
+        &__container {
+            overflow: hidden;
+        }
+
+        &__nvd3 {
+            margin: -30px 0;
+            display: block;
+        }
+
+        &__description {
+            margin-top: 20px;
+            color: #878787;
+            display: flex;
+
+            &__part {
+                flex: 1;
+            }
+        }
+    }
+
+    &__capitalization {
+        padding: 24px 16px 20px;
+        border: 1px solid #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+        margin-bottom: 20px;
     }
 
     &__link {

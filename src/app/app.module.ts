@@ -19,20 +19,21 @@ import {SearchResultLinkComponent} from './components/search/search-result-link/
 import {SearchResultTokenComponent} from './components/search/search-result-token/search-result-token.component';
 import {NvD3Module} from 'ng2-nvd3';
 import {environment} from '../environments/environment';
-import { HomeAboutComponent } from './components/home/home-about/home-about.component';
-import { BlocksComponent } from './components/blocks/blocks.component';
-import { BlocksBlockchainComponent } from './components/blocks/blocks-blockchain/blocks-blockchain.component';
-import { SearchHeaderComponent } from './components/search/search-header/search-header.component';
-import { BlocksTxnEthereumComponent } from './components/blocks/blocks-txn-ethereum/blocks-txn-ethereum.component';
-import { SearchResultAddressComponent } from './components/search/search-result-address/search-result-address.component';
-import { SearchResultAddressEthComponent } from './components/search/search-result-address/search-result-address-eth/search-result-address-eth.component';
-import { SearchResultAddressBtcComponent } from './components/search/search-result-address/search-result-address-btc/search-result-address-btc.component';
-import { SearchResultTransactionComponent } from './components/search/search-result-transaction/search-result-transaction.component';
-import { SearchResultTransactionEthComponent } from './components/search/search-result-transaction/search-result-transaction-eth/search-result-transaction-eth.component';
-import { SearchResultTransactionBtcComponent } from './components/search/search-result-transaction/search-result-transaction-btc/search-result-transaction-btc.component';
-import { SearchResultTransactionLtcComponent } from './components/search/search-result-transaction/search-result-transaction-ltc/search-result-transaction-ltc.component';
-import { FollowComponent } from './components/follow/follow.component';
-import { AbsPipe } from './pipes/abs/abs.pipe';
+import {HomeAboutComponent} from './components/home/home-about/home-about.component';
+import {BlocksComponent} from './components/blocks/blocks.component';
+import {BlocksBlockchainComponent} from './components/blocks/blocks-blockchain/blocks-blockchain.component';
+import {SearchHeaderComponent} from './components/search/search-header/search-header.component';
+import {BlocksTxnEthereumComponent} from './components/blocks/blocks-txn-ethereum/blocks-txn-ethereum.component';
+import {SearchResultAddressComponent} from './components/search/search-result-address/search-result-address.component';
+import {SearchResultAddressEthComponent} from './components/search/search-result-address/search-result-address-eth/search-result-address-eth.component';
+import {SearchResultAddressBtcComponent} from './components/search/search-result-address/search-result-address-btc/search-result-address-btc.component';
+import {SearchResultTransactionComponent} from './components/search/search-result-transaction/search-result-transaction.component';
+import {SearchResultTransactionEthComponent} from './components/search/search-result-transaction/search-result-transaction-eth/search-result-transaction-eth.component';
+import {SearchResultTransactionBtcComponent} from './components/search/search-result-transaction/search-result-transaction-btc/search-result-transaction-btc.component';
+import {SearchResultTransactionLtcComponent} from './components/search/search-result-transaction/search-result-transaction-ltc/search-result-transaction-ltc.component';
+import {FollowComponent} from './components/follow/follow.component';
+import {AbsPipe} from './pipes/abs/abs.pipe';
+import {AddToBookmarksComponent} from './components/add-to-bookmarks/add-to-bookmarks.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -69,6 +70,7 @@ export class RavenErrorHandler implements ErrorHandler {
         SearchResultTransactionLtcComponent,
         FollowComponent,
         AbsPipe,
+        AddToBookmarksComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,36 @@
+.add-to-bookmarks {
+    &__button {
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 100px;
+        background: none;
+        margin: 0;
+        padding: 6px 16px;
+        font-size: 18px;
+        line-height: 28px;
+        cursor: pointer;
+        min-width: 105px;
+        text-align: center;
+        box-shadow: none;
+
+        &:visited,
+        &:focus,
+        &:active,
+        &:hover {
+            outline: 0 none !important;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+    }
+
+    &__instruction {
+        color: #fff;
+        margin: 0;
+        padding: 6px 16px;
+        font-size: 18px;
+        line-height: 28px;
+        text-align: center;
+    }
+}

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CurrencyResult} from '../../../models/currency-result';
+import {Currency} from '../../../models/currency';
 
 @Component({
     selector: 'app-search-result-token',
@@ -7,7 +7,7 @@ import {CurrencyResult} from '../../../models/currency-result';
     styleUrls: ['./search-result-token.component.scss']
 })
 export class SearchResultTokenComponent implements OnInit {
-    @Input() result: CurrencyResult;
+    @Input() result: Currency;
     options;
     data;
 

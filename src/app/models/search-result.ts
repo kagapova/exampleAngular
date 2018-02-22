@@ -1,10 +1,10 @@
 import {Address} from './address';
 import {WebResult} from './web-result';
-import {CurrencyResult} from './currency-result';
+import {Currency} from './currency';
 import {Transaction} from './transaction';
 
 export type SearchResult = (
     Address |
-    CurrencyResult |
+    Currency |
     Transaction |
     WebResult);

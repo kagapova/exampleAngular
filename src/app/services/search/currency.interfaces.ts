@@ -1,4 +1,4 @@
-interface CurrencyResultServer {
+interface CurrencyServer {
     type: 'currency';
     source: string;
     data: {
@@ -10,11 +10,27 @@ interface CurrencyResultServer {
         price: number;
         totalCoinSupply: number;
         url: string;
-        chart: CurrencyCharResultServer[];
+        chart: CurrencyChartServer[];
+        detailedInfo: {
+            general: {
+                algorithm: string;
+                description: string;
+                features: string;
+                proofType: string;
+                technology: string;
+            };
+            ico: {
+                status: string;
+                description: string;
+                fundingTarget: string;
+                fundingCap: string;
+                tokenType: string;
+            };
+        },
     },
 }
 
-interface CurrencyCharResultServer {
+interface CurrencyChartServer {
     timestamp: number;
     closeValue: number;
 }

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
+declare var gtag: Function;
+
 @Component({
     selector: 'app-add-to-bookmarks',
     templateUrl: './add-to-bookmarks.component.html',
@@ -16,5 +18,6 @@ export class AddToBookmarksComponent implements OnInit {
 
     onClick() {
         this.showInstruction = true;
+        gtag('event', 'add_to_bookmarks');
     }
 }

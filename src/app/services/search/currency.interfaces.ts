@@ -3,31 +3,41 @@ interface CurrencyServer {
     source: string;
     data: {
         name: string;
-        coinName: string;
         symbol: string;
         fullName: string;
         image: string;
         price: number;
+        rank: number;
         totalCoinSupply: number;
-        url: string;
-        chart: CurrencyChartServer[];
-        detailedInfo: {
-            general: {
-                algorithm: string;
-                description: string;
-                features: string;
-                proofType: string;
-                technology: string;
-            };
-            ico: {
-                status: string;
-                description: string;
-                fundingTarget: string;
-                fundingCap: string;
-                tokenType: string;
-            };
-        },
-    },
+        urls: {
+            coinmarketcup: string;
+            cryptocompare: string;
+        };
+        charts: {
+            "1d": CurrencyChartServer[];
+            "1w": CurrencyChartServer[];
+            "1m": CurrencyChartServer[];
+            "3m":CurrencyChartServer[];
+            "1y": CurrencyChartServer[];
+            "5y": CurrencyChartServer[];
+        };
+        company: {
+            algorithm: string;
+            description: string;
+            features: string;
+            proofType: string;
+            technology: string;
+        };
+        ico: {
+            status: string;
+            description: string;
+            fundingTarget: string;
+            fundingCap: string;
+            tokenType: string;
+        };
+        resources: Map<string, string>;
+
+    };
 }
 
 interface CurrencyChartServer {

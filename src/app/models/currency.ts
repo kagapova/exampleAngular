@@ -1,42 +1,35 @@
 export class Currency {
+    public static readonly TimePeriod1d = '1d';
+    public static readonly TimePeriod1w = '1w';
+    public static readonly TimePeriod1m = '1m';
+    public static readonly TimePeriod3m = '3m';
+    public static readonly TimePeriod1y = '1y';
+    public static readonly TimePeriod5y = '5y';
+
     public readonly type: string = 'currency';
 
     constructor(public readonly name: string,
-                public readonly fullName: string,
-                public readonly coinName: string,
                 public readonly symbol: string,
                 public readonly imageURL: string,
-                public readonly url: string,
+                public readonly urls: {
+                    coinmarketcup: string
+                    cryptocompare: string
+                },
                 public readonly totalCoinSupply: number,
                 public readonly price: number,
-                public readonly chartValues: ChartValue[],
-                public readonly delta: CurrencyDelta,
+                public readonly charts: Map<string, ChartValue[]>,
                 public readonly company: Company,
                 public readonly ico: ICO) {
     }
 }
 
-export class CurrencyDelta {
-    constructor(public readonly start: {
-                    date: Date,
-                    value: number,
-                },
-                public readonly end: {
-                    date: Date,
-                    value: number,
-                },
-                public readonly minValue: number,
-                public readonly maxValue: number,
-                public readonly deltaValue: number,
-                public readonly deltaPercent: number) {
-    }
-}
 
 export class ChartValue {
     constructor(public readonly x: number,
                 public readonly y: number) {
     }
 }
+
 
 export class Company {
     constructor(public readonly name: string,

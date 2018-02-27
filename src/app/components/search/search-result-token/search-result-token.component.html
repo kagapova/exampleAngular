@@ -2,12 +2,12 @@
     <div class="search-result-token__header">
         <h1 class="search-result-token__title">
             <img [src]="result.imageURL" class="search-result-token__logo"/>
-            {{result.coinName}}
+            {{result.name}}
         </h1>
 
-        <!--<div class="search-result-token__save">-->
-            <!--<app-follow [isFollowed]="false"></app-follow>-->
-        <!--</div>-->
+        <div class="search-result-token__save">
+            <app-follow [isFollowed]="false"></app-follow>
+        </div>
     </div>
 
     <div class="search-result-token__exchange-rate">
@@ -17,27 +17,48 @@
 
     <div class="search-result-token__chart">
         <h2 class="search-result-token__subtitle">
-            <span class="success" *ngIf="result.delta.deltaValue >= 0">
-                +{{result.delta.deltaValue | number}} USD (+{{result.delta.deltaPercent | number}} %)
+            <span class="success" *ngIf="deltaValue >= 0">
+                +{{deltaValue | number}} USD (+{{deltaPercent | number}} %)
             </span>
-            <span class="danger" *ngIf="result.delta.deltaValue < 0">
-                &minus;{{result.delta.deltaValue | abs | number}} USD (&minus;{{result.delta.deltaPercent | abs | number}} %)
+            <span class="danger" *ngIf="deltaValue < 0">
+                &minus;{{deltaValue | abs | number}} USD (&minus;{{deltaPercent | abs | number}} %)
             </span>
         </h2>
 
+        <div class="search-result-token__chart__tabs">
+            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '1d'}" (click)="selectChartTimePeriod('1d')">
+                1 day
+            </div>
+            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '1w'}" (click)="selectChartTimePeriod('1w')">
+                1 week
+            </div>
+            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '1m'}" (click)="selectChartTimePeriod('1m')">
+                1 month
+            </div>
+            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '3m'}" (click)="selectChartTimePeriod('3m')">
+                3 months
+            </div>
+            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '1y'}" (click)="selectChartTimePeriod('1y')">
+                1 year
+            </div>
+            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '5y'}" (click)="selectChartTimePeriod('5y')">
+                5 years
+            </div>
+        </div>
+
         <div class="search-result-token__chart__container">
-            <nvd3 class="search-result-token__chart__nvd3" [options]="options" [data]="data" *ngIf="this.result.chartValues.length"></nvd3>
+            <nvd3 class="search-result-token__chart__nvd3" [options]="chartOptions" [data]="chartData" *ngIf="chartData.length"></nvd3>
         </div>
 
         <div class="search-result-token__chart__description">
             <div class="search-result-token__chart__description__part">
-                {{result.delta.start.date | date:"MMM dd"}}: ${{result.delta.start.value | number}}<br>
-                {{result.delta.end.date | date:"MMM dd"}}: ${{result.delta.end.value | number}}<br>
+                {{deltaStartDate | date:"MMM dd"}}: ${{deltaStartValue | number}}<br>
+                {{deltaEndDate | date:"MMM dd"}}: ${{deltaEndValue | number}}
             </div>
 
             <div class="search-result-token__chart__description__part">
-                Minimum: ${{result.delta.minValue | number}}<br>
-                Maximum: ${{result.delta.maxValue | number}}<br>
+                Minimum: ${{deltaMinValue | number}}<br>
+                Maximum: ${{deltaMaxValue | number}}
             </div>
         </div>
     </div>

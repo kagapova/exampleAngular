@@ -1,31 +1,19 @@
-import {ChartValue, CurrencyDelta, Currency, Company, ICO} from '../../models/currency';
+import {ChartValue, Currency, Company, ICO} from '../../models/currency';
 
 
 export function parseCurrencyResult(result: CurrencyServer): Currency {
-    if (result.source !== 'cryptocompare') {
+    if (result.source !== 'mixed') {
         return null;
-    }
-
-    let chartValues = result.data.chart.map(v => {
-        return new ChartValue(v.timestamp, v.closeValue);
-    });
-
-    let price = result.data.price;
-    if (chartValues.length) {
-        price = chartValues[chartValues.length - 1].y;
     }
 
     return new Currency(
         result.data.name,
-        result.data.fullName,
-        result.data.coinName,
         result.data.symbol,
         result.data.image,
-        result.data.url,
+        result.data.urls,
         result.data.totalCoinSupply,
-        price,
-        chartValues,
-        getcurrencyDelta(result),
+        result.data.price,
+        getTimePeriodChartValues(result),
         getCompany(result),
         getICO(result)
     );
@@ -33,70 +21,45 @@ export function parseCurrencyResult(result: CurrencyServer): Currency {
 
 
 function getICO(result: CurrencyServer): ICO {
-    if (result.data.detailedInfo.ico.status === 'N/A') {
+    if (result.data.ico.status === 'N/A') {
         return null;
     }
 
     return new ICO(
-        result.data.detailedInfo.ico.status,
-        result.data.detailedInfo.ico.fundingTarget,
-        result.data.detailedInfo.ico.fundingCap,
-        result.data.detailedInfo.ico.tokenType
+        result.data.ico.status,
+        result.data.ico.fundingTarget,
+        result.data.ico.fundingCap,
+        result.data.ico.tokenType
     );
 }
 
 
 function getCompany(result: CurrencyServer): Company {
     return new Company(
-        result.data.coinName,
-        result.data.detailedInfo.general.description,
-        result.data.detailedInfo.general.features,
-        result.data.detailedInfo.general.proofType,
-        result.data.detailedInfo.general.technology
+        result.data.name,
+        result.data.company.description,
+        result.data.company.features,
+        result.data.company.proofType,
+        result.data.company.technology
     );
 }
 
 
-function getcurrencyDelta(result: CurrencyServer): CurrencyDelta {
-    let startValue = result.data.chart[0];
-    let endValue = result.data.chart[result.data.chart.length - 1];
-    let deltaValue = endValue.closeValue - startValue.closeValue;
+function getTimePeriodChartValues(response: CurrencyServer): Map<string, ChartValue[]> {
+    let result = new Map<string, ChartValue[]>();
+    result[Currency.TimePeriod1d] = getChartValues(response.data.charts['1d']);
+    result[Currency.TimePeriod1w] = getChartValues(response.data.charts['1w']);
+    result[Currency.TimePeriod1m] = getChartValues(response.data.charts['1m']);
+    result[Currency.TimePeriod3m] = getChartValues(response.data.charts['3m']);
+    result[Currency.TimePeriod1y] = getChartValues(response.data.charts['1y']);
+    result[Currency.TimePeriod5y] = getChartValues(response.data.charts['5y']);
 
-    let deltaPercent = deltaValue / (startValue.closeValue / 100);
-    deltaPercent = Math.round(100 * deltaPercent) / 100;
-
-    let minValue = 999999999999;
-    let maxValue = 0;
-    for (let char of result.data.chart) {
-        if (char.closeValue < minValue) {
-            minValue = char.closeValue;
-        }
-
-        if (char.closeValue > maxValue) {
-            maxValue = char.closeValue;
-        }
-    }
-
-    return new CurrencyDelta(
-        {
-            date: getDate(startValue.timestamp),
-            value: startValue.closeValue,
-        },
-        {
-            date: getDate(endValue.timestamp),
-            value: endValue.closeValue,
-        },
-        minValue,
-        maxValue,
-        deltaValue,
-        deltaPercent
-    );
+    return result;
 }
 
 
-function getDate(timestamp: number): Date {
-    let date = new Date();
-    date.setTime(timestamp * 1000);
-
-    return date;
+function getChartValues(chart: CurrencyChartServer[]): ChartValue[] {
+    return chart.map(v => {
+        return new ChartValue(v.timestamp, v.closeValue);
+    });
 }

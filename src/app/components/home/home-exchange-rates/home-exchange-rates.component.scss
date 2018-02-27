@@ -6,11 +6,11 @@
     justify-content: center;
 
     &__rate {
-        padding: 0 25px;
         text-align: center;
+        border: 0;
         border-right: 1px solid;
-        border-image:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0), #a5a5a5, rgba(0, 0, 0, 0)) 1 100%;
+        border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #a5a5a5, rgba(0, 0, 0, 0)) 1 100%;
+        min-width: 150px;
 
         &:last-child {
             border-right: 0;
@@ -33,11 +33,9 @@
             line-height: 0.88;
         }
 
-
         &--bitcoin {
             color: #feb949;
         }
-
 
         &--ethereum {
             color: #07b791;

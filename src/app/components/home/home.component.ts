@@ -21,6 +21,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
     }
 
     ngAfterContentInit() {
-        window.optimizely.push(["activate", 10325991945]);
+        window.optimizely.push(['activate', 10325991945]);
     }
 }

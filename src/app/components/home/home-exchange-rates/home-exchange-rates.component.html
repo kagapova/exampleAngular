@@ -1,0 +1,13 @@
+<div class="home-exchange-rates">
+    <div *ngFor="let result of exchangeRatesResults$ | async" class="home-exchange-rates__rate home-exchange-rates__rate--{{result.blockchain.name.toLowerCase()}}">
+        <div class="home-exchange-rates__rate__icon">
+            <i class="fab fa-{{result.blockchain.name.toLowerCase()}}"></i>
+        </div>
+        <div class="home-exchange-rates__rate__name">
+            {{result.blockchain.name.toLowerCase()}}
+        </div>
+        <div class="home-exchange-rates__rate__value">
+            ${{result.value | number}}
+        </div>
+    </div>
+</div>

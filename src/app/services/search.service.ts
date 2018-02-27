@@ -13,7 +13,7 @@ import {parseTransaction} from './search/transaction';
 
 @Injectable()
 export class SearchService {
-    private searchUrl = '/api/search/v2';
+    private url = '/api/search/v2';
     private searchTerm = '';
     private searchResults = new Subject<SearchResult[]>();
 
@@ -45,7 +45,7 @@ export class SearchService {
 
         this.searchResults.next(null);
 
-        let apiURL = `${this.searchUrl}?request=${term}&page=1&pagesize=20`;
+        let apiURL = `${this.url}?request=${term}&page=1&pagesize=20`;
 
         this.http.get(apiURL, {observe: 'response'})
             .pipe(

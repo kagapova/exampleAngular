@@ -34,6 +34,8 @@ import {SearchResultTransactionLtcComponent} from './components/search/search-re
 import {FollowComponent} from './components/follow/follow.component';
 import {AbsPipe} from './pipes/abs/abs.pipe';
 import {AddToBookmarksComponent} from './components/add-to-bookmarks/add-to-bookmarks.component';
+import {ExchangeRatesService} from './services/exchange-rates.service';
+import {HomeExchangeRatesComponent} from './components/home/home-exchange-rates/home-exchange-rates.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -71,6 +73,7 @@ export class RavenErrorHandler implements ErrorHandler {
         FollowComponent,
         AbsPipe,
         AddToBookmarksComponent,
+        HomeExchangeRatesComponent,
     ],
     imports: [
         BrowserModule,
@@ -80,6 +83,7 @@ export class RavenErrorHandler implements ErrorHandler {
         NvD3Module,
     ],
     providers: [
+        ExchangeRatesService,
         SearchService,
         {provide: ErrorHandler, useClass: RavenErrorHandler},
     ],

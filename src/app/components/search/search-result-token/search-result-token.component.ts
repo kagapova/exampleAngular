@@ -9,7 +9,7 @@ import {Currency} from '../../../models/currency';
 export class SearchResultTokenComponent implements OnInit {
     @Input() result: Currency;
 
-    chartTimePeriod: string = Currency.TimePeriod1y;
+    chartTimePeriod: string = Currency.TimePeriod1w;
     chartOptions;
     chartData;
 

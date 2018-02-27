@@ -2,7 +2,7 @@ import {ChartValue, CurrencyDelta, Currency, Company, ICO} from '../../models/cu
 
 
 export function parseCurrencyResult(result: CurrencyServer): Currency {
-    if (result.source === 'coinmarketcap') {
+    if (result.source !== 'cryptocompare') {
         return null;
     }
 

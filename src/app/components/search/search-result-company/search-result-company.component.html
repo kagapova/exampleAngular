@@ -1,0 +1,72 @@
+<div class="search-result-company">
+    <div class="search-result-company__about">
+        <h2 class="search-result-company__about__title">About company</h2>
+
+        <p>
+            <b>Rating:</b> {{result.rating}}
+        </p>
+
+        <p>{{result.description}}</p>
+
+        <p class="search-result-company__about__more">
+            Country: {{result.country}}<br>
+            Category: {{result.category}}<br>
+            Chain: {{result.chain}}<br>
+        </p>
+
+        <p>
+            Pre ICO: {{result.preIcoStart | date:'MMM. dd, yyyy' }} - {{result.preIcoEnd | date:'MMM. dd, yyyy' }}<br>
+            ICO: {{result.icoStart | date:'MMM. dd, yyyy' }} - {{result.icoEnd | date:'MMM. dd, yyyy' }}
+        </p>
+
+        <a class="search-result-company__roadmap__link" rel="noopener" target="_blank" href="{{result.url}}">
+            <img class="search-result-company__roadmap__link__icon" src="{{result.url | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></a>
+        <a [href]="result.url" class="search-result-company__about__link" rel="noopener" target="_blank">
+            {{result.url}}
+        </a>
+    </div>
+
+    <div class="search-result-company__team">
+        <h2 class="search-result-company__team__title">Team</h2>
+
+        <p class="search-result-company__team__member" *ngFor="let member of showedMembers">
+            <b>{{member.name}}</b>
+
+            <a href="{{member.facebookURL}}" rel="noopener" target="_blank" *ngIf="member.facebookURL">
+                <i class="fab fa-facebook facebook"></i></a>
+
+            <a href="{{member.twitterURL}}" rel="noopener" target="_blank" *ngIf="member.twitterURL">
+                <i class="fab fa-twitter twitter"></i></a>
+
+            <a href="{{member.linkedinURL}}" rel="noopener" target="_blank" *ngIf="member.linkedinURL">
+                <i class="fab fa-linkedin linkedin"></i></a>
+
+            <br>
+
+            {{member.role}}
+        </p>
+
+        <button class="search-result-company__team__all" (click)="showAllTeam()" *ngIf="!showedAllTeam">Show All Team</button>
+
+        <a class="search-result-company__roadmap__link" rel="noopener" target="_blank" href="{{result.url}}#team">
+            <img class="search-result-company__roadmap__link__icon" src="{{result.url | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></a>
+        <a href="{{result.url}}#team" class="search-result-company__team__link" rel="noopener" target="_blank">
+            {{result.url}}
+        </a>
+    </div>
+
+    <div class="search-result-company__roadmap">
+        <h2 class="search-result-company__roadmap__title">Roadmap</h2>
+
+        <p class="search-result-company__roadmap__step" *ngFor="let step of result.roadmap">
+            <b>{{step.name}}</b><br>
+            <span [innerHTML]="step.description"></span>
+        </p>
+
+        <a class="search-result-company__roadmap__link" rel="noopener" target="_blank" href="{{result.url}}#milestones">
+            <img class="search-result-company__roadmap__link__icon" src="{{result.url | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></a>
+        <a href="{{result.url}}#milestones" class="search-result-company__roadmap__link" rel="noopener" target="_blank" >
+            {{result.url}}
+        </a>
+    </div>
+</div>

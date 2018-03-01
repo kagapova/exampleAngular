@@ -10,6 +10,7 @@ import {parseAddressResult} from './search/address';
 import {parseWebResult} from './search/web';
 import {parseCurrencyResult} from './search/currency';
 import {parseTransaction} from './search/transaction';
+import {parseCompany} from './search/company';
 
 @Injectable()
 export class SearchService {
@@ -45,7 +46,7 @@ export class SearchService {
 
         this.searchResults.next(null);
 
-        let apiURL = `${this.url}?request=${term}&page=1&pagesize=20`;
+        let apiURL = `${this.url}?request=${term}`;
 
         this.http.get(apiURL, {observe: 'response'})
             .pipe(
@@ -88,6 +89,9 @@ export class SearchService {
 
             case 'txn':
                 return parseTransaction(result);
+
+            case 'company':
+                return parseCompany(result);
 
             default:
                 // todo write to sentry

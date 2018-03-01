@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AbsPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
+  transform(value: number, args?: any): number {
     return Math.abs(value);
   }
 

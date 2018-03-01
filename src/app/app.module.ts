@@ -36,6 +36,8 @@ import {AbsPipe} from './pipes/abs/abs.pipe';
 import {AddToBookmarksComponent} from './components/add-to-bookmarks/add-to-bookmarks.component';
 import {ExchangeRatesService} from './services/exchange-rates.service';
 import {HomeExchangeRatesComponent} from './components/home/home-exchange-rates/home-exchange-rates.component';
+import { SearchResultCompanyComponent } from './components/search/search-result-company/search-result-company.component';
+import { FaviconPipe } from './pipes/favicon/favicon.pipe';
 
 Raven
     .config(environment.ravenDSN)
@@ -74,6 +76,8 @@ export class RavenErrorHandler implements ErrorHandler {
         AbsPipe,
         AddToBookmarksComponent,
         HomeExchangeRatesComponent,
+        SearchResultCompanyComponent,
+        FaviconPipe,
     ],
     imports: [
         BrowserModule,

@@ -79,16 +79,4 @@
             <b>Max Supply:</b> $21,000,000
         </p>
     </div>
-
-    <div class="search-result-token__about-company" *ngIf="result.company">
-        <h2 class="search-result-token__subtitle">About {{result.company.name}}</h2>
-        <span [innerHTML]="result.company.description"></span>
-    </div>
-
-    <div class="search-result-token__ico" *ngIf="result.ico">
-        <h2 class="search-result-token__subtitle">{{result.company.name}} ICO</h2>
-        <p><b>Status:</b> {{result.ico.status}}</p>
-        <p><b>Funding Target:</b> {{result.ico.fundingTarget}}</p>
-        <p><b>Funding Cap:</b> {{result.ico.fundingCap}}</p>
-    </div>
 </div>

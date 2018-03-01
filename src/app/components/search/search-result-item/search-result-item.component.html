@@ -1,5 +1,6 @@
 <div class="search-result-item" [ngSwitch]="result.type">
     <app-search-result-address [result]="result" *ngSwitchCase="['address']"></app-search-result-address>
+    <app-search-result-company [result]="result" *ngSwitchCase="['company']"></app-search-result-company>
     <app-search-result-token [result]="result" *ngSwitchCase="['currency']"></app-search-result-token>
     <app-search-result-transaction [result]="result" *ngSwitchCase="['transaction']"></app-search-result-transaction>
     <app-search-result-link [result]="result" *ngSwitchCase="['web']"></app-search-result-link>

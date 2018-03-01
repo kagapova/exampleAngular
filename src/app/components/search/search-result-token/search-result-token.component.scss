@@ -1,6 +1,6 @@
+@import "../search.mixins";
+
 .search-result-token {
-    padding: 0 10px 7px;
-    overflow: hidden;
     border-radius: 3px;
     display: block;
     text-decoration: none;
@@ -43,11 +43,7 @@
     }
 
     &__exchange-rate {
-        padding: 24px 16px 20px;
-        border: 1px solid #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-        margin-bottom: 20px;
+        @include block;
 
         &__from {
             font-size: 16px;
@@ -64,11 +60,7 @@
     }
 
     &__chart {
-        padding: 24px 16px 20px;
-        border: 1px solid #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-        margin-bottom: 20px;
+        @include block;
 
         &__container {
             overflow: hidden;
@@ -114,27 +106,16 @@
     }
 
     &__capitalization {
-        padding: 24px 16px 20px;
-        border: 1px solid #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-        margin-bottom: 20px;
+        @include block;
+        margin-bottom: 0;
     }
 
     &__about-company {
-        padding: 24px 16px 20px;
-        border: 1px solid #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-        margin-bottom: 20px;
+        @include block;
     }
 
     &__ico {
-        padding: 24px 16px 20px;
-        border: 1px solid #fff;
-        border-radius: 2px;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-        margin-bottom: 20px;
+        @include block;
     }
 
     &__link {

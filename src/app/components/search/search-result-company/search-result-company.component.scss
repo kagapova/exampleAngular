@@ -1,0 +1,63 @@
+@import "../search.mixins";
+
+.search-result-company {
+    &__about {
+        @include block;
+
+        &__title {
+            @include block-title;
+        }
+
+        &__more {
+            color: #878787;
+        }
+
+        &__link {
+            @include block-footer-link;
+        }
+    }
+
+    &__team {
+        @include block;
+
+        &__title {
+            @include block-title;
+        }
+
+        &__link {
+            @include block-footer-link;
+        }
+
+        &__member {
+
+        }
+
+        &__all {
+            display: block;
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.16);
+            border-radius: 3px;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    }
+
+    &__roadmap {
+        @include block;
+
+        &__title {
+            @include block-title;
+        }
+
+        &__link {
+            @include block-footer-link;
+        }
+
+        &__link__icon {
+            @include block-footer-icon;
+        }
+    }
+}

@@ -21,7 +21,7 @@ export function parseCurrencyResult(result: CurrencyServer): Currency {
 
 
 function getICO(result: CurrencyServer): ICO {
-    if (result.data.ico.status === 'N/A') {
+    if (!result.data.ico || result.data.ico.status === 'N/A') {
         return null;
     }
 
@@ -35,6 +35,10 @@ function getICO(result: CurrencyServer): ICO {
 
 
 function getCompany(result: CurrencyServer): Company {
+    if (!result.data.company) {
+        return null;
+    }
+
     return new Company(
         result.data.name,
         result.data.company.description,
@@ -59,6 +63,10 @@ function getTimePeriodChartValues(response: CurrencyServer): Map<string, ChartVa
 
 
 function getChartValues(chart: CurrencyChartServer[]): ChartValue[] {
+    if (!chart || !chart.length) {
+        return [];
+    }
+
     return chart.map(v => {
         return new ChartValue(v.timestamp, v.closeValue);
     });

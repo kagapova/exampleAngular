@@ -126,6 +126,9 @@ export class SearchResultTokenComponent implements OnInit {
 
     private updateDeltaData() {
         let values = this.result.charts[this.chartTimePeriod];
+        if (!values.length) {
+            return
+        }
 
         for (let value of values) {
             if (value.y > 0) {

@@ -15,7 +15,7 @@
         <div class="search-result-token__exchange-rate__to">{{result.price | number }} USD</div>
     </div>
 
-    <div class="search-result-token__chart">
+    <div class="search-result-token__chart" *ngIf="deltaValue">
         <h2 class="search-result-token__subtitle">
             <span class="success" *ngIf="deltaValue >= 0">
                 +{{deltaValue | number}} USD (+{{deltaPercent | number}} %)

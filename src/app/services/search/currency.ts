@@ -51,7 +51,7 @@ function getCompany(result: CurrencyServer): Company {
 
 
 function getCapitalization(result: CurrencyServer): CurrencyCapitalization {
-    if (!result.data.company) {
+    if (!result.data.usdMarketCap) {
         return null;
     }
 

@@ -20,7 +20,7 @@
         </div>
 
         <div class="search-result-token__content__additional">
-            <app-search-block-capitalization [capitalization]="currency.capitalization" [symbol]="currency.symbol"></app-search-block-capitalization>
+            <app-search-block-capitalization *ngIf="currency.capitalization" [capitalization]="currency.capitalization" [symbol]="currency.symbol"></app-search-block-capitalization>
             <app-search-block-company-about *ngIf="company" [company]="company"></app-search-block-company-about>
         </div>
     </div>

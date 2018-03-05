@@ -31,17 +31,28 @@
     }
 
     &__content {
-        display: flex;
+        display: block;
 
         &__main {
-            flex: 100;
             max-width: 590px;
-            margin: 0 20px 0 0;
         }
 
         &__additional {
-            flex: 1;
-            max-width: 390px;
+            max-width: 590px;
+        }
+
+        @media (min-width: 1000px) {
+            display: flex;
+
+            &__main {
+                flex: 1;
+                margin: 0 20px 0 0;
+            }
+
+            &__additional {
+                flex: 1;
+                max-width: 390px;
+            }
         }
     }
 }

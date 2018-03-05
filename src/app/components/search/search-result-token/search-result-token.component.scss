@@ -24,140 +24,24 @@
         margin: 0;
     }
 
-    &__subtitle {
-        position: static;
-        overflow: hidden;
-        display: block;
-        font-size: 1.31em;
-        vertical-align: middle;
-        line-height: 1.15;
-        padding: 0;
-        margin: 0 0 20px 0;
-        max-width: 100%;
-    }
-
     &__logo {
         width: 22px;
         height: 22px;
         margin: 0 5px 0 0;
     }
 
-    &__exchange-rate {
-        @include block;
-
-        &__from {
-            font-size: 16px;
-            color: #878787;
-            margin: 0 0 5px 0;
-            line-height: 1;
-        }
-
-        &__to {
-            font-size: 32px;
-            line-height: 1;
-            margin: 0;
-        }
-    }
-
-    &__chart {
-        @include block;
-
-        &__container {
-            overflow: hidden;
-        }
-
-        &__nvd3 {
-            margin: -30px 0;
-            display: block;
-        }
-
-        &__description {
-            margin-top: 20px;
-            color: #878787;
-            display: flex;
-
-            &__part {
-                flex: 1;
-            }
-        }
-
-        &__tabs {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.16);
-            margin: 0 -18px 20px;
-            display: flex;
-            padding: 0 20px;
-        }
-
-        &__tab {
-            flex: 1;
-            border-right: 1px solid rgba(0, 0, 0, 0.16);
-            text-align: center;
-            cursor: pointer;
-
-            &:last-child {
-                border-right: 0;
-            }
-
-            &--selected {
-                color: #dd4b39;
-                border-bottom: 2px solid #dd4b39;
-            }
-        }
-    }
-
-    &__capitalization {
-        @include block;
-        margin-bottom: 0;
-    }
-
-    &__about-company {
-        @include block;
-    }
-
-    &__ico {
-        @include block;
-    }
-
-    &__link {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 1.22;
-        margin-bottom: -0.05em;
-        vertical-align: middle;
-        display: inline-block;
-        max-width: 100%;
-        color: #084999;
-
-        &:visited,
-        &:visited:hover {
-            color: #6c00a2;
-        }
-    }
-
-    &__description {
-        font-size: .9176em;
-        color: #494949;
-        line-height: 1.45;
-        margin: 0 0 0.2em;
-    }
-
-    &__extras {
+    &__content {
         display: flex;
-    }
 
-    &__icon-link {
-        margin-right: .5em;
-    }
+        &__main {
+            flex: 100;
+            max-width: 590px;
+            margin: 0 20px 0 0;
+        }
 
-    &__domain-link {
-        color: #888;
-        line-height: 16px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: auto;
-        max-width: 100%;
-        font-size: .9176em;
+        &__additional {
+            flex: 1;
+            max-width: 390px;
+        }
     }
 }

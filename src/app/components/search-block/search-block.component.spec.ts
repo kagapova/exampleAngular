@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {SearchResultTokenComponent} from './search-result-token.component';
+import {SearchBlockComponent} from './search-block.component';
 
-describe('SearchResultTokenComponent', () => {
-    let component: SearchResultTokenComponent;
-    let fixture: ComponentFixture<SearchResultTokenComponent>;
+describe('SearchBlockComponent', () => {
+    let component: SearchBlockComponent;
+    let fixture: ComponentFixture<SearchBlockComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [SearchResultTokenComponent]
+            declarations: [SearchBlockComponent]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(SearchResultTokenComponent);
+        fixture = TestBed.createComponent(SearchBlockComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

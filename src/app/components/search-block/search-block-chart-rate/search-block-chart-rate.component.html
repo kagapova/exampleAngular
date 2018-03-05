@@ -1,0 +1,47 @@
+<div class="search-block-chart-rate" *ngIf="deltaValue">
+    <h2 class="search-block-chart-rate__title">
+            <span class="success" *ngIf="deltaValue >= 0">
+                +{{deltaValue | number}} USD (+{{deltaPercent | number}} %)
+            </span>
+        <span class="danger" *ngIf="deltaValue < 0">
+                &minus;{{deltaValue | abs | number}} USD (&minus;{{deltaPercent | abs | number}} %)
+            </span>
+    </h2>
+
+    <div class="search-block-chart-rate__tabs">
+        <div class="search-block-chart-rate__tab" [ngClass]="{'search-block-chart-rate__tab--selected': chartTimePeriod === '1d'}" (click)="selectChartTimePeriod('1d')">
+            1 day
+        </div>
+        <div class="search-block-chart-rate__tab" [ngClass]="{'search-block-chart-rate__tab--selected': chartTimePeriod === '1w'}" (click)="selectChartTimePeriod('1w')">
+            1 week
+        </div>
+        <div class="search-block-chart-rate__tab" [ngClass]="{'search-block-chart-rate__tab--selected': chartTimePeriod === '1m'}" (click)="selectChartTimePeriod('1m')">
+            1 month
+        </div>
+        <div class="search-block-chart-rate__tab" [ngClass]="{'search-block-chart-rate__tab--selected': chartTimePeriod === '3m'}" (click)="selectChartTimePeriod('3m')">
+            3 months
+        </div>
+        <div class="search-block-chart-rate__tab" [ngClass]="{'search-block-chart-rate__tab--selected': chartTimePeriod === '1y'}" (click)="selectChartTimePeriod('1y')">
+            1 year
+        </div>
+        <div class="search-block-chart-rate__tab" [ngClass]="{'search-block-chart-rate__tab--selected': chartTimePeriod === '5y'}" (click)="selectChartTimePeriod('5y')">
+            5 years
+        </div>
+    </div>
+
+    <div class="search-block-chart-rate__container">
+        <nvd3 class="search-block-chart-rate__nvd3" [options]="chartOptions" [data]="chartData" *ngIf="chartData.length"></nvd3>
+    </div>
+
+    <div class="search-block-chart-rate__description">
+        <div class="search-block-chart-rate__description__part">
+            {{deltaStartDate | date:"MMM dd"}}: ${{deltaStartValue | number}}<br>
+            {{deltaEndDate | date:"MMM dd"}}: ${{deltaEndValue | number}}
+        </div>
+
+        <div class="search-block-chart-rate__description__part">
+            Minimum: ${{deltaMinValue | number}}<br>
+            Maximum: ${{deltaMaxValue | number}}
+        </div>
+    </div>
+</div>

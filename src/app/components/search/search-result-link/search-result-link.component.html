@@ -1,20 +1,3 @@
-<a href="{{result.url}}" rel="noopener" target="_blank" class="search-result-link" >
-    <h2 class="search-result-link__title">
-        <a href="{{result.url}}" rel="noopener" target="_blank" class="search-result-link__link">
-            {{result.title}}
-        </a>
-    </h2>
-
-    <div class="search-result-link__description" [innerHTML]="result.description"></div>
-
-    <div class="search-result-link__extras">
-        <a href="{{result.url}}" target="_blank" rel="noopener" class="search-result-link__icon-link">
-            <img height="16" width="16" src="{{result.imageURL}}" onerror="this.src='/assets/images/default-icon.png'"
-                 class="search-result-link__icon">
-        </a>
-
-        <a href="{{result.url}}" target="_blank" rel="noopener" class="search-result-link__domain-link">
-            {{result.url}}
-        </a>
-    </div>
-</a>
+<div class="search-result-list">
+    <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>
+</div>

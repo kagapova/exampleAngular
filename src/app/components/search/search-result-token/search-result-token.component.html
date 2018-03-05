@@ -1,8 +1,8 @@
 <div class="search-result-token">
     <div class="search-result-token__header">
         <h1 class="search-result-token__title">
-            <img [src]="result.imageURL" class="search-result-token__logo"/>
-            {{result.name}}
+            <img [src]="currency.imageURL" class="search-result-token__logo"/>
+            {{currency.name}}
         </h1>
 
         <!--<div class="search-result-token__save">-->
@@ -10,73 +10,18 @@
         <!--</div>-->
     </div>
 
-    <div class="search-result-token__exchange-rate">
-        <div class="search-result-token__exchange-rate__from">1 {{result.symbol}} =</div>
-        <div class="search-result-token__exchange-rate__to">{{result.price | number }} USD</div>
-    </div>
+    <div class="search-result-token__content">
+        <div class="search-result-token__content__main">
+            <app-search-block-exchange-rate [symbol]="currency.symbol" [price]="currency.price"></app-search-block-exchange-rate>
 
-    <div class="search-result-token__chart" *ngIf="deltaValue">
-        <h2 class="search-result-token__subtitle">
-            <span class="success" *ngIf="deltaValue >= 0">
-                +{{deltaValue | number}} USD (+{{deltaPercent | number}} %)
-            </span>
-            <span class="danger" *ngIf="deltaValue < 0">
-                &minus;{{deltaValue | abs | number}} USD (&minus;{{deltaPercent | abs | number}} %)
-            </span>
-        </h2>
+            <app-search-block-chart-rate [values]="currency.charts"></app-search-block-chart-rate>
 
-        <div class="search-result-token__chart__tabs">
-            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '1d'}" (click)="selectChartTimePeriod('1d')">
-                1 day
-            </div>
-            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '1w'}" (click)="selectChartTimePeriod('1w')">
-                1 week
-            </div>
-            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '1m'}" (click)="selectChartTimePeriod('1m')">
-                1 month
-            </div>
-            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '3m'}" (click)="selectChartTimePeriod('3m')">
-                3 months
-            </div>
-            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '1y'}" (click)="selectChartTimePeriod('1y')">
-                1 year
-            </div>
-            <div class="search-result-token__chart__tab" [ngClass]="{'search-result-token__chart__tab--selected': chartTimePeriod === '5y'}" (click)="selectChartTimePeriod('5y')">
-                5 years
-            </div>
+            <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>
         </div>
 
-        <div class="search-result-token__chart__container">
-            <nvd3 class="search-result-token__chart__nvd3" [options]="chartOptions" [data]="chartData" *ngIf="chartData.length"></nvd3>
+        <div class="search-result-token__content__additional">
+            <app-search-block-capitalization [capitalization]="currency.capitalization" [symbol]="currency.symbol"></app-search-block-capitalization>
+            <app-search-block-company-about *ngIf="company" [company]="company"></app-search-block-company-about>
         </div>
-
-        <div class="search-result-token__chart__description">
-            <div class="search-result-token__chart__description__part">
-                {{deltaStartDate | date:"MMM dd"}}: ${{deltaStartValue | number}}<br>
-                {{deltaEndDate | date:"MMM dd"}}: ${{deltaEndValue | number}}
-            </div>
-
-            <div class="search-result-token__chart__description__part">
-                Minimum: ${{deltaMinValue | number}}<br>
-                Maximum: ${{deltaMaxValue | number}}
-            </div>
-        </div>
-    </div>
-
-    <div class="search-result-token__capitalization">
-        <h2 class="search-result-token__subtitle">Capitalization</h2>
-
-        <p>
-            <b>Market cap:</b> $144,212,303,661
-        </p>
-        <p>
-            <b>Volume (24h):</b> $6,022,670,000
-        </p>
-        <p>
-            <b>Circulating Supply:</b> $16,862,212
-        </p>
-        <p>
-            <b>Max Supply:</b> $21,000,000
-        </p>
     </div>
 </div>

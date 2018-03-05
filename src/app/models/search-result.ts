@@ -10,3 +10,15 @@ export type SearchResult = (
     Currency |
     Transaction |
     WebResult);
+
+
+export type SearchResults = {
+    type: string;
+    data: {
+        address: Address;
+        company: Company;
+        currency: Currency;
+        txn: Transaction;
+        web: WebResult[];
+    };
+}

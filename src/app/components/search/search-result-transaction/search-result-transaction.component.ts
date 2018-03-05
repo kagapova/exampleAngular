@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Transaction} from '../../../models/transaction';
+import {SearchResults} from '../../../models/search-result';
 
 @Component({
     selector: 'app-search-result-transaction',
@@ -7,11 +8,13 @@ import {Transaction} from '../../../models/transaction';
     styleUrls: ['./search-result-transaction.component.scss']
 })
 export class SearchResultTransactionComponent implements OnInit {
-    @Input() result: Transaction;
+    @Input() result: SearchResults;
+    transaction: Transaction;
 
     constructor() {
     }
 
     ngOnInit() {
+        this.transaction = this.result.data.txn;
     }
 }

@@ -4,7 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {retry} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
-import {SearchResult} from '../models/search-result';
+import {SearchResult, SearchResults} from '../models/search-result';
 import {Subject} from 'rxjs/Subject';
 import {parseAddressResult} from './search/address';
 import {parseWebResult} from './search/web';
@@ -12,11 +12,12 @@ import {parseCurrencyResult} from './search/currency';
 import {parseTransaction} from './search/transaction';
 import {parseCompany} from './search/company';
 
+
 @Injectable()
 export class SearchService {
     private url = '/api/search/v2';
     private searchTerm = '';
-    private searchResults = new Subject<SearchResult[]>();
+    private searchResults = new Subject<SearchResults>();
 
     constructor(private http: HttpClient,
                 private route: ActivatedRoute) {
@@ -33,7 +34,7 @@ export class SearchService {
         return this.searchTerm;
     }
 
-    getSearchResults(): Observable<SearchResult[]> {
+    getSearchResults(): Observable<SearchResults> {
         return this.searchResults;
     }
 
@@ -63,14 +64,37 @@ export class SearchService {
         this.searchResults.next(null);
     }
 
-    private parseResults(results: any[]): SearchResult[] {
-        let searchResults = [];
+    private parseResults(results: any[]): SearchResults {
+        let searchResults: SearchResults = {
+            type: '',
+            data: {
+                address: null,
+                company: null,
+                currency: null,
+                txn: null,
+                web: [],
+            }
+        };
 
         for (let result of results) {
             let searchResult = this.parseResult(result);
             if (searchResult !== null) {
-                searchResults.push(searchResult);
+                if (result.type === 'web') {
+                    searchResults.data[result.type].push(searchResult);
+                } else {
+                    searchResults.data[result.type] = searchResult;
+                }
             }
+        }
+
+        if (searchResults.data.currency !== null) {
+            searchResults.type = 'currency';
+        } else if (searchResults.data.address !== null) {
+            searchResults.type = 'address';
+        } else if (searchResults.data.txn !== null) {
+            searchResults.type = 'txn';
+        } else {
+            searchResults.type = 'web';
         }
 
         return searchResults;

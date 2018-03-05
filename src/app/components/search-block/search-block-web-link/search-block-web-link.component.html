@@ -1,0 +1,20 @@
+<a href="{{webLink.url}}" rel="noopener" target="_blank" class="search-block-web-link" >
+    <h2 class="search-block-web-link__title">
+        <a href="{{webLink.url}}" rel="noopener" target="_blank" class="search-block-web-link__link">
+            {{webLink.title}}
+        </a>
+    </h2>
+
+    <div class="search-block-web-link__description" [innerHTML]="webLink.description"></div>
+
+    <div class="search-block-web-link__extras">
+        <a href="{{webLink.url}}" target="_blank" rel="noopener" class="search-block-web-link__icon-link">
+            <img height="16" width="16" src="{{webLink.imageURL}}" onerror="this.src='/assets/images/default-icon.png'"
+                 class="search-block-web-link__icon">
+        </a>
+
+        <a href="{{webLink.url}}" target="_blank" rel="noopener" class="search-block-web-link__domain-link">
+            {{webLink.url}}
+        </a>
+    </div>
+</a>

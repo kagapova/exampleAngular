@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {SearchResultTokenComponent} from './search-result-token.component';
+import {SearchBlockWebLinkListComponent} from './search-block-web-link-list.component';
 
-describe('SearchResultTokenComponent', () => {
-    let component: SearchResultTokenComponent;
-    let fixture: ComponentFixture<SearchResultTokenComponent>;
+describe('SearchBlockWebLinkListComponent', () => {
+    let component: SearchBlockWebLinkListComponent;
+    let fixture: ComponentFixture<SearchBlockWebLinkListComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [SearchResultTokenComponent]
+            declarations: [SearchBlockWebLinkListComponent]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(SearchResultTokenComponent);
+        fixture = TestBed.createComponent(SearchBlockWebLinkListComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

@@ -4,6 +4,10 @@
 @import "styles/font-awesome/fa-solid";
 @import "styles/font-awesome/fa-regular";
 
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
     min-height: 100%;
@@ -118,6 +122,10 @@ a {
 
 .danger {
     color: #dc3545;
+}
+
+.secondary {
+    color: #878787;
 }
 
 .linkedin {

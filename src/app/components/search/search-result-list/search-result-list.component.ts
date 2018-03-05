@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
-import {SearchService} from "../../../services/search.service";
-import {SearchResult} from "../../../models/search-result";
-import {Observable} from "rxjs/Observable";
+import {SearchService} from '../../../services/search.service';
+import {SearchResults} from '../../../models/search-result';
+import {Observable} from 'rxjs/Observable';
 
 
 @Component({
@@ -11,8 +11,8 @@ import {Observable} from "rxjs/Observable";
     styleUrls: ['./search-result-list.component.scss']
 })
 export class SearchResultListComponent implements OnInit {
-    searchResults$: Observable<SearchResult[]>;
-    updateSearchResults = true;
+    searchResults$: Observable<SearchResults>;
+    searchResults: SearchResults;
 
     constructor(private searchService: SearchService) {
     }
@@ -20,7 +20,7 @@ export class SearchResultListComponent implements OnInit {
     ngOnInit() {
         this.searchResults$ = this.searchService.getSearchResults();
         this.searchResults$.subscribe(results => {
-            this.updateSearchResults = (results === null);
+            this.searchResults = results;
         });
     }
 }

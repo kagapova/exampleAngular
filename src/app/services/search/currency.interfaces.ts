@@ -9,6 +9,10 @@ interface CurrencyServer {
         price: number;
         rank: number;
         totalCoinSupply: number;
+        usdMarketCap: number;
+        usdDailyVolume: number;
+        circulatingSupply: number;
+        maxSupply: number;
         urls: {
             coinmarketcup: string;
             cryptocompare: string;

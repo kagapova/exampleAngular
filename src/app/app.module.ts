@@ -12,7 +12,6 @@ import {SearchFormComponent} from './components/search-form/search-form.componen
 import {AppRoutingModule} from './app-routing.module';
 import {SearchService} from './services/search.service';
 import {SearchResultListComponent} from './components/search/search-result-list/search-result-list.component';
-import {SearchResultItemComponent} from './components/search/search-result-item/search-result-item.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {SearchResultLinkComponent} from './components/search/search-result-link/search-result-link.component';
@@ -36,8 +35,15 @@ import {AbsPipe} from './pipes/abs/abs.pipe';
 import {AddToBookmarksComponent} from './components/add-to-bookmarks/add-to-bookmarks.component';
 import {ExchangeRatesService} from './services/exchange-rates.service';
 import {HomeExchangeRatesComponent} from './components/home/home-exchange-rates/home-exchange-rates.component';
-import { SearchResultCompanyComponent } from './components/search/search-result-company/search-result-company.component';
-import { FaviconPipe } from './pipes/favicon/favicon.pipe';
+import {SearchResultCompanyComponent} from './components/search/search-result-company/search-result-company.component';
+import {FaviconPipe} from './pipes/favicon/favicon.pipe';
+import {SearchBlockComponent} from './components/search-block/search-block.component';
+import {SearchBlockExchangeRateComponent} from './components/search-block/search-block-exchange-rate/search-block-exchange-rate.component';
+import {SearchBlockCapitalizationComponent} from './components/search-block/search-block-capitalization/search-block-capitalization.component';
+import {SearchBlockChartRateComponent} from './components/search-block/search-block-chart-rate/search-block-chart-rate.component';
+import { SearchBlockCompanyAboutComponent } from './components/search-block/search-block-company-about/search-block-company-about.component';
+import { SearchBlockWebLinkComponent } from './components/search-block/search-block-web-link/search-block-web-link.component';
+import { SearchBlockWebLinkListComponent } from './components/search-block/search-block-web-link-list/search-block-web-link-list.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -57,7 +63,6 @@ export class RavenErrorHandler implements ErrorHandler {
         HomeComponent,
         SearchFormComponent,
         SearchResultListComponent,
-        SearchResultItemComponent,
         SearchResultLinkComponent,
         SearchResultTokenComponent,
         HomeAboutComponent,
@@ -78,6 +83,13 @@ export class RavenErrorHandler implements ErrorHandler {
         HomeExchangeRatesComponent,
         SearchResultCompanyComponent,
         FaviconPipe,
+        SearchBlockComponent,
+        SearchBlockExchangeRateComponent,
+        SearchBlockCapitalizationComponent,
+        SearchBlockChartRateComponent,
+        SearchBlockCompanyAboutComponent,
+        SearchBlockWebLinkComponent,
+        SearchBlockWebLinkListComponent,
     ],
     imports: [
         BrowserModule,

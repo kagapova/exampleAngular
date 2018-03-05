@@ -1,0 +1,45 @@
+@mixin search-block {
+    display: block;
+    padding: 24px 16px 20px;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    color: #333;
+    overflow: hidden;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+@mixin search-block-title {
+    position: static;
+    overflow: hidden;
+    display: block;
+    font-size: 1.31em;
+    vertical-align: middle;
+    line-height: 1.15;
+    padding: 0;
+    margin: 0 0 20px 0;
+    max-width: 100%;
+}
+
+@mixin search-block-footer-link {
+    display: inline-block;
+    color: #888;
+    line-height: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+    max-width: 100%;
+    font-size: .9176em;
+    margin-bottom: -10px;
+    height: 16px;
+}
+
+@mixin search-block-footer-icon {
+    width: 16px;
+    height: 16px;
+}

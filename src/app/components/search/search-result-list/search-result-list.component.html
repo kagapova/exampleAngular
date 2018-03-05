@@ -1,9 +1,13 @@
 <div class="search-result-list">
-    <div *ngIf="updateSearchResults">
+    <div *ngIf="!searchResults">
         <img src="/assets/images/preloader.gif" class=""/>
     </div>
 
-    <div *ngFor="let result of searchResults$ | async" class="search-result-list__item">
-        <app-search-result-item [result]="result"></app-search-result-item>
+    <div class="search-result-list__item" *ngIf="searchResults" [ngSwitch]="searchResults.type">
+        <app-search-result-token *ngSwitchCase="'currency'" [result]="searchResults"></app-search-result-token>
+        <app-search-result-address *ngSwitchCase="'address'" [result]="searchResults"></app-search-result-address>
+        <!--<app-search-result-company *ngIf="searchResults.company" [result]="searchResults.company"></app-search-result-company>-->
+        <app-search-result-transaction *ngSwitchCase="'txn'"  [result]="searchResults"></app-search-result-transaction>
+        <app-search-result-link *ngSwitchCase="'web'" [result]="searchResults"></app-search-result-link>
     </div>
 </div>

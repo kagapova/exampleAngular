@@ -19,7 +19,8 @@ export class Currency {
                 public readonly price: number,
                 public readonly charts: Map<string, ChartValue[]>,
                 public readonly company: Company,
-                public readonly ico: ICO) {
+                public readonly ico: ICO,
+                public readonly capitalization: CurrencyCapitalization) {
     }
 }
 
@@ -46,5 +47,15 @@ export class ICO {
                 public readonly fundingTarget: string,
                 public readonly fundingCap: string,
                 public readonly tokenType: string) {
+    }
+}
+
+
+export class CurrencyCapitalization {
+    constructor(public readonly marketCap: number,
+                public readonly volume24hUsd: number,
+                public readonly volume24h: number,
+                public readonly circulatingSupply: number,
+                public readonly maxSupply: number) {
     }
 }

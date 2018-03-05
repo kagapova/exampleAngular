@@ -1,4 +1,4 @@
-import {ChartValue, Currency, Company, ICO} from '../../models/currency';
+import {ChartValue, Currency, Company, ICO, CurrencyCapitalization} from '../../models/currency';
 
 
 export function parseCurrencyResult(result: CurrencyServer): Currency {
@@ -15,7 +15,8 @@ export function parseCurrencyResult(result: CurrencyServer): Currency {
         result.data.price,
         getTimePeriodChartValues(result),
         getCompany(result),
-        getICO(result)
+        getICO(result),
+        getCapitalization(result)
     );
 }
 
@@ -45,6 +46,23 @@ function getCompany(result: CurrencyServer): Company {
         result.data.company.features,
         result.data.company.proofType,
         result.data.company.technology
+    );
+}
+
+
+function getCapitalization(result: CurrencyServer): CurrencyCapitalization {
+    if (!result.data.company) {
+        return null;
+    }
+
+    let dailyVolume = Math.round(result.data.usdDailyVolume / result.data.price);
+
+    return new CurrencyCapitalization(
+        result.data.usdMarketCap,
+        result.data.usdDailyVolume,
+        dailyVolume,
+        result.data.circulatingSupply,
+        result.data.maxSupply
     );
 }
 

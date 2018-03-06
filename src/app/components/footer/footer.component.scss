@@ -1,0 +1,35 @@
+.footer {
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #f2f2f2;
+    border-top: 1px solid #e4e4e4;
+    padding: 10px;
+    color: #666;
+
+    &__copy {
+        margin: 0 0 10px 0;
+    }
+
+    &__link {
+        color: #666;
+    }
+
+    @media (min-width: 470px) {
+        height: 50px;
+        flex-direction: row;
+
+        &__copy {
+            flex: 1;
+            margin: 0 20px 0 0;
+        }
+
+        &__link {
+            margin: 0 0 0 20px;
+        }
+    }
+}

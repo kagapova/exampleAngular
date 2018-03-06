@@ -10,6 +10,7 @@ declare let window: any;
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterContentInit {
+    height: string;
 
     constructor(private searchService: SearchService,
                 private titleService: Title) {
@@ -18,9 +19,17 @@ export class HomeComponent implements OnInit, AfterContentInit {
     ngOnInit() {
         this.searchService.clean();
         this.titleService.setTitle('Decenter Search');
+
+        window.addEventListener('resize', this.onWindowResize);
+        this.onWindowResize();
     }
 
     ngAfterContentInit() {
         window.optimizely.push(['activate', 10325991945]);
+    }
+
+    onWindowResize() {
+        let height = window.screen.height * 5;
+        this.height = `${height}px`
     }
 }

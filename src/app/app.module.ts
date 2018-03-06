@@ -46,6 +46,7 @@ import {SearchBlockWebLinkComponent} from './components/search-block/search-bloc
 import {SearchBlockWebLinkListComponent} from './components/search-block/search-block-web-link-list/search-block-web-link-list.component';
 import {SearchBlockRoadmapComponent} from './components/search-block/search-block-roadmap/search-block-roadmap.component';
 import { SearchBlockTeamComponent } from './components/search-block/search-block-team/search-block-team.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -94,6 +95,7 @@ export class RavenErrorHandler implements ErrorHandler {
         SearchBlockWebLinkListComponent,
         SearchBlockRoadmapComponent,
         SearchBlockTeamComponent,
+        FooterComponent,
     ],
     imports: [
         BrowserModule,

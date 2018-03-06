@@ -1,0 +1,21 @@
+@import "../search-block.mixins";
+
+.search-block-roadmap {
+    @include search-block;
+
+    &__title {
+        @include search-block-title;
+    }
+
+    &__link {
+        @include search-block-footer-link;
+    }
+
+    &__icon {
+        @include search-block-footer-icon;
+    }
+
+    &__btn-all {
+        @include search-block-button;
+    }
+}

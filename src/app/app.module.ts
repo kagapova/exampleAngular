@@ -41,9 +41,11 @@ import {SearchBlockComponent} from './components/search-block/search-block.compo
 import {SearchBlockExchangeRateComponent} from './components/search-block/search-block-exchange-rate/search-block-exchange-rate.component';
 import {SearchBlockCapitalizationComponent} from './components/search-block/search-block-capitalization/search-block-capitalization.component';
 import {SearchBlockChartRateComponent} from './components/search-block/search-block-chart-rate/search-block-chart-rate.component';
-import { SearchBlockCompanyAboutComponent } from './components/search-block/search-block-company-about/search-block-company-about.component';
-import { SearchBlockWebLinkComponent } from './components/search-block/search-block-web-link/search-block-web-link.component';
-import { SearchBlockWebLinkListComponent } from './components/search-block/search-block-web-link-list/search-block-web-link-list.component';
+import {SearchBlockCompanyAboutComponent} from './components/search-block/search-block-company-about/search-block-company-about.component';
+import {SearchBlockWebLinkComponent} from './components/search-block/search-block-web-link/search-block-web-link.component';
+import {SearchBlockWebLinkListComponent} from './components/search-block/search-block-web-link-list/search-block-web-link-list.component';
+import {SearchBlockRoadmapComponent} from './components/search-block/search-block-roadmap/search-block-roadmap.component';
+import { SearchBlockTeamComponent } from './components/search-block/search-block-team/search-block-team.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -90,6 +92,8 @@ export class RavenErrorHandler implements ErrorHandler {
         SearchBlockCompanyAboutComponent,
         SearchBlockWebLinkComponent,
         SearchBlockWebLinkListComponent,
+        SearchBlockRoadmapComponent,
+        SearchBlockTeamComponent,
     ],
     imports: [
         BrowserModule,

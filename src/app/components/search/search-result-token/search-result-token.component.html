@@ -13,15 +13,15 @@
     <div class="search-result-token__content">
         <div class="search-result-token__content__main">
             <app-search-block-exchange-rate [symbol]="currency.symbol" [price]="currency.price"></app-search-block-exchange-rate>
-
             <app-search-block-chart-rate [values]="currency.charts"></app-search-block-chart-rate>
-
             <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>
         </div>
 
         <div class="search-result-token__content__additional">
             <app-search-block-capitalization *ngIf="currency.capitalization" [capitalization]="currency.capitalization" [symbol]="currency.symbol"></app-search-block-capitalization>
             <app-search-block-company-about *ngIf="company" [company]="company"></app-search-block-company-about>
+            <app-search-block-roadmap *ngIf="company && company.roadmap" [roadmap]="company.roadmap" [sourceUrl]="company.url"></app-search-block-roadmap>
+            <app-search-block-team *ngIf="company && company.team" [team]="company.team" [sourceUrl]="company.url"></app-search-block-team>
         </div>
     </div>
 </div>

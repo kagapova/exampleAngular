@@ -1,0 +1,16 @@
+<div class="search-block-roadmap">
+    <h2 class="search-block-roadmap__title">Roadmap</h2>
+
+    <p class="search-block-roadmap__step" *ngFor="let stage of showedStages">
+        <b>{{stage.name}}</b><br>
+        <span [innerHTML]="stage.description"></span>
+    </p>
+
+    <button class="search-block-roadmap__btn-all" (click)="showAllRoadmap()" *ngIf="!showedAllRoadmap">Show All Roadmap</button>
+
+    <a class="search-block-roadmap__link" rel="noopener" target="_blank" href="{{sourceUrl}}#milestones">
+        <img class="search-block-roadmap__icon" src="{{sourceUrl | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></a>
+    <a href="{{sourceUrl}}#milestones" class="search-block-roadmap__link" rel="noopener" target="_blank" >
+        {{sourceUrl}}
+    </a>
+</div>

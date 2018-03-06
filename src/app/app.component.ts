@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {environment} from '../environments/environment';
+import {TranslateService} from '@ngx-translate/core';
 
 declare var gtag: Function;
 
@@ -12,7 +13,9 @@ declare var gtag: Function;
 export class AppComponent {
     private skipedFirstNavigationEnd = false;
 
-    constructor(private router: Router) {
+    constructor(private router: Router,
+                private translate: TranslateService) {
+
         gtag('js', new Date());
         gtag('config', environment.googleAnalyticsID);
 
@@ -26,5 +29,9 @@ export class AppComponent {
                     this.skipedFirstNavigationEnd = true;
                 }
             });
+
+        translate.setDefaultLang('en');
+        translate.addLangs(['en', 'ru']);
+        translate.use(translate.getBrowserLang());
     }
 }

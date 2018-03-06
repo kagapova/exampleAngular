@@ -56,6 +56,10 @@
         @media (min-width: 640px) {
             font-size: 1.25em;
         }
+
+        &__more {
+            white-space: nowrap;
+        }
     }
 
     &__form {

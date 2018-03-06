@@ -13,7 +13,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {SearchService} from './services/search.service';
 import {SearchResultListComponent} from './components/search/search-result-list/search-result-list.component';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {SearchResultLinkComponent} from './components/search/search-result-link/search-result-link.component';
 import {SearchResultTokenComponent} from './components/search/search-result-token/search-result-token.component';
 import {NvD3Module} from 'ng2-nvd3';
@@ -45,8 +45,10 @@ import {SearchBlockCompanyAboutComponent} from './components/search-block/search
 import {SearchBlockWebLinkComponent} from './components/search-block/search-block-web-link/search-block-web-link.component';
 import {SearchBlockWebLinkListComponent} from './components/search-block/search-block-web-link-list/search-block-web-link-list.component';
 import {SearchBlockRoadmapComponent} from './components/search-block/search-block-roadmap/search-block-roadmap.component';
-import { SearchBlockTeamComponent } from './components/search-block/search-block-team/search-block-team.component';
-import { FooterComponent } from './components/footer/footer.component';
+import {SearchBlockTeamComponent} from './components/search-block/search-block-team/search-block-team.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {TranslateModule, TranslateLoader, } from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 Raven
     .config(environment.ravenDSN)
@@ -57,6 +59,10 @@ export class RavenErrorHandler implements ErrorHandler {
         console.error(err);
         Raven.captureException(err);
     }
+}
+
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -103,6 +109,13 @@ export class RavenErrorHandler implements ErrorHandler {
         FormsModule,
         HttpClientModule,
         NvD3Module,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        }),
     ],
     providers: [
         ExchangeRatesService,

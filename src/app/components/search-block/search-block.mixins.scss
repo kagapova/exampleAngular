@@ -25,6 +25,11 @@
     max-width: 100%;
 }
 
+@mixin search-block-subtitle {
+    @include search-block-title;
+    font-size: 1.11em;
+}
+
 @mixin search-block-button {
     display: block;
     width: 100%;

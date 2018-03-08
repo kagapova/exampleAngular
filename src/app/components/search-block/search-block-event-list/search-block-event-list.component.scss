@@ -1,0 +1,21 @@
+@import "../search-block.mixins";
+
+.search-block-event-list {
+    @include search-block;
+
+    &__title {
+        @include search-block-title;
+    }
+
+    &__item {
+        margin-bottom: 10px;
+    }
+
+    &__link {
+        @include search-block-footer-link;
+    }
+
+    &__icon {
+        @include search-block-footer-icon;
+    }
+}

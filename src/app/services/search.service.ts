@@ -5,12 +5,14 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {retry} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
 import {SearchResult, SearchResults} from '../models/search-result';
+import {Event} from '../models/event';
 import {Subject} from 'rxjs/Subject';
 import {parseAddressResult} from './search/address';
 import {parseWebResult} from './search/web';
 import {parseCurrencyResult} from './search/currency';
 import {parseTransaction} from './search/transaction';
 import {parseCompany} from './search/company';
+import {parseEvent} from './search/event';
 
 
 @Injectable()
@@ -75,6 +77,7 @@ export class SearchService {
                 currency: null,
                 txn: null,
                 web: [],
+                events: [],
             }
         };
 
@@ -83,6 +86,8 @@ export class SearchService {
             if (searchResult !== null) {
                 if (result.type === 'web') {
                     searchResults.data[result.type].push(searchResult);
+                } else if (searchResult instanceof Event) {
+                    searchResults.data['events'].push(searchResult);
                 } else {
                     searchResults.data[result.type] = searchResult;
                 }
@@ -118,6 +123,9 @@ export class SearchService {
 
             case 'company':
                 return parseCompany(result);
+
+            case 'event':
+                return parseEvent(result);
 
             default:
                 // todo write to sentry

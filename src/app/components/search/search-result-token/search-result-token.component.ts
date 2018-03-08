@@ -3,6 +3,7 @@ import {SearchResults} from '../../../models/search-result';
 import {Currency} from '../../../models/currency';
 import {Company} from '../../../models/company';
 import {WebResult} from '../../../models/web-result';
+import {Event} from '../../../models/event';
 
 @Component({
     selector: 'app-search-result-token',
@@ -14,6 +15,7 @@ export class SearchResultTokenComponent implements OnInit {
     currency: Currency;
     company: Company;
     webLinks: WebResult[];
+    events: Event[];
 
     constructor() {
     }
@@ -22,5 +24,6 @@ export class SearchResultTokenComponent implements OnInit {
         this.currency = this.result.data.currency;
         this.company = this.result.data.company;
         this.webLinks = this.result.data.web;
+        this.events = this.result.data.events;
     }
 }

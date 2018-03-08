@@ -47,8 +47,10 @@ import {SearchBlockWebLinkListComponent} from './components/search-block/search-
 import {SearchBlockRoadmapComponent} from './components/search-block/search-block-roadmap/search-block-roadmap.component';
 import {SearchBlockTeamComponent} from './components/search-block/search-block-team/search-block-team.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {TranslateModule, TranslateLoader, } from '@ngx-translate/core';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {SearchBlockEventComponent} from './components/search-block/search-block-event/search-block-event.component';
+import {SearchBlockEventListComponent} from './components/search-block/search-block-event-list/search-block-event-list.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -102,6 +104,8 @@ export function createTranslateLoader(http: HttpClient) {
         SearchBlockRoadmapComponent,
         SearchBlockTeamComponent,
         FooterComponent,
+        SearchBlockEventComponent,
+        SearchBlockEventListComponent,
     ],
     imports: [
         BrowserModule,

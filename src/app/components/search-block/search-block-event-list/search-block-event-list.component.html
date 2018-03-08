@@ -1,0 +1,13 @@
+<div class="search-block-event-list">
+    <h2 class="search-block-event-list__title">Future events</h2>
+
+    <div class="search-block-event-list__item" *ngFor="let event of events">
+        <app-search-block-event [event]="event"></app-search-block-event>
+    </div>
+
+    <a class="search-block-event-list__link" rel="noopener" target="_blank" href="https://coinmarketcal.com/">
+        <img class="search-block-event-list__icon" src="{{'https://coinmarketcal.com/' | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></a>
+    <a href="https://coinmarketcal.com/" class="search-block-event-list__link" rel="noopener" target="_blank">
+        https://coinmarketcal.com/
+    </a>
+</div>

@@ -16,7 +16,8 @@ import {parseCompany} from './search/company';
 @Injectable()
 export class SearchService {
     private url = '/api/search/v2';
-    private searchTerm = '';
+    private searchTerm = new Subject<string>();
+    private currentSearchTerm = '';
     private searchResults = new Subject<SearchResults>();
 
     constructor(private http: HttpClient,
@@ -24,27 +25,28 @@ export class SearchService {
 
         this.route.queryParams.subscribe(params => {
             if ('q' in params) {
-                this.searchTerm = params['q'].trim();
-                this.search(this.searchTerm, true);
+                let term = params['q'].trim();
+                this.currentSearchTerm = term;
+
+                this.searchTerm.next(term);
+                this.search(term);
             }
         });
     }
 
-    getSearchTerm(): string {
+    getSearchTerm(): Subject<string> {
         return this.searchTerm;
+    }
+
+    getCurrentSearchTerm(): string {
+        return this.currentSearchTerm;
     }
 
     getSearchResults(): Observable<SearchResults> {
         return this.searchResults;
     }
 
-    search(term: string, force = false) {
-        term = term.trim();
-
-        if (!term || (term === this.searchTerm && !force)) {
-            return;
-        }
-
+    search(term: string) {
         this.searchResults.next(null);
 
         let apiURL = `${this.url}?request=${term}`;
@@ -60,7 +62,7 @@ export class SearchService {
     }
 
     clean() {
-        this.searchTerm = '';
+        this.searchTerm.next('');
         this.searchResults.next(null);
     }
 

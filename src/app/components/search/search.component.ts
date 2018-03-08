@@ -16,7 +16,15 @@ export class SearchComponent implements OnInit {
     }
 
     ngOnInit() {
-        let term = this.searchService.getSearchTerm();
+        this.searchService.getSearchTerm().subscribe(term => {
+            this.updateTitle(term);
+        });
+
+        let term = this.searchService.getCurrentSearchTerm();
+        this.updateTitle(term);
+    }
+
+    updateTitle(term: string) {
         if (!term) {
             this.router.navigate(['/']);
         }

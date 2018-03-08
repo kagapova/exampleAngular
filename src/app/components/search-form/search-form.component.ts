@@ -16,7 +16,10 @@ export class SearchFormComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.searchTerm = this.searchService.getSearchTerm();
+        this.searchService.getSearchTerm().subscribe(term =>{
+            this.searchTerm = term;
+        });
+        this.searchTerm = this.searchService.getCurrentSearchTerm();
     }
 
     onSubmit(value: string) {

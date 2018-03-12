@@ -1,0 +1,17 @@
+<div class="search-block-wallet">
+    <h3 class="search-block-wallet__title">
+        <a href="{{wallet.siteUrl}}" target="_blank">{{wallet.name}}</a>
+    </h3>
+
+    <p class="search-block-wallet__content">
+        Coins: {{wallet.coins}}<br>
+        Anonymity: {{wallet.anonymity}}<br>
+        Ease of use: {{wallet.easeOfUse}}
+    </p>
+
+    <a class="search-block-wallet__link" rel="noopener" target="_blank" href="{{wallet.siteUrl}}#team">
+        <img class="search-block-wallet__icon" src="{{wallet.logoUrl}}" onerror="this.src='/assets/images/default-icon.png'"></a>
+    <a href="{{wallet.siteUrl}}#team" class="search-block-wallet__link" rel="noopener" target="_blank">
+        {{wallet.siteUrl}}
+    </a>
+</div>

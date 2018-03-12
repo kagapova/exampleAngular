@@ -23,6 +23,7 @@
             <app-search-block-company-about *ngIf="company" [company]="company"></app-search-block-company-about>
             <app-search-block-roadmap *ngIf="company && company.roadmap" [roadmap]="company.roadmap" [sourceUrl]="company.url"></app-search-block-roadmap>
             <app-search-block-team *ngIf="company && company.team" [team]="company.team" [sourceUrl]="company.url"></app-search-block-team>
+            <app-search-block-wallet-list *ngIf="wallets && wallets.length" [wallets]="wallets"></app-search-block-wallet-list>
         </div>
     </div>
 </div>

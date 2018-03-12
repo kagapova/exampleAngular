@@ -13,6 +13,9 @@ import {parseCurrencyResult} from './search/currency';
 import {parseTransaction} from './search/transaction';
 import {parseCompany} from './search/company';
 import {parseEvent} from './search/event';
+import {parseWallet} from './search/wallet';
+import {Wallet} from '../models/wallet';
+import {WebResult} from '../models/web-result';
 
 
 @Injectable()
@@ -78,16 +81,22 @@ export class SearchService {
                 txn: null,
                 web: [],
                 events: [],
+                wallets: [],
             }
         };
 
         for (let result of results) {
             let searchResult = this.parseResult(result);
             if (searchResult !== null) {
-                if (result.type === 'web') {
+                if (searchResult instanceof WebResult) {
                     searchResults.data[result.type].push(searchResult);
+
                 } else if (searchResult instanceof Event) {
                     searchResults.data['events'].push(searchResult);
+
+                } else if (searchResult instanceof Wallet) {
+                    searchResults.data['wallets'].push(searchResult);
+
                 } else {
                     searchResults.data[result.type] = searchResult;
                 }
@@ -126,6 +135,9 @@ export class SearchService {
 
             case 'event':
                 return parseEvent(result);
+
+            case 'wallet':
+                return parseWallet(result);
 
             default:
                 // todo write to sentry

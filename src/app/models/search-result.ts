@@ -4,6 +4,7 @@ import {Company} from './company';
 import {Currency} from './currency';
 import {Transaction} from './transaction';
 import {Event} from './event';
+import {Wallet} from './wallet';
 
 export type SearchResult = (
     Address |
@@ -11,6 +12,7 @@ export type SearchResult = (
     Currency |
     Event |
     Transaction |
+    Wallet |
     WebResult);
 
 
@@ -23,5 +25,6 @@ export type SearchResults = {
         txn: Transaction;
         web: WebResult[];
         events: Event[];
+        wallets: Wallet[];
     };
 }

@@ -1,0 +1,28 @@
+@import "../search-block.mixins";
+
+.search-block-wallet {
+    overflow: hidden;
+    margin: -10px -10px 20px;
+    padding: 10px;
+
+    &:hover {
+        background-color: #f7f7f7;
+    }
+
+    &__title {
+        @include search-block-subtitle;
+        margin-bottom: 5px;
+    }
+
+    &__content {
+        margin: 0;
+    }
+
+    &__link {
+        @include search-block-footer-link;
+    }
+
+    &__icon {
+        @include search-block-footer-icon;
+    }
+}

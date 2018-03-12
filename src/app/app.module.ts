@@ -51,6 +51,8 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SearchBlockEventComponent} from './components/search-block/search-block-event/search-block-event.component';
 import {SearchBlockEventListComponent} from './components/search-block/search-block-event-list/search-block-event-list.component';
+import {SearchBlockWalletComponent} from './components/search-block/search-block-wallet/search-block-wallet.component';
+import {SearchBlockWalletListComponent} from './components/search-block/search-block-wallet-list/search-block-wallet-list.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -106,6 +108,8 @@ export function createTranslateLoader(http: HttpClient) {
         FooterComponent,
         SearchBlockEventComponent,
         SearchBlockEventListComponent,
+        SearchBlockWalletComponent,
+        SearchBlockWalletListComponent,
     ],
     imports: [
         BrowserModule,

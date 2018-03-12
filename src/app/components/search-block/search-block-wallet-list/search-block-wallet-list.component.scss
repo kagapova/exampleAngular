@@ -1,0 +1,13 @@
+@import "../search-block.mixins";
+
+.search-block-wallet-list{
+    @include search-block;
+
+    &__title {
+        @include search-block-title;
+    }
+
+    &__button {
+        @include search-block-button;
+    }
+}

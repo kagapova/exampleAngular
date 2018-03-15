@@ -31,7 +31,7 @@ export class AppComponent {
             });
 
         translate.setDefaultLang('en');
-        translate.addLangs(['en', 'ru']);
+        translate.addLangs(['en', 'ru', 'zh']);
         translate.use(translate.getBrowserLang());
     }
 }

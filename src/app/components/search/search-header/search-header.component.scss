@@ -21,8 +21,15 @@
 
     &__form {
         background-color: #fafafa;
-        max-width: 590px;
         flex: 1;
+
+        &__content {
+            max-width: 590px;
+        }
+    }
+
+    &__add-button {
+        margin: 0 0 0  8px;
     }
 }
 

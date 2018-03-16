@@ -53,6 +53,7 @@ import {SearchBlockEventComponent} from './components/search-block/search-block-
 import {SearchBlockEventListComponent} from './components/search-block/search-block-event-list/search-block-event-list.component';
 import {SearchBlockWalletComponent} from './components/search-block/search-block-wallet/search-block-wallet.component';
 import {SearchBlockWalletListComponent} from './components/search-block/search-block-wallet-list/search-block-wallet-list.component';
+import { SearchAddContentButtonComponent } from './components/search/search-add-content-button/search-add-content-button.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -110,6 +111,7 @@ export function createTranslateLoader(http: HttpClient) {
         SearchBlockEventListComponent,
         SearchBlockWalletComponent,
         SearchBlockWalletListComponent,
+        SearchAddContentButtonComponent,
     ],
     imports: [
         BrowserModule,

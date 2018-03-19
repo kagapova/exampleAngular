@@ -2,7 +2,8 @@
     justify-content: center;
     margin: 0 auto;
 
-    width: 400px;
+    width: 300px;
+    height: 200px;
     overflow: hidden;
 
     &__rate {
@@ -14,11 +15,7 @@
         width: 100px;
         margin: 0 0 25px 0;
 
-        &:nth-child(4n) {
-            border-right: 0;
-        }
-
-        &:last-child {
+        &:nth-child(3n) {
             border-right: 0;
         }
 
@@ -49,6 +46,22 @@
     }
 }
 
+@media (min-width: 420px) {
+    .home-exchange-rates {
+        width: 400px;
+
+        &__rate {
+            &:nth-child(3n) {
+                border-right: 1px solid;
+            }
+
+            &:nth-child(4n) {
+                border-right: 0;
+            }
+        }
+    }
+}
+
 @media (min-width: 520px) {
     .home-exchange-rates {
         width: 500px;
@@ -68,12 +81,9 @@
 @media (min-width: 1020px) {
     .home-exchange-rates {
         width: 1000px;
+        height: 100px;
 
         &__rate {
-            &:nth-child(4n) {
-                border-right: 1px solid;
-            }
-
             &:nth-child(5n) {
                 border-right: 1px solid;
             }

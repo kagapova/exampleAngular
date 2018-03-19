@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
     constructor(private searchService: SearchService,
                 private titleService: Title) {
+
+        this.onWindowResize = this.onWindowResize.bind(this);
     }
 
     ngOnInit() {
@@ -29,7 +31,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
     }
 
     onWindowResize() {
-        let height = window.screen.height * 5;
-        this.height = `${height}px`
+        let height = window.innerHeight * 5;
+        this.height = `${height}px`;
     }
 }

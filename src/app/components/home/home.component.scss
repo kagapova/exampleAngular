@@ -1,22 +1,24 @@
 .home {
     background-color: #f7f7f7;
 
-    &__search {
-        height: 15%;
-
+    &__content {
+        height: 20%;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
 
-        &__content {
-            @media (min-height: 450px) {
-                margin-top: -100px;
-            }
+        &__search {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-    }
 
-    &__exchange-rates {
-        height: 5%;
+        &__exchange-rates {
+            flex: 0;
+        }
     }
 
     &__about {
@@ -27,7 +29,6 @@
         position: relative;
         display: block;
         max-width: 300px;
-        margin: auto;
         text-align: center;
 
         &-image {
@@ -64,10 +65,6 @@
 
     &__form {
         padding: 1.3em .8em 1em;
-        max-width: 590px;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        float: none;
+        width: 100%;
     }
 }

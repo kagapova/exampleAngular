@@ -16,6 +16,7 @@ export class HomeExchangeRatesComponent implements OnInit {
 
     ngOnInit() {
         this.exchangeRatesResults$ = this.exchangeRatesService.getExchangeRateResults();
-        this.exchangeRatesService.getRates(['BTC', 'ETH']);
+        this.exchangeRatesService.getRates([
+            'BTC', 'ETH', 'XRP', 'BCH', 'LTC', 'ADA', 'NEO', 'XLM', 'EOS', 'XMR']);
     }
 }

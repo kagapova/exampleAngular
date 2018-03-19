@@ -1,24 +1,30 @@
 .home-exchange-rates {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
+    margin: 0 auto;
+
+    width: 400px;
+    overflow: hidden;
 
     &__rate {
+        float: left;
         text-align: center;
         border: 0;
         border-right: 1px solid;
         border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #a5a5a5, rgba(0, 0, 0, 0)) 1 100%;
-        min-width: 150px;
+        width: 100px;
+        margin: 0 0 25px 0;
+
+        &:nth-child(4n) {
+            border-right: 0;
+        }
 
         &:last-child {
             border-right: 0;
         }
 
         &__icon {
-            font-size: 35px;
-            line-height: 1;
+            width: 32px;
+            height: 32px;
         }
 
         &__name {
@@ -29,7 +35,7 @@
 
         &__value {
             color: #333;
-            font-size: 20px;
+            font-size: 16px;
             line-height: 0.88;
         }
 
@@ -39,6 +45,42 @@
 
         &--ethereum {
             color: #131313;
+        }
+    }
+}
+
+@media (min-width: 520px) {
+    .home-exchange-rates {
+        width: 500px;
+
+        &__rate {
+            &:nth-child(4n) {
+                border-right: 1px solid;
+            }
+
+            &:nth-child(5n) {
+                border-right: 0;
+            }
+        }
+    }
+}
+
+@media (min-width: 1020px) {
+    .home-exchange-rates {
+        width: 1000px;
+
+        &__rate {
+            &:nth-child(4n) {
+                border-right: 1px solid;
+            }
+
+            &:nth-child(5n) {
+                border-right: 1px solid;
+            }
+
+            &:last-child {
+                border-right: 0;
+            }
         }
     }
 }

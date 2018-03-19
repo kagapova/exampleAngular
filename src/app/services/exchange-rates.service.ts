@@ -32,12 +32,12 @@ export class ExchangeRatesService {
                 retry(3)
             )
             .subscribe((resp: HttpResponse<ExchangeRatesResponse>) => {
-                let rateResults = this.parseResponse(resp.body);
+                let rateResults = this.parseResponse(resp.body, currencies);
                 this.results.next(rateResults);
             });
     }
 
-    private parseResponse(response: ExchangeRatesResponse): ExchangeRate[] {
+    private parseResponse(response: ExchangeRatesResponse, sort: string[]): ExchangeRate[] {
         let result = [];
 
         for (let symbol in response.rates) {
@@ -48,8 +48,7 @@ export class ExchangeRatesService {
             let value = response.rates[symbol];
             symbol = symbol.toUpperCase();
 
-            let er = new ExchangeRate(Blockchains[symbol], value);
-            result.push(er);
+            result[sort.indexOf(symbol)] = new ExchangeRate(Blockchains[symbol], value);
         }
 
         return result;

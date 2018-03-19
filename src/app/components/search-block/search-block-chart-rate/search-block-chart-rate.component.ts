@@ -86,6 +86,7 @@ export class SearchBlockChartRateComponent implements OnInit {
                 },
                 interactiveLayer: {
                     tooltip: {
+                        enabled: true,
                         headerFormatter: function (timestamp) {
                             let date = new Date();
                             date.setTime(timestamp * 1000);
@@ -113,6 +114,10 @@ export class SearchBlockChartRateComponent implements OnInit {
                 }
             }
         };
+
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            this.chartOptions.chart.interactiveLayer.tooltip.enabled = false;
+        }
 
         this.chartData = [
             {

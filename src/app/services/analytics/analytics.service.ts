@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {retry} from 'rxjs/operators';
 
 declare var gtag: Function;
@@ -14,7 +14,10 @@ export class AnalyticsService {
     }
 
     clickToLink(block: string, serverTrackLink: string) {
-        gtag('event', 'select_content', {'content_type': block});
+        gtag('event', 'click', {
+            'event_category': 'outbound',
+            'event_label': block,
+        });
 
         this.http.get(serverTrackLink)
             .pipe(

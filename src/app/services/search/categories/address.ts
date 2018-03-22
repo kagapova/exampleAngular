@@ -1,6 +1,6 @@
-import {Address, AddressToken, BtcAddress, EthAddress} from '../../models/address';
-import {Bitcoin, Ethereum} from '../../models/blockchains';
-import {Token} from '../../models/token';
+import {Address, AddressToken, BtcAddress, EthAddress} from '../../../models/address';
+import {Bitcoin, Ethereum} from '../../../models/blockchains';
+import {Token} from '../../../models/token';
 
 
 export function parseAddressResult(result: AddressResultServer): Address {

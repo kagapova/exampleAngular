@@ -1,4 +1,4 @@
-import {Company, CompanyLink, CompanyMember, CompanyRoadmapStage} from '../../models/company';
+import {Company, CompanyLink, CompanyMember, CompanyRoadmapStage} from '../../../models/company';
 
 
 export function parseCompany(company: CompanyServer): Company {

@@ -10,7 +10,7 @@ import {SearchComponent} from './components/search/search.component';
 import {HomeComponent} from './components/home/home.component';
 import {SearchFormComponent} from './components/search-form/search-form.component';
 import {AppRoutingModule} from './app-routing.module';
-import {SearchService} from './services/search.service';
+import {SearchService} from './services/search/search.service';
 import {SearchResultListComponent} from './components/search/search-result-list/search-result-list.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -19,10 +19,7 @@ import {SearchResultTokenComponent} from './components/search/search-result-toke
 import {NvD3Module} from 'ng2-nvd3';
 import {environment} from '../environments/environment';
 import {HomeAboutComponent} from './components/home/home-about/home-about.component';
-import {BlocksComponent} from './components/blocks/blocks.component';
-import {BlocksBlockchainComponent} from './components/blocks/blocks-blockchain/blocks-blockchain.component';
 import {SearchHeaderComponent} from './components/search/search-header/search-header.component';
-import {BlocksTxnEthereumComponent} from './components/blocks/blocks-txn-ethereum/blocks-txn-ethereum.component';
 import {SearchResultAddressComponent} from './components/search/search-result-address/search-result-address.component';
 import {SearchResultAddressEthComponent} from './components/search/search-result-address/search-result-address-eth/search-result-address-eth.component';
 import {SearchResultAddressBtcComponent} from './components/search/search-result-address/search-result-address-btc/search-result-address-btc.component';
@@ -33,7 +30,7 @@ import {SearchResultTransactionLtcComponent} from './components/search/search-re
 import {FollowComponent} from './components/follow/follow.component';
 import {AbsPipe} from './pipes/abs/abs.pipe';
 import {AddToBookmarksComponent} from './components/add-to-bookmarks/add-to-bookmarks.component';
-import {ExchangeRatesService} from './services/exchange-rates.service';
+import {ExchangeRatesService} from './services/exchange-rates/exchange-rates.service';
 import {HomeExchangeRatesComponent} from './components/home/home-exchange-rates/home-exchange-rates.component';
 import {SearchResultCompanyComponent} from './components/search/search-result-company/search-result-company.component';
 import {FaviconPipe} from './pipes/favicon/favicon.pipe';
@@ -54,6 +51,8 @@ import {SearchBlockEventListComponent} from './components/search-block/search-bl
 import {SearchBlockWalletComponent} from './components/search-block/search-block-wallet/search-block-wallet.component';
 import {SearchBlockWalletListComponent} from './components/search-block/search-block-wallet-list/search-block-wallet-list.component';
 import { SearchAddContentButtonComponent } from './components/search/search-add-content-button/search-add-content-button.component';
+import { TrackLinkComponent } from './components/track-link/track-link.component';
+import {AnalyticsService} from './services/analytics/analytics.service';
 
 Raven
     .config(environment.ravenDSN)
@@ -80,10 +79,7 @@ export function createTranslateLoader(http: HttpClient) {
         SearchResultLinkComponent,
         SearchResultTokenComponent,
         HomeAboutComponent,
-        BlocksComponent,
-        BlocksBlockchainComponent,
         SearchHeaderComponent,
-        BlocksTxnEthereumComponent,
         SearchResultAddressComponent,
         SearchResultAddressEthComponent,
         SearchResultAddressBtcComponent,
@@ -112,6 +108,7 @@ export function createTranslateLoader(http: HttpClient) {
         SearchBlockWalletComponent,
         SearchBlockWalletListComponent,
         SearchAddContentButtonComponent,
+        TrackLinkComponent,
     ],
     imports: [
         BrowserModule,
@@ -130,6 +127,7 @@ export function createTranslateLoader(http: HttpClient) {
     providers: [
         ExchangeRatesService,
         SearchService,
+        AnalyticsService,
         {provide: ErrorHandler, useClass: RavenErrorHandler},
     ],
     bootstrap: [AppComponent]

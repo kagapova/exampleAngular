@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
-import {SearchService} from "../../services/search.service";
+import {SearchService} from "../../services/search/search.service";
 
 @Component({
     selector: 'app-search-form',

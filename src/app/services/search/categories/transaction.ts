@@ -11,8 +11,8 @@ import {
     LtcTransactionInput,
     LtcTransactionOutput,
     Transaction,
-} from '../../models/transaction';
-import {Token} from '../../models/token';
+} from '../../../models/transaction';
+import {Token} from '../../../models/token';
 
 
 export function parseTransaction(result: TransactionServer): Transaction {

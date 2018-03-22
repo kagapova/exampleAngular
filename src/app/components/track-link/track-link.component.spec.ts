@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlocksTxnEthereumComponent } from './blocks-txn-ethereum.component';
+import { TrackLinkComponent } from './track-link.component';
 
-describe('BlocksTxnEthereumComponent', () => {
-  let component: BlocksTxnEthereumComponent;
-  let fixture: ComponentFixture<BlocksTxnEthereumComponent>;
+describe('TrackLinkComponent', () => {
+  let component: TrackLinkComponent;
+  let fixture: ComponentFixture<TrackLinkComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlocksTxnEthereumComponent ]
+      declarations: [ TrackLinkComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlocksTxnEthereumComponent);
+    fixture = TestBed.createComponent(TrackLinkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

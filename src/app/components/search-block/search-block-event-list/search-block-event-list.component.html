@@ -5,9 +5,9 @@
         <app-search-block-event [event]="event"></app-search-block-event>
     </div>
 
-    <a class="search-block-event-list__link" rel="noopener" target="_blank" href="https://coinmarketcal.com/">
-        <img class="search-block-event-list__icon" src="{{'https://coinmarketcal.com/' | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></a>
-    <a href="https://coinmarketcal.com/" class="search-block-event-list__link" rel="noopener" target="_blank">
-        https://coinmarketcal.com/
-    </a>
+    <app-track-link originalLink="https://coinmarketcal.com/" [serverTrackLink]="" block="search-block-event-list" class="search-block-event-list__link">
+        <img class="search-block-event-list__icon" src="{{'https://coinmarketcal.com/' | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
+
+    <app-track-link originalLink="https://coinmarketcal.com/" [serverTrackLink]="" block="search-block-event-list" class="search-block-event-list__link">
+        https://coinmarketcal.com/</app-track-link>
 </div>

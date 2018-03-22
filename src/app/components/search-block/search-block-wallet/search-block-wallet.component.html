@@ -1,6 +1,7 @@
 <div class="search-block-wallet">
     <h3 class="search-block-wallet__title">
-        <a href="{{wallet.siteUrl}}" target="_blank">{{wallet.name}}</a>
+        <app-track-link [originalLink]="wallet.siteUrl" [serverTrackLink]="" block="search-block-wallet">
+            {{wallet.name}}</app-track-link>
     </h3>
 
     <p class="search-block-wallet__content">
@@ -9,9 +10,9 @@
         Ease of use: {{wallet.easeOfUse}}
     </p>
 
-    <a class="search-block-wallet__link" rel="noopener" target="_blank" href="{{wallet.siteUrl}}#team">
-        <img class="search-block-wallet__icon" src="{{wallet.logoUrl}}" onerror="this.src='/assets/images/default-icon.png'"></a>
-    <a href="{{wallet.siteUrl}}#team" class="search-block-wallet__link" rel="noopener" target="_blank">
-        {{wallet.siteUrl}}
-    </a>
+    <app-track-link class="search-block-wallet__link" [originalLink]="wallet.siteUrl" [serverTrackLink]="" block="search-block-wallet">
+        <img class="search-block-wallet__icon" src="{{wallet.logoUrl}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
+
+    <app-track-link class="search-block-wallet__link" [originalLink]="wallet.siteUrl" [serverTrackLink]="" block="search-block-wallet">
+        {{wallet.siteUrl}}</app-track-link>
 </div>

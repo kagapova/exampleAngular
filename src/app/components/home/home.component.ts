@@ -1,5 +1,5 @@
 import {Component, OnInit, AfterContentInit} from '@angular/core';
-import {SearchService} from '../../services/search.service';
+import {SearchService} from '../../services/search/search.service';
 import {Title} from '@angular/platform-browser';
 
 declare let window: any;

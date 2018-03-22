@@ -4,18 +4,18 @@ import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {retry} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
-import {SearchResult, SearchResults} from '../models/search-result';
-import {Event} from '../models/event';
+import {SearchResult, SearchResults} from '../../models/search-result';
+import {Event} from '../../models/event';
 import {Subject} from 'rxjs/Subject';
-import {parseAddressResult} from './search/address';
-import {parseWebResult} from './search/web';
-import {parseCurrencyResult} from './search/currency';
-import {parseTransaction} from './search/transaction';
-import {parseCompany} from './search/company';
-import {parseEvent} from './search/event';
-import {parseWallet} from './search/wallet';
-import {Wallet} from '../models/wallet';
-import {WebResult} from '../models/web-result';
+import {parseAddressResult} from './categories/address';
+import {parseWebResult} from './categories/web';
+import {parseCurrencyResult} from './categories/currency';
+import {parseTransaction} from './categories/transaction';
+import {parseCompany} from './categories/company';
+import {parseEvent} from './categories/event';
+import {parseWallet} from './categories/wallet';
+import {Wallet} from '../../models/wallet';
+import {WebResult} from '../../models/web-result';
 
 
 @Injectable()

@@ -4,14 +4,14 @@
     <p class="search-block-team__member" *ngFor="let member of showedMembers">
         <b>{{member.name}}</b>
 
-        <a href="{{member.facebookURL}}" rel="noopener" target="_blank" *ngIf="member.facebookURL">
-            <i class="fab fa-facebook facebook"></i></a>
+        <app-track-link [originalLink]="member.facebookURL" [serverTrackLink]="" block="search-block-team" *ngIf="member.facebookURL">
+            <i class="fab fa-facebook facebook"></i></app-track-link>
 
-        <a href="{{member.twitterURL}}" rel="noopener" target="_blank" *ngIf="member.twitterURL">
-            <i class="fab fa-twitter twitter"></i></a>
+        <app-track-link [originalLink]="member.twitterURL" [serverTrackLink]="" block="search-block-team" *ngIf="member.twitterURL">
+            <i class="fab fa-twitter twitter"></i></app-track-link>
 
-        <a href="{{member.linkedinURL}}" rel="noopener" target="_blank" *ngIf="member.linkedinURL">
-            <i class="fab fa-linkedin linkedin"></i></a>
+        <app-track-link [originalLink]="member.linkedinURL" [serverTrackLink]="" block="search-block-team" *ngIf="member.linkedinURL">
+            <i class="fab fa-linkedin linkedin"></i></app-track-link>
 
         <br>
 
@@ -20,9 +20,9 @@
 
     <button class="search-block-team__btn-all" (click)="showAllTeam()" *ngIf="!showedAllTeam">Show All Team</button>
 
-    <a class="search-block-team__link" rel="noopener" target="_blank" href="{{sourceUrl}}#team">
-        <img class="search-block-team__icon" src="{{sourceUrl | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></a>
-    <a href="{{sourceUrl}}#team" class="search-block-team__link" rel="noopener" target="_blank">
-        {{sourceUrl}}
-    </a>
+    <app-track-link originalLink="{{sourceUrl}}#team" [serverTrackLink]="" block="search-block-team" class="search-block-team__link">
+        <img class="search-block-team__icon" src="{{sourceUrl | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
+
+    <app-track-link originalLink="{{sourceUrl}}#team" [serverTrackLink]="" block="search-block-team" class="search-block-team__link">
+        {{sourceUrl}}</app-track-link>
 </div>

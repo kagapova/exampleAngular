@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ExchangeRatesService} from '../../../services/exchange-rates.service';
+import {ExchangeRatesService} from '../../../services/exchange-rates/exchange-rates.service';
 import {Observable} from 'rxjs/Observable';
 import {ExchangeRate} from '../../../models/exchange-rates';
 

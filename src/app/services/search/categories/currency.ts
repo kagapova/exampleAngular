@@ -1,4 +1,4 @@
-import {ChartValue, Currency, Company, ICO, CurrencyCapitalization} from '../../models/currency';
+import {ChartValue, Currency, Company, ICO, CurrencyCapitalization} from '../../../models/currency';
 
 
 export function parseCurrencyResult(result: CurrencyServer): Currency {

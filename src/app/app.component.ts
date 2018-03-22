@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
-import {environment} from '../environments/environment';
 import {TranslateService} from '@ngx-translate/core';
-
-declare var gtag: Function;
+import {AnalyticsService} from './services/analytics/analytics.service';
 
 @Component({
     selector: 'app-root',
@@ -14,16 +12,14 @@ export class AppComponent {
     private skipedFirstNavigationEnd = false;
 
     constructor(private router: Router,
+                private analytics: AnalyticsService,
                 private translate: TranslateService) {
-
-        gtag('js', new Date());
-        gtag('config', environment.googleAnalyticsID);
 
         this.router.events
             .subscribe((event) => {
                 if (event instanceof NavigationEnd) {
                     if (this.skipedFirstNavigationEnd) {
-                        gtag('event', 'pageview', {'page_path': event.urlAfterRedirects});
+                        analytics.pageView(event.urlAfterRedirects);
                     }
 
                     this.skipedFirstNavigationEnd = true;

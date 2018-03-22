@@ -1,7 +1,7 @@
 <div class="search-block-event">
     <h3 class="search-block-event__title">
-        <a href="{{event.source}}" target="_blank">
-            {{event.title}}</a>
+        <app-track-link [originalLink]="event.source" [serverTrackLink]="" block="search-block-event">
+            {{event.title}}</app-track-link>
     </h3>
 
     <div class="search-block-event__date">

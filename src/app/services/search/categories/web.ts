@@ -6,7 +6,8 @@ export function parseWebResult(result: WebResultServer): WebResult {
         result.data.title,
         result.data.text,
         getFaviconURL(result.data.url),
-        result.data.url
+        result.data.url,
+        result.click
     );
 }
 

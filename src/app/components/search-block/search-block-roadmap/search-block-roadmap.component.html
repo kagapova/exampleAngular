@@ -8,9 +8,9 @@
 
     <button class="search-block-roadmap__btn-all" (click)="showAllRoadmap()" *ngIf="!showedAllRoadmap">Show All Roadmap</button>
 
-    <app-track-link originalLink="{{sourceUrl}}#milestones" [serverTrackLink]="" block="search-block-roadmap" class="search-block-roadmap__link">
+    <app-track-link originalLink="{{sourceUrl}}#milestones" [serverTrackLink]="analyticalURL" block="search-block-roadmap" class="search-block-roadmap__link">
         <img class="search-block-roadmap__icon" src="{{sourceUrl | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
 
-    <app-track-link originalLink="{{sourceUrl}}#milestones" [serverTrackLink]="" block="search-block-roadmap" class="search-block-roadmap__link">
+    <app-track-link originalLink="{{sourceUrl}}#milestones" [serverTrackLink]="analyticalURL" block="search-block-roadmap" class="search-block-roadmap__link">
         {{sourceUrl}}</app-track-link>
 </div>

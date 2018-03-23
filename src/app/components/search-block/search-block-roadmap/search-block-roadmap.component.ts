@@ -9,6 +9,7 @@ import {CompanyRoadmapStage} from '../../../models/company';
 export class SearchBlockRoadmapComponent implements OnInit {
     @Input() roadmap: CompanyRoadmapStage[];
     @Input() sourceUrl: string;
+    @Input() analyticalURL: string;
     showedStages: CompanyRoadmapStage[];
     showedAllRoadmap: boolean;
 

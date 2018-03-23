@@ -16,7 +16,8 @@ export class Company {
                 public readonly links: CompanyLink[],
                 public readonly team: CompanyMember[],
                 public readonly roadmap: CompanyRoadmapStage[],
-                public readonly url: string) {
+                public readonly url: string,
+                public readonly analyticalURL: string) {
     }
 }
 

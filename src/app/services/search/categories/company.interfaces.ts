@@ -1,6 +1,7 @@
 interface CompanyServer {
     type: 'company';
     source: string;
+    click: string;
     data: {
         title: string;
         icoType: string;

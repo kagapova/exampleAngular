@@ -13,6 +13,7 @@ export function parseEvent(result: EventServer): Event {
         result.data.description,
         result.data.proof,
         result.data.source,
-        result.data.token
+        result.data.token,
+        result.click
     );
 }

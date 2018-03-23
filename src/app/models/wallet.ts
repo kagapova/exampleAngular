@@ -5,6 +5,7 @@ export class Wallet {
                 public readonly coins: string[],
                 public readonly anonymity: string,
                 public readonly easeOfUse: string,
-                public readonly cryptocompareUrl: string) {
+                public readonly cryptocompareUrl: string,
+                public readonly analyticalURL: string) {
     }
 }

@@ -18,9 +18,9 @@
         ICO: {{company.icoStart | date:'MMM. dd, yyyy' }} - {{company.icoEnd | date:'MMM. dd, yyyy' }}
     </p>
 
-    <app-track-link [originalLink]="company.url" [serverTrackLink]="" block="search-block-company-about" class="search-block-company-about__link">
+    <app-track-link [originalLink]="company.url" [serverTrackLink]="company.analyticalURL" block="search-block-company-about" class="search-block-company-about__link">
         <img class="search-block-company-about__icon" src="{{company.url | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
 
-    <app-track-link [originalLink]="company.url" [serverTrackLink]="" block="search-block-company-about" class="search-block-company-about__link">
+    <app-track-link [originalLink]="company.url" [serverTrackLink]="company.analyticalURL" block="search-block-company-about" class="search-block-company-about__link">
         {{company.url}}</app-track-link>
 </div>

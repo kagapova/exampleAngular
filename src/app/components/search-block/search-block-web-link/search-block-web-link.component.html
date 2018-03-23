@@ -1,16 +1,16 @@
 <div class="search-block-web-link">
     <h2 class="search-block-web-link__title">
-        <app-track-link [originalLink]="webLink.url" [serverTrackLink]="" block="search-block-web-link" class="search-block-web-link__link">
+        <app-track-link [originalLink]="webLink.url" [serverTrackLink]="webLink.analyticalURL" block="search-block-web-link" class="search-block-web-link__link">
             {{webLink.title}}</app-track-link>
     </h2>
 
     <div class="search-block-web-link__description" [innerHTML]="webLink.description"></div>
 
     <div class="search-block-web-link__extras">
-        <app-track-link [originalLink]="webLink.url" [serverTrackLink]="" block="search-block-web-link" class="search-block-web-link__icon-link">
+        <app-track-link [originalLink]="webLink.url" [serverTrackLink]="webLink.analyticalURL" block="search-block-web-link" class="search-block-web-link__icon-link">
             <img height="16" width="16" src="{{webLink.imageURL}}" onerror="this.src='/assets/images/default-icon.png'" class="search-block-web-link__icon"></app-track-link>
 
-        <app-track-link [originalLink]="webLink.url" [serverTrackLink]="" block="search-block-web-link" class="search-block-web-link__domain-link">
+        <app-track-link [originalLink]="webLink.url" [serverTrackLink]="webLink.analyticalURL" block="search-block-web-link" class="search-block-web-link__domain-link">
             {{webLink.url}}</app-track-link>
     </div>
 </div>

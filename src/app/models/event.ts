@@ -5,6 +5,7 @@ export class Event {
                 public readonly description: string,
                 public readonly proof: string,
                 public readonly source: string,
-                public readonly token: string) {
+                public readonly token: string,
+                public readonly analyticalURL: string) {
     }
 }

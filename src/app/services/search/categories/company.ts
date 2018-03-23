@@ -23,6 +23,7 @@ export function parseCompany(company: CompanyServer): Company {
         getTeam(company),
         getRoadmap(company),
         company.data.url,
+        company.click,
     );
 }
 

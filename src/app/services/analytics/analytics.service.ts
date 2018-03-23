@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {retry} from 'rxjs/operators';
 
 declare var gtag: Function;
 
@@ -19,10 +18,7 @@ export class AnalyticsService {
             'event_label': block,
         });
 
-        this.http.get(serverTrackLink)
-            .pipe(
-                retry(3)
-            );
+        this.http.get(serverTrackLink).subscribe();
     }
 
     pageView(path: string) {

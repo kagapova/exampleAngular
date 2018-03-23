@@ -1,6 +1,7 @@
 interface EventServer {
     type: 'event';
     source: string;
+    click: string;
     data: {
         company: string;
         date: string;

@@ -1,6 +1,6 @@
 <div class="search-block-wallet">
     <h3 class="search-block-wallet__title">
-        <app-track-link [originalLink]="wallet.siteUrl" [serverTrackLink]="" block="search-block-wallet">
+        <app-track-link [originalLink]="wallet.siteUrl" [serverTrackLink]="wallet.analyticalURL" block="search-block-wallet">
             {{wallet.name}}</app-track-link>
     </h3>
 
@@ -10,9 +10,9 @@
         Ease of use: {{wallet.easeOfUse}}
     </p>
 
-    <app-track-link class="search-block-wallet__link" [originalLink]="wallet.siteUrl" [serverTrackLink]="" block="search-block-wallet">
+    <app-track-link class="search-block-wallet__link" [originalLink]="wallet.siteUrl" [serverTrackLink]="wallet.analyticalURL" block="search-block-wallet">
         <img class="search-block-wallet__icon" src="{{wallet.logoUrl}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
 
-    <app-track-link class="search-block-wallet__link" [originalLink]="wallet.siteUrl" [serverTrackLink]="" block="search-block-wallet">
+    <app-track-link class="search-block-wallet__link" [originalLink]="wallet.siteUrl" [serverTrackLink]="wallet.analyticalURL" block="search-block-wallet">
         {{wallet.siteUrl}}</app-track-link>
 </div>

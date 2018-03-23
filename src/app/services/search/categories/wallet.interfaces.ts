@@ -1,6 +1,7 @@
 interface WalletServer {
     type: 'wallet';
     source: string;
+    click: string;
     data: {
         affiliateURL: string;
         anonymity: string;

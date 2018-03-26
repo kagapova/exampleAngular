@@ -19,10 +19,7 @@ export class ExchangeRatesService {
     }
 
     getRates(currencies: string[]) {
-        let rateResults = currencies.map(symbol => {
-            return new ExchangeRate(Blockchains[symbol], null);
-        });
-        this.results.next(rateResults);
+        this.setEmptyValues(currencies);
 
         let c = currencies.join(',');
         let apiURL = `${this.url}?t=${c}`;
@@ -48,9 +45,16 @@ export class ExchangeRatesService {
             let value = response.rates[symbol];
             symbol = symbol.toUpperCase();
 
-            result[sort.indexOf(symbol)] = new ExchangeRate(Blockchains[symbol], value);
+            result[sort.indexOf(symbol)] = new ExchangeRate(Blockchains[symbol], null, value);
         }
 
         return result;
+    }
+
+    private setEmptyValues(currencies: string[]) {
+        let rateResults = currencies.map(symbol => {
+            return new ExchangeRate(Blockchains[symbol], null, null);
+        });
+        this.results.next(rateResults);
     }
 }

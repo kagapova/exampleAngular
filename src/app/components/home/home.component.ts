@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
     }
 
     onWindowResize() {
-        let height = window.innerHeight * 5;
+        let height = window.innerHeight * 4;
         this.height = `${height}px`;
     }
 }

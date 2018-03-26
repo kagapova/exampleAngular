@@ -1,5 +1,5 @@
 type ExchangeRatesResponse = {
-    [s: string]: ExchangeRateResponse[]
+    rates: ExchangeRateResponse[]
 }
 
 type ExchangeRateResponse = {

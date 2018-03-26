@@ -5,8 +5,8 @@
             Popular Coins
             <!--<span class="home-popular-coin-list__link-all">&#8250;</span>-->
         </td>
-        <td class="home-popular-coin-list__second-header">
-            1h
+        <td class="home-popular-coin-list__second-header home-popular-coin-list__second-header--change">
+            24h
         </td>
         <td class="home-popular-coin-list__second-header">
             USD
@@ -17,11 +17,12 @@
     <tr *ngFor="let rate of exchangeRatesResults$ | async; let i = index">
         <td class="home-popular-coin-list__number">{{i + 1}}</td>
         <td class="home-popular-coin-list__image">
-            <a href="?">
+            <a [routerLink]="['/search']" [queryParams]="{q: rate.blockchain.name}">
                 <img class="home-popular-coin-list__icon" src="/assets/images/coins/{{rate.blockchain.symbol}}.png"></a>
         </td>
         <td class="home-popular-coin-list__name">
-            <a href="?">{{rate.blockchain.name}}</a>
+            <a [routerLink]="['/search']" [queryParams]="{q: rate.blockchain.name}">
+                {{rate.blockchain.name}}</a>
         </td>
         <td [ngClass]="{'home-popular-coin-list__change--up': rate.change !== null && rate.change > 0, 'home-popular-coin-list__change--down': rate.change !== null && rate.change < 0, 'home-popular-coin-list__change': !rate.change}">
             <app-load *ngIf="rate.change === null"></app-load>

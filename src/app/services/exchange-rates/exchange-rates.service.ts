@@ -37,14 +37,9 @@ export class ExchangeRatesService {
     private parseResponse(response: ExchangeRatesResponse, sort: string[]): ExchangeRate[] {
         let result = [];
 
-        for (let symbol in response.rates) {
-            if (!response.rates.hasOwnProperty(symbol)) {
-                continue;
-            }
+        for (let value of response.rates) {
+            let symbol = value.symbol.toUpperCase();
 
-            symbol = symbol.toUpperCase();
-
-            let value = response.rates[symbol];
             result[sort.indexOf(symbol)] = new ExchangeRate(
                 Blockchains[symbol],
                 value.price,

@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class ExchangeRatesService {
-    private url = '/api/rates/v1';
+    private url = '/api/rates/v2';
     private results = new Subject<ExchangeRate[]>();
 
     constructor(private http: HttpClient) {
@@ -42,10 +42,14 @@ export class ExchangeRatesService {
                 continue;
             }
 
-            let value = response.rates[symbol];
             symbol = symbol.toUpperCase();
 
-            result[sort.indexOf(symbol)] = new ExchangeRate(Blockchains[symbol], null, value);
+            let value = response.rates[symbol];
+            result[sort.indexOf(symbol)] = new ExchangeRate(
+                Blockchains[symbol],
+                value.price,
+                Math.round(value.change * 100) / 100,
+            );
         }
 
         return result;

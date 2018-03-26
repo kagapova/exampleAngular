@@ -57,7 +57,16 @@
         }
     }
 
-    &__24h--up {
+    &__change {
+        font-size: 14px;
+        line-height: 20px;
+        text-align: right;
+        color: #6b8199;
+        padding: 0 0 15px 0;
+        width: 100px;
+    }
+
+    &__change--up {
         font-size: 14px;
         line-height: 20px;
         text-align: right;
@@ -66,7 +75,7 @@
         width: 100px;
     }
 
-    &__24h--down {
+    &__change--down {
         font-size: 14px;
         line-height: 20px;
         text-align: right;

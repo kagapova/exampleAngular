@@ -5,9 +5,9 @@
             Popular Coins
             <!--<span class="home-popular-coin-list__link-all">&#8250;</span>-->
         </td>
-        <!--<td class="home-popular-coin-list__second-header">-->
-            <!--24h-->
-        <!--</td>-->
+        <td class="home-popular-coin-list__second-header">
+            1h
+        </td>
         <td class="home-popular-coin-list__second-header">
             USD
         </td>
@@ -23,13 +23,15 @@
         <td class="home-popular-coin-list__name">
             <a href="?">{{rate.blockchain.name}}</a>
         </td>
-        <!--<td class="home-popular-coin-list__24h&#45;&#45;up">-->
-            <!--<app-load *ngIf="rate.value === null"></app-load>-->
-            <!--&lt;!&ndash;&uarr; 20.48%&ndash;&gt;-->
-        <!--</td>-->
+        <td [ngClass]="{'home-popular-coin-list__change--up': rate.change !== null && rate.change > 0, 'home-popular-coin-list__change--down': rate.change !== null && rate.change < 0, 'home-popular-coin-list__change': !rate.change}">
+            <app-load *ngIf="rate.change === null"></app-load>
+            <ng-container *ngIf="rate.change !== null && rate.change > 0">&uarr;</ng-container>
+            <ng-container *ngIf="rate.change !== null && rate.change < 0">&darr;</ng-container>
+            <ng-container *ngIf="rate.change !== null">{{rate.change}}%</ng-container>
+        </td>
         <td class="home-popular-coin-list__value">
-            <app-load *ngIf="rate.value === null"></app-load>
-            {{rate.value}}
+            <app-load *ngIf="rate.price === null"></app-load>
+            {{rate.price}}
         </td>
     </tr>
     </tbody>

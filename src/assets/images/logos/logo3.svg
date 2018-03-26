@@ -13,7 +13,7 @@
 	.st7{fill:url(#SVGID_7_);}
 </style>
 <g>
-
+	
 		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0" y1="130" x2="256" y2="130" gradientTransform="matrix(1 0 0 -1 0 258)">
 		<stop  offset="0" style="stop-color:#FF9F48"/>
 		<stop  offset="1" style="stop-color:#FF3B6A"/>
@@ -59,4 +59,8 @@
 	<stop  offset="0" style="stop-color:#FF9F48"/>
 	<stop  offset="1" style="stop-color:#FF3B6A"/>
 </linearGradient>
+<path class="st7" d="M307.7,47.9c-1.4-4-3.4-10.3-5-15.1C311.7,19.2,323.5,0,323.5,0h-16.1l-9.8,15.9c0,0-2.9-15.9-18.7-15.9
+	c-14,0-29,7.1-38.1,23.7c-9.1,16.5-6.8,36.2,14.3,39.1C270.8,64.8,287,55,294,45.7c0,0,2.3,17.2,17.1,17.2c7.6,0,11.6-3.8,13.9-6.6
+	C319.6,57.3,310.2,55.2,307.7,47.9z M257.4,55.5c-9.5,0-9.3-16.6-4.2-28.1c5.1-11.5,14.1-20.8,23.1-20.8s12.3,23.1,12.3,23.1
+	C277.5,48,266.9,55.5,257.4,55.5z"/>
 </svg>

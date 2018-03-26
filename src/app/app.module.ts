@@ -55,6 +55,7 @@ import {TrackLinkComponent} from './components/track-link/track-link.component';
 import {AnalyticsService} from './services/analytics/analytics.service';
 import {HomePopularCoinListComponent} from './components/home/home-popular-coin-list/home-popular-coin-list.component';
 import {LoadComponent} from './components/load/load.component';
+import { ProducthuntComponent } from './producthunt/producthunt.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -113,6 +114,7 @@ export function createTranslateLoader(http: HttpClient) {
         TrackLinkComponent,
         HomePopularCoinListComponent,
         LoadComponent,
+        ProducthuntComponent,
     ],
     imports: [
         BrowserModule,

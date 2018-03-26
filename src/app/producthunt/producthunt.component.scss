@@ -1,0 +1,68 @@
+.producthunt {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+
+    &--hide {
+        display: none;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    &__image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -225px 0 0 -300px;
+        width: 600px;
+        height: 450px;
+    }
+
+    &__facebook,
+    &__twitter,
+    &__linkedin,
+    &__medium,
+    &__angelco,
+    &__telegram {
+        position: absolute;
+        top: 397px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+    }
+
+    &__facebook {
+        left: 125px;
+    }
+
+    &__twitter {
+        left: 155px;
+    }
+
+    &__linkedin {
+        left: 185px;
+    }
+
+    &__medium {
+        left: 214px;
+    }
+
+    &__angelco {
+        left: 243px;
+    }
+
+    &__telegram {
+        left: 273px;
+    }
+}

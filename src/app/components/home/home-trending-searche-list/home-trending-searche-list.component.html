@@ -1,0 +1,20 @@
+<table class="home-trending-searche-list">
+    <thead>
+    <tr>
+        <td class="home-trending-searche-list__main-header" colspan="2">
+            Trending Searches
+            <!--<span class="home-trending-searche-list__link-all">&#8250;</span>-->
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let trend of trendingResults$ | async; let i = index">
+        <td class="home-trending-searche-list__number">{{i + 1}}</td>
+        <td class="home-trending-searche-list__search">
+            <app-load *ngIf="trend.request === null"></app-load>
+            <a [routerLink]="['/search']" [queryParams]="{q: trend.request}" *ngIf="trend.request !== null">
+                {{trend.request}}</a>
+        </td>
+    </tr>
+    </tbody>
+</table>

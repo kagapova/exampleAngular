@@ -56,6 +56,8 @@ import {AnalyticsService} from './services/analytics/analytics.service';
 import {HomePopularCoinListComponent} from './components/home/home-popular-coin-list/home-popular-coin-list.component';
 import {LoadComponent} from './components/load/load.component';
 import { ProducthuntComponent } from './producthunt/producthunt.component';
+import {HomeTrendingSearcheListComponent} from './components/home/home-trending-searche-list/home-trending-searche-list.component';
+import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
 
 Raven
     .config(environment.ravenDSN)
@@ -115,6 +117,7 @@ export function createTranslateLoader(http: HttpClient) {
         HomePopularCoinListComponent,
         LoadComponent,
         ProducthuntComponent,
+        HomeTrendingSearcheListComponent,
     ],
     imports: [
         BrowserModule,
@@ -134,6 +137,7 @@ export function createTranslateLoader(http: HttpClient) {
         ExchangeRatesService,
         SearchService,
         AnalyticsService,
+        TrendingSearchesService,
         {provide: ErrorHandler, useClass: RavenErrorHandler},
     ],
     bootstrap: [AppComponent]

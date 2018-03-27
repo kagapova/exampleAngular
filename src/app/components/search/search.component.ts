@@ -29,6 +29,6 @@ export class SearchComponent implements OnInit {
             this.router.navigate(['/']);
         }
 
-        this.titleService.setTitle(`${term} - Decenter Search`);
+        this.titleService.setTitle(`${term} - Decentralized Search Engine for Blockchain and Crypto`);
     }
 }

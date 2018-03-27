@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
     ngOnInit() {
         this.searchService.clean();
-        this.titleService.setTitle('Decenter Search');
+        this.titleService.setTitle('Decentralized Search Engine for Blockchain and Crypto');
 
         window.addEventListener('resize', this.onWindowResize);
         this.onWindowResize();

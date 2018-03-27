@@ -55,7 +55,7 @@ import {TrackLinkComponent} from './components/track-link/track-link.component';
 import {AnalyticsService} from './services/analytics/analytics.service';
 import {HomePopularCoinListComponent} from './components/home/home-popular-coin-list/home-popular-coin-list.component';
 import {LoadComponent} from './components/load/load.component';
-import { ProducthuntComponent } from './producthunt/producthunt.component';
+import {ProducthuntComponent} from './components/producthunt/producthunt.component';
 import {HomeTrendingSearcheListComponent} from './components/home/home-trending-searche-list/home-trending-searche-list.component';
 import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
 

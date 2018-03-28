@@ -1,3 +1,10 @@
+@mixin change {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+    padding: 0 0 15px 0;
+}
+
 .home-popular-coin-list {
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     width: 100%;
@@ -8,6 +15,7 @@
         line-height: 30px;
         color: #2e3033;
         padding: 0 0 25px 0;
+        width: 164px;
     }
 
     &__second-header {
@@ -19,15 +27,12 @@
         padding: 0 0 25px 0;
     }
 
-    &__second-header--change {
-        display: none;
-    }
-
     &__link-all {
         color: #8f9fb3;
     }
 
     &__number {
+        width: 30px;
         font-size: 16px;
         line-height: 20px;
         text-align: left;
@@ -36,6 +41,7 @@
     }
 
     &__image {
+        width: 30px;
         padding: 0 0 15px 0;
     }
 
@@ -46,7 +52,7 @@
         line-height: 20px;
     }
 
-    &__name {
+    &__title {
         font-size: 16px;
         line-height: 20px;
         padding: 0 0 15px 0;
@@ -56,31 +62,23 @@
         }
     }
 
-    &__change {
+    &__name {
         display: none;
-        font-size: 14px;
-        line-height: 20px;
-        text-align: right;
+    }
+
+    &__change {
+        @include change;
         color: #6b8199;
-        padding: 0 0 15px 0;
     }
 
     &__change--up {
-        display: none;
-        font-size: 14px;
-        line-height: 20px;
-        text-align: right;
+        @include change;
         color: #40993d;
-        padding: 0 0 15px 0;
     }
 
     &__change--down {
-        display: none;
-        font-size: 14px;
-        line-height: 20px;
-        text-align: right;
+        @include change;
         color: #ff4346;
-        padding: 0 0 15px 0;
     }
 
     &__value {
@@ -92,22 +90,14 @@
     }
 }
 
-@media (min-width: 310px) {
+@media (min-width: 335px) {
     .home-popular-coin-list {
-        &__second-header--change {
+        &__name {
             display: block;
         }
 
-        &__change {
-            display: block;
-        }
-
-        &__change--up {
-            display: block;
-        }
-
-        &__change--down {
-            display: block;
+        &__symbol {
+            display: none;
         }
     }
 }
@@ -122,30 +112,19 @@
             width: 100px;
         }
 
-        &__number {
-            width: 30px;
-        }
-
-        &__image {
-            width: 30px;
-        }
-
-        &__name {
+        &__title {
             width: 100px;
         }
 
         &__change {
-            display: block;
             width: 100px;
         }
 
         &__change--up {
-            display: block;
             width: 100px;
         }
 
         &__change--down {
-            display: block;
             width: 100px;
         }
 

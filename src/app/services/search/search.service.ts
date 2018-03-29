@@ -105,10 +105,16 @@ export class SearchService {
 
         if (searchResults.data.currency !== null) {
             searchResults.type = 'currency';
+
+        } else if (searchResults.data.company !== null) {
+            searchResults.type = 'company';
+
         } else if (searchResults.data.address !== null) {
             searchResults.type = 'address';
+
         } else if (searchResults.data.txn !== null) {
             searchResults.type = 'txn';
+
         } else {
             searchResults.type = 'web';
         }

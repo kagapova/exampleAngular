@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Company, CompanyMember} from '../../../models/company';
+import {Company} from '../../../models/company';
+import {SearchResults} from '../../../models/search-result';
+import {Event} from '../../../models/event';
+import {WebResult} from '../../../models/web-result';
 
 @Component({
     selector: 'app-search-result-company',
@@ -7,22 +10,17 @@ import {Company, CompanyMember} from '../../../models/company';
     styleUrls: ['./search-result-company.component.scss']
 })
 export class SearchResultCompanyComponent implements OnInit {
-    @Input() result: Company;
-    showedMembers: CompanyMember[];
-    showedAllTeam: boolean;
+    @Input() result: SearchResults;
+    company: Company;
+    webLinks: WebResult[];
+    events: Event[];
 
     constructor() {
     }
 
     ngOnInit() {
-        if (this.result.team.length > 7) {
-            this.showedMembers = this.result.team.slice(0, 5);
-            this.showedAllTeam = false;
-        }
-    }
-
-    showAllTeam() {
-        this.showedMembers = this.result.team;
-        this.showedAllTeam = true;
+        this.company = this.result.data.company;
+        this.webLinks = this.result.data.web;
+        this.events = this.result.data.events;
     }
 }

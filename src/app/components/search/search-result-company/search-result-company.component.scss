@@ -1,63 +1,60 @@
 @import "../search.mixins";
 
 .search-result-company {
-    &__about {
-        @include block;
+    border-radius: 3px;
+    display: block;
+    text-decoration: none;
 
-        &__title {
-            @include block-title;
-        }
-
-        &__more {
-            color: #878787;
-        }
-
-        &__link {
-            @include block-footer-link;
-        }
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 10px 0 20px;
     }
 
-    &__team {
-        @include block;
-
-        &__title {
-            @include block-title;
-        }
-
-        &__link {
-            @include block-footer-link;
-        }
-
-        &__member {
-
-        }
-
-        &__all {
-            display: block;
-            width: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.16);
-            border-radius: 3px;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 14px;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
+    &__title {
+        position: static;
+        display: flex;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 30px;
+        line-height: 30px;
+        flex: 1;
+        margin: 0;
     }
 
-    &__roadmap {
-        @include block;
+    &__logo {
+        width: 22px;
+        height: 22px;
+        margin: 0 5px 0 0;
+    }
 
-        &__title {
-            @include block-title;
+    &__content {
+        display: block;
+
+        &__main {
+            max-width: 590px;
         }
 
-        &__link {
-            @include block-footer-link;
+        &__additional {
+            max-width: 590px;
         }
 
-        &__link__icon {
-            @include block-footer-icon;
+        @media (min-width: 1110px) {
+            display: flex;
+
+            &__main {
+                flex: 1;
+                margin: 0 20px 0 0;
+                min-width: 590px;
+            }
+
+            &__additional {
+                flex: 1;
+                max-width: 390px;
+                min-width: 390px;
+            }
         }
     }
 }

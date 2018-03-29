@@ -1,0 +1,14 @@
+<div class="search-block-future-event">
+    <h3 class="search-block-future-event__title">
+        <app-track-link [originalLink]="event.source" [serverTrackLink]="event.analyticalURL" block="search-block-future-event" [label]="number">
+            {{event.title}}</app-track-link>
+    </h3>
+
+    <div class="search-block-future-event__date">
+        {{event.date}}
+    </div>
+
+    <div class="search-block-future-event__description">
+        {{event.description}}
+    </div>
+</div>

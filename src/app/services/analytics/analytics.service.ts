@@ -12,16 +12,29 @@ export class AnalyticsService {
         gtag('config', environment.googleAnalyticsID);
     }
 
-    clickToLink(block: string, serverTrackLink: string) {
-        gtag('event', 'click', {
-            'event_category': 'outbound',
-            'event_label': block,
-        });
-
+    clickToOutgoingLink(block: string, serverTrackLink: string, label: string = '') {
+        this.event(block, 'click-outgoing-link', label);
         this.http.get(serverTrackLink).subscribe();
     }
 
+    click(block: string, label: string = '') {
+        this.event(block, 'click', label)
+    }
+
     pageView(path: string) {
-        gtag('event', 'pageview', {'page_path': path});
+        gtag('event', 'page_view', {'page_path': path});
+    }
+
+    event(event_category, event_action, event_label) {
+        event_category = event_category.replace('search-block-', 'sb-');
+
+        if (environment.googleAnalyticsID) {
+            gtag('event', event_action, {
+                'event_category': event_category,
+                'event_label': event_label,
+            });
+        } else {
+            console.log(`Event: ${event_action}: {event_category: ${event_category}, event_label: ${event_label}}`)
+        }
     }
 }

@@ -1,7 +1,7 @@
 <div class="search-block-wallet-list">
     <h2 class="search-block-wallet-list__title">Wallets</h2>
 
-    <app-search-block-wallet *ngFor="let wallet of showedWallets" [wallet]="wallet"></app-search-block-wallet>
+    <app-search-block-wallet *ngFor="let wallet of showedWallets; let i = index" [wallet]="wallet" [number]="i + 1"></app-search-block-wallet>
 
     <button class="search-block-wallet-list__button" *ngIf="!showedAllWallets" (click)="showAllWallets()">Show all wallets</button>
 </div>

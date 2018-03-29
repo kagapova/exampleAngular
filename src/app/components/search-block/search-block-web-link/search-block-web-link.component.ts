@@ -8,6 +8,7 @@ import {WebResult} from '../../../models/web-result';
 })
 export class SearchBlockWebLinkComponent implements OnInit {
     @Input() webLink: WebResult;
+    @Input() number: number;
 
     constructor() {
     }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ChartValue, Currency} from '../../../models/currency';
+import {AnalyticsService} from '../../../services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-block-chart-rate',
@@ -25,7 +26,7 @@ export class SearchBlockChartRateComponent implements OnInit {
     deltaMinValue: number;
     deltaMaxValue: number;
 
-    constructor() {
+    constructor(private analytics: AnalyticsService) {
     }
 
     public ngOnInit() {
@@ -37,6 +38,7 @@ export class SearchBlockChartRateComponent implements OnInit {
         this.chartTimePeriod = period;
         this.updateChartData();
         this.updateDeltaData();
+        this.analytics.click('search-block-chart-rate', period);
     }
 
     private updateChartData() {

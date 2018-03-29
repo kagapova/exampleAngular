@@ -46,8 +46,8 @@ import {SearchBlockTeamComponent} from './components/search-block/search-block-t
 import {FooterComponent} from './components/footer/footer.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {SearchBlockEventComponent} from './components/search-block/search-block-event/search-block-event.component';
-import {SearchBlockEventListComponent} from './components/search-block/search-block-event-list/search-block-event-list.component';
+import {SearchBlockFutureEventComponent} from './components/search-block/search-block-future-event/search-block-future-event.component';
+import {SearchBlockFutureEventListComponent} from './components/search-block/search-block-future-event-list/search-block-future-event-list.component';
 import {SearchBlockWalletComponent} from './components/search-block/search-block-wallet/search-block-wallet.component';
 import {SearchBlockWalletListComponent} from './components/search-block/search-block-wallet-list/search-block-wallet-list.component';
 import {SearchAddContentButtonComponent} from './components/search/search-add-content-button/search-add-content-button.component';
@@ -108,8 +108,8 @@ export function createTranslateLoader(http: HttpClient) {
         SearchBlockRoadmapComponent,
         SearchBlockTeamComponent,
         FooterComponent,
-        SearchBlockEventComponent,
-        SearchBlockEventListComponent,
+        SearchBlockFutureEventComponent,
+        SearchBlockFutureEventListComponent,
         SearchBlockWalletComponent,
         SearchBlockWalletListComponent,
         SearchAddContentButtonComponent,

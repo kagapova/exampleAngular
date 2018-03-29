@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Wallet} from '../../../models/wallet';
+import {AnalyticsService} from '../../../services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-block-wallet-list',
@@ -11,7 +12,7 @@ export class SearchBlockWalletListComponent implements OnInit {
     showedWallets: Wallet[];
     showedAllWallets: boolean;
 
-    constructor() {
+    constructor(private analytics: AnalyticsService) {
     }
 
     ngOnInit() {
@@ -24,5 +25,6 @@ export class SearchBlockWalletListComponent implements OnInit {
     showAllWallets() {
         this.showedWallets = this.wallets;
         this.showedAllWallets = true;
+        this.analytics.click('search-block-wallet', 'show-all');
     }
 }

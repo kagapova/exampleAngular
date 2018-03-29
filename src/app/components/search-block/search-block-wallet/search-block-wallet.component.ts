@@ -8,6 +8,7 @@ import {Wallet} from '../../../models/wallet';
 })
 export class SearchBlockWalletComponent implements OnInit {
     @Input() wallet: Wallet;
+    @Input() number: number;
 
     constructor() {
     }

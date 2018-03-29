@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CompanyMember} from '../../../models/company';
+import {AnalyticsService} from '../../../services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-block-team',
@@ -12,7 +13,7 @@ export class SearchBlockTeamComponent implements OnInit {
     showedMembers: CompanyMember[];
     showedAllTeam: boolean;
 
-    constructor() {
+    constructor(private analytics: AnalyticsService) {
     }
 
     ngOnInit() {
@@ -25,5 +26,6 @@ export class SearchBlockTeamComponent implements OnInit {
     showAllTeam() {
         this.showedMembers = this.team;
         this.showedAllTeam = true;
+        this.analytics.click('search-block-team', 'show-all');
     }
 }

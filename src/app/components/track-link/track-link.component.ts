@@ -10,6 +10,7 @@ export class TrackLinkComponent implements OnInit {
     @Input() public originalLink: string;
     @Input() public serverTrackLink: string;
     @Input() public block: string;
+    @Input() public label: string;
 
     constructor(private analytics: AnalyticsService) {
     }
@@ -18,6 +19,6 @@ export class TrackLinkComponent implements OnInit {
     }
 
     onClick() {
-        this.analytics.clickToLink(this.block, this.serverTrackLink);
+        this.analytics.clickToOutgoingLink(this.block, this.serverTrackLink, this.label);
     }
 }

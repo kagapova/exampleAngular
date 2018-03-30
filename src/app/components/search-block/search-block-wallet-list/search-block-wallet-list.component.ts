@@ -20,6 +20,8 @@ export class SearchBlockWalletListComponent implements OnInit {
             this.showedWallets= this.wallets.slice(0, 3);
             this.showedAllWallets = false;
         }
+
+        this.analytics.view('search-block-wallet');
     }
 
     showAllWallets() {

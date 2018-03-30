@@ -32,6 +32,7 @@ export class SearchBlockChartRateComponent implements OnInit {
     public ngOnInit() {
         this.updateChartData();
         this.updateDeltaData();
+        this.analytics.view('search-block-chart-rate');
     }
 
     public selectChartTimePeriod(period: string) {

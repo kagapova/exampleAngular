@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CurrencyCapitalization} from '../../../models/currency';
+import {AnalyticsService} from '../../../services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-block-capitalization',
@@ -10,9 +11,10 @@ export class SearchBlockCapitalizationComponent implements OnInit {
     @Input() capitalization: CurrencyCapitalization;
     @Input() symbol: string;
 
-    constructor() {
+    constructor(private analytics: AnalyticsService) {
     }
 
     ngOnInit() {
+        this.analytics.view('search-block-capitalization');
     }
 }

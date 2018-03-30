@@ -21,6 +21,8 @@ export class SearchBlockTeamComponent implements OnInit {
             this.showedMembers = this.team.slice(0, 3);
             this.showedAllTeam = false;
         }
+
+        this.analytics.view('search-block-team');
     }
 
     showAllTeam() {

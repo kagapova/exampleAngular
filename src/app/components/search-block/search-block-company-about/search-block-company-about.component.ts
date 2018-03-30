@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Company} from '../../../models/company';
+import {AnalyticsService} from '../../../services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-block-company-about',
@@ -9,9 +10,10 @@ import {Company} from '../../../models/company';
 export class SearchBlockCompanyAboutComponent implements OnInit {
     @Input() company: Company;
 
-    constructor() {
+    constructor(private analytics: AnalyticsService) {
     }
 
     ngOnInit() {
+        this.analytics.view('search-block-company-about');
     }
 }

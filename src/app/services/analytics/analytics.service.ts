@@ -21,6 +21,10 @@ export class AnalyticsService {
         this.event(block, 'click', label)
     }
 
+    view(block: string) {
+        this.event(block, 'view', null)
+    }
+
     pageView(path: string) {
         gtag('event', 'page_view', {'page_path': path});
     }

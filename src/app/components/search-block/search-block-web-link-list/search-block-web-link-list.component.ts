@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {WebResult} from '../../../models/web-result';
+import {AnalyticsService} from '../../../services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-block-web-link-list',
@@ -9,9 +10,10 @@ import {WebResult} from '../../../models/web-result';
 export class SearchBlockWebLinkListComponent implements OnInit {
     @Input() webLinks: WebResult[];
 
-    constructor() {
+    constructor(private analytics: AnalyticsService) {
     }
 
     ngOnInit() {
+        this.analytics.view('search-block-web-link');
     }
 }

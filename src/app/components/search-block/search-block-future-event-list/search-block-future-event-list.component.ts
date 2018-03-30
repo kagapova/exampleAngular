@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Event} from '../../../models/event';
+import {AnalyticsService} from '../../../services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-block-future-event-list',
@@ -9,10 +10,10 @@ import {Event} from '../../../models/event';
 export class SearchBlockFutureEventListComponent implements OnInit {
     @Input() events: Event[];
 
-    constructor() {
+    constructor(private analytics: AnalyticsService) {
     }
 
     ngOnInit() {
+        this.analytics.view('search-block-future-event');
     }
-
 }

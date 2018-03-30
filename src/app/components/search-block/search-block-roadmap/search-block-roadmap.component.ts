@@ -22,6 +22,8 @@ export class SearchBlockRoadmapComponent implements OnInit {
             this.showedStages = this.roadmap.slice(0, 2);
             this.showedAllRoadmap = false;
         }
+
+        this.analytics.view('search-block-roadmap');
     }
 
     showAllRoadmap() {

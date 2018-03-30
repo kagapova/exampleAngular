@@ -2,6 +2,7 @@
     "root": "dist/",
     "https_only": true,
     "routes": {
+        "/assets/*": "/assets/",
         "/**": "index.html"
     },
     "proxies": {
@@ -14,12 +15,10 @@
             "Cache-Control": "no-store, no-cache"
         },
         "**.js": {
-            "Cache-Control": "public, max-age=31536000",
-            "Access-Control-Allow-Origin": "cdn-instance.example.com"
+            "Cache-Control": "public, max-age=31536000"
         },
         "**.css": {
-            "Cache-Control": "public, max-age=31536000",
-            "Access-Control-Allow-Origin": "cdn-instance.example.com"
+            "Cache-Control": "public, max-age=31536000"
         }
     }
 }

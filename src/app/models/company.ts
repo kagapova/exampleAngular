@@ -32,6 +32,7 @@ export class CompanyLink {
 export class CompanyMember {
     constructor(public readonly name: string,
                 public readonly role: string,
+                public readonly photo: string,
                 public readonly linkedinURL: string,
                 public readonly twitterURL: string,
                 public readonly facebookURL: string) {

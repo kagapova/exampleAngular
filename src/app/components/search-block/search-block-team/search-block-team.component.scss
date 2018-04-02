@@ -18,4 +18,19 @@
     &__btn-all {
         @include search-block-button;
     }
+
+    &__member {
+        display: flex;
+        margin: 0 0 5px 0;
+
+        &__photo {
+            @include photo--medium;
+            display: inline-block;
+            margin: 3px 10px 0 0;
+        }
+
+        &__description {
+            flex: 1;
+        }
+    }
 }

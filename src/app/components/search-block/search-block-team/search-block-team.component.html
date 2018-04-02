@@ -1,22 +1,27 @@
 <div class="search-block-team">
     <h2 class="search-block-team__title">Team</h2>
 
-    <p class="search-block-team__member" *ngFor="let member of showedMembers; let i = index">
-        <b>{{member.name}}</b>
+    <div class="search-block-team__member" *ngFor="let member of showedMembers; let i = index">
+        <img [src]="member.photo" class="search-block-team__member__photo" *ngIf="member.photo">
+        <img src="/assets/images/no-photo.png" class="search-block-team__member__photo" *ngIf="!member.photo">
 
-        <app-track-link [originalLink]="member.facebookURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.facebookURL">
-            <i class="fab fa-facebook facebook"></i></app-track-link>
+        <div class="search-block-team__member__description">
+            <b>{{member.name}}</b>
 
-        <app-track-link [originalLink]="member.twitterURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.twitterURL">
-            <i class="fab fa-twitter twitter"></i></app-track-link>
+            <app-track-link [originalLink]="member.facebookURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.facebookURL">
+                <i class="fab fa-facebook facebook"></i></app-track-link>
 
-        <app-track-link [originalLink]="member.linkedinURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.linkedinURL">
-            <i class="fab fa-linkedin linkedin"></i></app-track-link>
+            <app-track-link [originalLink]="member.twitterURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.twitterURL">
+                <i class="fab fa-twitter twitter"></i></app-track-link>
 
-        <br>
+            <app-track-link [originalLink]="member.linkedinURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.linkedinURL">
+                <i class="fab fa-linkedin linkedin"></i></app-track-link>
 
-        {{member.role}}
-    </p>
+            <br>
+
+            {{member.role}}
+        </div>
+    </div>
 
     <button class="search-block-team__btn-all" (click)="showAllTeam()" *ngIf="!showedAllTeam">Show All Team</button>
 

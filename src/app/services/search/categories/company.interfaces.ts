@@ -32,6 +32,7 @@ interface CompanyLinkServer {
 interface CompanyMemberServer {
     name: string;
     role: string;
+    photo: string;
     linkedinUrl: string;
     twitterUrl: string;
     facebookUrl: string;

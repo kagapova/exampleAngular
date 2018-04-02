@@ -43,6 +43,7 @@ function getTeam(company: CompanyServer): CompanyMember[] {
         return new CompanyMember(
             member.name,
             member.role,
+            member.photo,
             member.linkedinUrl,
             member.twitterUrl,
             member.facebookUrl

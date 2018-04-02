@@ -21,9 +21,9 @@
                 <img class="home-popular-coin-list__icon" src="/assets/images/coins/{{rate.blockchain.symbol}}.png"></a>
         </td>
         <td class="home-popular-coin-list__title">
-            <a [routerLink]="['/search']" [queryParams]="{q: rate.blockchain.name}" class="home-popular-coin-list__name">
+            <a [routerLink]="['/search']" [queryParams]="{q: rate.blockchain.name}" (click)="onClick(i+1)" class="home-popular-coin-list__name">
                 {{rate.blockchain.name}}</a>
-            <a [routerLink]="['/search']" [queryParams]="{q: rate.blockchain.name}" class="home-popular-coin-list__symbol">
+            <a [routerLink]="['/search']" [queryParams]="{q: rate.blockchain.name}" (click)="onClick(i+1)" class="home-popular-coin-list__symbol">
                 {{rate.blockchain.symbol}}</a>
         </td>
         <td [ngClass]="{'home-popular-coin-list__change--up': rate.change !== null && rate.change > 0, 'home-popular-coin-list__change--down': rate.change !== null && rate.change < 0, 'home-popular-coin-list__change': !rate.change}">

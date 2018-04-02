@@ -12,7 +12,7 @@
         <td class="home-trending-searche-list__number">{{i + 1}}</td>
         <td class="home-trending-searche-list__search">
             <app-load *ngIf="trend.request === null"></app-load>
-            <a [routerLink]="['/search']" [queryParams]="{q: trend.request}" *ngIf="trend.request !== null">
+            <a [routerLink]="['/search']" [queryParams]="{q: trend.request}" (click)="onClick(i+1)" *ngIf="trend.request !== null">
                 {{trend.request}}</a>
         </td>
     </tr>

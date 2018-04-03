@@ -12,7 +12,7 @@
 
     <div class="search-result-company__content">
         <div class="search-result-company__content__main">
-            <app-search-block-future-event-list [events]="events" *ngIf=""></app-search-block-future-event-list>
+            <app-search-block-future-event-list *ngIf="events && events.length" [events]="events"></app-search-block-future-event-list>
             <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>
         </div>
 

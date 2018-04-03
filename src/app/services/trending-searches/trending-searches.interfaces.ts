@@ -1,8 +1,13 @@
 type TrendsResponse = {
-    requests: TrendResponse[]
+    requests: TrendResponse[],
+    trendingRequests: TrendRequestResponse[],
 }
 
 type TrendResponse = {
     request: string
     count: number
+}
+
+type TrendRequestResponse = {
+    request: string
 }

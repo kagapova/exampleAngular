@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://stage-crypto-search.herokuapp.com",
+    "target": "https://prod-crypto-search.herokuapp.com",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

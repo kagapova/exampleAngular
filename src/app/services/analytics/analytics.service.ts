@@ -21,6 +21,10 @@ export class AnalyticsService {
         this.event(block, 'click', label)
     }
 
+    search(block: string, searchTerm: string) {
+        this.event(block, 'search', {search_term: searchTerm})
+    }
+
     view(block: string) {
         this.event(block, 'view', null)
     }

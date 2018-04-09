@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 import {SearchService} from "../../services/search/search.service";
+import {AnalyticsService} from '../../services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-form',
@@ -12,7 +13,8 @@ export class SearchFormComponent implements OnInit {
     searchTerm: string;
 
     constructor(private searchService: SearchService,
-                private router: Router) {
+                private router: Router,
+                private analytics: AnalyticsService) {
     }
 
     ngOnInit() {
@@ -25,5 +27,7 @@ export class SearchFormComponent implements OnInit {
     onSubmit(value: string) {
         this.searchTerm = value;
         this.router.navigate(['/search'], {queryParams: {q: value}});
+
+        this.analytics.search('search-form', value);
     }
 }

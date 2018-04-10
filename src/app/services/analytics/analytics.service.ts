@@ -22,7 +22,7 @@ export class AnalyticsService {
     }
 
     search(block: string, searchTerm: string) {
-        this.event(block, 'search', {search_term: searchTerm});
+        this.event(block, 'search', searchTerm);
     }
 
     view(block: string) {

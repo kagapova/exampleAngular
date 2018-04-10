@@ -1,15 +1,13 @@
-import {Component, OnInit, AfterContentInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SearchService} from '../../services/search/search.service';
 import {Title} from '@angular/platform-browser';
-
-declare let window: any;
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterContentInit {
+export class HomeComponent implements OnInit {
     height: string;
 
     constructor(private searchService: SearchService,
@@ -24,10 +22,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
         window.addEventListener('resize', this.onWindowResize);
         this.onWindowResize();
-    }
-
-    ngAfterContentInit() {
-        window.optimizely.push(['activate', 10325991945]);
     }
 
     onWindowResize() {

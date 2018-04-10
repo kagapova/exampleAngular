@@ -9,7 +9,7 @@ export class AnalyticsService {
 
     constructor(private http: HttpClient) {
         gtag('js', new Date());
-        gtag('config', environment.googleAnalyticsID);
+        gtag('config', environment.googleAnalyticsID, {'optimize_id': environment.googleOptimizeContainerID});
     }
 
     clickToOutgoingLink(block: string, serverTrackLink: string, label: string = '') {
@@ -18,15 +18,15 @@ export class AnalyticsService {
     }
 
     click(block: string, label: string = '') {
-        this.event(block, 'click', label)
+        this.event(block, 'click', label);
     }
 
     search(block: string, searchTerm: string) {
-        this.event(block, 'search', {search_term: searchTerm})
+        this.event(block, 'search', {search_term: searchTerm});
     }
 
     view(block: string) {
-        this.event(block, 'view', null)
+        this.event(block, 'view', null);
     }
 
     pageView(path: string) {
@@ -42,7 +42,7 @@ export class AnalyticsService {
                 'event_label': event_label,
             });
         } else {
-            console.log(`Event: ${event_action}: {event_category: ${event_category}, event_label: ${event_label}}`)
+            console.log(`Event: ${event_action}: {event_category: ${event_category}, event_label: ${event_label}}`);
         }
     }
 }

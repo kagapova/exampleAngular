@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://prod-crypto-search.herokuapp.com",
+    "target": "https://api.desearch.com",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

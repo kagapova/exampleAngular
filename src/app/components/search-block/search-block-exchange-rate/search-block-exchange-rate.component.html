@@ -1,4 +1,4 @@
 <div class="search-block-exchange-rate">
-    <div class="search-block-exchange-rate__from">1 {{symbol}} =</div>
-    <div class="search-block-exchange-rate__to">{{price | number }} USD</div>
+    <div class="search-block-exchange-rate__from">{{ calc.amount }} {{calc.from}} =</div>
+    <div class="search-block-exchange-rate__to">{{ convertedAmount | number }} {{ calc.to }}</div>
 </div>

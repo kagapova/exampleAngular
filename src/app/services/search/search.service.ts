@@ -16,6 +16,8 @@ import {parseEvent} from './categories/event';
 import {parseWallet} from './categories/wallet';
 import {Wallet} from '../../models/wallet';
 import {WebResult} from '../../models/web-result';
+import {parseCalcResult} from './categories/calc-result';
+import {CalcResult} from '../../models/calc-result';
 
 
 @Injectable()
@@ -82,6 +84,7 @@ export class SearchService {
                 web: [],
                 events: [],
                 wallets: [],
+                calc: null,
             }
         };
 
@@ -144,6 +147,9 @@ export class SearchService {
 
             case 'wallet':
                 return parseWallet(result);
+            
+            case 'calc':
+                return parseCalcResult(result);
 
             default:
                 // todo write to sentry

@@ -5,6 +5,7 @@ import {Currency} from './currency';
 import {Transaction} from './transaction';
 import {Event} from './event';
 import {Wallet} from './wallet';
+import {CalcResult} from '../models/calc-result';
 
 export type SearchResult = (
     Address |
@@ -13,7 +14,8 @@ export type SearchResult = (
     Event |
     Transaction |
     Wallet |
-    WebResult);
+    WebResult |
+    CalcResult);
 
 
 export type SearchResults = {
@@ -26,5 +28,6 @@ export type SearchResults = {
         web: WebResult[];
         events: Event[];
         wallets: Wallet[];
+        calc: CalcResult;
     };
 }

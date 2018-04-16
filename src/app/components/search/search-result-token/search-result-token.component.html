@@ -12,7 +12,7 @@
 
     <div class="search-result-token__content">
         <div class="search-result-token__content__main">
-            <app-search-block-exchange-rate [symbol]="currency.symbol" [price]="currency.price"></app-search-block-exchange-rate>
+            <app-search-block-exchange-rate [calc]="calc"></app-search-block-exchange-rate>
             <app-search-block-chart-rate [values]="currency.charts"></app-search-block-chart-rate>
             <app-search-block-future-event-list *ngIf="events && events.length" [events]="events"></app-search-block-future-event-list>
             <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>

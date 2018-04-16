@@ -5,6 +5,8 @@ import {Company} from '../../../models/company';
 import {WebResult} from '../../../models/web-result';
 import {Event} from '../../../models/event';
 import {Wallet} from '../../../models/wallet';
+import {CalcResult} from '../../../models/calc-result';
+
 
 @Component({
     selector: 'app-search-result-token',
@@ -18,6 +20,7 @@ export class SearchResultTokenComponent implements OnInit {
     webLinks: WebResult[];
     events: Event[];
     wallets: Wallet[];
+    calc: CalcResult;
 
     constructor() {
     }
@@ -28,5 +31,15 @@ export class SearchResultTokenComponent implements OnInit {
         this.webLinks = this.result.data.web;
         this.events = this.result.data.events;
         this.wallets = this.result.data.wallets;
+        this.calc = this.result.data.calc;
+
+        if (!this.calc) {
+            this.calc = new CalcResult(
+                    this.currency.symbol,
+                    'USD',
+                    1,
+                    this.currency.price
+                );
+        }
     }
 }

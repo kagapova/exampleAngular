@@ -26,7 +26,7 @@
                 <app-load *ngIf="rate.change === null"></app-load>
                 <ng-container *ngIf="rate.change !== null && rate.change > 0">↑</ng-container>
                 <ng-container *ngIf="rate.change !== null && rate.change < 0">↓</ng-container>
-                <ng-container *ngIf="rate.change !== null">{{rate.change | number}}%</ng-container>
+                <ng-container *ngIf="rate.change !== null">{{rate.change > 0 ? rate.change : -rate.change | number}}%</ng-container>
             </td>
 
             <td class="table__td table__td--text-right table__td--color-black">

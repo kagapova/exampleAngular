@@ -70,24 +70,3 @@
         height: 100%;
     }
 }
-
-.home-about {
-    height: 100%;
-    color: #fff;
-
-    &__all {
-        @include _container(#58b792);
-    }
-
-    &__focus {
-        @include _container(#f5a339);
-    }
-
-    &__info {
-        @include _container(#5f63bd);
-    }
-
-    &__help {
-        @include _container(#87cef5);
-    }
-}

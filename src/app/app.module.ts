@@ -58,6 +58,7 @@ import {LoadComponent} from './components/load/load.component';
 import {ProducthuntComponent} from './components/producthunt/producthunt.component';
 import {HomeTrendingSearcheListComponent} from './components/home/home-trending-searche-list/home-trending-searche-list.component';
 import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
+import { LogoComponent } from './components/logo/logo.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -118,6 +119,7 @@ export function createTranslateLoader(http: HttpClient) {
         LoadComponent,
         ProducthuntComponent,
         HomeTrendingSearcheListComponent,
+        LogoComponent,
     ],
     imports: [
         BrowserModule,

@@ -10,13 +10,15 @@
 
     &__link {
         display: block;
-        margin: 0 8px 0 0;
+        margin: 0 8px 0;
     }
 
     &__logo {
-        width: 46px;
-        height: 46px;
+        width: 32px;
+        height: 60px;
         display: block;
+        padding: 8px 0 0;
+        margin: 0 14px 0 0;
     }
 
     &__form {
@@ -39,6 +41,14 @@
 
         &__link {
             margin: 0 16px 0 0;
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    .search-header {
+        &__logo {
+            padding: 12px 0 0;
         }
     }
 }

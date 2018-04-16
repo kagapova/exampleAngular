@@ -3,6 +3,7 @@ import {TrendingSearchesService} from '../../../services/trending-searches/trend
 import {Observable} from 'rxjs/Observable';
 import {Trend} from '../../../models/trend';
 import {AnalyticsService} from '../../../services/analytics/analytics.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-home-trending-searches',
@@ -13,7 +14,8 @@ export class HomeTrendingSearcheListComponent implements OnInit {
     trendingResults$: Observable<Trend[]>;
 
     constructor(private trendingSearches: TrendingSearchesService,
-                private analytics: AnalyticsService) {
+                private analytics: AnalyticsService,
+                private router: Router) {
         this.trendingResults$ = this.trendingSearches.getTrendResults();
     }
 
@@ -23,7 +25,8 @@ export class HomeTrendingSearcheListComponent implements OnInit {
         }, 1);
     }
 
-    onClick(number: number) {
+    onClick(number: number, trend: string) {
+        this.router.navigate(['/search'], {queryParams: {q: trend}});
         this.analytics.click('home-trending-search', number.toString());
     }
 }

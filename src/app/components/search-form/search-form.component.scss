@@ -1,84 +1,52 @@
 .search-form {
-    box-sizing: border-box;
-    border-radius: 3px;
-    display: block;
     position: relative;
-    height: 2.8em;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.06);
-    padding-left: .75em;
 
-    font-size: 1.14em;
-    padding-right: 3.5em;
-
-    &__input {
-        opacity: 1;
-        appearance: none;
-        -webkit-tap-highlight-color: transparent;
-        font-size: 1.1em;
-        font-weight: normal;
-        color: #333;
-        display: block;
-        width: 100%;
-        background: none;
-        outline: none;
-        border: none;
-        padding: 0;
-        height: 2.54545em;
-        z-index: 1;
-        position: relative;
-        top: -1px;
-    }
-
-    &__button {
-        box-sizing: content-box;
-        speak: none;
-        font-style: normal;
-        font-weight: normal !important;
-        font-variant: normal;
-        text-transform: none;
-        text-decoration: none !important;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-tap-highlight-color: transparent;
-        width: 1em;
-        display: block;
-        cursor: pointer;
-        background: transparent;
-        text-align: center;
-        border: none;
+    &__btn {
         position: absolute;
+        right: 0;
         top: 0;
-        bottom: 0;
-        right: 2px;
-        left: auto;
-        margin: auto;
-        z-index: 2;
-        outline: none;
-
-        border-radius: 0 2px 2px 0;
-        min-width: 26px;
-        color: #999;
-        font-size: 1.25em;
-        padding: 0 .64em;
-        height: auto;
-        min-height: 1.8em;
-        margin-top: -1px;
-        margin-bottom: -1px;
-        margin-right: -3px;
-        line-height: 1.5;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        font-smoothing: subpixel-antialiased;
-
+        height: 100%;
+        transition: 0.3s;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        width: 60px;
+        border: none;
+        cursor: pointer;
+        background: url(/assets/images/icons/search.svg) no-repeat center;
         &:hover {
-            background-color: #66ad57;
-            color: white;
+            background-color: rgba(35, 103, 200, 0.05);
         }
+        &:focus {
+            outline: none;
+        }
+    }
+    &__input {
+        width: 100%;
+        display: block;
+        text-align: left;
+        height: 60px;
+        background-color: #ffffff;
+        font-family: 'Circe', sans-serif;
+        padding-left: 15px;
+        border: 1px solid #e8e8e8;
+        padding-right: 60px;
+        font-size: 18px;
+        line-height: 1.67;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: box-shadow 0.3s;
+        box-shadow: none;
+        appearance: none;
 
-        &:active {
-            background-color: #333;
+        &:focus {
+            outline: none;
+            box-shadow: 0 2px 5px 0 rgba(107, 129, 153, 0.1), 0 0.5px 3px 0 rgba(107, 129, 153, 0.25);
         }
+    }
+}
+
+@media (max-width: 767px) {
+    .search-form__input {
+        height: 50px;
     }
 }

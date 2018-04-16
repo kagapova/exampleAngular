@@ -23,6 +23,12 @@
         margin: 0;
         margin-bottom: 0.15em;
         max-width: 100%;
+        color: #2e3033;
+
+        &:visited,
+        &:visited:hover {
+            color: #2e3033;
+        }
     }
 
     &__link {

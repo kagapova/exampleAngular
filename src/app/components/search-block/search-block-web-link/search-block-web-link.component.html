@@ -1,8 +1,6 @@
 <div class="search-block-web-link">
-    <h2 class="search-block-web-link__title">
-        <app-track-link [originalLink]="webLink.url" [serverTrackLink]="webLink.analyticalURL" block="search-block-web-link" [label]="number" class="search-block-web-link__link">
+        <app-track-link [originalLink]="webLink.url" [serverTrackLink]="webLink.analyticalURL" block="search-block-web-link" [label]="number" class="search-block-web-link__link search-block-web-link__title">
             {{webLink.title}}</app-track-link>
-    </h2>
 
     <div class="search-block-web-link__description" [innerHTML]="webLink.description"></div>
 

@@ -1,33 +1,42 @@
 <div class="home">
-    <div class="home__content">
-        <div class="home__content__search">
-            <div class="home__logo">
-                <img src="/assets/images/logos/logo.svg" class="home__logo-image">
-            </div>
-
-            <div class="home__form">
-                <app-search-form></app-search-form>
-            </div>
-
-            <div class="home__description">
-                {{'Finds everything about crypto that "Usual Search" can\'t.' | translate}}
-                <a class="home__description__more" href="#about">{{'More.' | translate}}</a>
+    <header class="home__header">
+        <div class="container">
+            <div class="home__header__inner">
+                <div class="home__header__left">
+                    <app-logo></app-logo>
+                </div>
+                <div class="home__header__right">
+                </div>
             </div>
         </div>
+    </header>
 
-        <div class="home__content__row">
-            <div class="home__content__col">
-                <app-home-popular-coin-list></app-home-popular-coin-list>
+    <main class="home__content">
+        <div class="container">
+            <div class="home__content__search">
+                <div class="home__content__search__title">Find everything about crypto</div>
+                <div class="search__inner">
+                    <app-search-form></app-search-form>
+                </div>
             </div>
-            <div class="home__content__col">
-                <app-home-trending-searches></app-home-trending-searches>
+
+            <div class="home__content__table">
+                <div class="home__content__table-wrap">
+                    <app-home-popular-coin-list></app-home-popular-coin-list>
+                </div>
+                <div class="home__content__table-wrap">
+                    <app-home-trending-searches></app-home-trending-searches>
+                </div>
             </div>
+
+            <app-home-about></app-home-about>
+        </div>
+    </main>
+
+    <div class="container">
+        <div class="home__content__search--bottom">
+            <div class="home__content__search--bottom__title">Don't search, find!</div>
+            <app-search-form></app-search-form>
         </div>
     </div>
-
-    <div class="home__about" [ngStyle]="{height: height}">
-        <app-home-about></app-home-about>
-    </div>
-
-    <app-producthunt></app-producthunt>
 </div>

@@ -1,41 +1,38 @@
-<table class="home-popular-coin-list">
-    <thead>
-    <tr>
-        <td class="home-popular-coin-list__main-header" colspan="3">
-            Popular Coins
-            <!--<span class="home-popular-coin-list__link-all">&#8250;</span>-->
-        </td>
-        <td class="home-popular-coin-list__second-header">
-            24h
-        </td>
-        <td class="home-popular-coin-list__second-header">
-            USD
-        </td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let rate of exchangeRatesResults$ | async; let i = index">
-        <td class="home-popular-coin-list__number">{{i + 1}}</td>
-        <td class="home-popular-coin-list__image">
-            <a [routerLink]="['/search']" [queryParams]="{q: rate.blockchain.name}">
-                <img class="home-popular-coin-list__icon" src="/assets/images/coins/{{rate.blockchain.symbol}}.png"></a>
-        </td>
-        <td class="home-popular-coin-list__title">
-            <a [routerLink]="['/search']" [queryParams]="{q: rate.blockchain.name}" (click)="onClick(i+1)" class="home-popular-coin-list__name">
-                {{rate.blockchain.name}}</a>
-            <a [routerLink]="['/search']" [queryParams]="{q: rate.blockchain.name}" (click)="onClick(i+1)" class="home-popular-coin-list__symbol">
-                {{rate.blockchain.symbol}}</a>
-        </td>
-        <td [ngClass]="{'home-popular-coin-list__change--up': rate.change !== null && rate.change > 0, 'home-popular-coin-list__change--down': rate.change !== null && rate.change < 0, 'home-popular-coin-list__change': !rate.change}">
-            <app-load *ngIf="rate.change === null"></app-load>
-            <ng-container *ngIf="rate.change !== null && rate.change > 0">&uarr;</ng-container>
-            <ng-container *ngIf="rate.change !== null && rate.change < 0">&darr;</ng-container>
-            <ng-container *ngIf="rate.change !== null">{{rate.change}}%</ng-container>
-        </td>
-        <td class="home-popular-coin-list__value">
-            <app-load *ngIf="rate.price === null"></app-load>
-            {{rate.price}}
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="table home-popular-coin-list">
+    <table class="table__table">
+        <tr class="table__tr">
+            <th colspan="3" class="table__th table__th--title text-left">
+                Popular Coins
+            </th>
+            <th class="table__th table__th--remove-padding text-right">24h</th>
+            <th class="table__th text-right">USD</th>
+        </tr>
+
+        <tr class="table__tr table__tr--hover" *ngFor="let rate of exchangeRatesResults$ | async; let idx = index" (click)="onClick(idx+1, rate.blockchain.name)">
+            <td class="table__td table__td--width-1 table__td--padding-right">
+                {{idx + 1}}
+            </td>
+
+            <td class="table__td table__td--width-1 table__td--padding-right text-center">
+                <img class="table__td-img home-popular-coin-list__icon" src="/assets/images/coins/{{rate.blockchain.symbol}}.svg" alt="{{rate.blockchain.name}}">
+            </td>
+
+            <td class="table__td">
+                <span class="home-popular-coin-list__name">{{rate.blockchain.name}}</span>
+                <span class="home-popular-coin-list__symbol">{{rate.blockchain.symbol}}</span>
+            </td>
+
+            <td class="table__td table__td--text-right" [ngClass]="{'table__td--color-green': rate.change !== null && rate.change > 0, 'table__td--color-red': rate.change !== null && rate.change < 0}">
+                <app-load *ngIf="rate.change === null"></app-load>
+                <ng-container *ngIf="rate.change !== null && rate.change > 0">↑</ng-container>
+                <ng-container *ngIf="rate.change !== null && rate.change < 0">↓</ng-container>
+                <ng-container *ngIf="rate.change !== null">{{rate.change | number}}%</ng-container>
+            </td>
+
+            <td class="table__td table__td--text-right table__td--color-black">
+                <app-load *ngIf="rate.price === null"></app-load>
+                {{rate.price | number}}
+            </td>
+        </tr>
+    </table>
+</div>

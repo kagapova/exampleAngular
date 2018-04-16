@@ -1,0 +1,33 @@
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+
+    &__name {
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 1;
+        letter-spacing: -0.5px;
+        color: #2e3033;
+        padding: 8px 0 0;
+    }
+
+    &__img {
+        width: 32px;
+        height: 36px
+    }
+}
+
+@media (min-width: 768px) {
+    .logo {
+        &__img {
+            width: 42px;
+            height: 47px
+        }
+
+        &__name {
+            font-size: 35px;
+        }
+    }
+}

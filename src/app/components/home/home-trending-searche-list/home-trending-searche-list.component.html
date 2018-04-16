@@ -1,20 +1,16 @@
-<table class="home-trending-searche-list">
-    <thead>
-    <tr>
-        <td class="home-trending-searche-list__main-header" colspan="2">
-            Trending Searches
-            <!--<span class="home-trending-searche-list__link-all">&#8250;</span>-->
-        </td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let trend of trendingResults$ | async; let i = index">
-        <td class="home-trending-searche-list__number">{{i + 1}}</td>
-        <td class="home-trending-searche-list__search">
-            <app-load *ngIf="trend.request === null"></app-load>
-            <a [routerLink]="['/search']" [queryParams]="{q: trend.request}" (click)="onClick(i+1)" *ngIf="trend.request !== null">
-                {{trend.request}}</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="table">
+    <table class="table__table">
+        <tr class="table__tr">
+            <th colspan="2" class="table__th table__th--title">
+                Trending Searches
+            </th>
+        </tr>
+        <tr class="table__tr" *ngFor="let trend of trendingResults$ | async; let idx = index" [ngClass]="{'table__tr--hover': trend.request !== null}" (click)="onClick(idx+1, trend.request)">
+            <td class="table__td table__td--width-1 table__td--padding-right">{{idx + 1}}</td>
+            <td class="table__td">
+                <app-load *ngIf="trend.request === null"></app-load>
+                {{trend.request}}
+            </td>
+        </tr>
+    </table>
+</div>

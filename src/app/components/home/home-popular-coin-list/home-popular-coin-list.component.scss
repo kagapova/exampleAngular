@@ -1,7 +1,21 @@
 .home-popular-coin-list {
+    &__td-number {
+        width: 35px;
+    }
+
+    &__td-icon {
+        width: 40px;
+        text-align: center;
+    }
+
+    &__td-name {
+        padding-left: 0;
+    }
+
     &__icon {
         max-width: 20px;
         max-height: 20px;
+        margin: 4px 0 0;
     }
 
     &__name {

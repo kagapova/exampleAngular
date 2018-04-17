@@ -1,0 +1,3 @@
+type TopICOsResponse = {
+    icos: CompanyServer[]
+}

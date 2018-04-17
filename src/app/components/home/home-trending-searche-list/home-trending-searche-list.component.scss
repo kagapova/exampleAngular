@@ -1,37 +1,5 @@
 .home-trending-searche-list {
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-
-    &__main-header {
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 30px;
-        color: #2e3033;
-        padding: 0 0 25px 0;
-    }
-
-    &__link-all {
-        color: #8f9fb3;
-    }
-
-    &__number {
-        font-size: 16px;
-        line-height: 20px;
-        text-align: left;
-        color: #8f9fb3;
-        width: 30px;
-        padding: 0 0 17px 0;
-    }
-
-    &__search {
-        font-size: 16px;
-        line-height: 20px;
-        display: inline-block;
-        padding: 0 0 17px 0;
-        width: 100px;
-        white-space: nowrap;
-
-        a {
-            color: #6b8199;
-        }
+    &__td-number {
+        width: 41px;
     }
 }

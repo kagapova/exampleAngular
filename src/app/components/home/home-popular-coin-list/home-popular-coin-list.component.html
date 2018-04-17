@@ -9,27 +9,27 @@
         </tr>
 
         <tr class="table__tr table__tr--hover" *ngFor="let rate of exchangeRatesResults$ | async; let idx = index" (click)="onClick(idx+1, rate.blockchain.name)">
-            <td class="table__td table__td--width-1 table__td--padding-right">
+            <td class="table__td home-popular-coin-list__td-number">
                 {{idx + 1}}
             </td>
 
-            <td class="table__td table__td--width-1 table__td--padding-right text-center">
+            <td class="table__td home-popular-coin-list__td-icon text-center">
                 <img class="table__td-img home-popular-coin-list__icon" src="/assets/images/coins/{{rate.blockchain.symbol}}.svg" alt="{{rate.blockchain.name}}">
             </td>
 
-            <td class="table__td">
+            <td class="table__td home-popular-coin-list__td-name">
                 <span class="home-popular-coin-list__name">{{rate.blockchain.name}}</span>
                 <span class="home-popular-coin-list__symbol">{{rate.blockchain.symbol}}</span>
             </td>
 
-            <td class="table__td table__td--text-right" [ngClass]="{'table__td--color-green': rate.change !== null && rate.change > 0, 'table__td--color-red': rate.change !== null && rate.change < 0}">
+            <td class="table__td text-right" [ngClass]="{'table__td--color-green': rate.change !== null && rate.change > 0, 'table__td--color-red': rate.change !== null && rate.change < 0}">
                 <app-load *ngIf="rate.change === null"></app-load>
                 <ng-container *ngIf="rate.change !== null && rate.change > 0">↑</ng-container>
                 <ng-container *ngIf="rate.change !== null && rate.change < 0">↓</ng-container>
                 <ng-container *ngIf="rate.change !== null">{{rate.change > 0 ? rate.change : -rate.change | number}}%</ng-container>
             </td>
 
-            <td class="table__td table__td--text-right table__td--color-black">
+            <td class="table__td text-right table__td--color-black">
                 <app-load *ngIf="rate.price === null"></app-load>
                 {{rate.price | number}}
             </td>

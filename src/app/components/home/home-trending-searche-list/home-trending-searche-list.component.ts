@@ -23,6 +23,8 @@ export class HomeTrendingSearcheListComponent implements OnInit {
         setTimeout(() => {
             this.trendingSearches.getTrends();
         }, 1);
+
+        this.analytics.view('home-trending-search');
     }
 
     onClick(number: number, trend: string) {

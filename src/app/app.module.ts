@@ -44,7 +44,7 @@ import {SearchBlockWebLinkListComponent} from './components/search-block/search-
 import {SearchBlockRoadmapComponent} from './components/search-block/search-block-roadmap/search-block-roadmap.component';
 import {SearchBlockTeamComponent} from './components/search-block/search-block-team/search-block-team.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SearchBlockFutureEventComponent} from './components/search-block/search-block-future-event/search-block-future-event.component';
 import {SearchBlockFutureEventListComponent} from './components/search-block/search-block-future-event-list/search-block-future-event-list.component';
@@ -58,7 +58,9 @@ import {LoadComponent} from './components/load/load.component';
 import {ProducthuntComponent} from './components/producthunt/producthunt.component';
 import {HomeTrendingSearcheListComponent} from './components/home/home-trending-searche-list/home-trending-searche-list.component';
 import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
-import { LogoComponent } from './components/logo/logo.component';
+import {HomeTopIcoListComponent} from './components/home/home-top-ico-list/home-top-ico-list.component';
+import {TopICOsService} from './services/top-icos/top-icos.service';
+import {LogoComponent} from './components/logo/logo.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -119,6 +121,7 @@ export function createTranslateLoader(http: HttpClient) {
         LoadComponent,
         ProducthuntComponent,
         HomeTrendingSearcheListComponent,
+        HomeTopIcoListComponent,
         LogoComponent,
     ],
     imports: [
@@ -140,6 +143,7 @@ export function createTranslateLoader(http: HttpClient) {
         SearchService,
         AnalyticsService,
         TrendingSearchesService,
+        TopICOsService,
         {provide: ErrorHandler, useClass: RavenErrorHandler},
     ],
     bootstrap: [AppComponent]

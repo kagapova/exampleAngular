@@ -1,0 +1,24 @@
+<div class="table table--separate">
+    <table class="table__table table__table--separate">
+        <tr class="table__tr">
+            <th colspan="3" class="table__th table__th--separate table__th--title">
+                High rated ICOs
+            </th>
+        </tr>
+        <tr class="table__tr table__tr--hover" *ngFor="let ico of icos$ | async; let idx = index" (click)="onClick(idx+1, ico)">
+            <td class="table__td table__td--separate home-top-ico-list__td">
+                <app-load *ngIf="ico === null"></app-load>
+                <img src="{{ico.logoURL}}" class="home-top-ico-list__image" *ngIf="ico !== null">
+            </td>
+            <td class="table__td table__td--separate home-top-ico-list__td">
+                <p class="home-top-ico-list__title" *ngIf="ico !== null">{{ico.name}}</p>
+                <p class="home-top-ico-list__date" *ngIf="ico !== null">
+                    {{ico.icoStartedAt | date:'dd.MM.yyyy'}} &mdash; {{ico.icoFinishedAt | date:'dd.MM.yyyy'}}</p>
+                <p class="home-top-ico-list__category" *ngIf="ico !== null">{{ico.category}}</p>
+            </td>
+            <td class="table__td table__td--separate home-top-ico-list__td text-right">
+                <span *ngIf="ico !== null" class="home-top-ico-list__type home-top-ico-list__type--{{ico.icoPeriodType | lowercase}}">{{ico.icoPeriodType}}</span>
+            </td>
+        </tr>
+    </table>
+</div>

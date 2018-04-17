@@ -24,6 +24,8 @@ export class HomePopularCoinListComponent implements OnInit {
             this.exchangeRatesService.getRates([
                 'BTC', 'ETH', 'XRP', 'BCH', 'LTC', 'ADA', 'NEO', 'XLM', 'EOS', 'XMR']);
         }, 1);
+
+        this.analytics.view('home-popular-coin-list');
     }
 
     onClick(number: number, name: string) {

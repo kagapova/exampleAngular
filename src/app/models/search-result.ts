@@ -30,6 +30,7 @@ export type SearchResults = {
         web: WebResult[];
         events: Event[];
         wallets: Wallet[];
+        wallet: Wallet;
         news: News[];
         calc: CalcResult;
     };

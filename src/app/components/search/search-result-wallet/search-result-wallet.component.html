@@ -1,0 +1,18 @@
+<div class="search-result-wallet">
+    <div class="search-result-wallet__header">
+        <h1 class="search-result-wallet__title">
+            <img [src]="wallet.logoUrl" class="search-result-wallet__logo"/>
+            {{ wallet.name }}
+        </h1>
+    </div>
+
+    <div class="search-result-wallet__content">
+        <div class="search-result-wallet__content__main">
+            <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>
+        </div>
+
+        <div class="search-result-wallet__content__additional">
+            <app-search-block-wallet-about [wallet]="wallet"></app-search-block-wallet-about>
+        </div>
+    </div>
+</div>

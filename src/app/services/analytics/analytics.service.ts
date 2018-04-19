@@ -14,7 +14,10 @@ export class AnalyticsService {
 
     clickToOutgoingLink(block: string, serverTrackLink: string, label: string = '') {
         this.event(block, 'click-outgoing-link', label);
-        this.http.get(serverTrackLink).subscribe();
+
+        if (serverTrackLink) {
+            this.http.get(serverTrackLink).subscribe();
+        }
     }
 
     click(block: string, label: string = '') {

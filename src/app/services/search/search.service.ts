@@ -85,6 +85,7 @@ export class SearchService {
                 web: [],
                 events: [],
                 wallets: [],
+                wallet: null,
                 news: [],
                 calc: null,
             }
@@ -121,6 +122,10 @@ export class SearchService {
 
         } else if (searchResults.data.txn !== null) {
             searchResults.type = 'txn';
+
+        } else if (searchResults.data.wallets.length > 0) {
+            searchResults.type = 'wallet';
+            searchResults.data['wallet'] = searchResults.data['wallets'][0];
 
         } else {
             searchResults.type = 'web';

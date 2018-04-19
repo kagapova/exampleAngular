@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Wallet} from '../../../models/wallet';
+import {AnalyticsService} from '../../../services/analytics/analytics.service';
+
 
 @Component({
     selector: 'app-search-block-wallet',
@@ -10,9 +12,10 @@ export class SearchBlockWalletComponent implements OnInit {
     @Input() wallet: Wallet;
     @Input() number: number;
 
-    constructor() {
+    constructor(private analytics: AnalyticsService) {
     }
 
     ngOnInit() {
+        this.analytics.view('search-block-wallet');
     }
 }

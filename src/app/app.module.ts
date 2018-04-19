@@ -58,6 +58,8 @@ import {LoadComponent} from './components/load/load.component';
 import {ProducthuntComponent} from './components/producthunt/producthunt.component';
 import {HomeTrendingSearcheListComponent} from './components/home/home-trending-searche-list/home-trending-searche-list.component';
 import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
+import { SearchResultWalletComponent } from './components/search/search-result-wallet/search-result-wallet.component';
+import { SearchBlockWalletAboutComponent } from './components/search-block/search-block-wallet-about/search-block-wallet-about.component';
 import {HomeLatestNewsComponent} from './components/home/home-latest-news/home-latest-news.component';
 import {LatestNewsService} from './services/latest-news/latest-news.service';
 import {SearchBlockNewsComponent} from './components/search-block/search-block-news/search-block-news.component';
@@ -125,6 +127,8 @@ export function createTranslateLoader(http: HttpClient) {
         LoadComponent,
         ProducthuntComponent,
         HomeTrendingSearcheListComponent,
+        SearchResultWalletComponent,
+        SearchBlockWalletAboutComponent,
         HomeLatestNewsComponent,
         SearchBlockNewsComponent,
         SearchBlockNewsListComponent,

@@ -13,6 +13,12 @@ export function parseWallet(result: WalletServer): Wallet {
         result.data.coins,
         result.data.anonymity,
         result.data.easeOfUse,
+        result.data.hasTradingFacilities,
+        result.data.hasVouchersAndOffers,
+        result.data.platforms,
+        result.data.sourceCodeUrl,
+        result.data.validationType,
+        result.data.walletFeatures,
         result.data.cryptoCompareUrl,
         result.click
     );

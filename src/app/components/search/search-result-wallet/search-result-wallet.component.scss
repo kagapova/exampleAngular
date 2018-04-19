@@ -1,0 +1,60 @@
+@import "../search.mixins";
+
+.search-result-wallet {
+    border-radius: 3px;
+    display: block;
+    text-decoration: none;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 10px 0 20px;
+    }
+
+    &__title {
+        position: static;
+        display: flex;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 30px;
+        line-height: 30px;
+        flex: 1;
+        margin: 0;
+    }
+
+    &__logo {
+        width: 22px;
+        height: 22px;
+        margin: 0 5px 0 0;
+    }
+
+    &__content {
+        display: block;
+
+        &__main {
+            max-width: 590px;
+        }
+
+        &__additional {
+            max-width: 590px;
+        }
+
+        @media (min-width: 1110px) {
+            display: flex;
+
+            &__main {
+                flex: 1;
+                margin: 0 20px 0 0;
+                min-width: 590px;
+            }
+
+            &__additional {
+                flex: 1;
+                max-width: 390px;
+                min-width: 390px;
+            }
+        }
+    }
+}

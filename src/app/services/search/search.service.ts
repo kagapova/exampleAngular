@@ -14,10 +14,11 @@ import {parseTransaction} from './categories/transaction';
 import {parseCompany} from './categories/company';
 import {parseEvent} from './categories/event';
 import {parseWallet} from './categories/wallet';
+import {parseNews} from './categories/news';
 import {Wallet} from '../../models/wallet';
 import {WebResult} from '../../models/web-result';
+import {News} from '../../models/news';
 import {parseCalcResult} from './categories/calc-result';
-import {CalcResult} from '../../models/calc-result';
 
 
 @Injectable()
@@ -84,6 +85,7 @@ export class SearchService {
                 web: [],
                 events: [],
                 wallets: [],
+                news: [],
                 calc: null,
             }
         };
@@ -100,6 +102,8 @@ export class SearchService {
                 } else if (searchResult instanceof Wallet) {
                     searchResults.data['wallets'].push(searchResult);
 
+                } else if (searchResult instanceof News) {
+                    searchResults.data['news'].push(searchResult);
                 } else {
                     searchResults.data[result.type] = searchResult;
                 }
@@ -147,7 +151,10 @@ export class SearchService {
 
             case 'wallet':
                 return parseWallet(result);
-            
+
+            case 'news':
+                return parseNews(result);
+
             case 'calc':
                 return parseCalcResult(result);
 

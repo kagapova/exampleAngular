@@ -13,11 +13,16 @@
         }
     }
 
+    &__tr {
+        display: table-row;
+    }
+
     &__tr--hover {
         cursor: pointer;
 
         &:hover {
             background-color: rgba(35, 103, 200, 0.05);
+            text-decoration: none;
         }
     }
 

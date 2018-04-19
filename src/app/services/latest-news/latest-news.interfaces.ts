@@ -1,0 +1,3 @@
+interface LatestNewsResponse {
+    news: NewsServer[]
+}

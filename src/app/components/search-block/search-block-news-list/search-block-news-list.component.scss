@@ -1,0 +1,33 @@
+@import "../search-block.mixins";
+
+.search-block-news-list {
+    @include search-block;
+
+    overflow-x: hidden;
+
+    &__title {
+        position: static;
+        overflow: hidden;
+        display: block;
+        font-size: 1.31em;
+        vertical-align: middle;
+        line-height: 1.15;
+        padding: 0;
+        margin: 0 0 20px 0;
+        max-width: 100%;
+    }
+
+    &__container {
+        width: 33%;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 540px) {
+    .search-block-news-list {
+        &__container {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+    }
+}

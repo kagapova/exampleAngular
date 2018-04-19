@@ -3,6 +3,7 @@ import {Company} from '../../../models/company';
 import {SearchResults} from '../../../models/search-result';
 import {Event} from '../../../models/event';
 import {WebResult} from '../../../models/web-result';
+import {News} from '../../../models/news';
 
 @Component({
     selector: 'app-search-result-company',
@@ -14,6 +15,7 @@ export class SearchResultCompanyComponent implements OnInit {
     company: Company;
     webLinks: WebResult[];
     events: Event[];
+    newsList: News[];
 
     constructor() {
     }
@@ -22,5 +24,6 @@ export class SearchResultCompanyComponent implements OnInit {
         this.company = this.result.data.company;
         this.webLinks = this.result.data.web;
         this.events = this.result.data.events;
+        this.newsList = this.result.data.news;
     }
 }

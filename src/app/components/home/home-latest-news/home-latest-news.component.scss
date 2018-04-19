@@ -1,0 +1,51 @@
+.home-latest-news {
+    &__table {
+        border-spacing: 0 5px;
+        margin: -5px 0 0;
+    }
+
+    &__th {
+        padding-bottom: 10px;
+    }
+
+    &__td {
+        vertical-align: top;
+    }
+
+    &__image {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        display: block;
+    }
+
+    &__title {
+        display: block;
+        max-height: 40px;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.43;
+        text-align: left;
+        color: #2e3033;
+        margin: 0;
+        white-space: pre-wrap;
+        overflow: hidden;
+    }
+
+    &__source,
+    &__date {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1.43;
+        color: #8f9fb3;
+        margin: 5px 15px 0 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .home-latest-news {
+        &__th {
+            padding-bottom: 25px;
+        }
+    }
+}

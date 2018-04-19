@@ -5,6 +5,7 @@ import {Company} from '../../../models/company';
 import {WebResult} from '../../../models/web-result';
 import {Event} from '../../../models/event';
 import {Wallet} from '../../../models/wallet';
+import {News} from '../../../models/news';
 import {CalcResult} from '../../../models/calc-result';
 
 
@@ -20,6 +21,7 @@ export class SearchResultTokenComponent implements OnInit {
     webLinks: WebResult[];
     events: Event[];
     wallets: Wallet[];
+    newsList: News[];
     calc: CalcResult;
 
     constructor() {
@@ -31,6 +33,7 @@ export class SearchResultTokenComponent implements OnInit {
         this.webLinks = this.result.data.web;
         this.events = this.result.data.events;
         this.wallets = this.result.data.wallets;
+        this.newsList = this.result.data.news;
         this.calc = this.result.data.calc;
 
         if (!this.calc) {

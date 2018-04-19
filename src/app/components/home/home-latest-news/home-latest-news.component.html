@@ -1,0 +1,19 @@
+<div class="table table--separate">
+    <table class="table__table table__table--separate home-latest-news__table">
+        <tr class="table__tr">
+            <th colspan="2" class="table__th table__th--separate table__th--title home-latest-news__th">
+                Hot News
+            </th>
+        </tr>
+        <a *ngFor="let news of latestNews$ | async; let idx = index" [href]="news.url" target="_blank" class="table__tr table__tr--hover" (click)="onClick(idx+1, news)">
+            <td class="table__td table__td--separate home-latest-news__td">
+                <img src="{{news.imageURL}}" class="home-latest-news__image">
+            </td>
+            <td class="table__td table__td--separate home-latest-news__td">
+                <p class="home-latest-news__title">{{news.title}}</p>
+                <p class="home-latest-news__date">{{news.publishedAt | date:'dd.MM.yyyy'}}</p>
+                <p class="home-latest-news__source">{{news.source}}</p>
+            </td>
+        </a>
+    </table>
+</div>

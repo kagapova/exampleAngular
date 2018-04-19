@@ -58,6 +58,10 @@ import {LoadComponent} from './components/load/load.component';
 import {ProducthuntComponent} from './components/producthunt/producthunt.component';
 import {HomeTrendingSearcheListComponent} from './components/home/home-trending-searche-list/home-trending-searche-list.component';
 import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
+import {HomeLatestNewsComponent} from './components/home/home-latest-news/home-latest-news.component';
+import {LatestNewsService} from './services/latest-news/latest-news.service';
+import {SearchBlockNewsComponent} from './components/search-block/search-block-news/search-block-news.component';
+import {SearchBlockNewsListComponent} from './components/search-block/search-block-news-list/search-block-news-list.component';
 import {HomeTopIcoListComponent} from './components/home/home-top-ico-list/home-top-ico-list.component';
 import {TopICOsService} from './services/top-icos/top-icos.service';
 import {LogoComponent} from './components/logo/logo.component';
@@ -121,6 +125,9 @@ export function createTranslateLoader(http: HttpClient) {
         LoadComponent,
         ProducthuntComponent,
         HomeTrendingSearcheListComponent,
+        HomeLatestNewsComponent,
+        SearchBlockNewsComponent,
+        SearchBlockNewsListComponent,
         HomeTopIcoListComponent,
         LogoComponent,
     ],
@@ -143,6 +150,7 @@ export function createTranslateLoader(http: HttpClient) {
         SearchService,
         AnalyticsService,
         TrendingSearchesService,
+        LatestNewsService,
         TopICOsService,
         {provide: ErrorHandler, useClass: RavenErrorHandler},
     ],

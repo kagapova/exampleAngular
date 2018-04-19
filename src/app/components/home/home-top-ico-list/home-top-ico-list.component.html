@@ -5,7 +5,7 @@
                 High rated ICOs
             </th>
         </tr>
-        <tr class="table__tr table__tr--hover" *ngFor="let ico of icos$ | async; let idx = index" (click)="onClick(idx+1, ico)">
+        <tr *ngFor="let ico of icos$ | async; let idx = index" class="table__tr table__tr--hover" [ngClass]="{'table__tr--hover': ico !== null}" (click)="onClick(idx+1, ico)">
             <td class="table__td table__td--separate home-top-ico-list__td">
                 <app-load *ngIf="ico === null"></app-load>
                 <img src="{{ico.logoURL}}" class="home-top-ico-list__image" *ngIf="ico !== null">

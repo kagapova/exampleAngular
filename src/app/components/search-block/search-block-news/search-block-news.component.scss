@@ -1,0 +1,50 @@
+.search-block-news {
+    display: inline-block;
+    width: 100%;
+    
+    height: 200px;
+    line-height: 1.43;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    text-align: left;
+    font-stretch: normal;
+    padding: 0 5px;
+
+    &__img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 5px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &__title {
+        width: 100%;
+        height: 40px;
+        overflow: hidden;
+        letter-spacing: -0.3px;
+        margin-top: 12px;
+        color: #2e3033;
+    }
+
+    &__footer {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 11px;
+        letter-spacing: normal;
+        color: #8f9fb3;
+        display: flex;
+        font-size: 12px;
+
+        &__date {
+            overflow: hidden;
+            flex: 50%;
+        }
+
+        &__source {
+            flex: 50%;
+            overflow: hidden;
+        }
+    }
+}

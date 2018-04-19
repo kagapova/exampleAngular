@@ -1,0 +1,6 @@
+<div class="search-block-news-list">
+    <h2 class="search-block-news-list__title">News</h2>
+    <div *ngFor="let news of newsList | slice:0:MAX_NEWS; let i = index" class="search-block-news-list__container">
+        <app-search-block-news [news]="news" [number]="i"></app-search-block-news>
+    </div>
+</div>

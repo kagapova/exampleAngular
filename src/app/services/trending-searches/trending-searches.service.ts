@@ -33,7 +33,7 @@ export class TrendingSearchesService {
 
     private parseResponse(response: TrendsResponse): Trend[] {
         let result = [];
-        for (let value of response.requests) {
+        for (let value of response.trendingRequests) {
             let trend = new Trend(value.request, 0);
             result.push(trend);
         }

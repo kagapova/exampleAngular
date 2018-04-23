@@ -1,4 +1,10 @@
 <div class="search-block-exchange-rate">
     <div class="search-block-exchange-rate__from">{{ calc.amount }} {{calc.from}} =</div>
     <div class="search-block-exchange-rate__to">{{ convertedAmount | number }} {{ calc.to }}</div>
+
+    <app-track-link originalLink="https://coinmarketcap.com" [serverTrackLink]="" block="search-block-exchange-rate" label="bottom-link" class="search-block-exchange-rate__link">
+        <img class="search-block-exchange-rate__icon" src="{{'https://coinmarketcap.com' | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
+
+    <app-track-link originalLink="https://coinmarketcap.com" [serverTrackLink]="" block="search-block-exchange-rate" label="bottom-link" class="search-block-exchange-rate__link">
+        https://coinmarketcap.com</app-track-link>
 </div>

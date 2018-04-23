@@ -48,4 +48,12 @@
             border-bottom: 2px solid #dd4b39;
         }
     }
+
+    &__link {
+        @include search-block-footer-link;
+    }
+
+    &__icon {
+        @include search-block-footer-icon;
+    }
 }

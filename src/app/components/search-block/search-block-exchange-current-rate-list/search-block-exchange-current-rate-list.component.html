@@ -1,0 +1,34 @@
+<table class="search-block-exchange-current-rate-list">
+    <thead>
+    <tr>
+        <th class="search-block-exchange-current-rate-list__header-pair">Pair</th>
+        <th class="search-block-exchange-current-rate-list__header-price">Price</th>
+        <th class="search-block-exchange-current-rate-list__header-change">Change 24H</th>
+        <th class="search-block-exchange-current-rate-list__header-range">Range 24H</th>
+        <th class="search-block-exchange-current-rate-list__header-volume">Volume 24h</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="search-block-exchange-current-rate-list__tr--hover" *ngFor="let rate of rates | slice:0:MAX_RATES">
+        <td class="search-block-exchange-current-rate-list__pair">
+            {{ rate.fromSymbol }}/{{ rate.toSymbol }}
+        </td>
+        <td class="search-block-exchange-current-rate-list__price">
+            {{ rate.toSymbol }} <b>{{ rate.price }}</b>
+        </td>
+        <td [ngClass]="{'search-block-exchange-current-rate-list__change': true, 'search-block-exchange-current-rate-list__change--up': rate.change24HourPercentage > 0, 'search-block-exchange-current-rate-list__change--down': rate.change24HourPercentage < 0}">
+            <span *ngIf="rate.change24HourPercentage < 0">↓</span>
+            <span *ngIf="rate.change24HourPercentage > 0">↑</span>
+            {{ rate.change24HourPercentage }}%
+        </td>
+        <td class="search-block-exchange-current-rate-list__range">
+            <b>L:</b> {{ rate.toSymbol }} {{ rate.low24Hour }}<br/>
+            <b>H:</b> {{ rate.toSymbol }} {{ rate.high24Hour }}
+        </td>
+        <td class="search-block-exchange-current-rate-list__volume">
+            <b>L:</b> {{ rate.toSymbol }} {{ rate.volume24Hour | number : '1.2-2' }}<br/>
+            <b>H:</b> {{ rate.toSymbol }} {{ rate.volume24HourTo | number : '1.2-2' }}
+        </td>
+    </tr>
+    </tbody>
+</table>

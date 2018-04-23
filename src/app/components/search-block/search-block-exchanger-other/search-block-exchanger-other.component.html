@@ -1,0 +1,15 @@
+<div class="search-block-exchanger-other">
+    <div class="search-block-exchanger-other__logo">
+        <img class="search-block-exchanger-other__img" [src]="exchanger.logoUrl"/>
+    </div>
+
+    <div class="search-block-exchanger-other__text">
+        <h3 class="search-block-exchanger-other__title">
+            <a [routerLink]="['/search']" [queryParams]="{q: exchanger.name}" (click)="onClick()">{{ exchanger.name }}</a>
+        </h3>
+
+        <p class="search-block-exchanger-other__description">
+            {{ exchanger.description }}
+        </p>
+    </div>
+</div>

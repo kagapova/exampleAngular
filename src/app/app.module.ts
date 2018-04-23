@@ -58,15 +58,20 @@ import {LoadComponent} from './components/load/load.component';
 import {ProducthuntComponent} from './components/producthunt/producthunt.component';
 import {HomeTrendingSearcheListComponent} from './components/home/home-trending-searche-list/home-trending-searche-list.component';
 import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
-import { SearchResultWalletComponent } from './components/search/search-result-wallet/search-result-wallet.component';
-import { SearchBlockWalletAboutComponent } from './components/search-block/search-block-wallet-about/search-block-wallet-about.component';
+import {SearchResultExchangeComponent} from './components/search/search-result-exchange/search-result-exchange.component';
+import {SearchBlockExchangeAboutComponent} from './components/search-block/search-block-exchange-about/search-block-exchange-about.component';
+import {SearchBlockExchangeCurrentRateListComponent} from './components/search-block/search-block-exchange-current-rate-list/search-block-exchange-current-rate-list.component';
+import {SearchBlockExchangerOtherListComponent} from './components/search-block/search-block-exchanger-other-list/search-block-exchanger-other-list.component';
+import {SearchBlockExchangerOtherComponent} from './components/search-block/search-block-exchanger-other/search-block-exchanger-other.component';
+import {LogoComponent} from './components/logo/logo.component';
+import {SearchResultWalletComponent} from './components/search/search-result-wallet/search-result-wallet.component';
+import {SearchBlockWalletAboutComponent} from './components/search-block/search-block-wallet-about/search-block-wallet-about.component';
 import {HomeLatestNewsComponent} from './components/home/home-latest-news/home-latest-news.component';
 import {LatestNewsService} from './services/latest-news/latest-news.service';
 import {SearchBlockNewsComponent} from './components/search-block/search-block-news/search-block-news.component';
 import {SearchBlockNewsListComponent} from './components/search-block/search-block-news-list/search-block-news-list.component';
 import {HomeTopIcoListComponent} from './components/home/home-top-ico-list/home-top-ico-list.component';
 import {TopICOsService} from './services/top-icos/top-icos.service';
-import {LogoComponent} from './components/logo/logo.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -127,6 +132,11 @@ export function createTranslateLoader(http: HttpClient) {
         LoadComponent,
         ProducthuntComponent,
         HomeTrendingSearcheListComponent,
+        SearchResultExchangeComponent,
+        SearchBlockExchangeAboutComponent,
+        SearchBlockExchangeCurrentRateListComponent,
+        SearchBlockExchangerOtherListComponent,
+        SearchBlockExchangerOtherComponent,
         SearchResultWalletComponent,
         SearchBlockWalletAboutComponent,
         HomeLatestNewsComponent,

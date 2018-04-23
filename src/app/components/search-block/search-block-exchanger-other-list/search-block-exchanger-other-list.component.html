@@ -1,0 +1,17 @@
+<div class="search-block-exchanger-other-list">
+    <h2 class="search-block-exchanger-other-list__title">
+        Other exchanges
+    </h2>
+
+    <div>
+        <div class="search-block-exchanger-other-list__item" *ngFor="let exchanger of exchangers | slice:0:MAX_EXCHANGERS">
+            <app-search-block-exchanger-other [exchanger]="exchanger"></app-search-block-exchanger-other>
+        </div>
+    </div>
+
+    <app-track-link [originalLink]="sourceUrl" [serverTrackLink]="" block="search-block-exchanger-other-list" label="bottom-link" class="search-block-exchanger-other-list__link">
+        <img class="search-block-exchanger-other-list__icon" src="{{sourceUrl | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
+
+    <app-track-link [originalLink]="sourceUrl" [serverTrackLink]="" block="search-block-exchanger-other-list" label="bottom-link" class="search-block-exchanger-other-list__link">
+        {{sourceUrl}}</app-track-link>
+</div>

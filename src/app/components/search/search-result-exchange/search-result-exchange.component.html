@@ -1,0 +1,23 @@
+<div class="search-result-exchange">
+    <div class="search-result-exchange__header">
+        <h1 class="search-result-exchange__title">
+            <img [src]="exchange.logoUrl" class="search-result-exchange__logo"/>
+            {{exchange.name}}
+        </h1>
+    </div>
+
+    <div class="search-result-exchange__content--full">
+        <app-search-block-exchange-current-rate-list [rates]="exchange.currencyRates"></app-search-block-exchange-current-rate-list>
+    </div>
+
+    <div class="search-result-exchange__content">
+        <div class="search-result-exchange__content__main">
+            <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>
+        </div>
+
+        <div class="search-result-exchange__content__additional">
+            <app-search-block-exchange-about [exchange]="exchange"></app-search-block-exchange-about>
+            <app-search-block-exchanger-other-list [exchangers]="otherExchanges"></app-search-block-exchanger-other-list>
+        </div>
+    </div>
+</div>

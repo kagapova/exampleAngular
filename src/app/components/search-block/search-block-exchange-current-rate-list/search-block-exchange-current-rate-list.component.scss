@@ -1,0 +1,108 @@
+@mixin search-block-exchange-current-rate-list-header {
+    color: #494949;
+    padding: 0 10px 10px 10px;
+}
+
+.search-block-exchange-current-rate-list {
+    width: 100%;
+    text-align: left;
+    color: #494949;
+    border-collapse: collapse;
+
+    &__tr--hover {
+        &:hover {
+            background-color: rgba(35, 103, 200, 0.05);
+        }
+    }
+
+    &__header-pair {
+        @include search-block-exchange-current-rate-list-header;
+        padding-left: 15px;
+    }
+
+    &__header-price {
+        @include search-block-exchange-current-rate-list-header;
+    }
+
+    &__header-range {
+        @include search-block-exchange-current-rate-list-header;
+        text-align: right;
+    }
+
+    &__header-volume {
+        @include search-block-exchange-current-rate-list-header;
+        text-align: right;
+        padding-right: 15px;
+    }
+
+    &__header-change {
+        @include search-block-exchange-current-rate-list-header;
+        text-align: right;
+    }
+
+    &__price {
+        color: #2e3033;
+        padding: 10px;
+    }
+
+    &__pair {
+        color: #6b8199;
+        padding: 10px 10px 10px 15px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+
+    &__change {
+        color: #6b8199;
+        text-align: right;
+        padding: 10px 0 0;
+    }
+
+    &__change--up {
+        color: #40993d;
+    }
+
+    &__change--down {
+        color: #ff4346;
+    }
+
+    &__range {
+        padding: 10px;
+        text-align: right;
+    }
+
+    &__volume {
+        text-align: right;
+        padding: 10px 15px 10px 10px;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+}
+
+@media (max-width: 724px) {
+    .search-block-exchange-current-rate-list {
+        &__header-range {
+            display: none;
+        }
+
+        &__header-change {
+            display: none;
+        }
+
+        &__range {
+            display: none;
+        }
+
+        &__change {
+            display: none;
+        }
+
+        &__header-change {
+            text-align: right;
+        }
+
+        &__change {
+            text-align: right;
+        }
+    }
+}

@@ -17,8 +17,10 @@ import {parseWallet} from './categories/wallet';
 import {parseNews} from './categories/news';
 import {Wallet} from '../../models/wallet';
 import {WebResult} from '../../models/web-result';
-import {News} from '../../models/news';
+import {parseExchange} from './categories/exchange';
 import {parseCalcResult} from './categories/calc-result';
+import {Exchange} from '../../models/exchange';
+import {News} from '../../models/news';
 
 
 @Injectable()
@@ -81,9 +83,11 @@ export class SearchService {
                 address: null,
                 company: null,
                 currency: null,
+                events: [],
+                exchange: null,
+                otherExchanges: [],
                 txn: null,
                 web: [],
-                events: [],
                 wallets: [],
                 wallet: null,
                 news: [],
@@ -103,8 +107,16 @@ export class SearchService {
                 } else if (searchResult instanceof Wallet) {
                     searchResults.data['wallets'].push(searchResult);
 
+                } else if (searchResult instanceof Exchange) {
+                    if (!searchResults.data['exchange']) {
+                        searchResults.data['exchange'] = searchResult;
+                    } else {
+                        searchResults.data['otherExchanges'].push(searchResult);
+                    }
+
                 } else if (searchResult instanceof News) {
                     searchResults.data['news'].push(searchResult);
+
                 } else {
                     searchResults.data[result.type] = searchResult;
                 }
@@ -123,49 +135,40 @@ export class SearchService {
         } else if (searchResults.data.txn !== null) {
             searchResults.type = 'txn';
 
+        } else if (searchResults.data.exchange !== null) {
+            searchResults.type = 'exchange';
+
         } else if (searchResults.data.wallets.length > 0) {
             searchResults.type = 'wallet';
             searchResults.data['wallet'] = searchResults.data['wallets'][0];
 
         } else {
             searchResults.type = 'web';
+
         }
 
         return searchResults;
     }
 
     private parseResult(result: any): SearchResult {
-        switch (result.type) {
-            case 'web':
-                return parseWebResult(result);
+        let parsers = {
+            'address': parseAddressResult,
+            'calc': parseCalcResult,
+            'company': parseCompany,
+            'currency': parseCurrencyResult,
+            'event': parseEvent,
+            'exchange': parseExchange,
+            'news': parseNews,
+            'txn': parseTransaction,
+            'wallet': parseWallet,
+            'web': parseWebResult,
+        };
 
-            case 'currency':
-                return parseCurrencyResult(result);
-
-            case 'address':
-                return parseAddressResult(result);
-
-            case 'txn':
-                return parseTransaction(result);
-
-            case 'company':
-                return parseCompany(result);
-
-            case 'event':
-                return parseEvent(result);
-
-            case 'wallet':
-                return parseWallet(result);
-
-            case 'news':
-                return parseNews(result);
-
-            case 'calc':
-                return parseCalcResult(result);
-
-            default:
-                // todo write to sentry
-                return null;
+        if (!parsers.hasOwnProperty(result.type)) {
+            return null;
         }
+
+        let parser = parsers[result.type];
+        return parser(result);
     }
 }

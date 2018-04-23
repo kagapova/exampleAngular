@@ -31,6 +31,7 @@
         "@ngx-translate/core": "^9.1.1",
         "@ngx-translate/http-loader": "^2.0.1",
         "core-js": "^2.4.1",
+        "ng2-completer": "^1.6.3",
         "ng2-nvd3": "^2.0.0",
         "normalize.css": "^7.0.0",
         "raven-js": "^3.22.1",

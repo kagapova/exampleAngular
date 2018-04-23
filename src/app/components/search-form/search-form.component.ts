@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-
 import {SearchService} from "../../services/search/search.service";
 import {AnalyticsService} from '../../services/analytics/analytics.service';
+import {SuggestService} from '../../services/suggest/suggest.service';
+import { CompleterData } from 'ng2-completer';
+
 
 @Component({
     selector: 'app-search-form',
@@ -11,10 +13,15 @@ import {AnalyticsService} from '../../services/analytics/analytics.service';
 })
 export class SearchFormComponent implements OnInit {
     searchTerm: string;
+    data: CompleterData;
 
     constructor(private searchService: SearchService,
                 private router: Router,
-                private analytics: AnalyticsService) {
+                private analytics: AnalyticsService,
+                private suggest: SuggestService) {
+
+
+        this.data = suggest.asCompleterDataProvider();
     }
 
     ngOnInit() {

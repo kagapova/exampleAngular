@@ -58,6 +58,8 @@ import {LoadComponent} from './components/load/load.component';
 import {ProducthuntComponent} from './components/producthunt/producthunt.component';
 import {HomeTrendingSearcheListComponent} from './components/home/home-trending-searche-list/home-trending-searche-list.component';
 import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
+import {SuggestService} from './services/suggest/suggest.service';
+import {Ng2CompleterModule} from 'ng2-completer';
 import {SearchResultExchangeComponent} from './components/search/search-result-exchange/search-result-exchange.component';
 import {SearchBlockExchangeAboutComponent} from './components/search-block/search-block-exchange-about/search-block-exchange-about.component';
 import {SearchBlockExchangeCurrentRateListComponent} from './components/search-block/search-block-exchange-current-rate-list/search-block-exchange-current-rate-list.component';
@@ -151,6 +153,7 @@ export function createTranslateLoader(http: HttpClient) {
         FormsModule,
         HttpClientModule,
         NvD3Module,
+        Ng2CompleterModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -164,6 +167,7 @@ export function createTranslateLoader(http: HttpClient) {
         SearchService,
         AnalyticsService,
         TrendingSearchesService,
+        SuggestService,
         LatestNewsService,
         TopICOsService,
         {provide: ErrorHandler, useClass: RavenErrorHandler},

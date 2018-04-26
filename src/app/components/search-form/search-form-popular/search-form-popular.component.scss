@@ -1,0 +1,19 @@
+.search-form-popular {
+    text-align: center;
+    &__item {
+        display: inline-block;
+        line-height: 30px;
+        border-radius: 15px;
+        padding: 0 10px;
+        margin: 0 5px;
+        background-color: rgba(35, 103, 200, 0.05);
+        font-size: 15px;
+        color: #6b8199;
+        text-decoration: none;
+
+        &:hover {
+            background-color: rgba(35, 103, 200, 0.1);
+            color: #194c94;
+        }
+    }
+}

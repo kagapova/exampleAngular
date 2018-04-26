@@ -1,0 +1,14 @@
+<div class="search-form-popular">
+    <a [routerLink]="['/search']" [queryParams]="{q: 'bitcoin'}" class="search-form-popular__item" (click)="onClick('coin')">
+        bitcoin
+    </a>
+    <a [routerLink]="['/search']" [queryParams]="{q: 'poloniex'}" class="search-form-popular__item" (click)="onClick('stock exchange')">
+        poloniex
+    </a>
+    <a [routerLink]="['/search']" [queryParams]="{q: 'mew'}" class="search-form-popular__item" (click)="onClick('wallet')">
+        mew
+    </a>
+    <a [routerLink]="['/search']" [queryParams]="{q: 'blockchain summit 2018'}" class="search-form-popular__item" (click)="onClick('conference')">
+        blockchain summit 2018
+    </a>
+</div>

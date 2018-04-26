@@ -2,7 +2,7 @@ import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {TopIco} from '../../models/top-ico';
-import {retry} from 'rxjs/operators';
+import {retry} from 'rxjs/operators/retry';
 
 @Injectable()
 export class TopICOsService {

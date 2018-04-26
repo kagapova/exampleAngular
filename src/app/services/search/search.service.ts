@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpResponse} from '@angular/common/http';
-import {retry} from 'rxjs/operators';
+import {retry} from 'rxjs/operators/retry';
 import {Observable} from 'rxjs/Observable';
 import {SearchResult, SearchResults} from '../../models/search-result';
 import {Event} from '../../models/event';

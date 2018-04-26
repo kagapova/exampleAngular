@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
-import {retry} from 'rxjs/operators';
+import {retry} from 'rxjs/operators/retry';
 import {Subject} from 'rxjs/Subject';
 import {ExchangeRate} from '../../models/exchange-rates';
 import {Blockchains} from '../../models/blockchains';

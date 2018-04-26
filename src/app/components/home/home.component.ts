@@ -12,20 +12,10 @@ export class HomeComponent implements OnInit {
 
     constructor(private searchService: SearchService,
                 private titleService: Title) {
-
-        this.onWindowResize = this.onWindowResize.bind(this);
     }
 
     ngOnInit() {
         this.searchService.clean();
         this.titleService.setTitle('Decentralized Search Engine for Blockchain and Crypto');
-
-        window.addEventListener('resize', this.onWindowResize);
-        this.onWindowResize();
-    }
-
-    onWindowResize() {
-        let height = window.innerHeight * 4;
-        this.height = `${height}px`;
     }
 }

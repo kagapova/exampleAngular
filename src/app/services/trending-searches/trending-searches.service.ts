@@ -3,7 +3,7 @@ import {Subject} from 'rxjs/Subject';
 import {Trend} from '../../models/trend';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {retry} from 'rxjs/operators';
+import {retry} from 'rxjs/operators/retry';
 
 
 @Injectable()

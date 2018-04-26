@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
-import {retry} from 'rxjs/operators';
+import {retry} from 'rxjs/operators/retry';
 import {Suggestion} from '../../models/suggestion';
 import {CompleterDataProvider} from './completer-data-provider';
 
@@ -38,6 +38,6 @@ export class SuggestService {
             return new Suggestion(
                 suggestion.text,
                 suggestion.frequency);
-        })
+        });
     }
 }

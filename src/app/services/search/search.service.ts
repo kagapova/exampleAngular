@@ -17,6 +17,7 @@ import {parseWallet} from './categories/wallet';
 import {parseNews} from './categories/news';
 import {Wallet} from '../../models/wallet';
 import {WebResult} from '../../models/web-result';
+import {parseBancor} from './categories/bancor';
 import {parseExchange} from './categories/exchange';
 import {parseCalcResult} from './categories/calc-result';
 import {Exchange} from '../../models/exchange';
@@ -81,17 +82,18 @@ export class SearchService {
             type: '',
             data: {
                 address: null,
+                bancor: null,
+                calc: null,
                 company: null,
                 currency: null,
                 events: [],
                 exchange: null,
+                news: [],
                 otherExchanges: [],
                 txn: null,
-                web: [],
-                wallets: [],
                 wallet: null,
-                news: [],
-                calc: null,
+                wallets: [],
+                web: [],
             }
         };
 
@@ -152,16 +154,17 @@ export class SearchService {
 
     private parseResult(result: any): SearchResult {
         let parsers = {
-            'address': parseAddressResult,
-            'calc': parseCalcResult,
-            'company': parseCompany,
-            'currency': parseCurrencyResult,
-            'event': parseEvent,
-            'exchange': parseExchange,
-            'news': parseNews,
-            'txn': parseTransaction,
-            'wallet': parseWallet,
-            'web': parseWebResult,
+            address: parseAddressResult,
+            bancor: parseBancor,
+            calc: parseCalcResult,
+            company: parseCompany,
+            currency: parseCurrencyResult,
+            event: parseEvent,
+            exchange: parseExchange,
+            news: parseNews,
+            txn: parseTransaction,
+            wallet: parseWallet,
+            web: parseWebResult,
         };
 
         if (!parsers.hasOwnProperty(result.type)) {

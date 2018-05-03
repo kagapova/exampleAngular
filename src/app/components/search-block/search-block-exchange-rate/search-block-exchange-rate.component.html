@@ -1,4 +1,18 @@
 <div class="search-block-exchange-rate">
+    <div *ngIf="bancor" class="search-block-exchange-rate__bancor">
+        <div class="search-block-exchange-rate__bancor__action">
+            <span (click)="onSell()" class="search-block-exchange-rate__bancor__action__link">
+                Sell
+            </span>
+        </div>
+
+        <div class="search-block-exchange-rate__bancor__action">
+            <span (click)="onBuy()" class="search-block-exchange-rate__bancor__action__link search-block-exchange-rate__bancor__action__link--buy">
+                Buy
+            </span>
+        </div>
+    </div>
+
     <div class="search-block-exchange-rate__from">{{ calc.amount }} {{calc.from}} =</div>
     <div class="search-block-exchange-rate__to">{{ convertedAmount | number }} {{ calc.to }}</div>
 

@@ -7,7 +7,8 @@
         "start": "ng serve --proxy-config proxy.conf.json",
         "build": "ng build --prod",
         "test": "ng test",
-        "lint": "ng lint --fix"
+        "lint": "ng lint --fix",
+        "postinstall": "ng build --prod"
     },
     "private": true,
     "engines": {

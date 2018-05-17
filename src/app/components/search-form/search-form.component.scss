@@ -28,7 +28,7 @@
     text-align: left;
     height: 60px;
     background-color: #ffffff;
-    font-family: 'Circe', sans-serif;
+    font-family: 'Rubik', sans-serif;
     padding-left: 15px;
     border: 1px solid #e8e8e8;
     padding-right: 60px;
@@ -42,10 +42,11 @@
 
     &:focus {
         outline: none;
-        box-shadow: 0 2px 5px 0 rgba(107, 129, 153, 0.1), 0 0.5px 3px 0 rgba(107, 129, 153, 0.25);
+        box-shadow: 0 2px 5px 0 rgba(107, 129, 153, 0.1),
+                    0 0.5px 3px 0 rgba(107, 129, 153, 0.25);
     }
  }
- 
+
 :host ::ng-deep .completer-dropdown {
     width: 100% !important;
     margin-top: -10px !important;
@@ -53,7 +54,8 @@
     border-bottom-left-radius: 10px !important;
     border-bottom-right-radius: 10px !important;
     background-color: #ffffff;
-    box-shadow: 0 2px 5px 0 rgba(107, 129, 153, 0.2), 0 0.5px 3px 0 rgba(107, 129, 153, 0.25) !important;
+    box-shadow: 0 2px 5px 0 rgba(107, 129, 153, 0.2),
+                0 0.5px 3px 0 rgba(107, 129, 153, 0.25) !important;
 }
 
 :host ::ng-deep .completer-row {

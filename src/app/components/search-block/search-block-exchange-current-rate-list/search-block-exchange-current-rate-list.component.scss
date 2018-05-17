@@ -1,6 +1,7 @@
 @mixin search-block-exchange-current-rate-list-header {
     color: #494949;
     padding: 0 10px 10px 10px;
+    font-weight: 500;
 }
 
 .search-block-exchange-current-rate-list {
@@ -45,6 +46,10 @@
         padding: 10px;
     }
 
+    &__price-value {
+        font-weight: 500;
+    }
+
     &__pair {
         color: #6b8199;
         padding: 10px 10px 10px 15px;
@@ -71,11 +76,19 @@
         text-align: right;
     }
 
+    &__range-label {
+        font-weight: 500;
+    }
+
     &__volume {
         text-align: right;
         padding: 10px 15px 10px 10px;
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
+    }
+
+    &__volume-label {
+        font-weight: 500;
     }
 }
 

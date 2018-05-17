@@ -1,19 +1,28 @@
 .search-form-popular {
     text-align: center;
     &__item {
-        display: inline-block;
-        line-height: 30px;
-        border-radius: 15px;
-        padding: 0 10px;
-        margin: 10px 5px 0;
         background-color: rgba(35, 103, 200, 0.05);
-        font-size: 15px;
+        border-radius: 15px;
         color: #6b8199;
+        display: inline-block;
+        font-size: 13px;
+        line-height: 2.31;
+        margin: 10px 5px 0;
+        padding: 0 10px;
         text-decoration: none;
 
         &:hover {
             background-color: rgba(35, 103, 200, 0.1);
             color: #194c94;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .search-form-popular {
+        &__item {
+            font-size: 15px;
+            line-height: 2;
         }
     }
 }

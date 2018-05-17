@@ -14,20 +14,24 @@
             {{ rate.fromSymbol }}/{{ rate.toSymbol }}
         </td>
         <td class="search-block-exchange-current-rate-list__price">
-            {{ rate.toSymbol }} <b>{{ rate.price }}</b>
+            {{ rate.toSymbol }} <span class="search-block-exchange-current-rate-list__price-value">{{ rate.price }}</span>
         </td>
-        <td [ngClass]="{'search-block-exchange-current-rate-list__change': true, 'search-block-exchange-current-rate-list__change--up': rate.change24HourPercentage > 0, 'search-block-exchange-current-rate-list__change--down': rate.change24HourPercentage < 0}">
+        <td [ngClass]="{
+            'search-block-exchange-current-rate-list__change': true,
+            'search-block-exchange-current-rate-list__change--up': rate.change24HourPercentage > 0,
+            'search-block-exchange-current-rate-list__change--down': rate.change24HourPercentage < 0
+        }">
             <span *ngIf="rate.change24HourPercentage < 0">↓</span>
             <span *ngIf="rate.change24HourPercentage > 0">↑</span>
             {{ rate.change24HourPercentage }}%
         </td>
         <td class="search-block-exchange-current-rate-list__range">
-            <b>L:</b> {{ rate.toSymbol }} {{ rate.low24Hour }}<br/>
-            <b>H:</b> {{ rate.toSymbol }} {{ rate.high24Hour }}
+            <span class="search-block-exchange-current-rate-list__range-label">L:</span> {{ rate.toSymbol }} {{ rate.low24Hour }}<br/>
+            <span class="search-block-exchange-current-rate-list__range-label">H:</span> {{ rate.toSymbol }} {{ rate.high24Hour }}
         </td>
         <td class="search-block-exchange-current-rate-list__volume">
-            <b>L:</b> {{ rate.toSymbol }} {{ rate.volume24Hour | number : '1.2-2' }}<br/>
-            <b>H:</b> {{ rate.toSymbol }} {{ rate.volume24HourTo | number : '1.2-2' }}
+            <span class="search-block-exchange-current-rate-list__volume-label">L:</span> {{ rate.toSymbol }} {{ rate.volume24Hour | number : '1.2-2' }}<br/>
+            <span class="search-block-exchange-current-rate-list__volume-label">H:</span> {{ rate.toSymbol }} {{ rate.volume24HourTo | number : '1.2-2' }}
         </td>
     </tr>
     </tbody>

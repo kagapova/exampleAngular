@@ -31,30 +31,14 @@
     }
 
     &__content {
-        display: block;
+        @include content;
 
         &__main {
-            max-width: 590px;
+            @include content__main;
         }
 
         &__additional {
-            max-width: 590px;
-        }
-
-        @media (min-width: 1110px) {
-            display: flex;
-
-            &__main {
-                flex: 1;
-                margin: 0 20px 0 0;
-                min-width: 590px;
-            }
-
-            &__additional {
-                flex: 1;
-                max-width: 390px;
-                min-width: 390px;
-            }
+            @include content__additional;
         }
     }
 }

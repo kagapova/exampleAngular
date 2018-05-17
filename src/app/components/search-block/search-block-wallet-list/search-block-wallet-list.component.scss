@@ -1,7 +1,7 @@
 @import "../search-block.mixins";
 
 .search-block-wallet-list{
-    @include search-block;
+    @include search-block__additional;
 
     &__title {
         @include search-block-title;

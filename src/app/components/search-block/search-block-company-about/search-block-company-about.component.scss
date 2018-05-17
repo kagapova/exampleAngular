@@ -7,6 +7,10 @@
         @include search-block-title;
     }
 
+    &__rating-title {
+        font-weight: 500;
+    }
+
     &__link {
         @include search-block-footer-link;
     }

@@ -6,7 +6,7 @@
         <img src="/assets/images/no-photo.png" class="search-block-team__member__photo" *ngIf="!member.photo">
 
         <div class="search-block-team__member__description">
-            <b>{{member.name}}</b>
+            <span class="search-block-team__member__description-person-name">{{member.name}}</span>
 
             <app-track-link [originalLink]="member.facebookURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.facebookURL">
                 <i class="fab fa-facebook facebook"></i></app-track-link>

@@ -4,38 +4,26 @@
     }
 }
 
-@media (min-width: 590px) {
+@media (min-width: 768px) {
     .search {
-        &__header {
-            padding: 16px;
-        }
-
-        &__logo-link {
-            margin: 0 16px 0 0;
-        }
-
         &__results {
-            padding: 16px;
+            padding: 16px 30px 16px 94px;
         }
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
     .search {
         &__results {
-            padding: 16px 16px 16px 80px;
+            padding: 16px 30px;
         }
     }
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1200px) {
     .search {
-        &__logo-link {
-            margin: 0 25px 0 9px;
-        }
-
         &__results {
-            padding: 16px 16px 16px 94px;
+            padding: 16px 30px 16px 130px;
         }
     }
 }

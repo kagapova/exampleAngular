@@ -5,12 +5,11 @@
     align-items: center;
 
     &__name {
-        font-size: 30px;
-        font-weight: bold;
-        line-height: 1;
-        letter-spacing: -0.5px;
         color: #2e3033;
-        padding: 8px 0 0;
+        font-size: 30px;
+        font-weight: 500;
+        letter-spacing: -0.4px;
+        line-height: 1.5;
     }
 
     &__img {
@@ -28,6 +27,8 @@
 
         &__name {
             font-size: 35px;
+            letter-spacing: normal;
+            line-height: 1.29;
         }
     }
 }

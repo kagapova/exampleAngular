@@ -1,7 +1,7 @@
 @import "../search-block.mixins";
 
 .search-block-capitalization {
-    @include search-block;
+    @include search-block__additional;
 
     &__title {
         @include search-block-title;
@@ -9,7 +9,7 @@
 
     &__content {
         &__title {
-            font-weight: bold;
+            font-weight: 500;
             display: table-cell;
             white-space: nowrap;
             padding: 0 10px 10px 0;

@@ -1,46 +1,52 @@
-@mixin block {
-    display: block;
-    padding: 24px 16px 20px;
-    border: 1px solid #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-    margin-bottom: 20px;
-    color: #333;
-    overflow: hidden;
+@mixin content {
+    display: flex;
+    flex-direction: column;
 
-    &:hover {
-        text-decoration: none;
+    @media (min-width: 1024px) {
+        flex-direction: row;
+        align-items: flex-start;
     }
 }
 
-@mixin block-title {
+@mixin header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px 0 20px;
+    max-width: 570px;
+
+    @media (min-width: 1024px) {
+        margin: 10px 0 20px;
+        width: auto;
+    }
+}
+
+@mixin content__title {
     position: static;
-    overflow: hidden;
-    display: block;
-    font-size: 1.31em;
+    display: flex;
     vertical-align: middle;
-    line-height: 1.15;
-    padding: 0;
-    margin: 0 0 20px 0;
-    max-width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 30px;
+    margin: 0;
 }
 
-@mixin block-footer-link {
-    display: inline-block;
-    color: #888;
-    line-height: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: auto;
-    max-width: 100%;
-    font-size: .9176em;
-    margin-bottom: -10px;
-    height: 16px;
+@mixin content__main {
+    max-width: 570px;
 }
 
+@mixin content__additional {
+    max-width: 570px;
 
-@mixin block-footer-icon {
-    width: 16px;
-    height: 16px;
+    @media (min-width: 1024px) {
+        width: 345px;
+        margin: 0 0 0 49px;
+    }
+
+    @media (min-width: 1200px) {
+        width: 440px;
+        margin: 0 0 0 30px;
+    }
 }

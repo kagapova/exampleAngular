@@ -2,7 +2,7 @@
     <h2 class="search-block-roadmap__title">Roadmap</h2>
 
     <p class="search-block-roadmap__step" *ngFor="let stage of showedStages">
-        <b>{{stage.name}}</b><br>
+        <span class="search-block-roadmap__step-title">{{stage.name}}</span><br>
         <span [innerHTML]="stage.description"></span>
     </p>
 

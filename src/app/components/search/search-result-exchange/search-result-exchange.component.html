@@ -1,12 +1,10 @@
 <div class="search-result-exchange">
-    <div class="search-result-exchange__header">
-        <h1 class="search-result-exchange__title">
-            <img [src]="exchange.logoUrl" class="search-result-exchange__logo"/>
-            {{exchange.name}}
-        </h1>
-    </div>
+    <h1 class="search-result-exchange__title">
+        <img [src]="exchange.logoUrl" class="search-result-exchange__logo"/>
+        {{exchange.name}}
+    </h1>
 
-    <div class="search-result-exchange__content--full">
+    <div class="search-result-exchange__rate-list">
         <app-search-block-exchange-current-rate-list [rates]="exchange.currencyRates"></app-search-block-exchange-current-rate-list>
     </div>
 

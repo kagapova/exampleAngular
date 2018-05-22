@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, AfterViewInit} from '@angular/core';
 import {AnalyticsService} from '../../../services/analytics/analytics.service';
 import {Bancor} from '../../../models/bancor';
 import {CalcResult} from '../../../models/calc-result';
@@ -8,7 +8,7 @@ import {CalcResult} from '../../../models/calc-result';
     templateUrl: './search-block-exchange-rate.component.html',
     styleUrls: ['./search-block-exchange-rate.component.scss']
 })
-export class SearchBlockExchangeRateComponent implements OnInit {
+export class SearchBlockExchangeRateComponent implements OnInit, AfterViewInit {
     @Input() bancor: Bancor;
     @Input() calc: CalcResult;
 
@@ -17,6 +17,17 @@ export class SearchBlockExchangeRateComponent implements OnInit {
 
     ngOnInit() {
         this.analytics.view('search-block-exchange-rate');
+    }
+
+    ngAfterViewInit() {
+        BancorConvertWidget.init({
+            type: '0',
+            baseCurrencyId: '5a3794f26de5cb0001ce3993',
+            pairCurrencyId: '5937d635231e97001f744267',
+            primaryColor: '#0093EE',
+            hideVolume: true,
+            primaryColorHover: '#0285D7'
+        });
     }
 
     onBuy() {

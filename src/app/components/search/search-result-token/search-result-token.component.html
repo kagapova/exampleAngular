@@ -25,6 +25,7 @@
             <app-search-block-roadmap *ngIf="company && company.roadmap" [roadmap]="company.roadmap" [sourceUrl]="company.url" [analyticalURL]="company.analyticalURL"></app-search-block-roadmap>
             <app-search-block-team *ngIf="company && company.team" [team]="company.team" [sourceUrl]="company.url"></app-search-block-team>
             <app-search-block-wallet-list *ngIf="wallets && wallets.length" [wallets]="wallets"></app-search-block-wallet-list>
+            <app-search-block-token-exchanges-list *ngIf="exchanges && exchanges.length" [exchanges]="exchanges"></app-search-block-token-exchanges-list>
         </div>
     </div>
 </div>

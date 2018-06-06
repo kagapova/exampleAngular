@@ -76,6 +76,8 @@ import {HomeTopIcoListComponent} from './components/home/home-top-ico-list/home-
 import {TopICOsService} from './services/top-icos/top-icos.service';
 import {SearchBlockWebLinkListMoreButtonComponent} from './components/search-block/search-block-web-link-list/search-block-web-link-list-more-button/search-block-web-link-list-more-button.component';
 import {SearchFormPopularComponent} from './components/search-form/search-form-popular/search-form-popular.component';
+import { SearchBlockTokenExchangesListComponent } from './components/search-block/search-block-token-exchanges-list/search-block-token-exchanges-list.component';
+import { SearchBlockTokenExchangeComponent } from './components/search-block/search-block-token-exchange/search-block-token-exchange.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -150,6 +152,8 @@ export function createTranslateLoader(http: HttpClient) {
         LogoComponent,
         SearchBlockWebLinkListMoreButtonComponent,
         SearchFormPopularComponent,
+        SearchBlockTokenExchangesListComponent,
+        SearchBlockTokenExchangeComponent,
     ],
     imports: [
         BrowserModule,

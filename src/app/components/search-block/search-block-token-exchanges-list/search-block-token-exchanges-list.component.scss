@@ -1,0 +1,17 @@
+@import "../search-block.mixins";
+
+.search-block-token-exchanges-list {
+    @include search-block;
+
+    &__title {
+        @include search-block-title;
+    }
+
+    &__item {
+        margin: 0 0 25px;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+}

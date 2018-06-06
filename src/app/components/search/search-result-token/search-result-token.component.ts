@@ -8,6 +8,7 @@ import {Wallet} from '../../../models/wallet';
 import {Bancor} from '../../../models/bancor';
 import {News} from '../../../models/news';
 import {CalcResult} from '../../../models/calc-result';
+import {Exchange} from '../../../models/exchange';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class SearchResultTokenComponent implements OnInit {
     bancor: Bancor;
     newsList: News[];
     calc: CalcResult;
+    exchanges: Exchange[];
 
     constructor() {
     }
@@ -38,6 +40,14 @@ export class SearchResultTokenComponent implements OnInit {
         this.bancor = this.result.data.bancor;
         this.newsList = this.result.data.news;
         this.calc = this.result.data.calc;
+        this.exchanges = [];
+
+        if (this.result.data.exchange) {
+            this.exchanges.push(this.result.data.exchange);
+            this.result.data.otherExchanges.forEach(exchange => {
+                this.exchanges.push(exchange);
+            })
+        }
 
         if (!this.calc) {
             this.calc = new CalcResult(

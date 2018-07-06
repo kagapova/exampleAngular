@@ -1,8 +1,8 @@
 interface WebResultServer {
-    type: "web";
+    type: 'web';
     source: string;
     click: string;
-    data : {
+    data: {
         title: string;
         text: string;
         image: string;

@@ -1,0 +1,19 @@
+a {
+    color: color(blue);
+    text-decoration: none;
+    &:hover,
+    &:visited {
+        color: color(purple);
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+button {
+    cursor: pointer;
+    user-select: none;
+    &:focus {
+        outline: none;
+    }
+}

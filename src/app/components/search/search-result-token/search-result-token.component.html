@@ -1,31 +1,42 @@
-<div class="search-result-token">
-    <div class="search-result-token__header">
-        <h1 class="search-result-token__title">
-            <img [src]="currency.imageURL" class="search-result-token__logo"/>
-            {{currency.name}}
-        </h1>
+<app-layout class="layout">
 
-        <!--<div class="search-result-token__save">-->
-            <!--<app-follow [isFollowed]="false"></app-follow>-->
-        <!--</div>-->
-    </div>
+    <main class="layout__main">
+        <app-card>
+            <app-exchange-rate
+                [bancor]="bancor"
+                [calc]="calc"
+                [currency]="currency">
+            </app-exchange-rate>
+            <app-search-results-chart
+                [values]="currency.charts">
+            </app-search-results-chart>
+            <app-search-cap
+                *ngIf="currency.capitalization"
+                [capitalization]="currency.capitalization"
+                [symbol]="currency.symbol">
+            </app-search-cap>
+        </app-card>
 
-    <div class="search-result-token__content">
-        <div class="search-result-token__content__main">
-            <app-search-block-exchange-rate [calc]="calc" [bancor]="bancor"></app-search-block-exchange-rate>
-            <app-search-block-chart-rate [values]="currency.charts"></app-search-block-chart-rate>
-            <app-search-block-future-event-list *ngIf="events && events.length" [events]="events"></app-search-block-future-event-list>
-            <!--<app-search-block-news-list *ngIf="newsList && newsList.length" [newsList]="newsList"></app-search-block-news-list>-->
-            <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>
-        </div>
+        <app-search-block-offer
+            [company]="company">
+        </app-search-block-offer>
 
-        <div class="search-result-token__content__additional">
-            <app-search-block-capitalization *ngIf="currency.capitalization" [capitalization]="currency.capitalization" [symbol]="currency.symbol"></app-search-block-capitalization>
-            <app-search-block-company-about *ngIf="company" [company]="company"></app-search-block-company-about>
-            <app-search-block-roadmap *ngIf="company && company.roadmap" [roadmap]="company.roadmap" [sourceUrl]="company.url" [analyticalURL]="company.analyticalURL"></app-search-block-roadmap>
-            <app-search-block-team *ngIf="company && company.team" [team]="company.team" [sourceUrl]="company.url"></app-search-block-team>
-            <app-search-block-wallet-list *ngIf="wallets && wallets.length" [wallets]="wallets"></app-search-block-wallet-list>
-            <app-search-block-token-exchanges-list *ngIf="exchanges && exchanges.length" [exchanges]="exchanges"></app-search-block-token-exchanges-list>
-        </div>
-    </div>
-</div>
+        <app-web-links
+            [webLinks]="webLinks">
+        </app-web-links>
+    </main>
+
+    <aside class="layout__sidebar">
+        <app-search-block-company
+            *ngIf="company"
+            class="layout__sidebar__company"
+            [company]="company">
+        </app-search-block-company>
+        <app-wallet-list
+            *ngIf="wallets && wallets.length"
+            class="wallet-list"
+            [wallets]="wallets">
+        </app-wallet-list>
+    </aside>
+
+</app-layout>

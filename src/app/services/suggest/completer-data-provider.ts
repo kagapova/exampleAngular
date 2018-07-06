@@ -1,7 +1,5 @@
 import {SuggestService} from './suggest.service';
-import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
-import {map} from 'rxjs/operators';
 import { CompleterData, CompleterItem } from 'ng2-completer';
 
 
@@ -10,8 +8,8 @@ export class CompleterDataProvider extends Subject<CompleterItem[]> implements C
         super();
 
         suggest.suggestions.map(suggestions => {
-            let matches: CompleterItem[] =  suggestions.map(suggest => {
-                return this.convertToItem(suggest);
+            const matches: CompleterItem[] = suggestions.map(suggestion => {
+                return this.convertToItem(suggestion);
             });
 
             this.next(matches);

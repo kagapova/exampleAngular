@@ -1,4 +1,4 @@
-import {Bancor} from '../../../models/bancor';
+import { Bancor } from '@app/models/bancor';
 
 export function parseBancor(result: BancorServer): Bancor {
     if (result.source !== 'bancor') {

@@ -3,7 +3,7 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {retry} from 'rxjs/operators/retry';
-import {Suggestion} from '../../models/suggestion';
+import {Suggestion} from '@app/models/suggestion';
 import {CompleterDataProvider} from './completer-data-provider';
 
 

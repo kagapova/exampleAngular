@@ -1,0 +1,14 @@
+@import "../../../styles/mixins";
+
+.token-exchanges-list {
+    @include block;
+    &__title {
+        @include title;
+    }
+    &__item {
+        margin: 0 0 25px;
+        &:last-child {
+            margin: 0;
+        }
+    }
+}

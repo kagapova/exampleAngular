@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SearchResults} from '../../../models/search-result';
-import {WebResult} from '../../../models/web-result';
-import {Exchange} from '../../../models/exchange';
+import {SearchResults} from '@app/models/search-result';
+import {WebResult} from '@app/models/web-result';
+import {Exchange} from '@app/models/exchange';
 
 @Component({
     selector: 'app-search-result-exchange',

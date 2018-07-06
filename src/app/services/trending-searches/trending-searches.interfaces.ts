@@ -1,13 +1,13 @@
-type TrendsResponse = {
-    requests: TrendResponse[],
-    trendingRequests: TrendRequestResponse[],
+interface TrendsResponse {
+    requests: TrendResponse[];
+    trendingRequests: TrendRequestResponse[];
 }
 
-type TrendResponse = {
-    request: string
-    count: number
+interface TrendResponse {
+    request: string;
+    count: number;
 }
 
-type TrendRequestResponse = {
-    request: string
+interface TrendRequestResponse {
+    request: string;
 }

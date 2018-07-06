@@ -1,4 +1,12 @@
-import {Company, CompanyLink, CompanyMember, CompanyRoadmapStage} from '../../../models/company';
+import { cloneDeep, filter, toArray } from 'lodash-es';
+import {
+    Company,
+    CompanyMember,
+    CompanyRoadmapStage,
+    ICompanyLinks,
+    CompanyLinksTemplate,
+    ICompanyLink,
+} from '@app/models/company';
 
 export function parseCompany(company: CompanyServer): Company {
     if (company.source !== 'trackico') {
@@ -12,7 +20,7 @@ export function parseCompany(company: CompanyServer): Company {
         company.data.country,
         company.data.category,
         company.data.chain,
-        company.data.rating,
+        getRating(company),
         company.data.icoType,
         company.data.preIcoStart,
         company.data.preIcoEnd,
@@ -22,22 +30,33 @@ export function parseCompany(company: CompanyServer): Company {
         getTeam(company),
         getRoadmap(company),
         company.data.url,
+        company.slug,
+        company.bookmarkId,
         company.click,
     );
 }
 
-
-function getLinks(company: CompanyServer): CompanyLink[] {
-    return company.data.links.map(link => {
-        return new CompanyLink(
-            link.linkType,
-            link.url
-        );
-    });
+function getRating(company: CompanyServer): string {
+    const rating = Number(company.data.rating);
+    const outOf = 5;
+    return isNaN(rating) ? '0%' : `${(rating / outOf) * 100}%`;
 }
 
+function getLinks(company: CompanyServer): ICompanyLink[] {
+    const companyLinks: ICompanyLinks = cloneDeep(CompanyLinksTemplate);
+    company.data.links.forEach(link => {
+        if (companyLinks[link.linkType]) {
+            companyLinks[link.linkType].url = link.url;
+        }
+    });
+
+    return toArray(filter(companyLinks, 'url'));
+}
 
 function getTeam(company: CompanyServer): CompanyMember[] {
+    if (company.data.title === 'BitClave') {
+        return getTeamBitClave(company);
+    }
     return company.data.team.map(member => {
         return new CompanyMember(
             member.name,
@@ -50,13 +69,34 @@ function getTeam(company: CompanyServer): CompanyMember[] {
     });
 }
 
+function getTeamBitClave(company: CompanyServer): CompanyMember[] {
+    const team: any = filter(company.data.team, member => {
+        if (member.role === 'CEO' ||
+            member.role === 'CTO' ||
+            member.role === 'Data Scientist') {
+            return member;
+        }
+    });
+
+    const b = team[2];
+    team[2] = team[1];
+    team[1] = b;
+
+    return team.map(member => {
+        return new CompanyMember(
+            member.name,
+            member.role,
+            member.photo,
+            member.linkedinUrl,
+            member.twitterUrl,
+            member.facebookUrl
+        );
+    });
+}
 
 function getRoadmap(company: CompanyServer): CompanyRoadmapStage[] {
     return company.data.roadmap.map(stage => {
-        let description = stage.description.replace("\r\n", "<br />");
-        return new CompanyRoadmapStage(
-            stage.name,
-            description
-        );
+        const description = stage.description.replace('\r\n', '<br />');
+        return new CompanyRoadmapStage(stage.name, description);
     });
 }

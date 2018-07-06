@@ -1,4 +1,4 @@
-import {ChartValue, Currency, Company, ICO, CurrencyCapitalization} from '../../../models/currency';
+import {ChartValue, Currency, Company, ICO, CurrencyCapitalization} from '@app/models/currency';
 
 
 export function parseCurrencyResult(result: CurrencyServer): Currency {
@@ -13,10 +13,12 @@ export function parseCurrencyResult(result: CurrencyServer): Currency {
         result.data.urls,
         result.data.totalCoinSupply,
         result.data.price,
+        result.data.cmcSlug,
         getTimePeriodChartValues(result),
         getCompany(result),
         getICO(result),
-        getCapitalization(result)
+        getCapitalization(result),
+        result.bookmarkId
     );
 }
 
@@ -55,7 +57,7 @@ function getCapitalization(result: CurrencyServer): CurrencyCapitalization {
         return null;
     }
 
-    let dailyVolume = Math.round(result.data.usdDailyVolume / result.data.price);
+    const dailyVolume = Math.round(result.data.usdDailyVolume / result.data.price);
 
     return new CurrencyCapitalization(
         result.data.usdMarketCap,
@@ -68,7 +70,7 @@ function getCapitalization(result: CurrencyServer): CurrencyCapitalization {
 
 
 function getTimePeriodChartValues(response: CurrencyServer): Map<string, ChartValue[]> {
-    let result = new Map<string, ChartValue[]>();
+    const result = new Map<string, ChartValue[]>();
     result[Currency.TimePeriod1d] = getChartValues(response.data.charts['1d']);
     result[Currency.TimePeriod1w] = getChartValues(response.data.charts['1w']);
     result[Currency.TimePeriod1m] = getChartValues(response.data.charts['1m']);

@@ -1,26 +1,53 @@
 <div class="search-block-company-about">
-    <h2 class="search-block-company-about__title">About company</h2>
+    <section class="search-block-company-about__summary">
+        <table>
+            <tr *ngIf="company.country">
+                <th>Country:</th>
+                <td>{{company.country}}</td>
+            </tr>
+            <tr *ngIf="company.category">
+                <th>Category:</th>
+                <td>{{company.category}}</td>
+            </tr>
+            <tr *ngIf="company.chain">
+                <th>Chain:</th>
+                <td>{{company.chain}}</td>
+            </tr>
+            <tr *ngIf="company.preIcoStart">
+                <th>Pre ICO:</th>
+                <td>{{company.preIcoStart | date:'MMM. dd, yyyy' }} &mdash; {{company.preIcoEnd | date:'MMM. dd, yyyy' }}</td>
+            </tr>
+            <tr *ngIf="company.icoStart">
+                <th>ICO:</th>
+                <td>{{company.icoStart | date:'MMM. dd, yyyy' }} &mdash;  <ng-container *ngIf="company.slug === 'bitclave'">
+                    Nov. 28, 2017
+                </ng-container>
+                <ng-container *ngIf="company.slug !== 'bitclave'">
+                {{company.icoEnd | date:'MMM. dd, yyyy' }}
+                </ng-container>
+                </td>
+            </tr>
+            <tr>
+                <th>Hard Cap:</th>
+                <td>{{hardCap}}</td>
+            </tr>
+            <tr>
+                <th>Raised Funds:</th>
+                <td>{{raisedFunds}}</td>
+            </tr>
+        </table>
+    </section>
 
-    <p class="search-block-company-about__rating">
-        <span class="search-block-company-about__rating-title">Rating:</span> {{company.rating}}
-    </p>
+    <section
+        class="search-block-company-about__description"
+        [ngClass]="{'search-block-company-about__description-short': !isDescriptionExpanded}">
+        {{company.description}}
+    </section>
 
-    <p>{{company.description}}</p>
-
-    <p class="secondary">
-        Country: {{company.country}}<br>
-        Category: {{company.category}}<br>
-        Chain: {{company.chain}}<br>
-    </p>
-
-    <p>
-        Pre ICO: {{company.preIcoStart | date:'MMM. dd, yyyy' }} - {{company.preIcoEnd | date:'MMM. dd, yyyy' }}<br>
-        ICO: {{company.icoStart | date:'MMM. dd, yyyy' }} - {{company.icoEnd | date:'MMM. dd, yyyy' }}
-    </p>
-
-    <app-track-link [originalLink]="company.url" [serverTrackLink]="company.analyticalURL" block="search-block-company-about" label="bottom-link" class="search-block-company-about__link">
-        <img class="search-block-company-about__icon" src="{{company.url | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
-
-    <app-track-link [originalLink]="company.url" [serverTrackLink]="company.analyticalURL" block="search-block-company-about" label="bottom-link" class="search-block-company-about__link">
-        {{company.url}}</app-track-link>
+    <button *ngIf="!isDescriptionExpanded"
+        class="search-block-company-about__btn-all"
+        (click)="expandDescription()"
+        type="button">
+        Read More
+    </button>
 </div>

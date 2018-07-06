@@ -1,0 +1,34 @@
+@import '../../../styles/colors';
+@import '../../../styles/transitions';
+
+.buttons {
+  display: flex;
+  height: 41px;
+  overflow: hidden;
+}
+
+.signup {
+  width: 125px;
+  height: 40px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 5px;
+  vertical-align: top;
+  background-color: color(bluelight);
+  color: color(white);
+  transition: background-color $time $ease;
+  &:hover {
+    background-color: color(deepblue);
+  }
+}
+
+#placeholder {
+  width: 125px;
+  display: inline-block;
+}
+
+::ng-deep {
+  iframe {
+    width: 150px;
+  }
+}

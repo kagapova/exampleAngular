@@ -1,0 +1,57 @@
+@import "../../styles/mixins";
+@import "../../styles/typography";
+
+:host {
+    display: block;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
+    &:hover {
+        background-color: rgba(35, 103, 200, 0.05);
+    }
+}
+
+.wallet {
+    &__meta {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    &__title {
+        @extend %base-font;
+        margin: 0;
+        font-size: 18px;
+        font-weight: $font-weight-medium;
+    }
+    &__coins {
+        margin: 0 0 0 auto;
+        padding: 0;
+        list-style: none;
+    }
+    &__coin {
+        display: inline-block;
+        margin: 0 3px;
+    }
+    &__coin-image {
+        height: 20px;
+    }
+    &__link {
+        @extend %base-font;
+        font-size: 15px;
+        color: #2367c8;
+    }
+    &__descriptors {
+        margin: 0;
+    }
+    &__descriptor {
+        @extend %base-font;
+        display: inline-block;
+        margin: 0 4px 2px 0;
+        font-size: 15px;
+        color: #8f9fb3;
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+}

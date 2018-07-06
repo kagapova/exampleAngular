@@ -1,6 +1,0 @@
-<button class="follow" [ngClass]="{'follow--followed': isFollowed, 'follow--unfollow': isHover}" (click)="onClick()" (mouseenter)="onMouseEnter()"
-        (mouseleave)="onMouseLeave()">
-    <span *ngIf="!isFollowed">Follow</span>
-    <span *ngIf="isFollowed && !isHover">You Follow</span>
-    <span *ngIf="isFollowed && isHover">Unfollow</span>
-</button>

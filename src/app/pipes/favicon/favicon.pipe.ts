@@ -1,11 +1,11 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
+import { getFaviconUrl } from '@app/services/search/categories/web';
 
 @Pipe({
     name: 'favicon'
 })
 export class FaviconPipe implements PipeTransform {
     transform(value: string, args?: any): string {
-        let url = value.split('/')[2];
-        return `//${url}/favicon.ico`;
+        return getFaviconUrl(value);
     }
 }

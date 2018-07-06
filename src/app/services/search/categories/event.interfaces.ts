@@ -10,5 +10,5 @@ interface EventServer {
         proof: string;
         source: string;
         token: string;
-    }
+    };
 }

@@ -1,0 +1,5 @@
+@import "../address.component";
+
+.address-btc {
+    @extend .address;
+}

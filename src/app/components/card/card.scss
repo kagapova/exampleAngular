@@ -1,0 +1,18 @@
+@import '../../../styles/breakpoints';
+
+.card {
+  position: relative;
+  display: block;
+  margin-bottom: 35px;
+  background-color: #ffffff;
+  overflow: hidden;
+  &:hover {
+    text-decoration: none;
+  }
+
+  @include breakpoint(large) {
+    padding: 30px 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(107, 129, 153, 0.2), 0 0.5px 3px 0 rgba(107, 129, 153, 0.25);
+  }
+}

@@ -1,4 +1,4 @@
-interface SuggestionsResponse{
+interface SuggestionsResponse {
     suggestions: SuggestEntryServer[];
 }
 

@@ -1,17 +1,15 @@
-import {WebResult} from '../../../models/web-result';
-
+import { WebResult } from '@app/models/web-result';
 
 export function parseWebResult(result: WebResultServer): WebResult {
     return new WebResult(
         result.data.title,
         result.data.text,
-        getFaviconURL(result.data.url),
+        getFaviconUrl(result.data.url),
         result.data.url,
         result.click
     );
 }
 
-function getFaviconURL(link: string): string {
-    const url = link.split('/');
-    return `//${url[2]}/favicon.ico`;
+export function getFaviconUrl(link: string): string {
+    return `https://www.google.com/s2/favicons?domain=${link}`;
 }

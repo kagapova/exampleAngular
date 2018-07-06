@@ -1,0 +1,14 @@
+@import "../../../styles/mixins";
+
+.exchange-about {
+    @include block;
+    &__title {
+        @include title;
+    }
+    &__link {
+        @include footer-link;
+    }
+    &__icon {
+        @include footer-icon;
+    }
+}

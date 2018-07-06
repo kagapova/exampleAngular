@@ -1,0 +1,13 @@
+@import "../../../../styles/mixins";
+
+.search-block-offer {
+    @include block;
+
+    &__title {
+        @include title;
+    }
+}
+
+::ng-deep .web-link__icon {
+    display: none;
+}

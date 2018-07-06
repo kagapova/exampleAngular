@@ -1,0 +1,77 @@
+// Truncate text gracefully to ellipsis with pure css
+// http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/
+@mixin ellipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white) {
+    overflow: hidden;
+    position: relative;
+    line-height: $lineHeight;
+    max-height: $lineHeight * $lineCount;
+    text-align: justify;
+    padding-right: 1em;
+    &:before {
+        content: '...';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        background: $bgColor;
+    }
+}
+
+
+// internal utility methods for ensuring
+// map and list integrity
+@mixin _assert-ascending($map, $map-name) {
+    $prev-key: null;
+    $prev-num: null;
+    @each $key, $num in $map {
+        @if $prev-num == null {
+            // Do nothing
+        } @else if not comparable($prev-num, $num) {
+            @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+        } @else if $prev-num >= $num {
+            @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+        }
+        $prev-key: $key;
+        $prev-num: $num;
+    }
+}
+
+// same grid approach as Foundations XY grid
+// with 0 based breakpoints
+@mixin _assert-starts-at-zero($map) {
+    $values: map-values($map);
+    $first-value: nth($values, 1);
+    @if $first-value != 0 {
+        @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+    }
+}
+
+// non destructive map merge with some nice to have builtins
+@function safe-map-merge($parent-map, $child-map) {
+	$result: $parent-map;
+	@each $key, $value in $child-map {
+		@if (not map-has-key($result, $key)) or (type-of(map-get($result, $key)) != type-of($value)) or (not (type-of(map-get($result, $key)) == map and type-of($value) == map)) {
+			$result: map-merge($result, ($key: $value));
+		}
+		@else {
+			$result: map-merge($result, ($key: safe-map-merge(map-get($result, $key), $value)));
+		}
+	}
+	@return $result;
+}
+
+// generic map merge
+@function merge-colors($maps...) {
+    $return: ();
+    @each $map in $maps {
+      $return: map-merge($return, $map);
+    }
+    @return $return;
+  }

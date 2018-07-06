@@ -5,11 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './search-add-content-button.component.html',
   styleUrls: ['./search-add-content-button.component.scss']
 })
-export class SearchAddContentButtonComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class SearchAddContentButtonComponent {}

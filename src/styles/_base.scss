@@ -1,0 +1,29 @@
+html,
+body {
+    height: 100%;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: 'Rubik', sans-serif;
+    color: #2e3033;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: auto;
+}
+
+.app {
+    padding: 0 20px;
+}

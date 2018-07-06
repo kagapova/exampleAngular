@@ -1,0 +1,99 @@
+@mixin padded {
+  position: relative;
+  margin-bottom: 35px;
+  padding: 30px 30px 25px;
+  overflow: hidden;
+}
+
+@mixin shadow {
+  box-shadow: 0 2px 5px 0 rgba(107, 129, 153, 0.2), 0 0.5px 3px 0 rgba(107, 129, 153, 0.25);
+}
+
+@mixin block {
+  @include shadow;
+  @include padded;
+  display: block;
+  border-radius: 10px;
+  background-color: #ffffff;
+  overflow: hidden;
+  &:hover {
+      text-decoration: none;
+  }
+}
+
+@mixin block--big {
+  @include block;
+  padding: 30px 30px 25px;
+  margin-bottom: 35px;
+}
+
+@mixin title {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-size: 1.31em;
+  font-weight: 500;
+  vertical-align: middle;
+  line-height: 1.15;
+  overflow: hidden;
+}
+
+@mixin subtitle {
+  @include title;
+  font-size: 1.11em;
+}
+
+@mixin button {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 3px;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+@mixin footer-link {
+  display: inline-block;
+  color: #888;
+  line-height: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: auto;
+  max-width: 100%;
+  font-size: .9176em;
+  margin-bottom: -10px;
+  height: 16px;
+}
+
+@mixin footer-icon {
+  width: 16px;
+  height: 16px;
+}
+
+@mixin photo {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+@mixin photo--small {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+@mixin show-more {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  color: #2367c8;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}

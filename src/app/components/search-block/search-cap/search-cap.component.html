@@ -1,0 +1,22 @@
+<div class="search-cap">
+    <ul class="search-cap__list">
+            <li class="search-cap__item" *ngIf="capitalization.marketCap">
+            <span class="search-cap__value">
+                ${{capitalization.marketCap | number}}
+            </span>
+            <span class="search-cap__label">Market Cap</span>
+        </li>
+        <li class="search-cap__item" *ngIf="capitalization.volume24hUsd">
+            <span class="search-cap__value">
+                ${{capitalization.volume24hUsd | number}}
+            </span>
+            <span class="search-cap__label">Volume (24h)</span>
+        </li>
+        <li class="search-cap__item" *ngIf="capitalization.circulatingSupply">
+            <span class="search-cap__value">
+                ${{capitalization.circulatingSupply | number}}
+            </span>
+            <span class="search-cap__label">Circulating Supply</span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  font-size: 13px;
+  .ratings {
+    &__front {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(0, -50%, 0);
+      color: #f5a623;;
+      overflow: hidden;
+    }
+    &__back {
+      display: flex;
+      position: relative;
+      align-items: center;
+      color: #d0d3d9;;
+    }
+    i {
+      display: inline-block;
+      margin: 0 2px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

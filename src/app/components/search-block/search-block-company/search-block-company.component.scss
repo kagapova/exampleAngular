@@ -1,0 +1,121 @@
+:host {
+    display: block;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px 0 rgba(107, 129, 153, 0.2), 0 0.5px 3px 0 rgba(107, 129, 153, 0.25);
+    .app-search-block-company-about,
+    .app-search-block-team {
+        margin-bottom: 20px;
+    }
+    .app-search-block-team {
+        border-top: 1px solid rgba(208, 211, 217, 0.5);
+    }
+    .app-roadmap {
+        border-top: 1px solid rgba(208, 211, 217, 0.5);
+    }
+    margin-bottom: 30px;
+}
+
+:host ::ng-deep .card__footer a {
+    color: #d0d3d9;
+}
+
+.card {
+    &__header {
+        display: flex;
+        align-items: center;
+        padding-bottom: 15px;
+    }
+    &__title {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.11;
+    }
+    &__logo {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    &__links {
+        padding: 10px 0;
+    }
+    &__link {
+        display: inline-block;
+        border-radius: 5px;
+        background-color: rgba(35, 103, 200, 0.05);
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #2367c8;
+        line-height: 1.44;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(35, 103, 200, 0.1);
+            text-decoration: none;
+        }
+    }
+    &__footer {
+        position: relative;
+        display: block;
+        margin: 15px 0 10px 0;
+        border-top: 1px solid rgba(208, 211, 217, 0.5);
+        padding-top: 4px;
+        text-align: right;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 2;
+    }
+    &__footer-link {
+        position: absolute;
+        display: block;
+        left: 0px;
+        bottom: -30px;
+        font-size: 12px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: left;
+        color: #d0d3d9;
+        a {
+            color: #d0d3d9;
+            font-size: 12px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.67;
+            &:hover,
+            &:active,
+            &:focus,
+            &:visited {
+                color: darken(#d0d3d9, 10%);
+            }
+        }
+    }
+}
+
+
+.card__footer {
+
+    .track-link__anchor {
+        font-size: 12px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: left;
+        color: #d0d3d9;
+        &:visited,
+        &:focus,
+        &:active,
+        &:hover {
+            outline: 0 none !important;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<div class="exchange-rate">
+
+    <div *ngIf="bancor" class="bancor">
+        <div class="bancor__action">
+            <span class="bancor__link"
+                (click)="onSell()">
+                Sell
+            </span>
+        </div>
+        <div class="bancor__action">
+            <span class="bancor__link bancor__link--buy"
+                (click)="onBuy()">
+                Buy
+            </span>
+        </div>
+        <div id="bancor-wc"></div>
+    </div>
+
+    <div class="exchange-rate__from">
+        <img src="{{ currency.imageUrl }}" alt="logo for {{calc.from}}" class="exchange-rate__icon">
+        <span class="exchange-rate__from-title">
+            {{ calc.amount }} {{calc.from}}
+        </span>
+    </div>
+    <div class="exchange-rate__to">
+        <span class="exchange-rate__to-title">
+            {{ convertedAmount | number }} {{ calc.to }}
+        </span>
+    </div>
+</div>

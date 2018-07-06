@@ -1,8 +1,18 @@
 <div class="search-block-news">
-    <app-track-link [originalLink]="news.url" [serverTrackLink]="news.analyticalURL" block="search-block-news" [label]="number">
-        <img *ngIf="news.imageURL" class="search-block-news__img" [src]="news.imageURL" />
+    <app-track-link *ngIf="news.url"
+        [originalLink]="news.url"
+        [serverTrackLink]="news.analyticalURL"
+        block="search-block-news"
+        [label]="number">
+        <img *ngIf="news.imageUrl"
+            class="search-block-news__img"
+            [src]="news.imageUrl" />
     </app-track-link>
-    <app-track-link [originalLink]="news.url" [serverTrackLink]="news.analyticalURL" block="search-block-news" [label]="number">
+    <app-track-link  *ngIf="news.url"
+        [originalLink]="news.url"
+        [serverTrackLink]="news.analyticalURL"
+        block="search-block-news"
+        [label]="number">
     <div class="search-block-news__title">
         {{ (news.title.length > 40) ? (news.title | slice:0:40) + '...' : news.title  }}
     </div>

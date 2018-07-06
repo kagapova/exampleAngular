@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="34" height="40">
-    <defs>
-        <linearGradient id="a" x1="0%" x2="86.603%" y1="50%" y2="0%">
-            <stop offset="0%" stop-color="#BAE903"/>
-            <stop offset="100%" stop-color="#51BF05"/>
-        </linearGradient>
-    </defs>
-    <path fill="#0689C7" fill-rule="evenodd" d="M20.146 26.781l-.031-14.959L34.001 6.83v26.543l-13.855-6.592zm-6.16-13.682L1.025 6.97 20.411 0l12.962 6.129-13.258 4.766-6.129 2.204zM13.635 40L-.003 33.545V7.451l13.638 6.455V40z"/>
-    <path fill="url(#a)" d="M20.146 26.781l-.031-14.959L34.001 6.83v26.543l-13.855-6.592zm-6.16-13.682L1.025 6.97 20.411 0l12.962 6.129-13.258 4.766-6.129 2.204zM13.635 40L-.003 33.545V7.451l13.638 6.455V40z"/>
-</svg>
+<svg height="40" width="34" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="a" x1="0%" x2="86.603%" y1="50%" y2="0%"><stop offset="0" stop-color="#bae903"/><stop offset="1" stop-color="#51bf05"/></linearGradient><path d="m20.146 26.781-.031-14.959 13.886-4.992v26.543zm-6.16-13.682-12.961-6.129 19.386-6.97 12.962 6.129-13.258 4.766zm-.351 26.901-13.638-6.455v-26.094l13.638 6.455z" fill="#0689c7" fill-rule="evenodd"/><path d="m20.146 26.781-.031-14.959 13.886-4.992v26.543zm-6.16-13.682-12.961-6.129 19.386-6.97 12.962 6.129-13.258 4.766zm-.351 26.901-13.638-6.455v-26.094l13.638 6.455z" fill="url(#a)"/></svg>

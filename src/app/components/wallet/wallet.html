@@ -1,0 +1,30 @@
+<div class="wallet__meta">
+    <h3 class="wallet__title">{{wallet.name}}</h3>
+    <ul *ngIf="wallet.coins"
+        class="wallet__coins">
+        <li *ngFor="let coin of coins"
+            class="wallet__coin">
+            <img class="wallet__coin-image"
+                src="/assets/images/coins/{{coin}}.svg"
+                alt="icon for cryptocurrency {{coin}}"
+                onerror="this.src='/assets/images/coins/default-coin.svg'">
+        </li>
+    </ul>
+</div>
+
+<app-track-link *ngIf="wallet.siteUrl"
+    class="wallet__link"
+    [originalLink]="wallet.siteUrl"
+    [serverTrackLink]="wallet.analyticalURL"
+    [label]="number">
+    {{wallet.siteUrl}}
+</app-track-link>
+
+<p class="wallet__descriptors">
+    <span class="wallet__descriptor">
+        {{wallet.easeOfUse}} to use
+    </span>
+    <span class="wallet__descriptor">
+        {{wallet.anonymity}} Anonymity
+    </span>
+</p>

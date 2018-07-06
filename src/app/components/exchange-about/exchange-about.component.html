@@ -1,0 +1,28 @@
+<div class="exchange-about">
+    <h2 class="exchange-about__title">About {{exchange.name}}</h2>
+
+    <p>{{exchange.description}}</p>
+
+    <p class="secondary">
+        Country: {{exchange.country}}<br>
+        Currencies: {{exchange.itemType}}<br>
+    </p>
+
+    <app-track-link *ngIf="exchange.url"
+        [originalLink]="exchange.url"
+        [serverTrackLink]="exchange.analyticalURL"
+        block="exchange-about"
+        class="exchange-about__link">
+        <img class="exchange-about__icon"
+            src="{{exchange.url | favicon}}"
+            onerror="this.src='/assets/images/default-icon.png'">
+    </app-track-link>
+
+    <app-track-link *ngIf="exchange.url"
+        [originalLink]="exchange.url"
+        [serverTrackLink]="exchange.analyticalURL"
+        block="exchange-about"
+        class="exchange-about__link">
+        {{exchange.url}}
+    </app-track-link>
+</div>

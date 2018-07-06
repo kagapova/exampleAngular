@@ -1,33 +1,57 @@
 <div class="search-block-team">
-    <h2 class="search-block-team__title">Team</h2>
+    <ul class="search-block-team__list">
+        <li
+            class="search-block-team__item"
+            *ngFor="let member of showedMembers; let i = index">
+            <div class="search-block-team__profile-wrapper">
+                <img *ngIf="member.photo"
+                    class="search-block-team__profile"
+                    [src]="member.photo">
+            </div>
 
-    <div class="search-block-team__member" *ngFor="let member of showedMembers; let i = index">
-        <img [src]="member.photo" class="search-block-team__member__photo" *ngIf="member.photo">
-        <img src="/assets/images/no-photo.png" class="search-block-team__member__photo" *ngIf="!member.photo">
+            <div class="search-block-team__description">
+                <span class="search-block-team__name">
+                    {{member.name}}
+                </span>
 
-        <div class="search-block-team__member__description">
-            <span class="search-block-team__member__description-person-name">{{member.name}}</span>
+                <div class="track-links">
+                    <app-track-link *ngIf="member.linkedinURL"
+                        [originalLink]="member.linkedinURL"
+                        [serverTrackLink]=""
+                        block="search-block-team"
+                        [label]="i + 1">
+                        <fa name="linkedin-square"></fa>
+                    </app-track-link>
 
-            <app-track-link [originalLink]="member.facebookURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.facebookURL">
-                <i class="fab fa-facebook facebook"></i></app-track-link>
+                    <app-track-link *ngIf="member.twitterURL"
+                        [originalLink]="member.twitterURL"
+                        [serverTrackLink]=""
+                        block="search-block-team"
+                        [label]="i + 1">
+                        <fa name="twitter"></fa>
+                    </app-track-link>
 
-            <app-track-link [originalLink]="member.twitterURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.twitterURL">
-                <i class="fab fa-twitter twitter"></i></app-track-link>
+                    <app-track-link *ngIf="member.facebookURL"
+                        [originalLink]="member.facebookURL"
+                        [serverTrackLink]=""
+                        block="search-block-team"
+                        [label]="i + 1">
+                        <fa name="facebook"></fa>
+                    </app-track-link>
+                </div>
 
-            <app-track-link [originalLink]="member.linkedinURL" [serverTrackLink]="" block="search-block-team" [label]="i + 1" *ngIf="member.linkedinURL">
-                <i class="fab fa-linkedin linkedin"></i></app-track-link>
+                <div class="search-block-team__member__title">
+                    {{member.role}}
+                </div>
+            </div>
+        </li>
+    </ul>
 
-            <br>
-
-            {{member.role}}
-        </div>
-    </div>
-
-    <button class="search-block-team__btn-all" (click)="showAllTeam()" *ngIf="!showedAllTeam">Show All Team</button>
-
-    <app-track-link originalLink="{{sourceUrl}}#team" [serverTrackLink]="" block="search-block-team" label="bottom-link" class="search-block-team__link">
-        <img class="search-block-team__icon" src="{{sourceUrl | favicon}}" onerror="this.src='/assets/images/default-icon.png'"></app-track-link>
-
-    <app-track-link originalLink="{{sourceUrl}}#team" [serverTrackLink]="" block="search-block-team" label="bottom-link" class="search-block-team__link">
-        {{sourceUrl}}</app-track-link>
+    <button
+        *ngIf="!showedAllTeam"
+        class="search-block-team__btn-all"
+        (click)="showAllTeam()"
+        type="button">
+        See All Team
+    </button>
 </div>

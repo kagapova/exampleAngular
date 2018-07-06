@@ -1,0 +1,26 @@
+// Typography
+//------------------------------
+@import './colors';
+
+$base-font-color:     color(midnight);
+$base-font-family:    'Rubik';
+$base-font-weight:    normal;
+$base-font-style:     normal;
+$base-font-stretch:   normal;
+$base-letter-spacing: normal;
+$base-line-height:    1.5;
+
+$font-weight-light:   100;
+$font-weight-normal:  400;
+$font-weight-medium:  500;
+$font-weight-heavy:   700;
+
+%base-font {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  font-style: $base-font-style;
+  font-stretch: $base-font-stretch;
+  line-height: $base-line-height;
+  letter-spacing: $base-letter-spacing;
+}

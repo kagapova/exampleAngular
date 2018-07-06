@@ -1,0 +1,128 @@
+@import "../../../../styles/breakpoints";
+
+:host {
+    display: block;
+}
+
+.search-results-chart {
+    &:hover {
+        text-decoration: none;
+    }
+    &__container {
+        margin: 0 auto;
+    }
+    &__token {
+        padding: 0 0 20px 0;
+    }
+    &__nvd3 {
+        display: block;
+    }
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        color: #878787;
+    }
+    &__meta-item {
+        flex: 1;
+        margin-right: 5px;
+    }
+
+    &__token-dollars {
+        display: inline-block;
+        margin-right: 7px;
+    }
+    &__link {
+        display: inline-block;
+        width: auto;
+        max-width: 100%;
+        height: 16px;
+        margin-bottom: -10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 16px;
+        white-space: nowrap;
+        font-size: .9176em;
+        color: #888;
+    }
+    &__icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.chart__tabs {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    top: 20px;
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+.chart__tab {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 0 8px;
+    padding: 0;
+    border-radius: 50%;
+    font-family: 'Rubik';
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #8f9fb3;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:last-child {
+        margin-right: 0;
+    }
+    &.is-selected,
+    &:hover,
+    &:active,
+    &:visited {
+        color: #2367c8;
+        &:before {
+            transform: translate3d(-50%, -50%, 0) scale(1);
+        }
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 150%;
+        height: 150%;
+        transform: translate3d(-50%, -50%, 0) scale(0);
+        border-radius: 50%;
+        background-color: rgba(35, 103, 200, 0.1);;
+        transition: all 0.2s ease-in;
+    }
+}
+
+@include breakpoint(large) {
+    .search-results-chart {
+        &__container {
+            margin: 10px -10px;
+        }
+        &__token {
+            padding: 0 0 20px 0;
+        }
+        &__meta {
+            flex-wrap: nowrap;
+        }
+    }
+    .chart__tabs {
+        width: auto;
+        margin: 0;
+    }
+}

@@ -1,0 +1,11 @@
+<app-card>
+    <h2 class="wallet-list__title">
+        Popular Wallets
+        <fa name="angle-right"></fa>
+    </h2>
+
+    <app-wallet
+        *ngFor="let wallet of wallets"
+        [wallet]="wallet">
+    </app-wallet>
+</app-card>

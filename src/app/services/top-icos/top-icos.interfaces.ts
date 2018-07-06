@@ -1,3 +1,3 @@
-type TopICOsResponse = {
-    icos: CompanyServer[]
+interface TopICOsResponse {
+    icos: CompanyServer[];
 }

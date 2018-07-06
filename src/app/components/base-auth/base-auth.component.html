@@ -1,0 +1,8 @@
+<div class="base-auth">
+    <!-- <p *ngIf="userToken">User access token {{ userToken }}</p> -->
+    <ng-container *ngIf="user$ | async as user;">
+        <div>
+            Your public key is {{ user?.publicKey }}
+        </div>
+    </ng-container>
+</div>

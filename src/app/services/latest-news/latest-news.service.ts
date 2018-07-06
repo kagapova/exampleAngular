@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
-import {News} from '../../models/news';
+import {News} from '@app/models/news';
 import {HttpClient, HttpResponse} from '@angular/common/http';
-import {parseNews} from '../search/categories/news';
+import {parseNews} from '@app/services/search/categories/news';
 import {retry} from 'rxjs/operators';
 
 @Injectable()

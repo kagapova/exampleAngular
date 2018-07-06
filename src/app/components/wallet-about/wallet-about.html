@@ -1,0 +1,73 @@
+
+<h2 class="wallet-about__title">
+    About wallet
+</h2>
+
+<p>
+    <b>Anonymity:</b>
+    {{wallet.anonymity | titlecase}}
+</p>
+
+<p>
+    <b>Ease of use:</b>
+    {{wallet.easeOfUse | titlecase}}
+</p>
+
+<p>
+    <b>ValidationType:</b>
+    {{wallet.validationType | titlecase}}
+</p>
+
+<p>
+    <b>Platforms:</b>
+    <span *ngFor="let platform of wallet.platforms; let last = last">
+        {{ platform | titlecase }}
+        {{ last ? '' : ', ' }}
+    </span>
+</p>
+
+<p>
+    <b>Coins:</b>
+    <span *ngFor="let coin of wallet.coins; let last = last">
+        <a
+            [routerLink]="['/search']"
+            [queryParams]="{q: coin}"]
+            (click)="onClick()">
+            {{coin}}
+        </a>
+        {{ last ? '' : ', ' }}
+    </span>
+</p>
+
+<p class="secondary">
+    <b>Features:</b>
+    <span *ngFor="let feature of wallet.walletFeatures; let last = last">
+        {{ feature | titlecase }}
+        {{ last ? '' : ', ' }}
+    </span>
+</p>
+
+<p class="secondary">
+    <b>Source code:</b>
+    <app-track-link
+        *ngIf="wallet.sourceCodeUrl"
+        [originalLink]="wallet.sourceCodeUrl" [serverTrackLink]="null" block="search-block-wallet-about" label="source-code">
+        {{ wallet.sourceCodeUrl }}
+    </app-track-link>
+</p>
+
+<app-track-link *ngIf="wallet.siteUrl"
+    [originalLink]="wallet.siteUrl"
+    [serverTrackLink]="wallet.analyticalURL"
+    block="search-block-wallet-about"
+    label="bottom-link"
+    class="wallet-about__link">
+    <img class="search-block-wallet-about__icon"
+        src="{{ wallet.siteUrl | favicon}}" onerror="this.src='/assets/images/default-icon.png'">
+</app-track-link>
+
+<app-track-link
+    [originalLink]="wallet.siteUrl" [serverTrackLink]="wallet.analyticalURL" block="search-block-wallet-about"
+    label="bottom-link" class="wallet-about__link">
+    {{wallet.siteUrl}}
+</app-track-link>

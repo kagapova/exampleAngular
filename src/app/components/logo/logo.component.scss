@@ -1,34 +1,22 @@
-.logo {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
+@import '../../../styles/transitions';
+@import '../../../styles/colors';
 
-    &__name {
-        color: #2e3033;
-        font-size: 30px;
-        font-weight: 500;
-        letter-spacing: -0.4px;
-        line-height: 1.5;
+:host {
+  &:hover {
+    text-decoration: none;
+    path {
+      fill: color(deepblue);
     }
-
-    &__img {
-        width: 32px;
-        height: 36px
-    }
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
-@media (min-width: 768px) {
-    .logo {
-        &__img {
-            width: 42px;
-            height: 47px
-        }
+.app-logo:focus {
+  outline: none;
+}
 
-        &__name {
-            font-size: 35px;
-            letter-spacing: normal;
-            line-height: 1.29;
-        }
-    }
+path {
+  transition: all $time $ease;
 }

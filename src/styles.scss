@@ -1,63 +1,14 @@
+$fa-font-path: "~/font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
 @import "~normalize.css/normalize.css";
-@import "styles/font-awesome/fontawesome";
-@import "styles/font-awesome/fa-brands";
-@import "styles/font-awesome/fa-solid";
-@import "styles/font-awesome/fa-regular";
-@import "styles/base";
-@import "styles/table";
-@import "styles/item";
-@import "styles/itemsList";
-
-* {
-    box-sizing: border-box;
-}
-
-a {
-    color: #2367c8;
-    text-decoration: none;
-
-    &:hover,
-    &:visited {
-        color: #6c00a2;
-    }
-
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
-.text-right {
-    text-align: right;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.success {
-    color: #28a745;
-}
-
-.danger {
-    color: #dc3545;
-}
-
-.secondary {
-    color: #878787;
-}
-
-.linkedin {
-    color: #007bb6;
-}
-
-.twitter {
-    color: #007bb6;
-}
-
-.facebook {
-    color: #007bb6;
-}
+@import "styles/helpers",
+        "styles/breakpoints",
+        "styles/utilities",
+        "styles/mixins",
+        "styles/layout",
+        "styles/base",
+        "styles/colors",
+        "styles/elements",
+        "styles/item-list",
+        "styles/item",
+        "styles/table";

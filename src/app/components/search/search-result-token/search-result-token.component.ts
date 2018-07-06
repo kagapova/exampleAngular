@@ -1,15 +1,19 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {SearchResults} from '../../../models/search-result';
-import {Currency} from '../../../models/currency';
-import {Company} from '../../../models/company';
-import {WebResult} from '../../../models/web-result';
-import {Event} from '../../../models/event';
-import {Wallet} from '../../../models/wallet';
-import {Bancor} from '../../../models/bancor';
-import {News} from '../../../models/news';
-import {CalcResult} from '../../../models/calc-result';
-import {Exchange} from '../../../models/exchange';
+import { Component, Input, OnInit } from '@angular/core';
+import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
+import { Bancor } from '@app/models/bancor';
+import { CalcResult } from '@app/models/calc-result';
+import { Company } from '@app/models/company';
+import { Currency } from '@app/models/currency';
+import { Event } from '@app/models/event';
+import { Exchange } from '@app/models/exchange';
+import { News } from '@app/models/news';
+import { SearchResults } from '@app/models/search-result';
+import { Wallet } from '@app/models/wallet';
+import { WebResult } from '@app/models/web-result';
+import { AuthService } from '@app/services/auth/auth.service';
 
 @Component({
     selector: 'app-search-result-token',
@@ -27,8 +31,10 @@ export class SearchResultTokenComponent implements OnInit {
     newsList: News[];
     calc: CalcResult;
     exchanges: Exchange[];
-
-    constructor() {
+    isAuthenticated = false;
+    isFollowed?: boolean = null;
+    bookmarkId?: number = null;
+    constructor(private auth: AuthService) {
     }
 
     public ngOnInit() {
@@ -46,16 +52,22 @@ export class SearchResultTokenComponent implements OnInit {
             this.exchanges.push(this.result.data.exchange);
             this.result.data.otherExchanges.forEach(exchange => {
                 this.exchanges.push(exchange);
-            })
+            });
         }
 
         if (!this.calc) {
-            this.calc = new CalcResult(
-                this.currency.symbol,
-                'USD',
-                1,
-                this.currency.price
-            );
+            const from = this.currency.symbol;
+            const to = 'USD';
+            const amount = 1;
+            const rate = this.currency.price;
+
+            this.calc = new CalcResult(from, to, amount, rate);
+        }
+
+        if (this.auth.isAuthenticated) {
+            this.isAuthenticated = true;
+            this.bookmarkId = this.currency.bookmarkId;
+            this.isFollowed = this.currency.bookmarkId != null;
         }
     }
 }

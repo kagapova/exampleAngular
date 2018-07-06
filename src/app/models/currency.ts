@@ -10,17 +10,19 @@ export class Currency {
 
     constructor(public readonly name: string,
                 public readonly symbol: string,
-                public readonly imageURL: string,
+                public readonly imageUrl: string,
                 public readonly urls: {
                     coinmarketcup: string
                     cryptocompare: string
                 },
                 public readonly totalCoinSupply: number,
                 public readonly price: number,
+                public readonly cmcSlug: string,
                 public readonly charts: Map<string, ChartValue[]>,
                 public readonly company: Company,
                 public readonly ico: ICO,
-                public readonly capitalization: CurrencyCapitalization) {
+                public readonly capitalization: CurrencyCapitalization,
+                public readonly bookmarkId?: number) {
     }
 }
 

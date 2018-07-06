@@ -1,0 +1,24 @@
+<div class="web-link">
+    <span class="web-link__badge" *ngIf="reward">+{{reward}}
+        <img height="13" width="13" src="{{webLink.imageUrl}}" onerror="this.src='/assets/images/logo-title.png'">
+    </span>
+    <app-track-link class="web-link__link web-link__title" *ngIf="webLink.url" [originalLink]="webLink.url" [serverTrackLink]="webLink.analyticalURL"
+        block="web-link" [label]="number">
+        {{webLink.title}}
+    </app-track-link>
+
+    <div class="web-link__description" [innerHTML]="webLink.description">
+    </div>
+
+    <div class="web-link__extras">
+        <app-track-link class="web-link__icon" *ngIf="webLink.url" [originalLink]="webLink.url" [serverTrackLink]="webLink.analyticalURL"
+            block="web-link" [label]="number">
+            <img class="web-link__icon" height="16" width="16" src="{{webLink.imageUrl}}" onerror="this.src='/assets/images/default-icon.png'">
+        </app-track-link>
+
+        <app-track-link class="web-link__domain" *ngIf="webLink.url" [originalLink]="webLink.url" [serverTrackLink]="webLink.analyticalURL"
+            block="web-link" [label]="number">
+            {{webLink.url}}
+        </app-track-link>
+    </div>
+</div>

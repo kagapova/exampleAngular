@@ -1,0 +1,125 @@
+.table {
+    overflow: hidden;
+
+    &__table {
+        border-collapse: collapse;
+        font-size: 16px;
+        width: 100%;
+
+        &--separate {
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin: -10px 0 0;
+        }
+    }
+
+    &__tr {
+        display: table-row;
+    }
+    &__tr--hover {
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(35, 103, 200, 0.05);
+            text-decoration: none;
+        }
+    }
+    &__td {
+        text-align: left;
+        white-space: nowrap;
+        color: #6b8199;
+        height: 50px;
+        padding: 9px 4px;
+
+        &:first-child {
+            padding-left: 15px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        &:last-child {
+            padding-right: 15px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        &--separate {
+            padding: 15px 4px;
+        }
+        &--color-green {
+            color: #40993d;
+        }
+        &--color-red {
+            color: #ff4346;
+        }
+        &--color-black {
+            color: #2e3033;
+        }
+        &--padding-right {
+            padding-right: 0;
+        }
+    }
+    &__th {
+        color: #8f9fb3;
+        padding: 0 15px 16px 15px;
+        line-height: 30px;
+        font-weight: normal;
+        text-align: left;
+        white-space: nowrap;
+        &--separate {
+            padding-bottom: 5px;
+        }
+
+        &--separate {
+            padding-bottom: 5px;
+        }
+
+        &--remove-padding {
+            padding-right: 4px;
+        }
+        &--title {
+            color: #2e3033;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.67;
+            padding-right: 0;
+        }
+        &-a {
+            font-size: 18px;
+            color: #2e3033;
+            font-weight: bold;
+            text-decoration: none;
+            padding-right: 21px;
+            display: inline-block;
+            position: relative;
+            &:hover {
+                color: #2367c8;
+                &::after {
+                    border-color: #2367c8;
+                }
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 11px;
+                width: 10px;
+                height: 10px;
+                transform: rotate(-135deg);
+                border-bottom: 2px solid #8f9fb3;
+                border-left: 2px solid #8f9fb3;
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .table {
+        &__th {
+            padding-bottom: 31px;
+
+            &--separate {
+                padding-bottom: 20px;
+            }
+        }
+    }
+}

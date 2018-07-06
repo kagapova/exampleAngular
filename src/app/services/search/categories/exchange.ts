@@ -1,5 +1,5 @@
-import {Exchange, ExchangeCurrencyRate} from '../../../models/exchange';
-
+import { Exchange } from '@app/models/exchange';
+import { ExchangeCurrencyRate } from '@app/models/exchange-currency-rate';
 
 export function parseExchange(exchange: ExchangeServer): Exchange {
     if (exchange.source !== 'cryptocompare') {

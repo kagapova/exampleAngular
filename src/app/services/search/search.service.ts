@@ -4,8 +4,8 @@ import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {retry} from 'rxjs/operators/retry';
 import {Observable} from 'rxjs/Observable';
-import {SearchResult, SearchResults} from '../../models/search-result';
-import {Event} from '../../models/event';
+import {SearchResult, SearchResults} from '@app/models/search-result';
+import {Event} from '@app/models/event';
 import {Subject} from 'rxjs/Subject';
 import {parseAddressResult} from './categories/address';
 import {parseWebResult} from './categories/web';
@@ -15,18 +15,21 @@ import {parseCompany} from './categories/company';
 import {parseEvent} from './categories/event';
 import {parseWallet} from './categories/wallet';
 import {parseNews} from './categories/news';
-import {Wallet} from '../../models/wallet';
-import {WebResult} from '../../models/web-result';
+import {Wallet} from '@app/models/wallet';
+import {WebResult} from '@app/models/web-result';
 import {parseBancor} from './categories/bancor';
 import {parseExchange} from './categories/exchange';
 import {parseCalcResult} from './categories/calc-result';
-import {Exchange} from '../../models/exchange';
-import {News} from '../../models/news';
+import {Exchange} from '@app/models/exchange';
+import {News} from '@app/models/news';
 
 
 @Injectable()
 export class SearchService {
-    private url = '/api/search/v2';
+    // @todo: Fix urls
+    private readonly url = 'https://desearch-backend-dev-alex.herokuapp.com/api/search/v2';
+
+    // private url = '/api/search/v2';
     private searchTerm = new Subject<string>();
     private currentSearchTerm = '';
     private searchResults = new Subject<SearchResults>();
@@ -36,7 +39,7 @@ export class SearchService {
 
         this.route.queryParams.subscribe(params => {
             if ('q' in params) {
-                let term = params['q'].trim();
+                const term = params['q'].trim();
                 this.currentSearchTerm = term;
 
                 this.searchTerm.next(term);
@@ -60,14 +63,12 @@ export class SearchService {
     search(term: string) {
         this.searchResults.next(null);
 
-        let apiURL = `${this.url}?request=${term}`;
+        const apiURL = `${this.url}?request=${term}`;
 
         this.http.get(apiURL, {observe: 'response'})
-            .pipe(
-                retry(3)
-            )
+            .pipe(retry(3))
             .subscribe((resp: HttpResponse<any[]>) => {
-                let searchResults = this.parseResults(resp.body);
+                const searchResults = this.parseResults(resp.body);
                 this.searchResults.next(searchResults);
             });
     }
@@ -78,7 +79,7 @@ export class SearchService {
     }
 
     private parseResults(results: any[]): SearchResults {
-        let searchResults: SearchResults = {
+        const searchResults: SearchResults = {
             type: '',
             data: {
                 address: null,
@@ -97,8 +98,8 @@ export class SearchService {
             }
         };
 
-        for (let result of results) {
-            let searchResult = this.parseResult(result);
+        for (const result of results) {
+            const searchResult = this.parseResult(result);
             if (searchResult !== null) {
                 if (searchResult instanceof WebResult) {
                     searchResults.data[result.type].push(searchResult);
@@ -153,7 +154,7 @@ export class SearchService {
     }
 
     private parseResult(result: any): SearchResult {
-        let parsers = {
+        const parsers = {
             address: parseAddressResult,
             bancor: parseBancor,
             calc: parseCalcResult,
@@ -171,7 +172,7 @@ export class SearchService {
             return null;
         }
 
-        let parser = parsers[result.type];
+        const parser = parsers[result.type];
         return parser(result);
     }
 }

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {environment} from '../../../environments/environment';
+import {environment} from '@env/environment';
 import {HttpClient} from '@angular/common/http';
 
 declare var gtag: Function;
@@ -45,7 +45,7 @@ export class AnalyticsService {
                 'event_label': event_label,
             });
         } else {
-            console.log(`Event: ${event_action}: {event_category: ${event_category}, event_label: ${event_label}}`);
+            // console.log(`Event: ${event_action}: {event_category: ${event_category}, event_label: ${event_label}}`);
         }
     }
 }

@@ -1,3 +1,3 @@
 interface LatestNewsResponse {
-    news: NewsServer[]
+    news: NewsServer[];
 }

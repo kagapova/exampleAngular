@@ -1,0 +1,20 @@
+@import "../../../styles/mixins";
+
+.exchanger-other-list {
+    @include block;
+    &__title {
+        @include title;
+    }
+    &__item {
+        margin: 0 0 25px;
+        &:last-child {
+            margin: 0;
+        }
+    }
+    &__link {
+        @include footer-link;
+    }
+    &__icon {
+        @include footer-icon;
+    }
+}

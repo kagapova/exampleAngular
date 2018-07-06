@@ -1,0 +1,17 @@
+@import "../../styles/mixins";
+
+:host {
+    @include block;
+}
+
+.wallet-about__title {
+    @include title;
+}
+
+.wallet-about__link {
+    @include footer-link;
+}
+
+.wallet-about__icon {
+    @include footer-icon;
+}

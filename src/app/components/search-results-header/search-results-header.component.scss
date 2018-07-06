@@ -1,0 +1,30 @@
+.search-results__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 10px 0 20px;
+  &__title {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 30px;
+    line-height: 30px;
+  }
+  &__logo {
+    width: 22px;
+    height: 22px;
+    margin: 0 5px 0 0;
+  }
+  &.exchange {
+    .search-results__title {
+      font-weight: 500;
+    }
+    .search-results__logo {
+      height: 60px;
+      margin: 0 5px 0 0;
+    }
+  }
+}

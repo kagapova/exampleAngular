@@ -10,5 +10,5 @@ interface NewsServer {
         image: string;
         publishedTime: number;
         source: string;
-    }
+    };
 }

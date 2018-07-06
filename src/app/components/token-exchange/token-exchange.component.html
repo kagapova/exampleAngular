@@ -1,0 +1,15 @@
+<div class="token-exchange">
+    <div class="token-exchange__logo">
+        <img class="token-exchange__img" [src]="exchange.logoUrl"/>
+    </div>
+
+    <div class="token-exchange__text">
+        <h3 class="token-exchange__title">
+            <a [routerLink]="['/search']" [queryParams]="{q: exchange.name}" (click)="onClick()">{{ exchange.name }}</a>
+        </h3>
+
+        <p class="token-exchange__description">
+            {{ exchange.description }}
+        </p>
+    </div>
+</div>

@@ -1,6 +1,6 @@
-import {Address, AddressToken, BtcAddress, EthAddress} from '../../../models/address';
-import {Bitcoin, Ethereum} from '../../../models/blockchains';
-import {Token} from '../../../models/token';
+import {Address, AddressToken, BtcAddress, EthAddress} from '@app/models/address';
+import {Bitcoin, Ethereum} from '@app/models/blockchains';
+import {Token} from '@app/models/token';
 
 
 export function parseAddressResult(result: AddressResultServer): Address {
@@ -16,36 +16,39 @@ export function parseAddressResult(result: AddressResultServer): Address {
     }
 }
 
-function parseEthAddressResult(result: EthAddressResultServer): EthAddress {
-    result.data.tokens = result.data.tokens ? result.data.tokens : [];
-
-    let tokens: AddressToken[] = result.data.tokens.map(v => {
-        let token = new Token(
-            v.token.address,
-            v.token.name,
-            v.token.symbol,
-            v.token.image,
-            v.token.decimals,
-            v.token.price
+function getTokensFromResults(tokens: any): AddressToken[] {
+    const addressTokens = tokens.map(token => {
+        const balance = token.balance / 10 ** token.token.decimals;
+        const instance = new Token(
+            token.token.address,
+            token.token.name,
+            token.token.symbol,
+            token.token.image,
+            token.token.decimals,
+            token.token.price
         );
 
-        return new AddressToken(
-            token,
-            v.balance / 10 ** v.token.decimals
-        );
+        return new AddressToken(instance, balance);
     });
 
-    let token: Token = null;
-    if (result.data.tokenInfo) {
-        token = new Token(
-            result.data.tokenInfo.address,
-            result.data.tokenInfo.name,
-            result.data.tokenInfo.symbol,
-            result.data.tokenInfo.image,
-            result.data.tokenInfo.decimals,
-            result.data.tokenInfo.price
-        );
-    }
+    return addressTokens;
+}
+
+function getTokenByInfo(info: any): Token {
+    return new Token(
+        info.address,
+        info.name,
+        info.symbol,
+        info.image,
+        info.decimals,
+        info.price
+    );
+}
+function parseEthAddressResult(result: EthAddressResultServer): EthAddress {
+    const tokenInfo = result.data.tokenInfo;
+    const tokensFromResults = result.data.tokens || [];
+    const tokens = getTokensFromResults(tokensFromResults);
+    const token =  tokenInfo ? getTokenByInfo(tokenInfo) : null;
 
     return new EthAddress(
         result.data.address,

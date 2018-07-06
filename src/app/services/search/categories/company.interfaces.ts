@@ -2,6 +2,8 @@ interface CompanyServer {
     type: 'company';
     source: string;
     click: string;
+    slug: string;
+    bookmarkId: number;
     data: {
         title: string;
         icoType: string;
@@ -19,15 +21,13 @@ interface CompanyServer {
         links: CompanyLinkServer[];
         team: CompanyMemberServer[];
         roadmap: CompanyRoadmapStageServer[];
-    }
+    };
 }
-
 
 interface CompanyLinkServer {
     linkType: string;
     url: string;
 }
-
 
 interface CompanyMemberServer {
     name: string;
@@ -37,7 +37,6 @@ interface CompanyMemberServer {
     twitterUrl: string;
     facebookUrl: string;
 }
-
 
 interface CompanyRoadmapStageServer {
     name: string;

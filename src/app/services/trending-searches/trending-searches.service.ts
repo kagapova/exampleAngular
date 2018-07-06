@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
-import {Trend} from '../../models/trend';
+import {Trend} from '@app/models/trend';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {retry} from 'rxjs/operators/retry';
@@ -26,15 +26,15 @@ export class TrendingSearchesService {
                 retry(3)
             )
             .subscribe((resp: HttpResponse<TrendsResponse>) => {
-                let trends = this.parseResponse(resp.body);
+                const trends = this.parseResponse(resp.body);
                 this.results.next(trends);
             });
     }
 
     private parseResponse(response: TrendsResponse): Trend[] {
-        let result = [];
-        for (let value of response.trendingRequests) {
-            let trend = new Trend(value.request, 0);
+        const result = [];
+        for (const value of response.trendingRequests) {
+            const trend = new Trend(value.request, 0);
             result.push(trend);
         }
 
@@ -42,9 +42,9 @@ export class TrendingSearchesService {
     }
 
     private setEmptyValues() {
-        let trends = [];
+        const trends = [];
         for (let i = 0; i < 10; i++) {
-            let trend = new Trend(null, null);
+            const trend = new Trend(null, null);
             trends.push(trend);
         }
 

@@ -1,0 +1,11 @@
+<button
+    class="web-links-more-button"
+    [ngClass]="{'web-links-more-button--disable':isClicked}"
+    (click)="onClick()">
+    <span *ngIf="!isClicked">
+        {{"More" | translate}}
+    </span>
+    <span *ngIf="isClicked">
+        {{"More coming soon!" | translate}}
+    </span>
+</button>

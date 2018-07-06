@@ -1,83 +1,92 @@
 import 'd3';
 import 'nvd3';
-
 import * as Raven from 'raven-js';
-import {BrowserModule} from '@angular/platform-browser';
-import {ErrorHandler, NgModule} from '@angular/core';
-
-import {AppComponent} from './app.component';
-import {SearchComponent} from './components/search/search.component';
-import {HomeComponent} from './components/home/home.component';
-import {SearchFormComponent} from './components/search-form/search-form.component';
-import {AppRoutingModule} from './app-routing.module';
-import {SearchService} from './services/search/search.service';
-import {SearchResultListComponent} from './components/search/search-result-list/search-result-list.component';
-import {FormsModule} from '@angular/forms';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {SearchResultLinkComponent} from './components/search/search-result-link/search-result-link.component';
-import {SearchResultTokenComponent} from './components/search/search-result-token/search-result-token.component';
-import {NvD3Module} from 'ng2-nvd3';
-import {environment} from '../environments/environment';
-import {HomeAboutComponent} from './components/home/home-about/home-about.component';
-import {SearchHeaderComponent} from './components/search/search-header/search-header.component';
-import {SearchResultAddressComponent} from './components/search/search-result-address/search-result-address.component';
-import {SearchResultAddressEthComponent} from './components/search/search-result-address/search-result-address-eth/search-result-address-eth.component';
-import {SearchResultAddressBtcComponent} from './components/search/search-result-address/search-result-address-btc/search-result-address-btc.component';
-import {SearchResultTransactionComponent} from './components/search/search-result-transaction/search-result-transaction.component';
-import {SearchResultTransactionEthComponent} from './components/search/search-result-transaction/search-result-transaction-eth/search-result-transaction-eth.component';
-import {SearchResultTransactionBtcComponent} from './components/search/search-result-transaction/search-result-transaction-btc/search-result-transaction-btc.component';
-import {SearchResultTransactionLtcComponent} from './components/search/search-result-transaction/search-result-transaction-ltc/search-result-transaction-ltc.component';
-import {FollowComponent} from './components/follow/follow.component';
+import {
+    HTTP_INTERCEPTORS,
+    HttpClient,
+    HttpClientModule
+} from '@angular/common/http';
 import {AbsPipe} from './pipes/abs/abs.pipe';
-import {AddToBookmarksComponent} from './components/add-to-bookmarks/add-to-bookmarks.component';
-import {ExchangeRatesService} from './services/exchange-rates/exchange-rates.service';
-import {HomeExchangeRatesComponent} from './components/home/home-exchange-rates/home-exchange-rates.component';
-import {SearchResultCompanyComponent} from './components/search/search-result-company/search-result-company.component';
-import {FaviconPipe} from './pipes/favicon/favicon.pipe';
-import {SearchBlockComponent} from './components/search-block/search-block.component';
-import {SearchBlockExchangeRateComponent} from './components/search-block/search-block-exchange-rate/search-block-exchange-rate.component';
-import {SearchBlockCapitalizationComponent} from './components/search-block/search-block-capitalization/search-block-capitalization.component';
-import {SearchBlockChartRateComponent} from './components/search-block/search-block-chart-rate/search-block-chart-rate.component';
-import {SearchBlockCompanyAboutComponent} from './components/search-block/search-block-company-about/search-block-company-about.component';
-import {SearchBlockWebLinkComponent} from './components/search-block/search-block-web-link/search-block-web-link.component';
-import {SearchBlockWebLinkListComponent} from './components/search-block/search-block-web-link-list/search-block-web-link-list.component';
-import {SearchBlockRoadmapComponent} from './components/search-block/search-block-roadmap/search-block-roadmap.component';
-import {SearchBlockTeamComponent} from './components/search-block/search-block-team/search-block-team.component';
-import {FooterComponent} from './components/footer/footer.component';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {SearchBlockFutureEventComponent} from './components/search-block/search-block-future-event/search-block-future-event.component';
-import {SearchBlockFutureEventListComponent} from './components/search-block/search-block-future-event-list/search-block-future-event-list.component';
-import {SearchBlockWalletComponent} from './components/search-block/search-block-wallet/search-block-wallet.component';
-import {SearchBlockWalletListComponent} from './components/search-block/search-block-wallet-list/search-block-wallet-list.component';
-import {SearchAddContentButtonComponent} from './components/search/search-add-content-button/search-add-content-button.component';
-import {TrackLinkComponent} from './components/track-link/track-link.component';
+import {AddressBtcComponent} from './components/address/address-btc/address-btc.component';
 import {AnalyticsService} from './services/analytics/analytics.service';
-import {HomePopularCoinListComponent} from './components/home/home-popular-coin-list/home-popular-coin-list.component';
-import {LoadComponent} from './components/load/load.component';
-import {ProducthuntComponent} from './components/producthunt/producthunt.component';
-import {HomeTrendingSearcheListComponent} from './components/home/home-trending-searche-list/home-trending-searche-list.component';
-import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
-import {SuggestService} from './services/suggest/suggest.service';
-import {Ng2CompleterModule} from 'ng2-completer';
-import {SearchResultExchangeComponent} from './components/search/search-result-exchange/search-result-exchange.component';
-import {SearchBlockExchangeAboutComponent} from './components/search-block/search-block-exchange-about/search-block-exchange-about.component';
-import {SearchBlockExchangeCurrentRateListComponent} from './components/search-block/search-block-exchange-current-rate-list/search-block-exchange-current-rate-list.component';
-import {SearchBlockExchangerOtherListComponent} from './components/search-block/search-block-exchanger-other-list/search-block-exchanger-other-list.component';
-import {SearchBlockExchangerOtherComponent} from './components/search-block/search-block-exchanger-other/search-block-exchanger-other.component';
-import {LogoComponent} from './components/logo/logo.component';
-import {SearchResultWalletComponent} from './components/search/search-result-wallet/search-result-wallet.component';
-import {SearchBlockWalletAboutComponent} from './components/search-block/search-block-wallet-about/search-block-wallet-about.component';
-import {HomeLatestNewsComponent} from './components/home/home-latest-news/home-latest-news.component';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AuthInterceptor} from './interceptors/auth/auth.interceptor';
+import {AuthService} from './services/auth/auth.service';
+import {BaseAuthComponent} from './components/base-auth/base-auth.component';
+import {BaseWidgetService} from './services/base/base-widget.service';
+import {BrowserModule} from '@angular/platform-browser';
+import {CardComponent} from './components/card/card';
+import {CompanyBookmarksService} from './services/company-bookmarks/company-bookmarks.service';
+import {environment} from '@env/environment';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {ExchangeAboutComponent} from './components/exchange-about/exchange-about.component';
+import {ExchangeCurrentRateListComponent} from './components/exchange-current-rate-list/exchange-current-rate-list.component';
+import {ExchangeRateComponent} from './components/exchange-rate/exchange-rate';
+import {ExchangeRateService} from './services/exchange-rate/exchange-rate.service';
+import {ExchangerOtherComponent} from './components/exchanger-other/exchanger-other.component';
+import {PopularSearchesService} from './services/popular-searches/popular-searches.service';
+import {ExchangerOtherListComponent} from './components/exchanger-other-list/exchanger-other-list.component';
+import {FaviconPipe} from './pipes/favicon/favicon.pipe';
+import {FooterComponent} from './components/footer/footer.component';
+import {FormsModule} from '@angular/forms';
+import {HomeComponent} from './components/home/';
 import {LatestNewsService} from './services/latest-news/latest-news.service';
+import {LayoutComponent} from './components/layout/';
+import {LoaderComponent} from './components/loader/';
+import {LogoComponent} from './components/logo/logo.component';
+import {Ng2CompleterModule} from 'ng2-completer';
+import {NvD3Module} from 'ng2-nvd3';
+import {PopularSearchesComponent} from './components/popular-searches/popular-searches.component';
+import {RatingsComponent} from './components/ratings/ratings.component';
+import {SearchComponent} from './components/search/';
+import {SearchAddContentButtonComponent} from './components/search/search-add-content-button/search-add-content-button.component';
+import {SearchBlockCompanyAboutComponent} from './components/search-block/search-block-company-about/search-block-company-about.component';
+import {SearchBlockCompanyComponent} from './components/search-block/search-block-company/search-block-company.component';
+import {SearchBlockComponent} from './components/search-block/search-block.component';
 import {SearchBlockNewsComponent} from './components/search-block/search-block-news/search-block-news.component';
 import {SearchBlockNewsListComponent} from './components/search-block/search-block-news-list/search-block-news-list.component';
-import {HomeTopIcoListComponent} from './components/home/home-top-ico-list/home-top-ico-list.component';
+import {SearchBlockOfferComponent} from './components/search-block/search-block-offer/search-block-offer.component';
+import {RoadmapComponent} from './components/roadmap/roadmap.component';
+import {SearchBlockTeamComponent} from './components/search-block/search-block-team/search-block-team.component';
+import {SearchCapComponent} from './components/search-block/search-cap/search-cap.component';
+import {SearchFormComponent} from './components/search-form/search-form.component';
+import {SearchHeaderComponent} from './components/search/search-header/search-header.component';
+import {AddressComponent} from './components/address/address.component';
+import {AddressEthComponent} from './components/address/address-eth/address-eth.component';
+import {SearchResultCompanyComponent} from './components/search/search-result-company/search-result-company.component';
+import {SearchResultExchangeComponent} from './components/search/search-result-exchange/search-result-exchange.component';
+import {SearchResultLinkComponent} from './components/search/search-result-link/search-result-link.component';
+import {SearchResultsChartComponent} from './components/search-block/search-results-chart/search-results-chart.component';
+import {SearchResultsComponent} from './components/search/search-results/search-results.component';
+import {SearchResultsHeaderComponent} from './components/search-results-header/search-results-header.component';
+import {SearchResultTokenComponent} from './components/search/search-result-token/search-result-token.component';
+import {SearchResultWalletComponent} from './components/search-result-wallet/';
+import {SearchService} from './services/search/search.service';
+import {SuggestService} from './services/suggest/suggest.service';
+import {TokenBookmarksService} from './services/token-bookmarks/token-bookmarks.service';
+import {TokenExchangeComponent} from './components/token-exchange/token-exchange.component';
+import {TokenExchangesListComponent} from './components/token-exchanges-list/token-exchanges-list.component';
 import {TopICOsService} from './services/top-icos/top-icos.service';
-import {SearchBlockWebLinkListMoreButtonComponent} from './components/search-block/search-block-web-link-list/search-block-web-link-list-more-button/search-block-web-link-list-more-button.component';
-import {SearchFormPopularComponent} from './components/search-form/search-form-popular/search-form-popular.component';
-import { SearchBlockTokenExchangesListComponent } from './components/search-block/search-block-token-exchanges-list/search-block-token-exchanges-list.component';
-import { SearchBlockTokenExchangeComponent } from './components/search-block/search-block-token-exchange/search-block-token-exchange.component';
+import {TrackLinkComponent} from './components/track-link/track-link.component';
+import {TransactionBtcComponent} from './components/search/transaction/transaction-btc/transaction-btc.component';
+import {TransactionComponent} from './components/search/transaction/transaction.component';
+import {TransactionEthComponent} from './components/search/transaction/transaction-eth/transaction-eth.component';
+import {TransactionLtcComponent} from './components/search/transaction/transaction-ltc/transaction-ltc.component';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TrendingSearchesService} from './services/trending-searches/trending-searches.service';
+import {UserAccountComponent} from './components/user-account/user-account';
+import {UsersService} from './services/users/users.service';
+import {WalletAboutComponent} from './components/wallet-about/';
+import {WalletComponent} from './components/wallet/';
+import {WalletListComponent} from './components/wallet-list/wallet-list.component';
+import {WebLinkComponent} from './components/search-block/web-link/web-link.component';
+import {WebLinksComponent} from './components/search-block/web-links/web-links.component';
+import {WebLinksMoreButtonComponent} from './components/search-block/web-links/web-links-more-button/web-links-more-button.component';
+import {WidgetDirective} from './directives/widget.directive';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 Raven
     .config(environment.ravenDSN)
@@ -96,66 +105,66 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
     declarations: [
-        AppComponent,
-        SearchComponent,
-        HomeComponent,
-        SearchFormComponent,
-        SearchResultListComponent,
-        SearchResultLinkComponent,
-        SearchResultTokenComponent,
-        HomeAboutComponent,
-        SearchHeaderComponent,
-        SearchResultAddressComponent,
-        SearchResultAddressEthComponent,
-        SearchResultAddressBtcComponent,
-        SearchResultTransactionComponent,
-        SearchResultTransactionEthComponent,
-        SearchResultTransactionBtcComponent,
-        SearchResultTransactionLtcComponent,
-        FollowComponent,
         AbsPipe,
-        AddToBookmarksComponent,
-        HomeExchangeRatesComponent,
-        SearchResultCompanyComponent,
+        AppComponent,
+        BaseAuthComponent,
         FaviconPipe,
-        SearchBlockComponent,
-        SearchBlockExchangeRateComponent,
-        SearchBlockCapitalizationComponent,
-        SearchBlockChartRateComponent,
-        SearchBlockCompanyAboutComponent,
-        SearchBlockWebLinkComponent,
-        SearchBlockWebLinkListComponent,
-        SearchBlockRoadmapComponent,
-        SearchBlockTeamComponent,
         FooterComponent,
-        SearchBlockFutureEventComponent,
-        SearchBlockFutureEventListComponent,
-        SearchBlockWalletComponent,
-        SearchBlockWalletListComponent,
+        HomeComponent,
+        LoaderComponent,
+        LogoComponent,
+        RatingsComponent,
         SearchAddContentButtonComponent,
-        TrackLinkComponent,
-        HomePopularCoinListComponent,
-        LoadComponent,
-        ProducthuntComponent,
-        HomeTrendingSearcheListComponent,
-        SearchResultExchangeComponent,
-        SearchBlockExchangeAboutComponent,
-        SearchBlockExchangeCurrentRateListComponent,
-        SearchBlockExchangerOtherListComponent,
-        SearchBlockExchangerOtherComponent,
-        SearchResultWalletComponent,
-        SearchBlockWalletAboutComponent,
-        HomeLatestNewsComponent,
+        SearchCapComponent,
+        SearchResultsChartComponent,
+        SearchBlockCompanyAboutComponent,
+        SearchBlockCompanyComponent,
+        SearchBlockComponent,
+        ExchangeAboutComponent,
+        ExchangeCurrentRateListComponent,
+        ExchangeRateComponent,
+        ExchangerOtherComponent,
+        ExchangerOtherListComponent,
         SearchBlockNewsComponent,
         SearchBlockNewsListComponent,
-        HomeTopIcoListComponent,
-        LogoComponent,
-        SearchBlockWebLinkListMoreButtonComponent,
-        SearchFormPopularComponent,
-        SearchBlockTokenExchangesListComponent,
-        SearchBlockTokenExchangeComponent,
+        SearchBlockOfferComponent,
+        RoadmapComponent,
+        SearchBlockTeamComponent,
+        TokenExchangeComponent,
+        TokenExchangesListComponent,
+        WalletComponent,
+        WalletAboutComponent,
+        WalletListComponent,
+        SearchResultWalletComponent,
+        WebLinkComponent,
+        WebLinksComponent,
+        WebLinksMoreButtonComponent,
+        SearchComponent,
+        SearchFormComponent,
+        PopularSearchesComponent,
+        SearchHeaderComponent,
+        AddressBtcComponent,
+        AddressComponent,
+        AddressEthComponent,
+        SearchResultCompanyComponent,
+        SearchResultExchangeComponent,
+        SearchResultLinkComponent,
+        SearchResultsComponent,
+        SearchResultsHeaderComponent,
+        SearchResultTokenComponent,
+        TransactionBtcComponent,
+        TransactionComponent,
+        TransactionEthComponent,
+        TransactionLtcComponent,
+        TrackLinkComponent,
+        WidgetDirective,
+        CardComponent,
+        UserAccountComponent,
+        LayoutComponent,
+        SearchBarComponent,
     ],
     imports: [
+        AngularFontAwesomeModule,
         BrowserModule,
         AppRoutingModule,
         FormsModule,
@@ -171,16 +180,29 @@ export function createTranslateLoader(http: HttpClient) {
         }),
     ],
     providers: [
-        ExchangeRatesService,
-        SearchService,
         AnalyticsService,
-        TrendingSearchesService,
-        SuggestService,
+        AuthService,
+        BaseWidgetService,
+        CompanyBookmarksService,
+        ExchangeRateService,
         LatestNewsService,
+        PopularSearchesService,
+        SearchService,
+        SuggestService,
+        TokenBookmarksService,
         TopICOsService,
-        {provide: ErrorHandler, useClass: RavenErrorHandler},
+        TrendingSearchesService,
+        UsersService,
+        {
+            provide: ErrorHandler,
+            useClass: RavenErrorHandler
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true
+        },
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

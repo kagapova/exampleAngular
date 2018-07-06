@@ -1,0 +1,38 @@
+<table class="exchange-current-rate-list">
+    <thead>
+    <tr>
+        <th class="exchange-current-rate-list__header-pair">Pair</th>
+        <th class="exchange-current-rate-list__header-price">Price</th>
+        <th class="exchange-current-rate-list__header-change">Change 24H</th>
+        <th class="exchange-current-rate-list__header-range">Range 24H</th>
+        <th class="exchange-current-rate-list__header-volume">Volume 24h</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="exchange-current-rate-list__tr--hover" *ngFor="let rate of rates | slice:0:MAX_RATES">
+        <td class="exchange-current-rate-list__pair">
+            {{ rate.fromSymbol }}/{{ rate.toSymbol }}
+        </td>
+        <td class="exchange-current-rate-list__price">
+            {{ rate.toSymbol }} <span class="exchange-current-rate-list__price-value">{{ rate.price }}</span>
+        </td>
+        <td [ngClass]="{
+            'exchange-current-rate-list__change': true,
+            'exchange-current-rate-list__change--up': rate.change24HourPercentage > 0,
+            'exchange-current-rate-list__change--down': rate.change24HourPercentage < 0
+        }">
+            <span *ngIf="rate.change24HourPercentage < 0">↓</span>
+            <span *ngIf="rate.change24HourPercentage > 0">↑</span>
+            {{ rate.change24HourPercentage }}%
+        </td>
+        <td class="exchange-current-rate-list__range">
+            <span class="exchange-current-rate-list__range-label">L:</span> {{ rate.toSymbol }} {{ rate.low24Hour }}<br/>
+            <span class="exchange-current-rate-list__range-label">H:</span> {{ rate.toSymbol }} {{ rate.high24Hour }}
+        </td>
+        <td class="exchange-current-rate-list__volume">
+            <span class="exchange-current-rate-list__volume-label">L:</span> {{ rate.toSymbol }} {{ rate.volume24Hour | number : '1.2-2' }}<br/>
+            <span class="exchange-current-rate-list__volume-label">H:</span> {{ rate.toSymbol }} {{ rate.volume24HourTo | number : '1.2-2' }}
+        </td>
+    </tr>
+    </tbody>
+</table>

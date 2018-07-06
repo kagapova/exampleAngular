@@ -1,0 +1,31 @@
+@import "../../styles/mixins";
+
+:host {
+    display: block;
+    margin: 0 0 30px 0;
+}
+
+.wallet-list__title {
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: left;
+    color: #2e3033;
+}
+
+.fa {
+    color: #8f9fb3;
+}
+
+.wallet-list__button {
+    @include button;
+}
+
+:host ::ng-deep .fa {
+    position: relative;
+    left: 4px;
+}

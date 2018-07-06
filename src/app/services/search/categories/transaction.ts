@@ -11,8 +11,8 @@ import {
     LtcTransactionInput,
     LtcTransactionOutput,
     Transaction,
-} from '../../../models/transaction';
-import {Token} from '../../../models/token';
+} from '@app/models/transaction';
+import {Token} from '@app/models/token';
 
 
 export function parseTransaction(result: TransactionServer): Transaction {
@@ -36,13 +36,13 @@ export function parseTransaction(result: TransactionServer): Transaction {
 
 
 function parseEthTransaction(result: EthTransactionServer): EthTransaction {
-    let createdAt = new Date();
+    const createdAt = new Date();
     createdAt.setTime(result.data.timestamp * 1000);
 
     let transfer: EthTransactionTransfer = null;
     let toToken: Token = null;
     if (result.data.operations && result.data.operations.length === 1) {
-        let operation = result.data.operations[0];
+        const operation = result.data.operations[0];
 
         toToken = new Token(
             operation.tokenInfo.address,
@@ -62,8 +62,8 @@ function parseEthTransaction(result: EthTransactionServer): EthTransaction {
         throw new Error();
     }
 
-    let isPending = false;
-    let isError = false;
+    const isPending = false;
+    const isError = false;
 
     return new EthTransaction(
         result.data.hash,
@@ -87,14 +87,14 @@ function parseEthTransaction(result: EthTransactionServer): EthTransaction {
 
 
 function parseBtcTransaction(result: BtcTransactionServer): BtcTransaction {
-    let inputs: BtcTransactionInput[] = result.data.inputs.map(v => {
+    const inputs: BtcTransactionInput[] = result.data.inputs.map(v => {
         return new BtcTransactionInput(
             v.prevOut.address,
             v.prevOut.value / 100000000
         );
     });
 
-    let outputs: BtcTransactionOutput[] = result.data.outputs.map(v => {
+    const outputs: BtcTransactionOutput[] = result.data.outputs.map(v => {
         return new BtcTransactionOutput(
             v.address,
             v.value / 100000000
@@ -112,7 +112,7 @@ function parseBtcTransaction(result: BtcTransactionServer): BtcTransaction {
 
 
 function parseLtcTransaction(result: LtcTransactionServer): LtcTransaction {
-    let inputs: LtcTransactionInput[] = result.data.inputs.map(v => {
+    const inputs: LtcTransactionInput[] = result.data.inputs.map(v => {
         return new LtcTransactionInput(
             v.addresses[0],
             v.outputValue / 100000000,
@@ -120,7 +120,7 @@ function parseLtcTransaction(result: LtcTransactionServer): LtcTransaction {
         );
     });
 
-    let outputs: LtcTransactionOutput[] = result.data.outputs.map(v => {
+    const outputs: LtcTransactionOutput[] = result.data.outputs.map(v => {
         return new LtcTransactionOutput(
             v.addresses[0],
             v.value / 100000000
@@ -142,7 +142,7 @@ function parseLtcTransaction(result: LtcTransactionServer): LtcTransaction {
 
 
 function parseDashTransaction(result: DashTransactionServer): DashTransaction {
-    let inputs: DashTransactionInput[] = result.data.inputs.map(v => {
+    const inputs: DashTransactionInput[] = result.data.inputs.map(v => {
         return new DashTransactionInput(
             v.addresses[0],
             v.outputValue / 100000000,
@@ -150,7 +150,7 @@ function parseDashTransaction(result: DashTransactionServer): DashTransaction {
         );
     });
 
-    let outputs: DashTransactionOutput[] = result.data.outputs.map(v => {
+    const outputs: DashTransactionOutput[] = result.data.outputs.map(v => {
         return new DashTransactionOutput(
             v.addresses[0],
             v.value / 100000000

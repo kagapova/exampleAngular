@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {News} from '../../../models/news';
+import {News} from '@app/models/news';
 
 @Component({
     selector: 'app-search-block-news',
@@ -8,7 +8,7 @@ import {News} from '../../../models/news';
 })
 export class SearchBlockNewsComponent implements OnInit {
     @Input()
-    news: News
+    news: News;
 
     @Input()
     number: number;

@@ -1,4 +1,4 @@
-import {CalcResult} from '../../../models/calc-result';
+import {CalcResult} from '@app/models/calc-result';
 
 export function parseCalcResult(calc: CalcResultServer): CalcResult {
     return new CalcResult(

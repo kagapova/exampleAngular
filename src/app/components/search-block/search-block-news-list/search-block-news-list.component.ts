@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {News} from '../../../models/news';
-import {AnalyticsService} from '../../../services/analytics/analytics.service';
+import {News} from '@app/models/news';
+import {AnalyticsService} from '@app/services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-block-news-list',
@@ -9,8 +9,8 @@ import {AnalyticsService} from '../../../services/analytics/analytics.service';
 })
 export class SearchBlockNewsListComponent implements OnInit {
     @Input()
-    newsList: News[]
-    
+    newsList: News[];
+
     readonly MAX_NEWS = 3;
 
     constructor(private analytics: AnalyticsService) {

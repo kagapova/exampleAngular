@@ -1,0 +1,94 @@
+@import '../../../../styles/typography';
+@import '../../../../styles/colors';
+@import '../../../../styles/transitions';
+@import '../../../../styles/breakpoints';
+
+.web-link {
+    display: block;
+    margin: 0 0 0 -15px;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: background-color $time $ease;
+    &:hover {
+        background-color: color(palesky);
+    }
+    &__title {
+        display: block;
+        max-width: 100%;
+        margin: 0 0 0.15em 0;
+        padding: 0;
+        font-size: 1.31em;
+        line-height: 1.15;
+        color: color(midnight);
+        ::ng-deep a {
+            color: color(midnight);
+        }
+        &:visited,
+        &:visited:hover {
+            color: #2e3033;
+        }
+    }
+    &__link {
+        @extend %base-font;
+        font-size: 16px;
+        font-weight: $font-weight-medium;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &:visited,
+        &:visited:hover {
+            color: #6c00a2;
+        }
+    }
+    &__badge {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 5px;
+        background-color: #f5a623;
+        border-radius: 6px;
+        font-size: 14px;
+        line-height: 1.43;
+        color: white;
+        img {
+            margin-top: -1px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    &__description {
+        @extend %base-font;
+        margin: 6px 0;
+        font-size: 16px;
+        line-height: 1.25;
+        color: #6b8199;
+        ::ng-deep b {
+            font-weight: 500;
+        }
+    }
+    &__extras {
+        display: flex;
+    }
+    &__icon {
+        margin-right: .5em;
+    }
+    &__domain {
+        color: #888;
+        line-height: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: auto;
+        max-width: 100%;
+        font-size: 14px;
+    }
+}
+
+@include breakpoint(medium) {
+    .web-link {
+        &__title {
+            font-size: 18px;
+        }
+    }
+}

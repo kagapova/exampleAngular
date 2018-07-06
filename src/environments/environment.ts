@@ -3,4 +3,5 @@ export const environment = {
     ravenDSN: '',
     googleAnalyticsID: '',
     googleOptimizeContainerID: '',
+    FEATURE_LOGIN: false
 };

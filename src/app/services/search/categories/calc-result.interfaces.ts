@@ -7,5 +7,5 @@ interface CalcResultServer {
         to: string;
         amount: number;
         rate: number;
-    }
+    };
 }

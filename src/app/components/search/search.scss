@@ -1,0 +1,22 @@
+@import "../../../styles/breakpoints";
+@import "../../../styles/layout";
+
+:host {
+    display: block;
+    padding-bottom: 90px;
+}
+
+.search-results-bar {
+    margin: 0 auto;
+    @include breakpoint(large) {
+        width: calc(100% - 290px);
+    }
+}
+
+.search-results {
+    display: block;
+    margin: 0 auto;
+    @include breakpoint(large) {
+        width: calc(100% - 290px);
+    }
+}

@@ -1,0 +1,33 @@
+@import "../../../styles/transitions";
+@import "../../../styles/typography";
+@import "../../../styles/colors";
+@import "../../../styles/breakpoints";
+
+:host {
+    display: block;
+    text-align: center;
+}
+
+a {
+    @extend %base-font;
+    display: inline-block;
+    margin: 10px 5px 0;
+    padding: 3px 9px;
+    border-radius: 15px;
+    font-size: 13px;
+    background-color: color(palesky);
+    color: color(steel);
+    user-select: none;
+    transition: color $time $ease, background-color $time $ease;
+    &:hover {
+        text-decoration: none;
+        background-color: color(morningsky);
+        color: color(deepblue);
+    }
+    &:focus {
+        outline: none;
+    }
+    @include breakpoint(large) {
+        font-size: 15px;
+    }
+}

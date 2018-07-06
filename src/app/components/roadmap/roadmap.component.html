@@ -1,0 +1,16 @@
+<div class="roadmap">
+    <ul class="roadmap__list">
+        <li class="roadmap__item" *ngFor="let stage of showedStages">
+            <h4 class="roadmap__title">{{stage.name}}</h4>
+            <div class="roadmap__description" [innerHTML]="stage.description">
+            </div>
+        </li>
+    </ul>
+    <button
+        *ngIf="!showedAllRoadmap"
+        class="roadmap__btn-all"
+        (click)="showAllRoadmap()">
+        Show All Roadmap
+    </button>
+
+</div>

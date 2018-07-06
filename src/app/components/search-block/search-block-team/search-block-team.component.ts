@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CompanyMember} from '../../../models/company';
-import {AnalyticsService} from '../../../services/analytics/analytics.service';
+import {CompanyMember} from '@app/models/company';
+import {AnalyticsService} from '@app/services/analytics/analytics.service';
 
 @Component({
     selector: 'app-search-block-team',
@@ -13,12 +13,11 @@ export class SearchBlockTeamComponent implements OnInit {
     showedMembers: CompanyMember[];
     showedAllTeam: boolean;
 
-    constructor(private analytics: AnalyticsService) {
-    }
+    constructor(private analytics: AnalyticsService) {}
 
     ngOnInit() {
-        if (this.team.length > 5) {
-            this.showedMembers = this.team.slice(0, 3);
+        if (this.team.length > 2) {
+            this.showedMembers = this.team.slice(0, 2);
             this.showedAllTeam = false;
         }
 

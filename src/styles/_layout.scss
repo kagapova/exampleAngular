@@ -1,0 +1,55 @@
+@import "./breakpoints";
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    @include breakpoint(medium) {
+        width: 708px;
+        padding: 0;
+    }
+    @include breakpoint(large) {
+        width: 930px;
+        padding: 0;
+    }
+    @include breakpoint(xlarge) {
+        width: 1100px;
+    }
+}
+
+.layout,
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @include breakpoint(large) {
+      flex-direction: row;
+      flex-wrap: nowrap;
+  }
+}
+
+.layout__main {
+  width: 100%;
+  @include breakpoint(large) {
+      width: 50%;
+      margin-right: 30px;
+  }
+  @include breakpoint(xlarge) {
+  }
+}
+
+.layout__sidebar {
+  width: 100%;
+  @include breakpoint(large) {
+      width: 50%;
+  }
+  @include breakpoint(xlarge) {
+  }
+}
+
+.layout__sidebar__company {
+  position: relative;
+}

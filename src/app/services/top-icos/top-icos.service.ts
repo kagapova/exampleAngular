@@ -1,7 +1,7 @@
 import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
-import {TopIco} from '../../models/top-ico';
+import {TopIco} from '@app/models/top-ico';
 import {retry} from 'rxjs/operators/retry';
 
 @Injectable()
@@ -48,7 +48,7 @@ export class TopICOsService {
     }
 
     private setEmptyValues() {
-        let icos = [];
+        const icos = [];
         for (let i = 0; i < this.MAX_SIZE; i++) {
             icos.push(null);
         }

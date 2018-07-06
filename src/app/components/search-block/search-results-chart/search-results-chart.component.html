@@ -1,0 +1,50 @@
+<div class="search-results-chart" *ngIf="deltaValue">
+
+    <div class="search-results-chart__meta">
+        <span class="success" *ngIf="deltaValue >= 0">
+            <span class="search-results-chart__meta-item">
+                +{{deltaValue | number}} USD
+            </span>
+            <span class="search-results-chart__meta-item">
+                ↑{{deltaPercent | number}} %
+            </span>
+        </span>
+
+        <span class="danger" *ngIf="deltaValue < 0">
+            <span class="search-results-chart__meta-item">
+                &minus;{{deltaValue | abs | number}} USD
+            </span>
+            <span  class="search-results-chart__meta-item">
+                ↓{{deltaPercent | abs | number}} %
+            </span>
+        </span>
+
+        <ul class="chart__tabs">
+            <li *ngFor="let period of timePeriods;"
+                class="chart__tab"
+                [ngClass]="{'is-selected': chartTimePeriod === period.label}"
+                (click)="selectChartTimePeriod(period.label)">{{period.label}}
+            </li>
+        </ul>
+    </div>
+
+    <div class="search-results-chart__container">
+        <nvd3 *ngIf="chartData.length"
+            class="search-results-chart__nvd3"
+            [options]="chartOptions"
+            [data]="chartData">
+        </nvd3>
+    </div>
+
+    <!-- <div class="search-results-chart__meta">
+        <div class="search-results-chart__meta-item">
+            {{deltaStartDate | date:"MMM dd"}}: ${{deltaStartValue | number}}<br>
+            {{deltaEndDate | date:"MMM dd"}}: ${{deltaEndValue | number}}
+        </div>
+
+        <div class="search-results-chart__meta-item">
+            Minimum: ${{deltaMinValue | number}}<br>
+            Maximum: ${{deltaMaxValue | number}}
+        </div>
+    </div> -->
+</div>

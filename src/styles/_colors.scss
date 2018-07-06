@@ -1,0 +1,72 @@
+@import './utilities';
+
+$colors: ();
+
+$brand-colors: (
+  palesky:    rgba(35, 103, 200, 0.05),
+  morningsky: rgba(35, 103, 200, 0.1),
+  bluelight:  #2367c8,
+  deepblue:   #194c94,
+  secondary:  #878787,
+  steel:      #6b8199,
+  midnight:   #2e3033,
+  blue:       #2367c8,
+  purple:     #6c00a2,
+);
+
+$base-colors: (
+  white:      #ffffff,
+  black:      #000000,
+);
+
+$indicator-colors: (
+  danger:     #dc3545,
+  success:    #28a745,
+);
+
+$social-colors: (
+  linkedin:   #007bb6,
+  twitter:    #007bb6,
+  facebook:   #007bb6,
+);
+
+$colors: merge-colors($social-colors, $indicator-colors, $base-colors, $brand-colors);
+
+// color getter with some sugar around mixing
+// functions along with the color
+@function color-get-function($function) {
+  $type: type-of($function);
+  $local: ('tint', 'shade');
+  @if ($type == 'function') {
+    @return $function;
+  } @else if ($type == 'string') and function-exists('get-function') {
+      @if index($local, $function) {
+        @return get-function($function);
+      }
+    @error '[#{$type}] `#{$function}` must be a first-class function';
+  }
+  @return $function;
+}
+
+// mixes a color with white
+@function tint($color, $percentage) {
+  $color: color($color);
+  @return mix(#fff, $color, $percentage);
+}
+
+// mixes a color with black
+@function shade($color, $percentage) {
+  $color: color($color);
+  @return mix(#000, $color, $percentage);
+}
+
+// accesses color map
+@function color($color, $palette: $colors) {
+  $color: map-get($palette, $color) or $color;
+  @return $color;
+}
+
+// wrapper for $color
+@function get-color($color) {
+  @return color($color);
+}

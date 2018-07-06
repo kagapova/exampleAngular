@@ -24,7 +24,7 @@ export type SearchResult = (
     WebResult );
 
 
-export type SearchResults = {
+export interface SearchResults {
     type: string;
     data: {
         address: Address;

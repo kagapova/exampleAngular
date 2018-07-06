@@ -1,6 +1,6 @@
-import {News} from '../../../models/news';
+import {News} from '@app/models/news';
 
-export function parseNews(resp: NewsServer) : News {
+export function parseNews(resp: NewsServer): News {
     return new News(
         resp.data.title,
         resp.data.text,

@@ -1,0 +1,93 @@
+@import "../../../styles/typography";
+@import "../../../styles/breakpoints";
+@import "../../../styles/colors";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.title {
+  @extend %base-font;
+  display: block;
+  font-size: 30px;
+  font-weight: $font-weight-medium;
+  letter-spacing: -0.4px;
+}
+
+.subtitle {
+  @extend %base-font;
+  width: 100%;
+  margin: 0 0 2px 0;
+  font-size: 18px;
+}
+
+.form {
+  display: block;
+  width: 100%;
+  max-width: 630px;
+  margin: 30px auto;
+}
+
+@include breakpoint(large) {
+  .title {
+    font-size: 35px;
+    letter-spacing: normal;
+  }
+  .app-logo {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+:host.search-results-bar {
+  position: relative;
+  justify-content: flex-start;
+  .form {
+    width: calc(100% - 45px);
+    margin: 30px 0 30px 15px;
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .title {
+    display: none;
+    margin: 0 10px;
+    font-size: 17px;
+  }
+  .subtitle {
+    display: none;
+  }
+  @include breakpoint(large) {
+    max-width: calc(100% - 290px);
+    .form {
+      max-width: calc(100% - 290px);
+      margin: 30px 20px 30px 0;
+    }
+    .logo {
+      position: absolute;
+      transform: translate3d(-100%, 0, 0);
+    }
+    .title {
+      display: block;
+    }
+  }
+}
+
+:host.search-results-bar::ng-deep .app-logo {
+  width: 30px;
+  height: 30px;
+  @include breakpoint(large) {
+    width: 22px;
+    height: 22px;
+  }
+}

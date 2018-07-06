@@ -1,4 +1,21 @@
-<form class="search-form" action="/search" (ngSubmit)="onSubmit(searchBox.value)" #homeSearchForm="ngForm">
-    <ng2-completer #searchBox [ngModelOptions]="{standalone: true}" [minSearchLength]="3" [textSearching]="false" [textNoResults]="false" [(ngModel)]="searchTerm" [datasource]="data" [inputClass]="'search-form__input'"></ng2-completer>
-    <button class="search-form__btn" type="submit" tabindex="2"></button>
+<form class="form"
+    action="/search"
+    (ngSubmit)="onSubmit(searchBox.value)"
+    #homeSearchFormComponent="ngForm">
+
+    <ng2-completer #searchBox
+        [ngModelOptions]="{standalone: true}"
+        [minSearchLength]="3"
+        [textSearching]="false"
+        [textNoResults]="false"
+        [(ngModel)]="searchTerm"
+        [datasource]="data"
+        [inputClass]="'input'">
+    </ng2-completer>
+
+    <button class="button"
+        type="submit"
+        tabindex="2">
+        Search
+    </button>
 </form>

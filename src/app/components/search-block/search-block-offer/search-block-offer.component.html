@@ -1,0 +1,4 @@
+<ng-container *ngIf="offerLinks$ | async as links">
+    <app-web-link *ngFor="let web of links; let i = index" [webLink]="web" [number]="i + 1" [reward]="web.reward">
+    </app-web-link>
+</ng-container>

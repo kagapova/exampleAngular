@@ -1,0 +1,62 @@
+<header class="card__header">
+    <img
+        *ngIf="company.image"
+        class="card__logo"
+        src="{{company.image}}">
+    <h2 class="card__title">{{company.title}}</h2>
+    <app-ratings *ngIf="company.rating"
+        class="ratings"
+        [rating]="company.rating">
+    </app-ratings>
+</header>
+
+<section *ngIf="isContentExpanded" class="card__content">
+    <div class="card__links">
+        <div class="card__link" *ngFor="let link of company.links; index as i">
+            <app-track-link *ngIf="link.url"
+                [originalLink]="link.url"
+                [serverTrackLink]=""
+                block="search-block-company"
+                [label]="i + 1">
+                <fa
+                    *ngIf="link.icon"
+                    name="{{link.icon}}"
+                    size="lg">
+                </fa>
+                <span *ngIf="link.text" class="card__link-text">{{link.text}}</span>
+            </app-track-link>
+        </div>
+    </div>
+
+    <app-search-block-company-about
+        [company]="company"
+        class="app-search-block-company-about"
+    ></app-search-block-company-about>
+
+    <app-search-block-team
+        *ngIf="company.team.length > 0"
+        class="app-search-block-team"
+        [team]="company.team"
+        [sourceUrl]="company.url"
+    ></app-search-block-team>
+
+    <app-roadmap
+        *ngIf="company.roadmap.length > 0"
+        class="app-roadmap"
+        [roadmap]="company.roadmap"
+        [sourceUrl]="company.url"
+        [analyticalURL]="company.analyticalURL"
+    ></app-roadmap>
+</section>
+
+<footer class="card__footer">
+    <app-track-link *ngIf="company.url"
+        [originalLink]="company.url"
+        [serverTrackLink]="company.analyticalURL"
+        block="search-block-company"
+        label="bottom-link"
+        class="card__footer-link"
+    >
+        {{company.url}}
+    </app-track-link>
+</footer>

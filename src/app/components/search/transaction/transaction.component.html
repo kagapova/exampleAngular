@@ -1,0 +1,6 @@
+<div class="search-result-item" [ngSwitch]="transaction.blockchain.symbol">
+    <app-transaction-btc [result]="transaction" *ngSwitchCase="['BTC']"></app-transaction-btc>
+    <app-transaction-eth [result]="transaction" *ngSwitchCase="['ETH']"></app-transaction-eth>
+    <app-transaction-ltc [result]="transaction" *ngSwitchCase="['LTC']"></app-transaction-ltc>
+    <app-transaction-ltc [result]="transaction" *ngSwitchCase="['DASH']"></app-transaction-ltc>
+</div>

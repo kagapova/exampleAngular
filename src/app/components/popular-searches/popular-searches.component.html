@@ -1,0 +1,17 @@
+<nav>
+    <a [routerLink]="['/search']" [queryParams]="{q: 'bitcoin'}" (click)="onClick('coin')">
+        bitcoin
+    </a>
+    <a [routerLink]="['/search']" [queryParams]="{q: 'ark'}" (click)="onClick('ark')">
+        ark
+    </a>
+    <a [routerLink]="['/search']" [queryParams]="{q: 'dogecoin'}" (click)="onClick('dogecoin')">
+    dogecoin
+    </a>
+    <a [routerLink]="['/search']" [queryParams]="{q: 'bittrex'}" (click)="onClick('bittrex')">
+        bittrex
+    </a>
+    <a [routerLink]="['/search']" [queryParams]="{q: 'bitclave'}" (click)="onClick('bitclave')">
+        bitclave
+    </a>
+</nav>

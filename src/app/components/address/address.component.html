@@ -1,0 +1,4 @@
+<div class="search-result-item" [ngSwitch]="address.blockchain.symbol">
+    <app-address-btc [result]="address" *ngSwitchCase="['BTC']"></app-address-btc>
+    <app-address-eth [result]="address" *ngSwitchCase="['ETH']"></app-address-eth>
+</div>

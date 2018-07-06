@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {WebResult} from '../../../models/web-result';
-import {SearchResults} from '../../../models/search-result';
+import {WebResult} from '@app/models/web-result';
+import {SearchResults} from '@app/models/search-result';
 
 @Component({
     selector: 'app-search-result-link',
@@ -10,9 +10,6 @@ import {SearchResults} from '../../../models/search-result';
 export class SearchResultLinkComponent implements OnInit {
     @Input() result: SearchResults;
     @Input() webLinks: WebResult[];
-
-    constructor() {
-    }
 
     ngOnInit() {
         this.webLinks = this.result.data.web;

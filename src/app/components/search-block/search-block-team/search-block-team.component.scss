@@ -1,40 +1,83 @@
-@import "../search-block.mixins";
+@import "../../../../styles/mixins";
 
 .search-block-team {
-    @include search-block;
-
     &__title {
-        @include search-block-title;
+        @include title;
     }
-
     &__link {
-        @include search-block-footer-link;
+        @include footer-link;
     }
-
     &__icon {
-        @include search-block-footer-icon;
+        @include footer-icon;
     }
-
     &__btn-all {
-        @include search-block-button;
+        @include button;
     }
-
-    &__member {
+    &__list {
         display: flex;
-        margin: 0 0 5px 0;
-
-        &__photo {
-            @include photo--medium;
-            display: inline-block;
-            margin: 3px 10px 0 0;
-        }
-
-        &__description {
-            flex: 1;
-        }
-
-        &__description-person-name {
-            font-weight: 500;
-        }
+        align-content: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        margin: 12px 0;
+    }
+    &__profile {
+        @include photo--small;
+        display: inline-block;
+        margin: 3px 10px 0 0;
+    }
+    &__description {
+        flex: 1;
+    }
+    &__name {
+        font-weight: 500;
+    }
+}
+
+.search-block-team__name {
+    font-size: 13px;
+}
+.search-block-team__member__title {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: left;
+    color: #8f9fb3;
+}
+
+.track-links {
+    display: inline-block;
+    margin: 0 0 0 5px;
+}
+
+.search-block-team__btn-all {
+    padding: 0;
+    border: none;
+    user-select: none;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #2367c8;
+}
+
+.search-block-team {
+    margin: 0 0 15px;
+    border: 1px solid rgba(208, 211, 217, 0.5);
+    border-left: none;
+    border-right: none;
 }

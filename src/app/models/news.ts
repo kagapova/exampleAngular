@@ -3,15 +3,15 @@ export class News {
                 public readonly text: string,
                 public readonly publishedAt: Date,
                 public readonly url: string,
-                public readonly imageURL: string,
+                public readonly imageUrl: string,
                 public readonly source: string,
                 public readonly analyticalURL: string) {
     }
 
-    get humanDate() : string {
-        let now = new Date();
+    get humanDate(): string {
+        const now = new Date();
 
-        let diffHours = Math.ceil( (now.getTime() - this.publishedAt.getTime()) / (3600 * 1000));
+        const diffHours = Math.ceil( (now.getTime() - this.publishedAt.getTime()) / (3600 * 1000));
 
         if (diffHours < 1) {
             return 'Just now';

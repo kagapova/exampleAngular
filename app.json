@@ -1,5 +1,6 @@
 {
   "name": "crypto-search",
+  "description": "Decentralised search engine allowing users to own, access, and share their data with whom they want.",
   "scripts": {
   },
   "env": {
@@ -14,6 +15,9 @@
     },
     "PAPERTRAIL_API_TOKEN": {
       "required": true
+    },
+    "FEATURE_LOGIN": {
+      "required": false
     }
   },
   "formation": {

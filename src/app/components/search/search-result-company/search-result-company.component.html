@@ -1,26 +1,17 @@
-<div class="search-result-company">
-    <div class="search-result-company__header">
-        <h1 class="search-result-company__title">
-            <img [src]="company.image" class="search-result-company__logo"/>
-            {{company.title}}
-        </h1>
+<app-layout class="layout">
 
-        <!--<div class="search-result-company__save">-->
-        <!--<app-follow [isFollowed]="false"></app-follow>-->
-        <!--</div>-->
-    </div>
+    <main class="layout__main">
+        <app-web-links
+            [webLinks]="webLinks">
+        </app-web-links>
+    </main>
 
-    <div class="search-result-company__content">
-        <div class="search-result-company__content__main">
-            <app-search-block-future-event-list *ngIf="events && events.length" [events]="events"></app-search-block-future-event-list>
-            <!--<app-search-block-news-list *ngIf="newsList && newsList.length" [newsList]="newsList"></app-search-block-news-list>-->
-            <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>
-        </div>
+    <aside class="layout__sidebar">
+        <app-search-block-company
+            *ngIf="company"
+            class="search-results__sidebar__company"
+            [company]="company">
+        </app-search-block-company>
+    </aside>
 
-        <div class="search-result-company__content__additional">
-            <app-search-block-company-about *ngIf="company" [company]="company"></app-search-block-company-about>
-            <app-search-block-roadmap *ngIf="company && company.roadmap" [roadmap]="company.roadmap" [sourceUrl]="company.url" [analyticalURL]="company.analyticalURL"></app-search-block-roadmap>
-            <app-search-block-team *ngIf="company && company.team" [team]="company.team" [sourceUrl]="company.url"></app-search-block-team>
-        </div>
-    </div>
-</div>
+</app-layout>

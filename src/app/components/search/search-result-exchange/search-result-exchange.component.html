@@ -1,21 +1,23 @@
-<div class="search-result-exchange">
-    <h1 class="search-result-exchange__title">
-        <img [src]="exchange.logoUrl" class="search-result-exchange__logo"/>
-        {{exchange.name}}
-    </h1>
+<app-layout class="layout">
 
-    <div class="search-result-exchange__rate-list">
-        <app-search-block-exchange-current-rate-list [rates]="exchange.currencyRates"></app-search-block-exchange-current-rate-list>
-    </div>
+    <main class="layout__main">
+        <app-exchange-current-rate-list
+            [rates]="exchange.currencyRates">
+        </app-exchange-current-rate-list>
 
-    <div class="search-result-exchange__content">
-        <div class="search-result-exchange__content__main">
-            <app-search-block-web-link-list [webLinks]="webLinks"></app-search-block-web-link-list>
-        </div>
+        <app-web-links
+            [webLinks]="webLinks">
+        </app-web-links>
+    </main>
 
-        <div class="search-result-exchange__content__additional">
-            <app-search-block-exchange-about [exchange]="exchange"></app-search-block-exchange-about>
-            <app-search-block-exchanger-other-list [exchangers]="otherExchanges"></app-search-block-exchanger-other-list>
-        </div>
-    </div>
-</div>
+    <aside class="layout__sidebar">
+        <app-exchange-about
+            [exchange]="exchange">
+        </app-exchange-about>
+
+        <app-exchanger-other-list
+            [exchangers]="otherExchanges">
+        </app-exchanger-other-list>
+    </aside>
+
+</app-layout>

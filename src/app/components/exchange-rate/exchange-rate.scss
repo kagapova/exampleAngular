@@ -1,0 +1,100 @@
+@import "../../../styles/mixins";
+@import "../../../styles/breakpoints";
+@import "../../../styles/typography";
+
+.exchange-rate {
+    position: relative;
+    &__from {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    &__to {
+        font-size: 32px;
+        line-height: 1;
+        margin: 0;
+    }
+    &__list {
+        list-style: none;
+    }
+    &__item {
+    }
+    &__link {
+        @include footer-link;
+    }
+    &__icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+    &__from-title {
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        color: #6b8199;
+    }
+    &__to-title {
+        font-size: 30px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #2e3033;
+    }
+}
+
+.bancor {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    flex-direction: column;
+    &__action {
+        margin: 0 0 10px 0;
+    }
+    &__link {
+        display: inline-block;
+        width: 95px;
+        margin: 0;
+        border-radius: 5px;
+        font-size: 18px;
+        line-height: 40px;
+        font-weight: $font-weight-medium;
+        text-align: center;
+        background-color: rgba(35, 103, 200, 0.05);
+        color: #6b8199;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(35, 103, 200, 0.1);
+        }
+        &--buy {
+            color: #2367c8;
+        }
+    }
+}
+
+@include breakpoint(large) {
+    .exchange-rate {
+        &__to {
+            font-size: 32px;
+        }
+        &__from-title {
+            font-size: 16px;
+        }
+        &__to-title {
+            font-size: 40px;
+        }
+    }
+
+    .bancor {
+        flex-direction: row;
+        &__action {
+            flex: 50%;
+            margin: 0 0 0 10px;
+        }
+    }
+}

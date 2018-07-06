@@ -1,6 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { SearchFormComponent } from './search-form.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {SearchFormComponent} from './search-form.component';
 
 describe('SearchFormComponent', () => {
   let component: SearchFormComponent;

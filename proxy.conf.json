@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://api.desearch.com",
+    "target": "https://desearch-backend-dev-alex.herokuapp.com",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

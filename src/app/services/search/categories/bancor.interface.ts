@@ -5,5 +5,5 @@ interface BancorServer {
     data: {
         id: string;
         ticker: string;
-    }
+    };
 }

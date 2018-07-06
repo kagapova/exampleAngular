@@ -1,4 +1,4 @@
-import {Wallet} from '../../../models/wallet';
+import {Wallet} from '@app/models/wallet';
 
 
 export function parseWallet(result: WalletServer): Wallet {

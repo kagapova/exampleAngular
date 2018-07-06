@@ -1,0 +1,43 @@
+<ng-container *ngIf="!searchResults">
+    <img src="/assets/images/preloader.gif">
+</ng-container>
+
+<ng-container *ngIf="searchResults"
+    [ngSwitch]="searchResults.type">
+
+    <app-search-result-token
+        *ngSwitchCase="'currency'"
+        [result]="searchResults">
+    </app-search-result-token>
+
+    <app-address
+        *ngSwitchCase="'address'"
+        [result]="searchResults">
+    </app-address>
+
+    <app-search-result-company
+        *ngSwitchCase="'company'"
+        [result]="searchResults">
+    </app-search-result-company>
+
+    <app-transaction
+        *ngSwitchCase="'txn'"
+        [result]="searchResults">
+    </app-transaction>
+
+    <app-search-result-wallet
+        *ngSwitchCase="'wallet'"
+        [result]="searchResults">
+    </app-search-result-wallet>
+
+    <app-search-result-link
+        *ngSwitchCase="'web'"
+        [result]="searchResults">
+    </app-search-result-link>
+
+    <app-search-result-exchange
+        *ngSwitchCase="'exchange'"
+        [result]="searchResults">
+    </app-search-result-exchange>
+
+</ng-container>

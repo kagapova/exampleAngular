@@ -1,5 +1,4 @@
 @import "../../../../styles/breakpoints";
-
 :host {
     display: block;
 }
@@ -29,7 +28,6 @@
         flex: 1;
         margin-right: 5px;
     }
-
     &__token-dollars {
         display: inline-block;
         margin-right: 7px;
@@ -65,6 +63,7 @@
     padding: 0;
     list-style: none;
 }
+
 .chart__tab {
     position: relative;
     width: 20px;
@@ -104,7 +103,8 @@
         height: 150%;
         transform: translate3d(-50%, -50%, 0) scale(0);
         border-radius: 50%;
-        background-color: rgba(35, 103, 200, 0.1);;
+        background-color: rgba(35, 103, 200, 0.1);
+        ;
         transition: all 0.2s ease-in;
     }
 }

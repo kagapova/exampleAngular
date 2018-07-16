@@ -1,11 +1,7 @@
 import 'd3';
 import 'nvd3';
 import * as Raven from 'raven-js';
-import {
-    HTTP_INTERCEPTORS,
-    HttpClient,
-    HttpClientModule
-} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import {AbsPipe} from './pipes/abs/abs.pipe';
 import {AddressBtcComponent} from './components/address/address-btc/address-btc.component';
 import {AnalyticsService} from './services/analytics/analytics.service';

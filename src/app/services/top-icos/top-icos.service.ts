@@ -4,9 +4,12 @@ import {Subject} from 'rxjs/Subject';
 import {TopIco} from '@app/models/top-ico';
 import {retry} from 'rxjs/operators/retry';
 
+// environment
+import { environment } from '@env/environment';
+
 @Injectable()
 export class TopICOsService {
-    private URL = '/api/ico/v1';
+    private URL = `${environment.apiURL}/api/ico/v1`;
     private MAX_SIZE = 5;
     private icos = new Subject<TopIco[]>();
 

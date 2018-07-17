@@ -6,9 +6,12 @@ import { throwError } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { User } from '@app/models/user';
 
+// environment
+import { environment } from '@env/environment';
+
 @Injectable()
 export class AuthService {
-    private readonly URL_AUTH = 'https://desearch-backend-dev-alex.herokuapp.com/api/user/v1/auth';
+    private readonly URL_AUTH = `${environment.apiURL}/api/user/v1/auth`;
     private readonly TOKEN_KEY = 'auth-token';
     private readonly user = new BehaviorSubject<User>(null);
     public readonly user$ = this.user.asObservable();

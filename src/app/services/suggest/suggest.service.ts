@@ -6,10 +6,12 @@ import {retry} from 'rxjs/operators/retry';
 import {Suggestion} from '@app/models/suggestion';
 import {CompleterDataProvider} from './completer-data-provider';
 
+// environment
+import { environment } from '@env/environment';
 
 @Injectable()
 export class SuggestService {
-    readonly URL = '/api/suggest/v1';
+    readonly URL = `${environment.apiURL}/api/suggest/v1`;
     private _suggestions = new Subject<Suggestion[]>();
 
     constructor(private http: HttpClient) {

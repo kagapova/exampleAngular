@@ -5,10 +5,13 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {parseNews} from '@app/services/search/categories/news';
 import {retry} from 'rxjs/operators';
 
+// environment
+import { environment } from '@env/environment';
+
 @Injectable()
 export class LatestNewsService {
     readonly MAX_SIZE = 5;
-    readonly URL = '/api/news/v1';
+    readonly URL = `${environment.apiURL}/api/news/v1`;
     private news = new Subject<News[]>();
 
     constructor(private http: HttpClient) {

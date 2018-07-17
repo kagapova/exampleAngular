@@ -7,7 +7,7 @@
     "ng": "ng",
     "clean": "rm -Rf node_modules/ && rm -f ./package-lock.json && npm cache clean -f",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --prod",
+    "build": "ng build --configuration=production --prod",
     "test": "ng test --browser ChromeHeadless --single-run",
     "test:watch": "ng test --browser ChromeHeadless",
     "lint": "ng lint crypto-search --fix",

@@ -5,10 +5,12 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {retry} from 'rxjs/operators/retry';
 
+// environment
+import { environment } from '@env/environment';
 
 @Injectable()
 export class TrendingSearchesService {
-    private url = '/api/trending-requests/v1';
+    private url = `${environment.apiURL}/api/trending-requests/v1`;
     private results = new Subject<Trend[]>();
 
     constructor(private http: HttpClient) {

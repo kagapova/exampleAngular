@@ -23,11 +23,13 @@ import {parseCalcResult} from './categories/calc-result';
 import {Exchange} from '@app/models/exchange';
 import {News} from '@app/models/news';
 
+// environment
+import { environment } from '@env/environment';
 
 @Injectable()
 export class SearchService {
     // @todo: Fix urls
-    private readonly url = 'https://desearch-backend-dev-alex.herokuapp.com/api/search/v2';
+    private readonly url = `${environment.apiURL}/api/search/v2`;
 
     // private url = '/api/search/v2';
     private searchTerm = new Subject<string>();

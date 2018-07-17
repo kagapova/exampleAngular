@@ -8,9 +8,12 @@ import { mock } from './popular-searches.mock';
 
 const mockResponse = true;
 
+// environment
+import { environment } from '@env/environment';
+
 @Injectable()
 export class PopularSearchesService {
-    readonly url = '/api/popular-searches/v1';
+    readonly url = `${environment.apiURL}/api/popular-searches/v1`;
     private _popularSearches = new Subject<PopularSearch[]>();
 
     constructor(private http: HttpClient) {

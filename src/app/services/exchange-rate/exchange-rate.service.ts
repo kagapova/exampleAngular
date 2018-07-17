@@ -6,9 +6,12 @@ import { ExchangeRate} from '@app/models/exchange-rate';
 import { Blockchains } from '@app/models/blockchains';
 import { Observable } from 'rxjs/Observable';
 
+// environment
+import { environment } from '@env/environment';
+
 @Injectable()
 export class ExchangeRateService {
-    private url = '/api/rates/v2';
+    private url = `${environment.apiURL}/api/rates/v2`;
     private results = new Subject<ExchangeRate[]>();
 
     constructor(private http: HttpClient) {

@@ -96,7 +96,7 @@ export class RavenErrorHandler implements ErrorHandler {
 }
 
 export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, '/api/translations/v1/', '');
+    return new TranslateHttpLoader(http, `${environment.apiURL}/api/translations/v1/`, '');
 }
 
 @NgModule({

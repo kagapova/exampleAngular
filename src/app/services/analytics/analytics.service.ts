@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
-import {environment} from '@env/environment';
 import {HttpClient} from '@angular/common/http';
 
 declare var gtag: Function;
+
+// environment
+import { environment } from '@env/environment';
 
 @Injectable()
 export class AnalyticsService {

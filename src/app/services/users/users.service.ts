@@ -16,10 +16,13 @@ const retryStrategy = ({ timeout }) => (errors: Observable<any>) => errors
         return Observable.timer(timeout);
     });
 
+// environment
+import { environment } from '@env/environment';
+
 @Injectable()
 export class UsersService {
     // @todo: Fix urls
-    private readonly URL_USER = 'https://desearch-backend-dev-alex.herokuapp.com/api/user/v1';
+    private readonly URL_USER = `${environment.apiURL}/api/user/v1`;
 
     constructor(private readonly http: HttpClient, private readonly auth: AuthService) { }
 

@@ -1,8 +1,11 @@
 {
-  "/api/*": {
-    "target": "https://desearch-backend-dev-alex.herokuapp.com",
-    "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": true
-  }
+    "/api/*": {
+        "target": "https://stage-crypto-search.herokuapp.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
 }

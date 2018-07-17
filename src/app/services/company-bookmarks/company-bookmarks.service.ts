@@ -5,10 +5,12 @@ import { retry } from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import { CompanyBookmark } from '@app/models/company-bookmark';
 
+// environment
+import { environment } from '@env/environment';
+
 @Injectable()
 export class CompanyBookmarksService {
-    // @todo: Fix urls
-    private readonly URL_COMPANY_BOOKMARKS = 'https://desearch-backend-dev-alex.herokuapp.com/api/user/v1/company-bookmarks';
+    private readonly URL_COMPANY_BOOKMARKS = `${environment.apiURL}/api/user/v1/company-bookmarks`;
 
     constructor(private http: HttpClient) {
     }

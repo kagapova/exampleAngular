@@ -4,11 +4,13 @@ import { Observable } from 'rxjs/Observable';
 import { retry } from 'rxjs/operators';
 import { TokenBookmark } from '@app/models/token-bookmark';
 
+// environment
+import { environment } from '@env/environment';
 
 @Injectable()
 export class TokenBookmarksService {
     // @todo: Fix urls
-    private readonly URL_TOKEN_BOOKMARKS = 'https://desearch-backend-dev-alex.herokuapp.com/api/user/v1/token-bookmarks';
+    private readonly URL_TOKEN_BOOKMARKS = `${environment.apiURL}/api/user/v1/token-bookmarks`;
 
     constructor(private http: HttpClient) { }
 
